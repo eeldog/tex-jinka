@@ -70,19 +70,25 @@
 %<*driver>
 \documentclass[a4j]{jarticle}
   \usepackage{doc}
-  \OnlyDescription
   \RecordChanges
+  \OnlyDescription
   \MakeShortVerb{\|}
-\begin{document}
   \title{{\normalsize 大阪大学人間科学部 (行動系)}\\
          学位論文用クラスファイル ver. {\fileversion}}
   \author{MIYAMOTO Yusuke\thanks{大阪大学大学院人間科学研究科}}
+  \date{\filedate}
+\begin{document}
   \maketitle
   \DocInput{\filename}
+  \PrintChanges
 \end{document}
 %</driver>
+%<*jinka>
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{jinka}[\filedate]
+%</jinka>
 % \fi
-%
+% 
 % \section*{概要}
 % ``jinka.cls'' は，人間科学研究科（行動学専攻）論文作成用の \LaTeXe{}クラス
 % ファイルです．一行あたりの文字数，一頁あたりの行数を指定することができます．
@@ -93,15 +99,13 @@
 % \DeleteShortVerb{\|}
 % \MakeShortVerb{+}
 % \begin{tabular}{|l|c|}\hline
-% 用紙サイズ         & A4 判      \\ \hline
-% 紙質               & 上質紙     \\ \hline\hline
-% 1頁の文字数        & 600字/頁   \\ \hline
-% 1行の文字数        & 30字       \\ \hline
-% 1頁の行数          & 20行       \\ \hline\hline
-% 上部 余白          & 25 -- 40mm \\ \hline
-% 下部 余白          & 10 -- 25mm \\ \hline
-% 左 余白（綴じしろ）& 25 -- 40mm \\ \hline
-% 右 余白            & 10 -- 25mm \\ \hline
+% 用紙サイズ         &  A4 判                                \\ \hline
+% 紙質               & 上質紙                                \\ \hline
+% 1頁の文字数        & 30字$\times$20行/頁，40字$\times$30行 \\ \hline
+% 上部 余白          & 25 -- 40mm                            \\ \hline
+% 下部 余白          & 10 -- 25mm                            \\ \hline
+% 左 余白（綴じしろ）& 25 -- 40mm                            \\ \hline
+% 右 余白            & 10 -- 25mm                            \\ \hline
 % \end{tabular}
 % \MakeShortVerb{\|}
 % \end{center}
@@ -120,15 +124,15 @@
 %    \begin{center}
 %    \begin{tabular}{l|l} \hline
 %    オプション & 解説 \\ \hline
-%    \texttt{titlepage} & タイトルを独立したページにする．\\
+%    \texttt{titlepage}   & タイトルを独立したページにする．\\
 %    \texttt{notitlepage} & タイトルページを独立させない．\\
-%    \texttt{draft} & +\ifdraft+ スィッチを +true+ にする．\\
-%    \texttt{final} & +\ifdraft+ スィッチを +false+ にする．\\
-%    \texttt{serial} & 図表に通し番号をつける．\\
-%    \texttt{noserial} & 図表の番号を章ごとにリセットする．\\
-%    \texttt{jinka} & $30 \times 20$ の書式を使用する．\\
-%    \texttt{double} & $30 \times 40$ の書式を使用する．\\
-%    \texttt{nojinka} & +jinka+ よりも字を詰めた書式を使用する．\\ \hline
+%    \texttt{draft}       & +\ifdraft+ スィッチを +true+ にする．\\
+%    \texttt{final}       & +\ifdraft+ スィッチを +false+ にする．\\
+%    \texttt{serial}      & 図表に通し番号をつける．\\
+%    \texttt{noserial}    & 図表の番号を章ごとにリセットする．\\
+%    \texttt{jinka}       & 40字 $\times$ 30行 の書式を使用する．\\
+%    \texttt{obsolete}    & 30字 $\times$ 20行 の書式を使用する．\\
+%    \texttt{nojinka}     & +jinka+ と同じ．(互換性のため) \\ \hline
 %    \end{tabular}
 %    \end{center}
 %    \DeleteShortVerb{\+}
@@ -339,10 +343,10 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\if@double}
-% 40行 スタイルを使用するかどうかを示すスイッチです．
+% \begin{macro}{\if@obsolete}
+% 旧スタイルを使用するかどうかを示すスイッチです．
 %    \begin{macrocode}
-\newif\if@double \@doublefalse
+\newif\if@obsolete \@obsoletefalse
 %    \end{macrocode}
 % \end{macro}
 %
@@ -489,7 +493,7 @@
 % jinka スタイルにするかどうかを指定します．
 %    \begin{macrocode}
 \DeclareOption{jinka}{\@jinkatrue}
-\DeclareOption{double}{\@doubletrue}
+\DeclareOption{obsolete}{\@obsoletetrue}
 \DeclareOption{nojinka}{\@jinkafalse}
 %    \end{macrocode}
 %
@@ -1313,7 +1317,7 @@
       \addcontentsline{toc}{part}
         {\prepartname\thepart\postpartname\hspace{1em}#1}
       \typeout
-        { *** \prepartname\space\thepart\space\postpartname\spaces #1 *** }
+        { *** \prepartname\space\thepart\space\postpartname\@spaces #1 *** }
     \else
       \addcontentsline{toc}{part}{#1}
       \typeout{ *** #1 *** }
@@ -2401,6 +2405,7 @@
 % \end{macro}
 % \end{macro}
 % \end{macro}
+% \end{macro}
 %
 % \section*{デフォルトの設定を実行}
 % 初期設定のためのコマンド群を実行します．
@@ -2426,14 +2431,30 @@
 
 %% jinka スタイル
 \if@jinka
-  \Columns{30}
-  \if@double \Lines{40}
-  \else      \Lines{20}\fi
+  \if@obsolete \Columns{30}\Lines{20}
+  \else        \Columns{40}\Lines{30}
+  \fi
 \else
   \Columns{40}
   \Lines{30}
 \fi
 %    \end{macrocode}
 %</jinka>
-\endinput
+%<jinka>\endinput
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%
 % \Finale
