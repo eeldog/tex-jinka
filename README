@@ -6,8 +6,7 @@ jinka - $BBg:eBg3X?M4V2J3X8&5f2J(B $B3X0LO@J8MQ%/%i%9%U%!%$%k(B
 jinka.cls $B$O(B LaTeX2e $B$r;H$C$FBg:eBg3X?M4V2J3X8&5f2J$K$*$1$k3X0LO@J8:n@.MQ$N(B
 $B=q<0$r<B8=$9$k$?$a$N%/%i%9%U%!%$%k$G$9!%(B1 $B9T$"$?$j$N;z?t!$(B1 $B%Z!<%8$"$?$j$N(B
 $B9T?t$r;XDj$9$k$3$H$,$G$-$^$9!%(B
-
-$B!X?4M}3X8&5f!YIw$NJ88%%j%9%H$r:n@.$9$k$?$a$N(B JBibTeX $BMQ%9%?%$%k%U%!%$%k$rF1(B
+$B!X?4M}3X8&5f!YIw$NJ88%%j%9%H$r:n@.$9$k$?$a$N(B JBiBTeX $BMQ%9%?%$%k%U%!%$%k$rF1(B
 $B:-$7$^$7$?!%(B
 
 
@@ -19,9 +18,8 @@ jinka.cls $B$O(B LaTeX2e $B$r;H$C$FBg:eBg3X?M4V2J3X8&5f2J$K$*$1$k3X0LO@J8:n@.
   Makefile  - make $B%U%!%$%k(B
   jinka.dtx - jinka $B%/%i%9(B DOCSTRIP $B%U%!%$%k(B
   jinka.ins - $B%$%s%9%H!<%k!&%P%C%A%U%!%$%k(B
-  jjpsy.bst - JBibTeX $B%9%?%$%k%U%!%$%k(B
-  jjpsy.dtx - JBibTeX $B%9%?%$%k%U%!%$%kIUB0%Q%C%1!<%8%U%!%$%k(B
-  jjpsy.ins - $B%$%s%9%H!<%k!&%P%C%A%U%!%$%k(B
+  jpa.bst   - JBibTeX $B%9%?%$%k%U%!%$%k(B
+  jpa.ins   - $B%$%s%9%H!<%k!&%P%C%A%U%!%$%k(B
 ---------------------------------------------------------------------------
 
 
@@ -34,15 +32,15 @@ pLaTeX $B$G=hM}$7$^$9!%(Bcls $B%U%!%$%k!$(Bbst $B%U%!%$%k!$(B sty $B%U%!%
 
 <$B<B9TNc(B>
 
-% platex jinka.dtx
-% platex jinka.ins
-% platex jjpsy.ins
-% cp jinka.cls jjpsy.sty ${HOME}/lib/tex 
+ % platex jinka.ins
+ % platex jpa.ins
+ % platex jinka.dtx
+ % cp jinka.cls jpa.sty ${HOME}/lib/tex 
 
 
 $B%P!<%8%g%s(B
 ==========
-$B8=%P!<%8%g%s$O(B ver. 1.1a $B$G$9!%(B
+$B8=:_$N:G?7%P!<%8%g%s$O(B ver. 1.1b $B$G$9!%(B
 
 
 $B$*Ld$$9g$o$;(B
@@ -55,4 +53,4 @@ pLaTeX $B$G=hM}$7$^$9!%(Bcls $B%U%!%$%k!$(Bbst $B%U%!%$%k!$(B sty $B%U%!%
                     (c) 1998-2000 MIYAMOTO, Yusuke.
                         All rights are reserved.
 
-$Date: 2000-09-27 12:08:30 $
+$Date: 2000-09-28 15:47:08 $

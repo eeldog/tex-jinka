@@ -21,9 +21,9 @@
 %%
 % \iffalse     META-COMMENT
 % Source File: jinka.dtx
-% $Id: jinka.dtx,v 0.1 2000-09-27 12:08:30 yusuke Exp $
+% $Id: jinka.dtx,v 0.2 2000-09-28 15:47:09 yusuke Exp $
 %
-% Copyright (C) 1998-2000  MIYAMOTO Yusuke.
+% Copyright (C) 1998-2000  MIYAMOTO Yusuke
 % 
 % \fi
 %
@@ -41,14 +41,20 @@
 %         {デフォルトのページスタイル，行数を変更}
 % \changes{v1.1a}{2000/09/27}
 %         {ランドスケープ削除．ページレイアウトのパラメタを変更}
+% \changes{v1.1a}{2000/09/28}
+%         {参考文献スタイル jpa のパッケージファイルを統合}
 % \changes{v1.1b}{2000/10/01}
 %         {version 1.1 $\beta$}
 % 
 % \iffalse
-%<*package>
-\NeedsTeXFormat{pLaTeX2e}
-\ProvidesClass{jinka}
-%</package>
+%<*jinka>
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{jinka}[\filedate]
+%</jinka>
+%<*jpa>
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{jpa}[\filedate]
+%</jpa>
 % \fi
 % 
 % \iffalse
@@ -80,20 +86,19 @@
 % \begin{center}
 % \begin{tabular}{lcl}
 %  \textbf{jinka.dtx} & --- & ``jinka.cls'' の doc ファイル \\
-%  \textbf{jinka.ins} & --- &  同インストール・バッチファイル \\
-%  \textbf{jjpsy.bst} & --- &  『心理学研究』風 .bst ファイル \\
-%  \textbf{jjpsy.dtx} & --- &  jjpsy.bst 用スタイルファイル \\
-%  \textbf{jjpsy.ins} & --- &  同インストール・バッチファイル
+%  \textbf{jpa.bst}   & --- &  『心理学研究』風 .bst ファイル \\
+%  \textbf{jinka.ins} & --- &  インストール・バッチファイル \\
+%  \textbf{jpa.ins}   & --- &  インストール・バッチファイル
 % \end{tabular}
 % \end{center}
 % 
 % インストールするには，拡張子 ``.ins'' のファイルを \LaTeX で処理して下さい．
-% カレント・ディレクトリに，``jinka.cls''，``jjpsy.sty'' が作成されます．
+% カレント・ディレクトリに，``jinka.cls''，``jpa.sty'' が作成されます．
 % \begin{flushleft}
 %  \textbf{\% } \texttt{platex} \textit{jinka.ins}\\
-%  \textbf{\% } \texttt{platex} \textit{jjpsy.ins}\\
+%  \textbf{\% } \texttt{platex} \textit{jpa.ins}\\
 % \end{flushleft}
-% できた 3 つのファイル (``jinka.cls''，``jjpsy.bst''，``jjpsy.sty'')
+% できた 3 つのファイル (``jinka.cls''，``jpa.bst''，``jpa.sty'')
 % を \LaTeX のコンパイルを実行するディレクトリか，環境変数 |$TEXINPUTS| で
 % 指定したディレクトリにコピーして下さい．
 %
@@ -200,7 +205,7 @@
 %  \subsection*{参考文献}
 %    「心理学研究」に倣った参考文献スタイルで |\thebibliography| 環境を
 %    実装しています．
-%    \textsc{JBib}\TeX 用 bst ファイル ``jjpsy.bst'' を付属しました．
+%    \textsc{JBib}\TeX 用 bst ファイル ``jpa.bst'' を付属しました．
 %    次のような出力になります．
 %    \vskip 12pt
 %    \fbox{\begin{minipage}{0.95\textwidth}
@@ -225,7 +230,7 @@
 %    作るときは，``.tex'' ファイルの中に以下の記述を入れておきます．
 %    \begin{flushleft}
 %    |\nocite{*}|\\
-%    |\bibliographystyle{jjpsy}|\\
+%    |\bibliographystyle{jpa}|\\
 %    |\bibliography{|{\em bibdata}|}|\\
 %    \end{flushleft}
 %    \texttt{platex} コマンドを実行し， aux ファイルを生成した後， 
@@ -260,8 +265,9 @@
 % \end{center}
 %
 % \StopEventually{}
-% 
 % \newpage
+%
+%<*jinka>
 % \section*{コードの解説}
 %
 % \subsection*{ユーティリティ・マクロ}
@@ -1470,7 +1476,7 @@
   \iftdir
      {\textcircled{~}}
   \else
-     {\normalfont\bfseries\textendash}
+     {\reset@font\bfseries\textendash}
   \fi
 }
 \newcommand{\labelitemiii}{\textasteriskcentered}
@@ -1524,7 +1530,7 @@
 % ラベルの形式は |\descriptionlabel| を再定義することで変更できます．
 %    \begin{macrocode}
 \newcommand{\descriptionlabel}[1]{%
-  \hspace\labelsep\normalfont\bfseries #1}
+  \hspace\labelsep\reset@font\bfseries #1}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1741,8 +1747,7 @@
 % \begin{macro}{\c@equation}
 % equation, enarray 環境で使う数式番号用カウンタです．
 %    \begin{macrocode}
-\if@serial
-\else
+\if@serial\else
   \@addtoreset{equation}{chapter}
   \renewcommand{\theequation}{%
     \ifnum\c@chapter>\z@\thechapter.\fi \@arabic\c@equation}
@@ -1784,11 +1789,11 @@
 % フォントファミリを変更するコマンドです．フォントを一度リセットしてから
 % 指定のフォントに変更します．
 %    \begin{macrocode}
-\DeclareOldFontCommand{\mc}{\normalfont\mcfamily}{\mathmc}
-\DeclareOldFontCommand{\gt}{\normalfont\gtfamily}{\mathgt}
-\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
-\DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
-\DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
+\DeclareOldFontCommand{\mc}{\reset@font\mcfamily}{\mathmc}
+\DeclareOldFontCommand{\gt}{\reset@font\gtfamily}{\mathgt}
+\DeclareOldFontCommand{\rm}{\reset@font\rmfamily}{\mathrm}
+\DeclareOldFontCommand{\sf}{\reset@font\sffamily}{\mathsf}
+\DeclareOldFontCommand{\tt}{\reset@font\ttfamily}{\mathtt}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -1799,7 +1804,7 @@
 % \begin{macro}{\bf}
 % フォントをボールド書体に変更します．|\mdseries| でノーマル書体に変更します．
 %    \begin{macrocode}
-\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+\DeclareOldFontCommand{\bf}{\reset@font\bfseries}{\mathbf}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1808,9 +1813,9 @@
 % \begin{macro}{\sc}
 % フォントシェープを切り換えます．|\upshape| で通常のシェイプに戻します．
 %    \begin{macrocode}
-\DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}
-\DeclareOldFontCommand{\sl}{\normalfont\slshape}{\@nomath\sl}
-\DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
+\DeclareOldFontCommand{\it}{\reset@font\itshape}{\mathit}
+\DeclareOldFontCommand{\sl}{\reset@font\slshape}{\@nomath\sl}
+\DeclareOldFontCommand{\sc}{\reset@font\scshape}{\@nomath\sc}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -2020,9 +2025,18 @@
 \let\l@table\l@figure
 %    \end{macrocode}
 % \end{macro}
-%
+%</jinka>
+%<*jinka|jpa>
 % \subsection*{参考文献}
-% 参考文献は，BiBTeX と jjpsy.bst を使用した場合に合わせています．
+% 参考文献は，BiBTeX と jpa.bst を使用した場合に合わせています．
+% \begin{macro}{\bibname}
+% 参考文献環境の見出しとなる文字列を指定します．
+%    \begin{macrocode}
+\@ifundefined{bibname}%
+  {\newcommand{\bibname}{参~考~文~献}}{}
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\bibindent}
 % 文献の先頭の字下げ幅です．
 %    \begin{macrocode}
@@ -2034,7 +2048,9 @@
 % \begin{macro}
 % 文献のブロック間にあける小さな空白の大きさです．
 %    \begin{macrocode}
-\newcommand{\newblock}{\hskip .11em\@plus.33em\@minus.07em}
+\@ifundefined{newblock}%
+  {\newcommand{\newblock}{\hskip .11em\@plus.33em\@minus.07em}}
+  {\renewcommand{\newblock}{\hskip .11em\@plus.33em\@minus.07em}}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -2077,24 +2093,42 @@
 % \begin{environment}{thebibliography}
 % 
 %    \begin{macrocode}
-\newenvironment{thebibliography}[1]
-{ \chapter*{\bibname\@mkboth{\bibname}{\bibname}}
-  \list{\relax}{
+\@ifundefined{chapter}
+%<jinka>  {\newenvironment{thebibliography}[1]
+%<jpa>  {\renewenvironment{thebibliography}[1]
+    {\section*{\bibname\@mkboth{\bibname}{\bibname}}
+     \list{\relax}{
+        \setlength\leftmargin{-\bibindent}
+        \setlength\itemindent{\bibindent}
+        \setlength\labelsep{\z@}
+        \setlength\itemsep{1.2\p@}}
+     \renewcommand{\baselinestretch}{}\selectfont
+     \sloppy
+     \clubpenalty4000
+     \@clubpenalty\clubpenalty
+     \widowpenalty4000
+     \sfcode`\.\@m}
+    {\def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}
+    \endlist}}
+%<jinka>  {\newenvironment{thebibliography}[1]
+%<jpa>  {\renewenvironment{thebibliography}[1]
+    {\chapter*{\bibname\@mkboth{\bibname}{\bibname}}
+     \list{\relax}{
       \setlength\leftmargin{-\bibindent}
       \setlength\itemindent{\bibindent}
       \setlength\itemsep{1.2\p@}}
-   \renewcommand{\baselinestretch}{}\large\normalsize
-   \sloppy
-   \clubpenalty4000
-   \@clubpenalty\clubpenalty
-   \widowpenalty4000
-   \sfcode`\.\@m }
-{ \def\@noitemerr{%
-    \@latex@warning{Empty `thebibliography' environment}}
-  \endlist}
+     \renewcommand{\baselinestretch}{}\selectfont
+     \sloppy
+     \clubpenalty4000
+     \@clubpenalty\clubpenalty
+     \widowpenalty4000
+     \sfcode`\.\@m}
+    {\def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}
+  \endlist}}
 %    \end{macrocode}
 % \end{environment}
-%
+%</jinka|jpa>
+%<*jinka>
 % \subsubsection*{索引}
 % \begin{environment}{theindex}
 % 二段組の索引を作成します．
@@ -2129,7 +2163,7 @@
 %
 % \subsubsection*{脚注}
 % \begin{macro}{\footnoterule}
-% 本文と脚注の間に引かれる線を再定義します．
+% 本文と脚注の間に引かれる罫線を再定義します．
 %    \begin{macrocode}
 \renewcommand{\footnoterule}{%
   \kern-3\p@
@@ -2141,7 +2175,9 @@
 % \begin{macro}{\c@footnote}
 % |noserial| オプションでは， |footnote| カウンタを章ごとにリセットします．
 %    \begin{macrocode}
-\@addtoreset{footnote}{chapter}
+\if@serial\else
+  \@addtoreset{footnote}{chapter}
+\fi
 %    \end{macrocode}
 % \end{macro}
 %
@@ -2157,13 +2193,13 @@
 % \begin{macro}{\西暦}
 % \begin{macro}{\和暦}
 % 日付を西暦，和暦のどちらで表示するかを決めます．
-% \DisableCrossrefs
+% \DisableCrossrefs       % <- エラー回避のため
 %    \begin{macrocode}
 \newif\if西暦 \西暦false
 \def\西暦{\西暦true}
 \def\和暦{\西暦false}
 %    \end{macrocode}
-% \EnableCrossrefs
+% \EnableCrossrefs        % <- エラー回避のため
 % \end{macro}
 % \end{macro}
 %
@@ -2213,21 +2249,18 @@
 % \end{macro}
 % \end{macro}
 %
-% \begin{macro}{\bibname}
 % \begin{macro}{\indexname}
 % \begin{macro}{\figurename}
 % \begin{macro}{\tablename}
 % \begin{macro}{\appendixname}
 % \begin{macro}{\abstractname}
 %    \begin{macrocode}
-\newcommand{\bibname}{参考文献}
 \newcommand{\indexname}{索~引}
 \newcommand{\figurename}{図}
 \newcommand{\tablename}{表}
-\newcommand{\appendixname}{付 録}
-\newcommand{\abstractname}{概 要}
+\newcommand{\appendixname}{付~録}
+\newcommand{\abstractname}{概~要}
 %    \end{macrocode}
-% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
@@ -2261,6 +2294,6 @@
   \AtBeginDocument{\Lines{30}}
 \fi
 %    \end{macrocode}
-%
+%</jinka>
 \endinput
 % \Finale
