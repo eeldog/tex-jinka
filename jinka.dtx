@@ -1,6 +1,6 @@
 % \iffalse     META-COMMENT
 % Source File: jinka.dtx
-% $Id: jinka.dtx,v 0.5 2000-10-09 08:42:27 yusuke Exp $
+% $Id: jinka.dtx,v 0.7 2000-10-12 22:47:59 yusuke Exp $
 %
 % Copyright (C) 1998-2000  MIYAMOTO Yusuke
 % \fi
@@ -521,7 +521,8 @@
   \setlength{\@tempdima}{\textheight}
   \advance\@tempdima by -\topskip
   \divide\@tempdima by \@tempcnta
-  \setfraction[8]{\baselinestretch}{\@tempdima}{\baselineskip}
+  \setfraction[8]{\baselinestretch}{\@tempdima}{\Cvs}
+  \typeout{setting \string\basrlinestretch \space to \baselinestretch}
   \selectfont}
 %    \end{macrocode}
 % \end{macro}
@@ -1229,10 +1230,12 @@
 \def\@chapter[#1]#2{%
   \ifnum \c@secnumdepth >\m@ne
     \refstepcounter{chapter}%
-    \typeout{*** \@chapapp\space\thechapter\space\@chappos\@spaces#1 ***}%
+    \typeout
+      {*** \@chapapp\space\thechapter\space\@chappos\@spaces #1 ***}
     \addcontentsline{toc}{chapter}%
       {\protect\numberline{\@chapapp\thechapter\@chappos}#1}%
   \else
+    \typeout{*** #1 ***}
     \addcontentsline{toc}{chapter}{#1}%
   \fi
   \chaptermark{#1}%
@@ -1636,11 +1639,11 @@
 % table 環境の定義です．|*| 形式は二段抜きのフロートになります．
 %    \begin{macrocode}
 \newenvironment{table}
-               {\@float{table}\linespread{}\selectfont}
-               {\end@float}
+               {\bgroup\linespread{}\selectfont\@float{table}}
+               {\egroup\end@float}
 \newenvironment{table*}
-               {\@dblfloat{table}\linespread{}\selectfont}
-               {\end@dblfloat}
+               {\bgroup\linespread{}\selectfont\@dblfloat{table}}
+               {\egroup\end@dblfloat}
 %    \end{macrocode}
 % \end{environment}
 %
