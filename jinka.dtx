@@ -3,7 +3,7 @@
 % $Revision: 1.9 $
 % $Date: 2003-01-12 06:58:50 $
 %
-% Copyright (C) 1998-2002  MIYAMOTO Yusuke
+% Copyright (C) 1998-2003  MIYAMOTO Yusuke
 % All rights reserved.
 % \fi
 \def\filename{jinka.dtx}
@@ -127,6 +127,7 @@
 %    \texttt{serial} & 図表に通し番号をつける．\\
 %    \texttt{noserial} & 図表の番号を章ごとにリセットする．\\
 %    \texttt{jinka} & $30 \times 20$ の書式を使用する．\\
+%    \texttt{double} & $30 \times 40$ の書式を使用する．\\
 %    \texttt{nojinka} & +jinka+ よりも字を詰めた書式を使用する．\\ \hline
 %    \end{tabular}
 %    \end{center}
@@ -339,9 +340,9 @@
 % \end{macro}
 %
 % \begin{macro}{\if@double}
-% jinka スタイルを使用するかどうかを示すスイッチです．
+% 40行 スタイルを使用するかどうかを示すスイッチです．
 %    \begin{macrocode}
-\newif\if@double \@doubletrue
+\newif\if@double \@doublefalse
 %    \end{macrocode}
 % \end{macro}
 %
@@ -488,7 +489,7 @@
 % jinka スタイルにするかどうかを指定します．
 %    \begin{macrocode}
 \DeclareOption{jinka}{\@jinkatrue}
-\DeclareOption{double}{\@doublefalse}
+\DeclareOption{double}{\@doubletrue}
 \DeclareOption{nojinka}{\@jinkafalse}
 %    \end{macrocode}
 %
