@@ -1,6 +1,6 @@
 % \iffalse     META-COMMENT
 % Source File: jinka.dtx
-% $Id: jinka.dtx,v 0.7 2000-10-12 22:47:59 yusuke Exp $
+% $Id: jinka.dtx,v 0.9 2000-11-01 01:31:49 yusuke Exp $
 %
 % Copyright (C) 1998-2000  MIYAMOTO Yusuke
 % \fi
@@ -572,7 +572,7 @@
 % |\parskip| は段落間に挿入される縦方向の空白，
 % |\parindent| は段落先頭の字下げ幅です．
 %    \begin{macrocode}
-\setlength\parskip{0\p@ \@plus 2\p@}
+\setlength\parskip{5\p@ \@plus 3\p@ \@minus 2\p@}
 \setlength\parindent{1zw}
 %    \end{macrocode}
 % \end{macro}
@@ -1192,10 +1192,13 @@
 \def\@part[#1]#2{%
   \ifnum \c@secnumdepth >-2\relax
     \refstepcounter{part}%
-    \addcontentsline{toc}{part}{%
-       \prepartname\thepart\postpartname\hspace{1em}#1}%
+    \addcontentsline{toc}{part}
+      {\prepartname\thepart\postpartname\hspace{1em}#1}
+    \typeout
+      {*** \prepartname\space\thepart\space\postpartname\spaces #1 ***}
   \else
-    \addcontentsline{toc}{part}{#1}%
+    \addcontentsline{toc}{part}{#1}
+    \typeout{*** #1 ***}
   \fi
   \markboth{}{}%
   {\centering
@@ -1258,7 +1261,7 @@
   \vskip2\Cvs
   {\parindent\z@
    \raggedright
-   \reset@font\huge\bfseries
+   \reset@font\LARGE\bfseries
    \hbox{#1}}\vskip3\Cvs}
 %    \end{macrocode}
 % \end{macro}
@@ -1640,10 +1643,10 @@
 %    \begin{macrocode}
 \newenvironment{table}
                {\bgroup\linespread{}\selectfont\@float{table}}
-               {\egroup\end@float}
+               {\end@float\egroup}
 \newenvironment{table*}
                {\bgroup\linespread{}\selectfont\@dblfloat{table}}
-               {\egroup\end@dblfloat}
+               {\end@dblfloat\egroup}
 %    \end{macrocode}
 % \end{environment}
 %
