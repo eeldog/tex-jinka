@@ -21,7 +21,7 @@
 %%
 % \iffalse     META-COMMENT
 % Source File: jinka.dtx
-% $Id: jinka.dtx,v 0.2 2000-09-28 15:47:09 yusuke Exp $
+% $Id: jinka.dtx,v 0.4 2000-10-01 10:23:50 yusuke Exp $
 %
 % Copyright (C) 1998-2000  MIYAMOTO Yusuke
 % 
@@ -40,11 +40,13 @@
 % \changes{v1.1a}{2000/09/19}
 %         {デフォルトのページスタイル，行数を変更}
 % \changes{v1.1a}{2000/09/27}
-%         {ランドスケープ削除．ページレイアウトのパラメタを変更}
+%         {ページレイアウトのパラメタを変更}
 % \changes{v1.1a}{2000/09/28}
 %         {参考文献スタイル jpa のパッケージファイルを統合}
+% \changes{v1.1a}{2000/09/30}
+%         {章見出しを二行形式に変更．}
 % \changes{v1.1b}{2000/10/01}
-%         {version 1.1 $\beta$}
+%         {version 1.1 $\beta$ としてリリース．}
 % 
 % \iffalse
 %<*jinka>
@@ -59,7 +61,7 @@
 % 
 % \iffalse
 %<*driver>
-\documentclass[a4paper]{jarticle}
+\documentclass[a4]{jarticle}
   \usepackage{doc}
   \OnlyDescription
   \RecordChanges
@@ -75,73 +77,64 @@
 % \fi
 %
 % \section*{概要}
-% ``jinka.cls'' は，人間科学部行動系論文作成用の \LaTeXe{}クラスファイルです．
-% \LaTeXe{} では，\LaTeX{} の多くの機能が拡張され，より高度な組版が実現できる
-% ようになりました．
+% ``jinka.cls'' は，人間科学研究科（行動学専攻）論文作成用の \LaTeXe{}クラス
+% ファイルです．一行あたりの文字数，一頁あたりの行数を指定することができます．
 % 
-% \section*{インストール}
-% 配布ファイルでは，doc システム および DOCSTRIP ユーティリティを用いています．
-% このパッケージには以下のファイルが含まれてます．拡張子 ``.dtx'' のファイルを
-% 直接 \LaTeX{}で処理すると，dvi 形式のドキュメントが作成されます．
+% \subsection*{執筆規定}
+% 
 % \begin{center}
-% \begin{tabular}{lcl}
-%  \textbf{jinka.dtx} & --- & ``jinka.cls'' の doc ファイル \\
-%  \textbf{jpa.bst}   & --- &  『心理学研究』風 .bst ファイル \\
-%  \textbf{jinka.ins} & --- &  インストール・バッチファイル \\
-%  \textbf{jpa.ins}   & --- &  インストール・バッチファイル
+% \DeleteShortVerb{\|}
+% \MakeShortVerb{+}
+% \begin{tabular}{|l|c|}\hline
+% 用紙サイズ         & A4 判      \\ \hline
+% 紙質               & 上質紙     \\ \hline\hline
+% 1頁の文字数        & 600字/頁   \\ \hline
+% 1行の文字数        & 30字       \\ \hline
+% 1頁の行数          & 20行       \\ \hline\hline
+% 上部 余白          & 25 -- 40mm \\ \hline
+% 下部 余白          & 10 -- 25mm \\ \hline
+% 左 余白（綴じしろ）& 25 -- 40mm \\ \hline
+% 右 余白            & 10 -- 25mm \\ \hline
 % \end{tabular}
+% \MakeShortVerb{\|}
 % \end{center}
 % 
-% インストールするには，拡張子 ``.ins'' のファイルを \LaTeX で処理して下さい．
-% カレント・ディレクトリに，``jinka.cls''，``jpa.sty'' が作成されます．
-% \begin{flushleft}
-%  \textbf{\% } \texttt{platex} \textit{jinka.ins}\\
-%  \textbf{\% } \texttt{platex} \textit{jpa.ins}\\
-% \end{flushleft}
-% できた 3 つのファイル (``jinka.cls''，``jpa.bst''，``jpa.sty'')
-% を \LaTeX のコンパイルを実行するディレクトリか，環境変数 |$TEXINPUTS| で
-% 指定したディレクトリにコピーして下さい．
-%
 % \section*{スタイルの詳細}
 %  \subsection*{オプション}
-%    |\documentclass| のオプションとして，以下のものが指定できます．
-%    パッケージの読み込みには，|\usepackage{|{\em package}|}| コマンド
-%    を使います．
-%    デフォルトでは{\em a4j, 12pt, oneside}, 「独立したタイトルページ」，
-%    「$30 \times 20$ スタイル」，「図表にはセクション毎の番号をつける」
-%    となっています．
+%    |\documentclass| のオプションとして以下のものが指定できます．
+%    デフォルトでは「独立したタイトルページ（|titlepage|）」，
+%    「$30 \times 30$ スタイル（|nojinka|）」，「図表にはセクション毎の
+%    番号をつける（|noserial|）」となっています．
 %  
 %    \DeleteShortVerb{\|}
 %    \MakeShortVerb{\+}
 %    \begin{center}
 %    \begin{tabular}{l|l} \hline
 %    オプション & 解説 \\ \hline
-%    {\em a4j} / {\em b5j}                & 用紙サイズ指定オプション\\
-%    {\em a4paper} / {\em b5paper}        & 用紙サイズ指定オプション\\
-%    {\em 10pt} / {\em 11pt} / {\em 12pt} & フォントサイズ指定オプション\\
-%    {\em oneside} / {\em twoside} & 片面 / 両面刷り指定オプション\\
-%    {\em notitlepage} & タイトルページを独立させない．\\
-%    {\em draft} / {\em final} & +\ifdraft+ フラグを 真 / 偽 にする．\\
-%    {\em serial} & 図表に通し番号をつける．\\
-%    {\em nojinka} & $30 \times 20$ スタイルを使用しない．\\ \hline
+%    \texttt{titlepage} & タイトルを独立したページにする．\\
+%    \texttt{notitlepage} & タイトルページを独立させない．\\
+%    \texttt{draft} & +\ifdraft+ スィッチを +true+ にする．\\
+%    \texttt{final} & +\ifdraft+ スィッチを +false+ にする．\\
+%    \texttt{serial} & 図表に通し番号をつける．\\
+%    \texttt{noserial} & 図表の番号を章ごとにリセットする．\\
+%    \texttt{jinka} & $30 \times 20$ の書式を使用する．\\
+%    \texttt{nojinka} & $30 \times 30$ の書式を使用する．\\ \hline
 %    \end{tabular}
 %    \end{center}
 %    \DeleteShortVerb{\+}
 %    \MakeShortVerb{\|}
 %    
 %  \subsection*{フォント}
-%    フォントサイズは 12pt がデフォルトになっています．上記のオプションで
-%    変更できます．旧版 (2.09) では 10pt は指定しないのが一般的でしたが，
-%    10pt にするときも，オプションで明示的に指定します．
+%    フォントサイズは 12pt がデフォルトになっています．一般的なクラスファイル
+%    と同様のオプションで変更できます．
 %    
 %  \subsection*{レイアウト}
-%    デフォルトでは，「$30 \times 20$ スタイル」 --- つまり 1 ページあたり
-%    30 桁 $\times$ 20 行 となるように |\textwidth|，|\baselinestretch| が
-%    設定されます．|\texthight| は用紙サイズの 75 \% を目安にしています．
-%    {\em nojinka} オプションにより，より一般的なスタイル 
-%    ( |\textwidth = \paperwidth - 2inch| ) になります．
+%    デフォルトでは，「$30 \times 30$ スタイル」 --- つまり1行あたり30字，
+%    1ページあたり30行 となるように |\textwidth|，|\baselinestretch| が
+%    設定されます．\texttt{jinka} オプションにより「$30 \times 30$ スタイル」
+%    になります．
 %    
-%    また，字詰め，行間の調節をおこなう 2 つのコマンドを用意しました．
+%    また，字詰め，行間の調節をおこなう2つのコマンドを用意しました．
 %    
 %    \begin{macro}{\Columns}
 %    |\Columns{|{\em cols}|}| は 1 行あたり約 {\em cols} 字 (全角) に
@@ -159,7 +152,8 @@
 %    \end{macro}
 %    
 %    その他のスタイル・パラメータについては，標準のクラスパッケージ
-%    (jreport.cls など) に準じます．そちらのドキュメントも参考にして下さい．
+%    (jreport.cls など) に準じます．そちらのドキュメントも参考にして
+%    下さい．
 %    
 %  \subsection*{ページスタイル}
 %    以下のページスタイルが定義されています．
@@ -168,12 +162,13 @@
 %    \begin{center}
 %    \begin{tabular}{l|l}\hline
 %    ページスタイル   & 内容 \\ \hline
-%    {\em plain}      & フッタ中央にページ番号を出力．\\
-%    {\em bothstyle}  & ヘッダに章見出し，フッタにページ番号を出力．\\
-%    {\em headnomble} & ヘッダにページ番号を出力．\\
-%    {\em footnomble} & フッタにページ番号を出力．\\
-%    {\em headings}   & ヘッダに章見出しとページ番号を出力．\\
-%    {\em nopage}     & ヘッダに章見出しのみを出力．\\ \hline
+%    \texttt{plain}      & フッタ中央にページ番号を出力．\\
+%    \texttt{jinka}      & デフォルトのページスタイル．+bothstyle+ と同じ．\\
+%    \texttt{bothstyle}  & ヘッダに章見出し，フッタにページ番号を出力．\\
+%    \texttt{headnomble} & ヘッダにページ番号を出力．\\
+%    \texttt{footnomble} & フッタにページ番号を出力．\\
+%    \texttt{headings}   & ヘッダに章見出しとページ番号を出力．\\
+%    \texttt{nopage}     & ヘッダに章見出しのみを出力．\\ \hline
 %    \end{tabular}
 %    \end{center}
 %    \DeleteShortVerb{\+}
@@ -203,7 +198,7 @@
 %    \end{macro}
 %    
 %  \subsection*{参考文献}
-%    「心理学研究」に倣った参考文献スタイルで |\thebibliography| 環境を
+%    「心理学研究」風の参考文献スタイルで |\thebibliography| 環境を
 %    実装しています．
 %    \textsc{JBib}\TeX 用 bst ファイル ``jpa.bst'' を付属しました．
 %    次のような出力になります．
@@ -216,7 +211,7 @@
 %	\setlength{\leftmargin}{2em}}
 %    \item Goossens,M. , Mittelbach,F. Samarin,A.
 %      \newblock 1994
-%      \newblock The \LaTeX Companion.
+%      \newblock The \LaTeX{} Companion.
 %      \newblock Addison-Wesley Publishing Company.
 %    \item Lamport,L.
 %      \newblock 1994
@@ -1254,21 +1249,17 @@
   \vskip2\Cvs
   {\parindent\z@
    \raggedright
-   \reset@font\huge\bfseries
+   \reset@font\LARGE\bfseries
    \ifnum \c@secnumdepth >\m@ne
-     \setlength\@tempdima{\linewidth}%
-     \setbox\z@\hbox{\@chapapp\thechapter\@chappos\hskip1zw}%
-     \addtolength\@tempdima{-\wd\z@}%
-     \unhbox\z@\nobreak
-     \vtop{\hsize\@tempdima#1}%
-   \fi}\vskip3\Cvs}
+     \hbox{\@chapapp\thechapter\@chappos}\vskip1\Cvs%
+   \fi
+   \hbox{#1}\vskip3\Cvs}}
 \def\@makeschapterhead#1{\hbox{}%
   \vskip2\Cvs
   {\parindent\z@
    \raggedright
    \reset@font\huge\bfseries
-   \setlength\@tempdima{\linewidth}%
-   \vtop{\hsize\@tempdima#1}}\vskip3\Cvs}
+   \hbox{#1}}\vskip3\Cvs}
 %    \end{macrocode}
 % \end{macro}
 %
