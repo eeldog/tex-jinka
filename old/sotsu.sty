@@ -1,5 +1,4 @@
 \def\version{1.18}
-%% $Id: sotsu.sty,v 0.1 2000-09-28 15:47:13 yusuke Exp $
 %% 卒論・修論用スタイル（行動系編） Ver. 1.18
 %%   原田章（人間科学研究科）
 %%       1993 / 01 / 17
@@ -79,6 +78,7 @@
 %%  98/01/14 「参考文献」環境のページカウントを訂正
 %%  98/02/10 「参考文献」環境のスタイルを変更．インデントを１zwに．
 %%  98/02/26 figure 環境の [loc] オプションを使えるように訂正  Version 1.18
+%%  00/12/19 \ruby マクロの typo を修正．
 %%
 
 \typeout{卒業論文・修士論文スタイル（人間科学部，行動系編) Ver.\space\version}
@@ -987,7 +987,7 @@
 
 \def\ruby#1#2{ % 送り仮名をつけるマクロ \ruby{漢字}{かんじ}
   \leavevmode
-  \setbox0=hbox{#1}\setbox1=\hbox{\tiny#2}%
+  \setbox0=\hbox{#1}\setbox1=\hbox{\tiny#2}%
   \ifdim\wd0>\wd1 \dimen0=\wd0 \else \dimen0=\wd1 \fi
   \hbox{\kanjiskip=\fill
     \vbox{\hbox to \dimen0{\tiny \hfil#2\hfil}%
