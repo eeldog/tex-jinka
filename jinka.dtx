@@ -1,13 +1,13 @@
 % \iffalse     META-COMMENT
 % Source File: jinka.dtx
-% $Id: jinka.dtx,v 1.5 2002-01-14 08:48:17 pooh Exp $
+% $Id: jinka.dtx,v 1.6 2002-02-05 16:40:14 pooh Exp $
 %
 % Copyright (C) 1998-2002  MIYAMOTO Yusuke
 % All rights reserved.
 % \fi
 \def\filename{jinka.dtx}
-\def\fileversion{1.1.1}
-\def\filedate{2002/01/06}
+\def\fileversion{1.1.2}
+\def\filedate{2002/02/04}
 %  \CheckSum{0}
 %%
 %% \CharacterTable
@@ -105,7 +105,7 @@
 %  \subsection*{オプション}
 %    |\documentclass| のオプションとして以下のものが指定できます．
 %    デフォルトでは「独立したタイトルページ（|titlepage|）」，
-%    「$40 \times 30$ スタイル（|nojinka|）」，「図表にはセクション毎の
+%    「$38 \times 32$ スタイル（|nojinka|）」，「図表にはセクション毎の
 %    番号をつける（|noserial|）」となっています．
 %  
 %    \begin{table}[htb]
@@ -327,9 +327,17 @@
 % \end{macro}
 %
 % \begin{macro}{\if@jinka}
-% 30 桁 x 20 行 のスタイルを使用するかどうかを示すスイッチです．
+% 30 桁 x 20 行 の jinka スタイルを使用するかどうかを示すスイッチです．
 %    \begin{macrocode}
 \newif\if@jinka \@jinkafalse
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\if@mainmatter}
+% 本文を処理中かどうかを示すスイッチです．このスイッチが |false| のとき，
+% |\chapter| コマンドは見出し番号を出力しません．
+%    \begin{macrocode}
+\newif\if@mainmatter \@mainmattertrue
 %    \end{macrocode}
 % \end{macro}
 %
@@ -494,7 +502,7 @@
   \addtolength{\@tempdima}{-2in}
   \ifdim \textwidth > \@tempdima
     \setlength{\textwidth}{\@tempdima}
-    \@latex@warning{指定されたカラムが大きすぎるので，テキスト幅を自動的に設定しました．\space\the\@tempdima}
+    \ClassWarning{jikna}{指定されたカラムが大きすぎるので，テキスト幅を自動的に設定しました．\space\string\textwidth=\the\@tempdima}
   \fi
   \addtolength{\@tempdima}{-\textwidth}
   \setlength{\oddsidemargin}{.5\@tempdima}
@@ -516,7 +524,7 @@
   \advance\@tempdima by -\topskip
   \divide\@tempdima by \@tempcnta
   \setfraction[8]{\baselinestretch}{\@tempdima}{\baselineskip}
-  \typeout{setting \string\basrlinestretch\space to \baselinestretch}
+  \ClassInfo{jinka}{setting \string\basrlinestretch\space to \baselinestretch}
   \selectfont}
 %    \end{macrocode}
 % \end{macro}
@@ -886,7 +894,9 @@
   \let\@mkboth\markboth
   \def\chaptermark##1{\markboth{%
       \ifnum \c@secnumdepth >\m@ne
-        \@chapapp\thechapter\@chappos\hskip 1zw
+        \if@mainmatter
+          \@chapapp\thechapter\@chappos\hskip 1zw
+        \fi
       \fi
       ##1}{}}
   \let\sectionmark\@gobble}
@@ -904,7 +914,9 @@
   \let\@mkboth\markboth
   \def\chaptermark##1{\markboth{%
       \ifnum \c@secnumdepth >\m@ne
-        \@chapapp\thechapter\@chappos\hskip 1zw
+        \if@mainmatter
+          \@chapapp\thechapter\@chappos\hskip 1zw
+        \fi
       \fi
       ##1}{}}
   \let\sectionmark\@gobble}
@@ -924,7 +936,9 @@
     \let\@mkboth\markboth
     \def\chaptermark##1{\markboth{%
       \ifnum \c@secnumdepth >\m@ne
-        \@chapapp\thechapter\@chappos\hskip 1zw
+        \if@mainmatter
+          \@chapapp\thechapter\@chappos\hskip 1zw
+        \fi
       \fi
       ##1}{}}%
     \def\sectionmark##1{\markright{%
@@ -938,7 +952,9 @@
     \let\@mkboth\markboth
     \def\chaptermark##1{\markright{%
       \ifnum \c@secnumdepth >\m@ne
-        \@chapapp\thechapter\@chappos\hskip 1zw
+        \if@mainmatter
+          \@chapapp\thechapter\@chappos\hskip 1zw
+        \fi
       \fi
       ##1}{}}%
     \let\sectionmark\@gobble}
@@ -969,7 +985,9 @@
     \let\@mkboth\markboth
     \def\chaptermark##1{\markboth{%
       \ifnum \c@secnumdepth >\m@ne
-        \@chapapp\thechapter\@chappos\hskip 1zw
+        \if@mainmatter
+          \@chapapp\thechapter\@chappos\hskip 1zw
+        \fi
       \fi
       ##1}{}}%
     \def\sectionmark##1{\markright{%
@@ -984,7 +1002,9 @@
     \let\@mkboth\markboth
     \def\chaptermark##1{\markright{%
       \ifnum \c@secnumdepth >\m@ne
-        \@chapapp\thechapter\@chappos\hskip 1zw
+        \if@mainmatter
+          \@chapapp\thechapter\@chappos\hskip 1zw
+        \fi
       \fi
       ##1}{}}%
     \let\sectionmark\@gobble}
@@ -1004,7 +1024,14 @@
 % \begin{macro}{\subtitle}
 % タイトルページで使う追加項目です．サブタイトルを記述します．
 %    \begin{macrocode}
-\newcommand{\subtitle}[1]{\gdef\@subtitle{#1}}
+\newcommand{\subtitle}[1]{\xdef\@subtitle{#1}}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\institute}
+% タイトルページで使う追加項目です．所属機関を記述します．
+%    \begin{macrocode}
+\newcommand{\institute}[1]{\xdef\@institute{#1}}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1047,6 +1074,9 @@
     { \Large
       \lineskip .5em%
       \begin{tabular}[t]{c}%
+        \@ifundefined{@institute}%
+          {\relax}%
+          {\normalsize\@institute\\}
         \@author
       \end{tabular}\par}%
       \vskip 1.5em%
@@ -1116,6 +1146,9 @@
     {\large
      \lineskip .5em%
      \begin{tabular}[t]{c}%
+        \@ifundefined{@institute}%
+          {\relax}%
+          {\normalsize\@institute\\}
        \@author
      \end{tabular}\par}%
     \vskip 1em%
@@ -1255,21 +1288,28 @@
 % 実際に見出しを出力するコマンドの定義
 \def\@part[#1]#2{%
   \ifnum \c@secnumdepth >-2\relax
-    \refstepcounter{part}%
-    \addcontentsline{toc}{part}
-      {\prepartname\thepart\postpartname\hspace{1em}#1}
-    \typeout
-      {*** \prepartname\space\thepart\space\postpartname\spaces #1 ***}
+    \if@mainmatter
+      \refstepcounter{part}%
+      \addcontentsline{toc}{part}
+        {\prepartname\thepart\postpartname\hspace{1em}#1}
+      \typeout
+        { *** \prepartname\space\thepart\space\postpartname\spaces #1 *** }
+    \else
+      \addcontentsline{toc}{part}{#1}
+      \typeout{ *** #1 *** }
+    \fi
   \else
     \addcontentsline{toc}{part}{#1}
-    \typeout{*** #1 ***}
+    \typeout{ *** #1 *** }
   \fi
   \markboth{}{}%
   {\centering
    \interlinepenalty\@M\reset@font
    \ifnum \c@secnumdepth >-2\relax
-     \huge\bfseries\prepartname\thepart\postpartname
-     \par\vskip20\p@
+     \if@mainmatter
+       \huge\bfseries\prepartname\thepart\postpartname
+       \par\vskip20\p@
+     \fi
    \fi
    \Huge\bfseries#2\par}%
    \@endpart}
@@ -1292,17 +1332,21 @@
   \thispagestyle{jpl@in}%
   \global\@topnum\z@
   \@afterindentfalse
-  \secdef\@chapter\@schapter}
+  \secdef{\@chapter}{\@schapter}}
 % 実際に章見出しを出力するコマンドの定義
 \def\@chapter[#1]#2{%
   \ifnum \c@secnumdepth >\m@ne
-    \refstepcounter{chapter}%
-    \typeout
-      {*** \@chapapp\space\thechapter\space\@chappos\@spaces #1 ***}
-    \addcontentsline{toc}{chapter}%
-      {\protect\numberline{\@chapapp\thechapter\@chappos}#1}%
+    \if@mainmatter
+      \refstepcounter{chapter}%
+      \typeout
+        { *** \@chapapp\space\thechapter\space\@chappos\@spaces #1 *** }
+      \addcontentsline{toc}{chapter}%
+        {\protect\numberline{\@chapapp\thechapter\@chappos}#1}%
+    \else
+      \addcontentsline{toc}{chapter}{#1}
+    \fi
   \else
-    \typeout{*** #1 ***}
+    \typeout{ *** #1 *** }
     \addcontentsline{toc}{chapter}{#1}%
   \fi
   \chaptermark{#1}%
@@ -1318,7 +1362,9 @@
    \raggedright
    \reset@font\LARGE\bfseries
    \ifnum \c@secnumdepth >\m@ne
-     \hbox{\@chapapp\thechapter\@chappos}\vskip.5\Cvs%
+     \if@mainmatter
+       \hbox{\@chapapp\thechapter\@chappos}\vskip.5\Cvs%
+     \fi
    \fi
    \hbox{#1}\vskip1\Cvs}}
 \def\@makeschapterhead#1{\hbox{}%
@@ -1380,6 +1426,27 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\frontmatter}
+% \begin{macro}{\mainmatter}
+% \begin{macro}{\backmatter}
+% 
+%    \begin{macrocode}
+\newcommand{\frontmatter}{%
+  \cleardoublepage
+  \@mainmatterfalse
+  \pagenumbering{roman}}
+\newcommand{\mainmatter}{%
+  \clearpage
+  \@mainmattertrue
+  \pagenumbering{arabic}}
+\newcommand{\backmatter}{%
+  \clearpage
+  \@mainmatterfalse}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% 
 % \begin{macro}{\appendix}
 % 新しい付録を始めます．
 %    \begin{macrocode}
@@ -2024,7 +2091,7 @@
 % \begin{macro}{\l@subsection}
 % subsection レベルの目次の体裁です．
 %    \begin{macrocode}
-\newcommand*{\l@subsection}   {\@dottedtocline{2}{3.8em}{3.2em}}
+\newcommand*{\l@subsection}{\@dottedtocline{2}{3.8em}{3.2em}}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -2038,14 +2105,14 @@
 % \begin{macro}{\l@paragraph}
 % paragraph レベルの目次の体裁です．
 %    \begin{macrocode}
-\newcommand*{\l@paragraph}    {\@dottedtocline{4}{10em}{5em}}
+\newcommand*{\l@paragraph}{\@dottedtocline{4}{10em}{5em}}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\l@subparagraph}
 % subparagraph レベルの目次の体裁です．
 %    \begin{macrocode}
-\newcommand*{\l@subparagraph} {\@dottedtocline{5}{12em}{6em}}
+\newcommand*{\l@subparagraph}{\@dottedtocline{5}{12em}{6em}}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -2336,8 +2403,8 @@
   \Columns{30}
   \Lines{20}
 \else
-  \Columns{40}
-  \Lines{30}
+  \Columns{38}
+  \Lines{32}
 \fi
 %    \end{macrocode}
 %</jinka>

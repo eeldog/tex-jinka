@@ -1,13 +1,14 @@
 # Makefile
-# $Id: Makefile,v 1.2 2002-01-13 14:08:46 pooh Exp $
+# $Id: Makefile,v 1.3 2002-02-05 16:40:14 pooh Exp $
 
 PACKAGE = jinka
-VERSION = 1.1.1
+VERSION = 1.1.2
 
 ## Modify these variables in tune with your site configuration.
 TEX     = platex -interaction batch
 INSTALL = install -c
 NKF     = nkf
+NKF_JIS = $(NKF) --jis
 NKF_MAC = $(NKF) --mac
 NKF_WIN = $(NKF) --windows
 
@@ -19,8 +20,9 @@ DESTDIR =
 
 SHELL = /bin/sh
 
-PKGFILES = jinka.cls macjinka.cls winjinka.cls jpa.sty macjpa.sty winjpa.sty \
-           jpa.bst macjpa.bst winjpa.bst
+PKGFILES = jinka.cls mac/jinka.cls win/jinka.cls jis/jinka.cls \
+	jpa.sty	mac/jpa.sty win/jpa.sty jis/jpa.sty \
+	jpa.bst mac/jpa.bst win/jpa.bst jis/jpa.bst 
 DISTFILES = README Makefile index.html index.html.in jinka.css \
             jinka.ins jinka.dtx jpa.dtx jpa.bst jpa.ins obsolete/sotsu.sty
 distdir=$(PACKAGE)-$(VERSION)
@@ -44,14 +46,28 @@ jpa.bst:
 	@touch $@
 	@echo "done." 1>&2
 
-mac%: %
+mac/%: %
+	@if [ ! -d mac ]; then \
+	  mkdir mac;           \
+	fi
 	@echo -n "$@: converting kanji code ... " 1>&2
 	@$(NKF_MAC) $< > $@ ;
 	@echo "done." 1>&2
 
-win%: %
+win/%: %
+	@if [ ! -d win ]; then \
+	  mkdir win;           \
+	fi
 	@echo -n "$@: converting kanji code ... " 1>&2
 	@$(NKF_WIN) $< > $@ ;
+	@echo "done." 1>&2
+
+jis/%: %
+	@if [ ! -d jis ]; then \
+	  mkdir jis;           \
+	fi
+	@echo -n "$@: converting kanji code ... " 1>&2
+	@$(NKF_JIS) $< > $@ ;
 	@echo "done." 1>&2
 
 doc: jinka.dvi
@@ -79,7 +95,7 @@ clean:
 	-rm -f core *~ *.log *.glo *.blg *.aux
 
 distclean: clean
-	-rm -f mac* win* jinka.cls jpa.sty index.html
+	-rm -f mac/* win/* jinka.cls jpa.sty index.html
 
 $(distdir).tar.gz: distdir
 	@chmod -R a+r $(distdir)

@@ -52,7 +52,6 @@ Windows $B$O(B <a href="http://www.microsoft.com/">Microsoft $B<R(B</a>$B$N
 
 <h2><a name="list">$B%Q%C%1!<%8(B</a></h2>
 <a href="jinka-@VERSION@.tar.gz"> <tt>jinka-@VERSION@/</tt></a>
-
 <ul>
  <li><a href="Makefile">Makefile</a></li>
  <li><a href="README">README</a></li>
@@ -66,25 +65,36 @@ Windows $B$O(B <a href="http://www.microsoft.com/">Microsoft $B<R(B</a>$B$N
 
 
 <h2><a name="download">$B%@%&%s%m!<%I(B</a></h2>
-<ul>
- <li><a href="jinka.cls">jinka.cls</a></li>
- <li><a href="macjinka.cls">jinka.cls</a> (Shift-JIS, CR)</li>
- <li><a href="winjinka.cls">jinka.cls</a> (Shift-JIS, CR+LF)</li>
+<p>$B:GDc8BI,MW$H$J$k%U%!%$%k$O!$(B<a href="jis/jinka.cls">jinka.cls</a> $B$G$9!%(B
+$B4A;z%3!<%I$KCm0U$7$F$/$@$5$$!%(B</p>
+<table cellpadding="5" cellspacing="0">
+ <tr style="background: white;">
+  <td><a href="jinka.cls">jinka.cls</a></td>
+  <td><a href="jis/jinka.cls">[JIS]</a></td>
+  <td><a href="mac/jinka.cls">[Mac]</a></td>
+  <td><a href="win/jinka.cls">[Win]</a></td>
+ </tr>
+ <tr style="background: lightgray;">
+  <td><a href="jpa.sty">jpa.sty</a></td>
+  <td><a href="jis/jpa.sty">[JIS]</a></td>
+  <td><a href="mac/jpa.sty">[Mac}</a></td>
+  <td><a href="win/jpa.sty">[Win]</a></td>
+ </tr>
+ <tr style="background: white;">
+  <td><a href="jpa.bst">jpa.bst</a></td>
+  <td><a href="jis/jpa.bst">[JIS]</a></td>
+  <td><a href="mac/jpa.bst">[Mac]</a></td>
+  <td><a href="win/jpa.bst">[Win]</a></td>
+ </tr>
+ <tr style="background: lightgray;">
+  <td colspan="4"><a href="obsolete/sotsu.sty">obsolete/sotsu.sty</a></td>
+ </tr>
+ <tr style="background: white;">
+  <td colspan="4"><a href="english.sty">english.sty</a></td>
+ </tr>
+</table>
 
- <li><a href="jpa.sty">jpa.sty</a></li>
- <li><a href="macjpa.sty">jpa.sty</a> (Shift-JIS, CR)</li>
- <li><a href="winjpa.sty">jpa.sty</a> (Shift-JIS, CR+LF)</li>
-
- <li><a href="jpa.bst">jpa.bst</a></li>
- <li><a href="macjpa.bst">jpa.bst</a> (Shift-JIS, CR)</li>
- <li><a href="winjpa.bst">jpa.bst</a> (Shift-JIS, CR+LF)</li>
-
- <li><a href="obsolete/sotsu.sty">obsolete/sotsu.sty</a></li>
-
- <li><a href="english.sty">english.sty</a></li>
-</ul>
 <hr />
-
 
 <h2><a name="contact">$B%3%s%?%/%H(B</a></h2>
 <ul>

@@ -1,12 +1,12 @@
 /* jinka.css
- * $Id: jinka.css,v 1.1 2002-01-06 07:01:03 pooh Exp $
+ * $Id: jinka.css,v 1.2 2002-02-05 16:40:14 pooh Exp $
  */	
 a:link    { color: blue;   background: transparent; }
-a:visited { color: gray;   background: transparent; }
+a:visited { color: purple;   background: transparent; }
 a:active  { color: yellow; background: transparent; }
 body {
     color: rgb( 0, 0, 0);
-    background: rgb(220, 220, 256);
+    background: rgb(240, 240, 256);
     margin-left:  0.5in;
     margin-right: 0.5in;
 }
