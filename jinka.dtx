@@ -1,6 +1,6 @@
 % \iffalse     META-COMMENT
 % Source File: jinka.dtx
-% $Id: jinka.dtx,v 1.3 2002-01-09 18:18:09 pooh Exp $
+% $Id: jinka.dtx,v 1.4 2002-01-13 13:37:14 pooh Exp $
 %
 % Copyright (C) 1998-2002  MIYAMOTO Yusuke
 % All rights reserved.
@@ -619,7 +619,7 @@
 % また，|\footskip| は本文領域の下端からフッタボックスの
 % \textbf{下端}までの距離です．
 %    \begin{macrocode}
-\setlength\headheight{14\p@}
+\setlength\headheight{16\p@}
 \setlength\headsep{20\p@}
 \setlength\footskip{30\p@}
 %    \end{macrocode}
@@ -950,9 +950,9 @@
 % |linehead| ページスタイルで，ヘッダと本文領域の間に引く罫線の定義です．
 %    \begin{macrocode}
 \newcommand\headrule{
-  \kern-3\p@
+  \vskip 2\p@
   \hrule width \textwidth
-  \kern 2.6\p@}
+}
 %    \end{macrocode}
 % \end{macro}
 % 
@@ -964,7 +964,7 @@
     \let\ps@jpl@in\ps@footnombre
     \def\@evenhead{\vbox{\hsize=\textwidth\leftmark\hfil}}
     \def\@evenfoot{\thepage\hfil}
-    \def\@oddhead{\vbox{\hsize=\textwidth\hfil\rightmark}\headrule}
+    \def\@oddhead{\vbox{\hsize=\textwidth\hfil\rightmark\headrule}}
     \def\@oddfoot{\hfil\thepage}
     \let\@mkboth\markboth
     \def\chaptermark##1{\markboth{%
@@ -978,7 +978,8 @@
 \else
   \def\ps@linehead{
     \let\ps@jpl@in\ps@jpl@in
-    \def\@oddhead{\vbox{\hsize=\textwidth\hfill\rightmark\headrule}}
+    \def\@oddhead{%
+      \vbox{\hsize=\textwidth\hfill\rightmark\hspace*{12pt}\headrule}}
     \def\@oddfoot{\hfil\thepage\hfil}
     \let\@mkboth\markboth
     \def\chaptermark##1{\markright{%
@@ -1155,12 +1156,25 @@
 %
 %
 % \begin{environment}{acknowledgement}
+% \begin{environment}{acknowledgement*}
 % 「謝辞」を記述する環境です．
 %    \begin{macrocode}
 \newenvironment{acknowledgement}
-  {\chapter*{\Huge\acknowledgementname}}
-  {\vfill\flushright\pubdate\endflushright\vspace{3\Cvs}\clearpage}
+  {\chapter*{\acknowledgementname}
+   \thispagestyle{empty}}
+  {\clearpage}
+\newenvironment{acknowledgement*}
+  {\chapter*{\acknowledgementname\@mkboth{}{}}
+   \thispagestyle{empty}
+  }
+  {\vfill
+   \begin{flushright}
+     \vbox{\today\\
+     \underline{\hbox to 16zw{}}}
+   \end{flushright}
+   \clearpage}
 %    \end{macrocode}
+% \end{environment}
 % \end{environment}
 %
 % \subsection*{章見出し}
@@ -1292,21 +1306,21 @@
     \addcontentsline{toc}{chapter}{#1}%
   \fi
   \chaptermark{#1}%
-  \addtocontents{lof}{\protect\addvspace{10\p@}}%
+ 	 \addtocontents{lof}{\protect\addvspace{10\p@}}%
   \addtocontents{lot}{\protect\addvspace{10\p@}}%
   \@makechapterhead{#2}\@afterheading}
 \def\@schapter#1{%
   \@makeschapterhead{#1}\@afterheading}
 % 章見出しの作成
 \def\@makechapterhead#1{\hbox{}%
-  \vskip2\Cvs
+  \vskip.5\Cvs
   {\parindent\z@
    \raggedright
    \reset@font\LARGE\bfseries
    \ifnum \c@secnumdepth >\m@ne
-     \hbox{\@chapapp\thechapter\@chappos}\vskip1\Cvs%
+     \hbox{\@chapapp\thechapter\@chappos}\vskip.5\Cvs%
    \fi
-   \hbox{#1}\vskip3\Cvs}}
+   \hbox{#1}\vskip1\Cvs}}
 \def\@makeschapterhead#1{\hbox{}%
   \vskip2\Cvs
   {\parindent\z@
@@ -1951,10 +1965,10 @@
 \newcommand{\tableofcontents}{%
   \if@twocolumn\@restonecoltrue\onecolumn
   \else\@restonecolfalse\fi
-  \chapter*{\contentsname
-    \@mkboth{\contentsname}{\contentsname}%
-  }\@starttoc{toc}%
+  \chapter*{\contentsname\@mkboth{\contentsname}{\contentsname}}
+  \@starttoc{toc}%
   \if@restonecol\twocolumn\fi
+  \addtocontents{toc}{\protect\linespread{}\selectfont}
 }
 %    \end{macrocode}
 % \end{macro}
@@ -2044,7 +2058,8 @@
   \chapter*{\listfigurename
   \@mkboth{\listfigurename}{\listfigurename}}%
   \@starttoc{lof}%
-  \if@restonecol\twocolumn\fi}
+  \if@restonecol\twocolumn\fi
+  \addtocontents{lof}{\protect\linespread{}\selectfont}}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -2064,7 +2079,8 @@
   \chapter*{\listtablename
   \@mkboth{\listtablename}{\listtablename}}%
   \@starttoc{lot}%
-  \if@restonecol\twocolumn\fi}
+  \if@restonecol\twocolumn\fi
+  \addtocontents{lot}{\protect\linespread{}\selectfont}}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -2079,13 +2095,12 @@
 % \begin{macro}{\bibname}
 % 参考文献環境の見出しとなる文字列を指定します．
 %    \begin{macrocode}
-\@ifundefined{bibname}%
-  {\newcommand{\bibname}{参考文献}}{}
+\@ifundefined{bibname}{\newcommand{\bibname}{参考文献}}{}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\bibhang}
-% 文献の先頭の字下げ幅です．
+% 文献リストの先頭の字下げ幅です．
 %    \begin{macrocode}
 \newdimen\bibhang
 \setlength\bibhang{-1zw}
@@ -2093,7 +2108,7 @@
 % \end{macro}
 %
 % \begin{macro}
-% 文献のブロック間にあける小さな空白の大きさです．
+% 文献リストのブロック間にあける小さな空白の大きさです．
 %    \begin{macrocode}
 \@ifundefined{newblock}%
   {\newcommand{\newblock}{\hskip .11em\@plus.33em\@minus.07em}}
@@ -2142,24 +2157,22 @@
 % \begin{environment}{thebibliography}
 % 参考文献リストを提供する環境です．
 %    \begin{macrocode}
-\def\thebibliography{%
-  \@ifundefined{chapter}%
-    {\section*{\bibname\@mkboth{\bibname}{\bibname}}}
-    {\chapter*{\bibname\@mkboth{\bibname}{\bibname}}}
-    \list{\relax}{
-      \setlength\leftmargin{-\bibhang}
-      \setlength\itemindent{\bibhang}
-      \setlength\labelsep{\z@}
-      \setlength\itemsep{1.2\p@}}
-    \renewcommand{\baselinestretch}{}\selectfont
-    \def\@noitemerr{%
-      \@latex@warning{Empty `thebibliography' environment}}
-    \sloppy
-    \clubpenalty=4000
-    \@clubpenalty=\clubpenalty
-    \widowpenalty=4000
-    \sfcode`\.=\@m }
-\let\endthebibliography=\endlist
+\newenvironment{thebibliography}[1]
+ {\chapter*{\bibname\@mkboth{\bibname}{\bibname}}
+  \addcontentsline{toc}{chapter}{\bibname}
+  \list{\relax}{
+    \setlength\leftmargin{-\bibhang}
+    \setlength\itemindent{\bibhang}
+    \setlength\labelsep{\z@}
+    \setlength\itemsep{1.2\p@}}
+  \def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}
+  \linespread{}\selectfont
+  \sloppy
+  \clubpenalty=4000
+  \@clubpenalty=\clubpenalty
+  \widowpenalty=4000
+  \sfcode`\.\@m}
+ {\endlist\clearpage}
 %    \end{macrocode}
 % \end{environment}
 % \subsubsection*{索引}
@@ -2255,16 +2268,6 @@
 % \end{macro}
 % 
 % \subsection{初期設定}
-% \begin{macro}{\pubdate}
-%    \begin{macrocode}
-\ifx\@date\@empty
-  \let\pubdate\today
-\else
-  \let\pubdate\@date
-\fi
-%    \end{macrocode}
-% \end{macro}
-%
 % \begin{macro}{\prepartname}
 % \begin{macro}{\postpartname}
 % \begin{macro}{\prechaptername}
