@@ -1,13 +1,14 @@
 % \iffalse     META-COMMENT
 % Source File: jinka.dtx
-% $Id: jinka.dtx,v 1.7 2002-02-06 08:46:46 pooh Exp $
+% $Revision: 1.8 $
+% $Date: 2003-01-04 18:55:08 $
 %
 % Copyright (C) 1998-2002  MIYAMOTO Yusuke
 % All rights reserved.
 % \fi
 \def\filename{jinka.dtx}
-\def\fileversion{1.1.2}
-\def\filedate{2002/02/04}
+\def\fileversion{1.2.0}
+\def\filedate{2002/12/26}
 %  \CheckSum{0}
 %%
 %% \CharacterTable
@@ -28,31 +29,35 @@
 %%
 %
 % \changes{v1.0}{1998/10/01}
-%         {jinka.cls for pLaTeX2e version 1.0 ¸ø³«}
+%         {jinka.cls for pLaTeX2e version 1.0 $B8x3+(B}
 % \changes{v1.1a}{2000/08/30}
 %         {version 1.1 $\alpha$}
 % \changes{v1.1a}{2000/08/30}
-%         {¿ÞÉ½´Ä¶­¤Ç¤ÏËÜÊ¸¤Î¹Ô´Ö¤òÅ¬ÍÑ¤·¤Ê¤¤¤è¤¦¤ËÄ´À°}
+%         {$B?^I=4D6-$G$OK\J8$N9T4V$rE,MQ$7$J$$$h$&$KD4@0(B}
 % \changes{v1.1a}{2000/09/07}
-%         {¥Ú¡¼¥¸¥¹¥¿¥¤¥ë¤Î¥Ð¥°¤ò½¤Àµ}
+%         {$B%Z!<%8%9%?%$%k$N%P%0$r=$@5(B}
 % \changes{v1.1a}{2000/09/15}
-%         {¥É¥­¥å¥á¥ó¥È¤Î½¤Àµ}
+%         {$B%I%-%e%a%s%H$N=$@5(B}
 % \changes{v1.1a}{2000/09/19}
-%         {¥Ç¥Õ¥©¥ë¥È¤Î¥Ú¡¼¥¸¥¹¥¿¥¤¥ë¡¤¹Ô¿ô¤òÊÑ¹¹}
+%         {$B%G%U%)%k%H$N%Z!<%8%9%?%$%k!$9T?t$rJQ99(B}
 % \changes{v1.1a}{2000/09/27}
-%         {¥Ú¡¼¥¸¥ì¥¤¥¢¥¦¥È¤Î¥Ñ¥é¥á¥¿¤òÊÑ¹¹}
+%         {$B%Z!<%8%l%$%"%&%H$N%Q%i%a%?$rJQ99(B}
 % \changes{v1.1a}{2000/09/28}
-%         {»²¹ÍÊ¸¸¥¥¹¥¿¥¤¥ë jpa ¤Î¥Ñ¥Ã¥±¡¼¥¸¥Õ¥¡¥¤¥ë¤òÅý¹ç}
+%         {$B;29MJ88%%9%?%$%k(B jpa $B$N%Q%C%1!<%8%U%!%$%k$rE}9g(B}
 % \changes{v1.1a}{2000/09/30}
-%         {¾Ï¸«½Ð¤·¤òÆó¹Ô·Á¼°¤ËÊÑ¹¹¡¥}
+%         {$B>O8+=P$7$rFs9T7A<0$KJQ99!%(B}
 % \changes{v1.1b}{2000/10/01}
-%         {version 1.1 $\beta$ ¤È¤·¤Æ¥ê¥ê¡¼¥¹¡¥}
+%         {version 1.1 $\beta$ $B$H$7$F%j%j!<%9!%(B}
 % \changes{v1.1c}{2000/10/09}
-%         {»²¹ÍÊ¸¸¥¥¹¥¿¥¤¥ë jpa ¤Î¥Ñ¥Ã¥±¡¼¥¸¥Õ¥¡¥¤¥ë¤òÊ¬Î¥}
+%         {$B;29MJ88%%9%?%$%k(B jpa $B$N%Q%C%1!<%8%U%!%$%k$rJ,N%(B}
 % \changes{1.1.1}{2002/01/06}
-%         {¥Õ¥í¡¼¥È¤Î [loc] ¥ª¥×¥·¥ç¥óÂÐ±þ¤ò½¤Àµ}
+%         {$B%U%m!<%H$N(B [loc] $B%*%W%7%g%sBP1~$r=$@5(B}
 % \changes{1.1.1}{2002/01/09}
-%         {¥Ç¥Õ¥©¥ë¥È¥Ú¡¼¥¸¥¹¥¿¥¤¥ë¤È¤·¤Æ |linehead| ¤òÄÉ²Ã¡¥}
+%         {$B%G%U%)%k%H%Z!<%8%9%?%$%k$H$7$F(B |linehead| $B$rDI2C!%(B}
+% \changes{1.1.2}{2002/02/06}
+%         {|\frontmatter|, |\mainmatter|, |\backmatter| $B%3%^%s%I$rDI2C!%(B}
+% \changes{1.2.0}{2002/12/26}
+%         {$B<9I.5,Dj$N2~Dj$K$H$b$J$$!$JG$"$?$j;z?t$NJQ99!%(B}
 % 
 % \iffalse
 %<*jinka>
@@ -69,149 +74,149 @@
   \RecordChanges
   \MakeShortVerb{\|}
 \begin{document}
-  \title{{\normalsize ÂçºåÂç³ØÂç³Ø±¡¿Í´Ö²Ê³Ø¸¦µæ²Ê/¿Í´Ö²Ê³ØÉô ¹ÔÆ°³ØÀì¹¶}\\
-         ³Ø°ÌÏÀÊ¸ÍÑ¥¯¥é¥¹¥Õ¥¡¥¤¥ë ver. {\fileversion}}
-  \author{MIYAMOTO Yusuke\thanks{ÂçºåÂç³ØÂç³Ø±¡¿Í´Ö²Ê³Ø¸¦µæ²Ê ¹ÔÆ°³ØÀì¹¶}}
+  \title{{\normalsize $BBg:eBg3X?M4V2J3XIt(B ($B9TF07O(B)}\\
+         $B3X0LO@J8MQ%/%i%9%U%!%$%k(B ver. {\fileversion}}
+  \author{MIYAMOTO Yusuke\thanks{$BBg:eBg3XBg3X1!?M4V2J3X8&5f2J(B}}
   \maketitle
   \DocInput{\filename}
 \end{document}
 %</driver>
 % \fi
 %
-% \section*{³µÍ×}
-% ``jinka.cls'' ¤Ï¡¤¿Í´Ö²Ê³Ø¸¦µæ²Ê¡Ê¹ÔÆ°³ØÀì¹¶¡ËÏÀÊ¸ºîÀ®ÍÑ¤Î \LaTeXe{}¥¯¥é¥¹
-% ¥Õ¥¡¥¤¥ë¤Ç¤¹¡¥°ì¹Ô¤¢¤¿¤ê¤ÎÊ¸»ú¿ô¡¤°ìÊÇ¤¢¤¿¤ê¤Î¹Ô¿ô¤ò»ØÄê¤¹¤ë¤³¤È¤¬¤Ç¤­¤Þ¤¹¡¥
+% \section*{$B35MW(B}
+% ``jinka.cls'' $B$O!$?M4V2J3X8&5f2J!J9TF03X@l96!KO@J8:n@.MQ$N(B \LaTeXe{}$B%/%i%9(B
+% $B%U%!%$%k$G$9!%0l9T$"$?$j$NJ8;z?t!$0lJG$"$?$j$N9T?t$r;XDj$9$k$3$H$,$G$-$^$9!%(B
 % 
-% \subsection*{¼¹É®µ¬Äê}
+% \subsection*{$B<9I.5,Dj(B}
 % 
 % \begin{center}
 % \DeleteShortVerb{\|}
 % \MakeShortVerb{+}
 % \begin{tabular}{|l|c|}\hline
-% ÍÑ»æ¥µ¥¤¥º         & A4 È½      \\ \hline
-% »æ¼Á               & ¾å¼Á»æ     \\ \hline\hline
-% 1ÊÇ¤ÎÊ¸»ú¿ô        & 600»ú/ÊÇ   \\ \hline
-% 1¹Ô¤ÎÊ¸»ú¿ô        & 30»ú       \\ \hline
-% 1ÊÇ¤Î¹Ô¿ô          & 20¹Ô       \\ \hline\hline
-% ¾åÉô Í¾Çò          & 25 -- 40mm \\ \hline
-% ²¼Éô Í¾Çò          & 10 -- 25mm \\ \hline
-% º¸ Í¾Çò¡ÊÄÖ¤¸¤·¤í¡Ë& 25 -- 40mm \\ \hline
-% ±¦ Í¾Çò            & 10 -- 25mm \\ \hline
+% $BMQ;f%5%$%:(B         & A4 $BH=(B      \\ \hline
+% $B;f<A(B               & $B>e<A;f(B     \\ \hline\hline
+% 1$BJG$NJ8;z?t(B        & 600$B;z(B/$BJG(B   \\ \hline
+% 1$B9T$NJ8;z?t(B        & 30$B;z(B       \\ \hline
+% 1$BJG$N9T?t(B          & 20$B9T(B       \\ \hline\hline
+% $B>eIt(B $BM>Gr(B          & 25 -- 40mm \\ \hline
+% $B2<It(B $BM>Gr(B          & 10 -- 25mm \\ \hline
+% $B:8(B $BM>Gr!JDV$8$7$m!K(B& 25 -- 40mm \\ \hline
+% $B1&(B $BM>Gr(B            & 10 -- 25mm \\ \hline
 % \end{tabular}
 % \MakeShortVerb{\|}
 % \end{center}
 % 
-% \section*{¥¹¥¿¥¤¥ë¤Î¾ÜºÙ}
-%  \subsection*{¥ª¥×¥·¥ç¥ó}
-%    |\documentclass| ¤Î¥ª¥×¥·¥ç¥ó¤È¤·¤Æ°Ê²¼¤Î¤â¤Î¤¬»ØÄê¤Ç¤­¤Þ¤¹¡¥
-%    ¥Ç¥Õ¥©¥ë¥È¤Ç¤Ï¡ÖÆÈÎ©¤·¤¿¥¿¥¤¥È¥ë¥Ú¡¼¥¸¡Ê|titlepage|¡Ë¡×¡¤
-%    ¡Ö$38 \times 32$ ¥¹¥¿¥¤¥ë¡Ê|nojinka|¡Ë¡×¡¤¡Ö¿ÞÉ½¤Ë¤Ï¥»¥¯¥·¥ç¥óËè¤Î
-%    ÈÖ¹æ¤ò¤Ä¤±¤ë¡Ê|noserial|¡Ë¡×¤È¤Ê¤Ã¤Æ¤¤¤Þ¤¹¡¥
+% \section*{$B%9%?%$%k$N>\:Y(B}
+%  \subsection*{$B%*%W%7%g%s(B}
+%    |\documentclass| $B$N%*%W%7%g%s$H$7$F0J2<$N$b$N$,;XDj$G$-$^$9!%(B
+%    $B%G%U%)%k%H$G$O!VFHN)$7$?%?%$%H%k%Z!<%8!J(B|titlepage|$B!K!W!$(B
+%    $B!V(Bjinka $B%9%?%$%k!J(B|jinka|$B!K!W!$!V?^I=$K$O%;%/%7%g%sKh$N(B
+%    $BHV9f$r$D$1$k!J(B|noserial|$B!K!W$H$J$C$F$$$^$9!%(B
 %  
 %    \begin{table}[htb]
-%    \caption{¥°¥í¡¼¥Ð¥ë¥ª¥×¥·¥ç¥ó¤Î°ìÍ÷}
+%    \caption{$B%0%m!<%P%k%*%W%7%g%s$N0lMw(B}
 %    \DeleteShortVerb{\|}
 %    \MakeShortVerb{\+}
 %    \begin{center}
 %    \begin{tabular}{l|l} \hline
-%    ¥ª¥×¥·¥ç¥ó & ²òÀâ \\ \hline
-%    \texttt{titlepage} & ¥¿¥¤¥È¥ë¤òÆÈÎ©¤·¤¿¥Ú¡¼¥¸¤Ë¤¹¤ë¡¥\\
-%    \texttt{notitlepage} & ¥¿¥¤¥È¥ë¥Ú¡¼¥¸¤òÆÈÎ©¤µ¤»¤Ê¤¤¡¥\\
-%    \texttt{draft} & +\ifdraft+ ¥¹¥£¥Ã¥Á¤ò +true+ ¤Ë¤¹¤ë¡¥\\
-%    \texttt{final} & +\ifdraft+ ¥¹¥£¥Ã¥Á¤ò +false+ ¤Ë¤¹¤ë¡¥\\
-%    \texttt{serial} & ¿ÞÉ½¤ËÄÌ¤·ÈÖ¹æ¤ò¤Ä¤±¤ë¡¥\\
-%    \texttt{noserial} & ¿ÞÉ½¤ÎÈÖ¹æ¤ò¾Ï¤´¤È¤Ë¥ê¥»¥Ã¥È¤¹¤ë¡¥\\
-%    \texttt{jinka} & $30 \times 20$ ¤Î½ñ¼°¤ò»ÈÍÑ¤¹¤ë¡¥\\
-%    \texttt{nojinka} & +jinka+ ¤è¤ê¤â»ú¤òµÍ¤á¤¿½ñ¼°¤ò»ÈÍÑ¤¹¤ë¡¥\\ \hline
+%    $B%*%W%7%g%s(B & $B2r@b(B \\ \hline
+%    \texttt{titlepage} & $B%?%$%H%k$rFHN)$7$?%Z!<%8$K$9$k!%(B\\
+%    \texttt{notitlepage} & $B%?%$%H%k%Z!<%8$rFHN)$5$;$J$$!%(B\\
+%    \texttt{draft} & +\ifdraft+ $B%9%#%C%A$r(B +true+ $B$K$9$k!%(B\\
+%    \texttt{final} & +\ifdraft+ $B%9%#%C%A$r(B +false+ $B$K$9$k!%(B\\
+%    \texttt{serial} & $B?^I=$KDL$7HV9f$r$D$1$k!%(B\\
+%    \texttt{noserial} & $B?^I=$NHV9f$r>O$4$H$K%j%;%C%H$9$k!%(B\\
+%    \texttt{jinka} & $30 \times 20$ $B$N=q<0$r;HMQ$9$k!%(B\\
+%    \texttt{nojinka} & +jinka+ $B$h$j$b;z$r5M$a$?=q<0$r;HMQ$9$k!%(B\\ \hline
 %    \end{tabular}
 %    \end{center}
 %    \DeleteShortVerb{\+}
 %    \MakeShortVerb{\|}    
 %    \end{table}
 %
-%  \subsection*{¥Õ¥©¥ó¥È}
-%    ¥Õ¥©¥ó¥È¥µ¥¤¥º¤Ï 12pt ¤¬¥Ç¥Õ¥©¥ë¥È¤Ë¤Ê¤Ã¤Æ¤¤¤Þ¤¹¡¥°ìÈÌÅª¤Ê¥¯¥é¥¹¥Õ¥¡¥¤¥ë
-%    ¤ÈÆ±ÍÍ¤Î¥ª¥×¥·¥ç¥ó¤ÇÊÑ¹¹¤Ç¤­¤Þ¤¹¡¥
+%  \subsection*{$B%U%)%s%H(B}
+%    $B%U%)%s%H%5%$%:$O(B 11pt $B$,%G%U%)%k%H$K$J$C$F$$$^$9!%0lHLE*$J%/%i%9%U%!%$%k(B
+%    $B$HF1MM$N%*%W%7%g%s$GJQ99$G$-$^$9!%(B
 %    
-%  \subsection*{¥ì¥¤¥¢¥¦¥È}
-%    ¥Ç¥Õ¥©¥ë¥È¤Ç¤Ï¡¤¡Ö$40 \times 30$ ¥¹¥¿¥¤¥ë¡× --- ¤Ä¤Þ¤ê1¹Ô¤¢¤¿¤ê36»ú¡¤
-%    1¥Ú¡¼¥¸¤¢¤¿¤ê32¹Ô ¤È¤Ê¤ë¤è¤¦¤Ë |\textwidth|¡¤|\baselinestretch| ¤¬
-%    ÀßÄê¤µ¤ì¤Þ¤¹¡¥\texttt{jinka} ¥ª¥×¥·¥ç¥ó¤Ë¤è¤ê¡Ö$30 \times 20$ ¥¹¥¿¥¤¥ë¡×
-%    ¤Ë¤Ê¤ê¤Þ¤¹¡¥
+%  \subsection*{$B%l%$%"%&%H(B}
+%    $B%G%U%)%k%H$G$O!$!V(B$40 \times 30$ $B%9%?%$%k!W(B --- $B$D$^$j(B1$B9T$"$?$j(B36$B;z!$(B
+%    1$B%Z!<%8$"$?$j(B32$B9T(B $B$H$J$k$h$&$K(B |\textwidth|$B!$(B|\baselinestretch| $B$,(B
+%    $B@_Dj$5$l$^$9!%(B\texttt{jinka} $B%*%W%7%g%s$K$h$j!V(B$30 \times 20$ $B%9%?%$%k!W(B
+%    $B$K$J$j$^$9!%(B
 %    
-%    ¤Þ¤¿¡¤»úµÍ¤á¡¤¹Ô´Ö¤ÎÄ´Àá¤ò¤ª¤³¤Ê¤¦2¤Ä¤Î¥³¥Þ¥ó¥É¤òÍÑ°Õ¤·¤Þ¤·¤¿¡¥
+%    $B$^$?!$;z5M$a!$9T4V$ND4@a$r$*$3$J$&(B2$B$D$N%3%^%s%I$rMQ0U$7$^$7$?!%(B
 %    
 %    \begin{macro}{\Columns}
-%    |\Columns{|{\em cols}|}| ¤Ï |\textwidth| ¤ò 1 ¹Ô¤¢¤¿¤êÌó {\em cols} »ú 
-%    (Á´³Ñ) ¤Ë¤Ê¤ë¤è¤¦¤ËÀßÄê¤·¤Þ¤¹\footnote{¥°¥ë¡¼¤¬Æþ¤ë¤³¤È¤ò¹Í¤¨¡¤
-%    ¤Û¤ó¤Î¾¯¤·Í¾Íµ¤ò¤â¤¿¤»¤ÆÀßÄê¤·¤Þ¤¹¡¥¤Þ¤¿¡¤¥¹¥Ú¡¼¥¹¤ä¥«¡¼¥Ë¥ó¥°¤Î´Ø·¸¤Ç¡¤
-%    Àµ³Î¤ËÀßÄê¤Ç¤­¤ë¤ï¤±¤Ç¤Ï¤¢¤ê¤Þ¤»¤ó¡¥}¡¥
+%    |\Columns{|{\em cols}|}| $B$O(B |\textwidth| $B$r(B 1 $B9T$"$?$jLs(B {\em cols} $B;z(B 
+%    ($BA43Q(B) $B$K$J$k$h$&$K@_Dj$7$^$9(B\footnote{$B%0%k!<$,F~$k$3$H$r9M$(!$(B
+%    $B$[$s$N>/$7M>M5$r$b$?$;$F@_Dj$7$^$9!%$^$?!$%9%Z!<%9$d%+!<%K%s%0$N4X78$G!$(B
+%    $B@53N$K@_Dj$G$-$k$o$1$G$O$"$j$^$;$s!%(B}$B!%(B
 %    \end{macro}
 %    
 %    \begin{macro}{\Lines}
-%    |\Lines{|{\em lines}|}| ¤Ï¡¤ |\baselinestretch| ¤ò 1 ¥Ú¡¼¥¸¤¢¤¿¤ê¤Î¹Ô¿ô
-%    ¤¬ {\em lines} ¤È¤Ê¤ë¤è¤¦¤ËÀßÄê¤·¤Þ¤¹\footnote{¤³¤ì¤â´°Á´¤ËÀµ³Î¤È¤¤¤¦
-%    ¤ï¤±¤Ë¤Ï¤¤¤­¤Þ¤»¤ó¡¥}¡¥
+%    |\Lines{|{\em lines}|}| $B$O!$(B |\baselinestretch| $B$r(B 1 $B%Z!<%8$"$?$j$N9T?t(B
+%    $B$,(B {\em lines} $B$H$J$k$h$&$K@_Dj$7$^$9(B\footnote{$B$3$l$b40A4$K@53N$H$$$&(B
+%    $B$o$1$K$O$$$-$^$;$s!%(B}$B!%(B
 %    \[ +baselinestrech+ = \frac{\mbox{+textheight+}-\mbox{+topskip+}}%
 %                     {(\mathit{lines}-1)\times\mbox{+baselineskip+}} \]
 %    \end{macro}
 %    
-%    ¤½¤ÎÂ¾¤Î¥¹¥¿¥¤¥ë¡¦¥Ñ¥é¥á¡¼¥¿¤Ë¤Ä¤¤¤Æ¤Ï¡¤É¸½à¤Î¥¯¥é¥¹¥Ñ¥Ã¥±¡¼¥¸
-%    (jreport.cls ¤Ê¤É) ¤Ë½à¤¸¤Þ¤¹¡¥¤½¤Á¤é¤Î¥É¥­¥å¥á¥ó¥È¤â»²¹Í¤Ë¤·¤Æ
-%    ²¼¤µ¤¤¡¥
+%    $B$=$NB>$N%9%?%$%k!&%Q%i%a!<%?$K$D$$$F$O!$I8=`$N%/%i%9%Q%C%1!<%8(B
+%    (jreport.cls $B$J$I(B) $B$K=`$8$^$9!%$=$A$i$N%I%-%e%a%s%H$b;29M$K$7$F(B
+%    $B2<$5$$!%(B
 %    
-%  \subsection*{¥Ú¡¼¥¸¥¹¥¿¥¤¥ë}
-%    °Ê²¼¤Î¥Ú¡¼¥¸¥¹¥¿¥¤¥ë¤¬ÄêµÁ¤µ¤ì¤Æ¤¤¤Þ¤¹¡¥
+%  \subsection*{$B%Z!<%8%9%?%$%k(B}
+%    $B0J2<$N%Z!<%8%9%?%$%k$,Dj5A$5$l$F$$$^$9!%(B
 %    \begin{table}[h]
-%    \caption{¥Ú¡¼¥¸¥¹¥¿¥¤¥ë°ìÍ÷}
+%    \caption{$B%Z!<%8%9%?%$%k0lMw(B}
 %    \DeleteShortVerb{\|}
 %    \MakeShortVerb{\+}
 %    \begin{center}
 %    \begin{tabular}{l|l}\hline
-%    ¥Ú¡¼¥¸¥¹¥¿¥¤¥ë   & ÆâÍÆ \\ \hline
-%    +plain+      & ¥Õ¥Ã¥¿Ãæ±û¤Ë¥Ú¡¼¥¸ÈÖ¹æ¤ò½ÐÎÏ¡¥\\
-%    +jinka+      & ¥Ç¥Õ¥©¥ë¥È¤Î¥Ú¡¼¥¸¥¹¥¿¥¤¥ë¡¥+linehead+ ¤ÈÆ±¤¸¡¥\\
-%    +bothstyle+  & ¥Ø¥Ã¥À¤Ë¾Ï¸«½Ð¤·¡¤¥Õ¥Ã¥¿¤Ë¥Ú¡¼¥¸ÈÖ¹æ¤ò½ÐÎÏ¡¥\\
-%    +linehead+   & ¥Ø¥Ã¥À¤Ë²¼Àþ¤òÉÕ²Ã¤·¤¿ +bothstyle+¡¥\\
-%    +headnomble+ & ¥Ø¥Ã¥À¤Ë¥Ú¡¼¥¸ÈÖ¹æ¤ò½ÐÎÏ¡¥\\
-%    +footnomble+ & ¥Õ¥Ã¥¿¤Ë¥Ú¡¼¥¸ÈÖ¹æ¤ò½ÐÎÏ¡¥\\
-%    +headings+   & ¥Ø¥Ã¥À¤Ë¾Ï¸«½Ð¤·¤È¥Ú¡¼¥¸ÈÖ¹æ¤ò½ÐÎÏ¡¥\\
-%    +nopage+     & ¥Ø¥Ã¥À¤Ë¾Ï¸«½Ð¤·¤Î¤ß¤ò½ÐÎÏ¡¥\\ \hline
+%    $B%Z!<%8%9%?%$%k(B   & $BFbMF(B \\ \hline
+%    +plain+      & $B%U%C%?Cf1{$K%Z!<%8HV9f$r=PNO!%(B\\
+%    +jinka+      & $B%G%U%)%k%H$N%Z!<%8%9%?%$%k!%(B+linehead+ $B$HF1$8!%(B\\
+%    +bothstyle+  & $B%X%C%@$K>O8+=P$7!$%U%C%?$K%Z!<%8HV9f$r=PNO!%(B\\
+%    +linehead+   & $B%X%C%@$K2<@~$rIU2C$7$?(B +bothstyle+$B!%(B\\
+%    +headnomble+ & $B%X%C%@$K%Z!<%8HV9f$r=PNO!%(B\\
+%    +footnomble+ & $B%U%C%?$K%Z!<%8HV9f$r=PNO!%(B\\
+%    +headings+   & $B%X%C%@$K>O8+=P$7$H%Z!<%8HV9f$r=PNO!%(B\\
+%    +nopage+     & $B%X%C%@$K>O8+=P$7$N$_$r=PNO!%(B\\ \hline
 %    \end{tabular}
 %    \end{center}
 %    \DeleteShortVerb{\+}
 %    \MakeShortVerb{\|}
 %    \end{table}
 %
-%  \subsection*{É½Âê}
-%    É½Âê¤Ï¡¤¥Ç¥Õ¥©¥ë¥È¤Ç¤ÏÆÈÎ©¤·¤¿¥Ú¡¼¥¸¤Ë½ÐÎÏ¤µ¤ì¤Þ¤¹
-%    (|\notitlepage| ¥ª¥×¥·¥ç¥ó¤ÇÊÑ¹¹¤Ç¤­¤Þ¤¹)¡¥
-%    É½Âê¤Ç¤Ï¡¤|\title|, |\subtitle|, |\author|, |\thanks|, |\date| ¤¬
-%    »ØÄê¤Ç¤­¤Þ¤¹¡¥|\subtitle| °Ê³°¤Ï ``latex.dtx'' ¤ÇÄêµÁ¤µ¤ì¤Æ¤¤¤Þ¤¹¡¥
+%  \subsection*{$BI=Bj(B}
+%    $B%?%$%H%k$O!$%G%U%)%k%H$G$OFHN)$7$?%Z!<%8$K=PNO$5$l$^$9(B
+%    (|\notitlepage| $B%*%W%7%g%s$GJQ99$G$-$^$9(B)$B!%(B
+%    $B%?%$%H%k$G$O!$(B|\title|, |\subtitle|, |\author|, |\thanks|, |\date| $B$,(B
+%    $B;XDj$G$-$^$9!%(B|\subtitle| $B0J30$O(B ``latex.dtx'' $B$GDj5A$5$l$F$$$^$9!%(B
 %    
 %    \begin{macro}{\title}
-%    °ú¿ô¤Ë¥¿¥¤¥È¥ë¤ò»ØÄê¤·¤Þ¤¹¡¥
+%    $B0z?t$K%?%$%H%k$r;XDj$7$^$9!%(B
 %    \end{macro}
 %    
 %    \begin{macro}{\subtitle}
-%    ¥µ¥Ö¥¿¥¤¥È¥ëÍÑ¥³¥Þ¥ó¥É¤òÄÉ²Ã¤·¤Þ¤·¤¿¡¥¥¿¥¤¥È¥ë¤Î²¼¤Ë |\large| ¥µ¥¤¥º¤Ç
-%    É½¼¨¤µ¤ì¤Þ¤¹¡¥
+%    $B%5%V%?%$%H%kMQ%3%^%s%I$rDI2C$7$^$7$?!%%?%$%H%k$N2<$K(B |\large| $B%5%$%:$G(B
+%    $BI=<($5$l$^$9!%(B
 %    \end{macro}
 %    
 %    \begin{macro}{\author}
-%    Ãø¼Ô¤ò»ØÄê¤·¤Þ¤¹¡¥
+%    $BCx<T$r;XDj$7$^$9!%(B
 %    \end{macro}
 %    
 %    \begin{macro}{\date}
-%    ½ÐÎÏ¤¹¤ëÆüÉÕ¤ò»ØÄê¤·¤Þ¤¹¡¥»ØÄê¤¬¤Ê¤±¤ì¤Ð¥³¥ó¥Ñ¥¤¥ë»þ¤ÎÆüÉÕ¤ò»È¤¤¤Þ¤¹¡¥
+%    $B=PNO$9$kF|IU$r;XDj$7$^$9!%;XDj$,$J$1$l$P%3%s%Q%$%k;~$NF|IU$r;H$$$^$9!%(B
 %    \end{macro}
 %    
-%  \subsection*{»²¹ÍÊ¸¸¥}
-%   ¡Ö¿´Íý³Ø¸¦µæ¡×¤Ë¤Ê¤é¤Ã¤¿»²¹ÍÊ¸¸¥¥¹¥¿¥¤¥ë¤Ç |thebibliography| ´Ä¶­¤ò
-%   ¼ÂÁõ¤·¤Æ¤¤¤Þ¤¹¡¥
-%   \textsc{JBib}\TeX ÍÑ »²¹ÍÊ¸¸¥¥¹¥¿¥¤¥ë¥Õ¥¡¥¤¥ë ``jpa.bst'' ¤òÉÕÂ°¤·¤Þ¤·¤¿¡¥
+%  \subsection*{$B;29MJ88%(B}
+%   $B!V?4M}3X8&5f!W$K$J$i$C$?;29MJ88%%9%?%$%k$G(B |thebibliography| $B4D6-$r(B
+%   $B<BAu$7$F$$$^$9!%(B
+%   \textsc{JBib}\TeX $BMQ(B $B;29MJ88%%9%?%$%k%U%!%$%k(B ``jpa.bst'' $B$rIUB0$7$^$7$?!%(B
 %    
-%   ¼¡¤Î¤è¤¦¤Ê½ÐÎÏ¤Ë¤Ê¤ê¤Þ¤¹¡¥
+%   $B<!$N$h$&$J=PNO$K$J$j$^$9!%(B
 %    \vskip 12pt
 %    \fbox{\begin{minipage}{0.95\textwidth}
 %    \def\newblock{\hskip 1em plus .33em minus .07em}
@@ -230,22 +235,22 @@
 %    \end{list}
 %    \end{minipage}}
 %
-%  \subsection*{ÉÕÏ¿}
+%  \subsection*{$BIUO?(B}
 %    \begin{macro}{\appendix}
-%    |\appendix| ¥³¥Þ¥ó¥É¤Ï¡¤chapter ¥«¥¦¥ó¥¿¤ò¥ê¥»¥Ã¥È¤·¡¤¾Ï¸«½Ð¤·¤ò
-%    ¡ÖÉÕÏ¿ A $\cdots$¡×¤È¤Ê¤ë¤è¤¦¤ËÀßÄê¤·¤Ê¤ª¤·¤Þ¤¹¡¥¡ÖÉÕÏ¿¡×¤ÎÉôÊ¬¤Ï
-%    |\appendixname| ¤Ë¤è¤Ã¤Æ·èÄê¤µ¤ì¤Þ¤¹¡¥
+%    |\appendix| $B%3%^%s%I$O!$(Bchapter $B%+%&%s%?$r%j%;%C%H$7!$>O8+=P$7$r(B
+%    $B!VIUO?(B A $\cdots$$B!W$H$J$k$h$&$K@_Dj$7$J$*$7$^$9!%!VIUO?!W$NItJ,$O(B
+%    |\appendixname| $B$K$h$C$F7hDj$5$l$^$9!%(B
 %    \end{macro}
 % 
-% \section*{ÌÈÀÕ»ö¹à¤È¥¯¥é¥¹¥Õ¥¡¥¤¥ë¤Î½¤Àµ¡¦ÇÛÉÛ¤Ë¤Ä¤¤¤Æ}
-%   ¥¯¥é¥¹¥Õ¥¡¥¤¥ë ``jinka.cls'' ¤Ï¡¤¼«Í³¤Ë½¤Àµ¤ò²Ã¤¨¤¿¤ê¡¤ºÆÇÛÉÛ¤¹¤ë¤³¤È¤¬
-%   ¤Ç¤­¤Þ¤¹¡¥¤¿¤À¤·¡¤½¤Àµ¤Ï¤Ç¤­¤ë¸Â¤ê ``jinka.dtx'' ¤ËÂÐ¤·¤Æ¤ª¤³¤Ê¤¤¡¤¥É¥­¥å
-%   ¥á¥ó¥È¤â°ìÃ×¤¹¤ë¤è¤¦¤ËÊÑ¹¹¤·¤Æ²¼¤µ¤¤¡¥
-%   ¤Þ¤¿¡¤½¤Àµ¡¦ÊÑ¹¹¤ò¤ª¤³¤Ê¤Ã¤¿¾ì¹ç¤Ë¤ÏÀ§Èó¤´°ìÊó¤ò¤¤¤¿¤À¤±¤ë¤ÈÍ­Æñ¤¤¤Ç¤¹¡¥
+% \section*{$BLH@U;v9`$H%/%i%9%U%!%$%k$N=$@5!&G[I[$K$D$$$F(B}
+%   $B%/%i%9%U%!%$%k(B ``jinka.cls'' $B$O!$<+M3$K=$@5$r2C$($?$j!$:FG[I[$9$k$3$H$,(B
+%   $B$G$-$^$9!%$?$@$7!$=$@5$O$G$-$k8B$j(B ``jinka.dtx'' $B$KBP$7$F$*$3$J$$!$%I%-%e(B
+%   $B%a%s%H$b0lCW$9$k$h$&$KJQ99$7$F2<$5$$!%(B
+%   $B$^$?!$=$@5!&JQ99$r$*$3$J$C$?>l9g$K$O@'Hs$40lJs$r$$$?$@$1$k$HM-Fq$$$G$9!%(B
 %
-%   ¤Ê¤ª¡¤¥ª¥ê¥¸¥Ê¥ë¤Þ¤¿¤ÏÊÑ¹¹¤·¤¿¥¯¥é¥¹¥Õ¥¡¥¤¥ë¤Ï¡¤¡Ö¤¢¤Ê¤¿¼«¿È¤ÎÀÕÇ¤¤Ç¡×
-%   »ÈÍÑ¤·¤Æ²¼¤µ¤¤¡¥¤½¤ÎÂ¾¡¤¥Ð¥°¥ì¥Ý¡¼¥È¤ä¤´°Õ¸«¡¦¤´Í×Ë¾¤¬¤¢¤ì¤Ð¡¤°Ê²¼¤Î
-%   ¥¢¥É¥ì¥¹¤Þ¤Ç¡¥
+%   $B$J$*!$%*%j%8%J%k$^$?$OJQ99$7$?%/%i%9%U%!%$%k$O!$!V$"$J$?<+?H$N@UG$$G!W(B
+%   $B;HMQ$7$F2<$5$$!%$=$NB>!$%P%0%l%]!<%H$d$40U8+!&$4MWK>$,$"$l$P!$0J2<$N(B
+%   $B%"%I%l%9$^$G!%(B
 % \begin{center}
 % \textsl{yusuke@koko15.hus.osaka-u.ac.jp}
 % \end{center}
@@ -254,13 +259,13 @@
 % \newpage
 %
 %<*jinka>
-% \section*{¥³¡¼¥É¤Î²òÀâ}
+% \section*{$B%3!<%I$N2r@b(B}
 %
-% \subsection*{¥æ¡¼¥Æ¥£¥ê¥Æ¥£¡¦¥Þ¥¯¥í}
+% \subsection*{$B%f!<%F%#%j%F%#!&%^%/%m(B}
 % 
 % \begin{macro}{setfraction}
-% 2¤Ä¤Î¿ôÃÍ¤ÎÈæ¤ò¼Â¿ô¤ÇÉ½¤¹¤¿¤á¤Î¥Þ¥¯¥í¤Ç¤¹¡¥|\baselinestretch| ¤ÎÀßÄê¤Ë
-% »ÈÍÑ¤·¤Þ¤¹¡¥
+% 2$B$D$N?tCM$NHf$r<B?t$GI=$9$?$a$N%^%/%m$G$9!%(B|\baselinestretch| $B$N@_Dj$K(B
+% $B;HMQ$7$^$9!%(B
 %    \begin{macrocode}
 \def\setfraction{\@ifnextchar[{\setfr@ction}{\setfr@ction[4]}}
 \def\setfr@ction[#1]#2#3#4{%
@@ -280,39 +285,39 @@
 %    \end{macrocode}
 % \end{macro}
 % 
-% \subsection*{¥ª¥×¥·¥ç¥ó¥¹¥¤¥Ã¥Á}
-% ¤³¤³¤Ç, ¸å¤Û¤É»ÈÍÑ¤¹¤ë¥³¥Þ¥ó¥É¤ä¥¹¥¤¥Ã¥Á¤òÄêµÁ¤·¤Æ¤¤¤Þ¤¹.
+% \subsection*{$B%*%W%7%g%s%9%$%C%A(B}
+% $B$3$3$G(B, $B8e$[$I;HMQ$9$k%3%^%s%I$d%9%$%C%A$rDj5A$7$F$$$^$9(B.
 %
 % \begin{macro}{\c@@paper}
-% ÍÑ»æ¥µ¥¤¥º¤ò¼¨¤·¤Þ¤¹¡¥A4, A5, B4, B5 ¤Ï¤½¤ì¤¾¤ì 1, 2, 3, 4 ¤ÇÉ½¤µ¤ì¤Þ¤¹.
+% $BMQ;f%5%$%:$r<($7$^$9!%(BA4, A5, B4, B5 $B$O$=$l$>$l(B 1, 2, 3, 4 $B$GI=$5$l$^$9(B.
 %    \begin{macrocode}
 \newcounter{@paper}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\if@@landscape}
-% ÍÑ»æ¤ÎÊý¸þ¤ò¼¨¤·¤Þ¤¹¡¥½Ä¸þ¤­¤Î¤È¤­¤Ï |\@@landscapefalse| ¤Ç¤¹¡¥
+% $BMQ;f$NJ}8~$r<($7$^$9!%=D8~$-$N$H$-$O(B |\@@landscapefalse| $B$G$9!%(B
 %    \begin{macrocode}
 \newif\if@landscape \@landscapefalse
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\@ptsize}
-% ÁÈÈÇ¤¹¤ë¥Ý¥¤¥ó¥È¿ô¤Î 1 ¤Î°Ì¤ò¼¨¤·¤Þ¤¹¡¥(¥Ç¥Õ¥©¥ë¥È¤Ï 12 pt¡¥)
+% $BAHHG$9$k%]%$%s%H?t$N(B 1 $B$N0L$r<($7$^$9!%(B($B%G%U%)%k%H$O(B 12 pt$B!%(B)
 %    \begin{macrocode}
 \newcommand{\@ptsize}{2}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\if@restonecol}
-% ÆóÃÊÁÈ¤Î¤È¤­¤ËÍÑ¤¤¤ë °ì»þ¥¹¥¤¥Ã¥Á¤Ç¤¹¡¥
+% $BFsCJAH$N$H$-$KMQ$$$k(B $B0l;~%9%$%C%A$G$9!%(B
 %    \begin{macrocode}
 \newif\if@restonecol
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\if@titlepage}
-% ¥¿¥¤¥È¥ë¤òÆÈÎ©¤·¤¿¥Ú¡¼¥¸¤Ë°õºþ¤¹¤ë¤«¤É¤¦¤«¤ò¼¨¤·¤Þ¤¹¡¥
+% $B%?%$%H%k$rFHN)$7$?%Z!<%8$K0u:~$9$k$+$I$&$+$r<($7$^$9!%(B
 %    \begin{macrocode}
 \newif\if@titlepage
 \@titlepagetrue
@@ -320,22 +325,29 @@
 % \end{macro}
 %
 % \begin{macro}{\ifdraft}
-% ¥É¥é¥Õ¥ÈÈÇ¤«·èÄêÈÇ¤«¤ò¼¨¤¹¥¹¥¤¥Ã¥Á¤Ç¤¹¡¥
+% $B%I%i%U%HHG$+7hDjHG$+$r<($9%9%$%C%A$G$9!%(B
 %    \begin{macrocode}
 \newif\ifdraft
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\if@jinka}
-% 30 ·å x 20 ¹Ô ¤Î jinka ¥¹¥¿¥¤¥ë¤ò»ÈÍÑ¤¹¤ë¤«¤É¤¦¤«¤ò¼¨¤¹¥¹¥¤¥Ã¥Á¤Ç¤¹¡¥
+%  jinka $B%9%?%$%k$r;HMQ$9$k$+$I$&$+$r<($9%9%$%C%A$G$9!%(B
 %    \begin{macrocode}
 \newif\if@jinka \@jinkafalse
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\if@double}
+% jinka $B%9%?%$%k$r;HMQ$9$k$+$I$&$+$r<($9%9%$%C%A$G$9!%(B
+%    \begin{macrocode}
+\newif\if@double \@doubletrue
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\if@mainmatter}
-% ËÜÊ¸¤ò½èÍýÃæ¤«¤É¤¦¤«¤ò¼¨¤¹¥¹¥¤¥Ã¥Á¤Ç¤¹¡¥¤³¤Î¥¹¥¤¥Ã¥Á¤¬ |false| ¤Î¤È¤­¡¤
-% |\chapter| ¥³¥Þ¥ó¥É¤Ï¸«½Ð¤·ÈÖ¹æ¤ò½ÐÎÏ¤·¤Þ¤»¤ó¡¥
+% $BK\J8$r=hM}Cf$+$I$&$+$r<($9%9%$%C%A$G$9!%$3$N%9%$%C%A$,(B |false| $B$N$H$-!$(B
+% |\chapter| $B%3%^%s%I$O8+=P$7HV9f$r=PNO$7$^$;$s!%(B
 %    \begin{macrocode}
 \newif\if@mainmatter \@mainmattertrue
 %    \end{macrocode}
@@ -343,7 +355,7 @@
 %
 % \begin{macro}{\hour}
 % \begin{macro}{\minute}
-% ½èÍý³«»Ï»þÅÀ¤Ç¤Î»þ¹ï¤òµ­Ï¿¤·¤Þ¤¹¡¥
+% $B=hM}3+;O;~E@$G$N;~9o$r5-O?$7$^$9!%(B
 %    \begin{macrocode}
 \hour\time \divide\hour by 60\relax
 \@tempcnta\hour \multiply\@tempcnta 60\relax
@@ -353,39 +365,39 @@
 % \end{macro}
 %
 % \begin{macro}{\if@stysize}
-% a4j, b5j ¤Ê¤É¤¬»ØÄê¤µ¤ì¤¿¤È¤­¤Î¥¹¥¤¥Ã¥Á¤Ç¤¹¡¥
+% a4j, b5j $B$J$I$,;XDj$5$l$?$H$-$N%9%$%C%A$G$9!%(B
 %    \begin{macrocode}
 \newif\if@stysize \@stysizefalse
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\if@enablejfam}
-% ÆüËÜ¸ì¥Õ¥¡¥ß¥ê¤òÀë¸À¤¹¤ë¤Î¤ËÍÑ¤¤¤Þ¤¹¡¥
+% $BF|K\8l%U%!%_%j$r@k8@$9$k$N$KMQ$$$^$9!%(B
 %    \begin{macrocode}
 \newif\if@enablejfam \@enablejfamtrue
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\if@serial}
-% ¿ÞÉ½¤ËÄÌ¤·ÈÖ¹æ¤ò¿¶¤ë¥ª¥×¥·¥ç¥ó¡¦¥¹¥¤¥Ã¥Á¤Ç¤¹¡¥
+% $B?^I=$KDL$7HV9f$r?6$k%*%W%7%g%s!&%9%$%C%A$G$9!%(B
 %    \begin{macrocode}
 \newif\if@serial\@serialfalse
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\if@compatibility}
-% µìÈÇ (2.09) ¤È¤Î¸ß´¹¥â¡¼¥É¤Ç¤¢¤ë¤³¤È¤ò¼¨¤¹¥Õ¥é¥°¤Ç¤¹¡¥
+% $B5lHG(B (2.09) $B$H$N8_49%b!<%I$G$"$k$3$H$r<($9%U%i%0$G$9!%(B
 %    \begin{macrocode}
 \newif\if@compatibility \@compatibilityfalse
 %    \end{macrocode}
 % \end{macro}
 %
 %
-% \subsection*{¥ª¥×¥·¥ç¥ó¤ÎÀë¸À}
-% ``jinka.cls'' ¤Ç»È¤¨¤ë¥ª¥×¥·¥ç¥ó¤òÀë¸À¤·¤Þ¤¹¡¥
+% \subsection*{$B%*%W%7%g%s$N@k8@(B}
+% ``jinka.cls'' $B$G;H$($k%*%W%7%g%s$r@k8@$7$^$9!%(B
 %
-% \subsubsection*{ÍÑ»æ¥ª¥×¥·¥ç¥ó}
-% ÍÑ»æ¥µ¥¤¥º¤ò»ØÄê¤¹¤ë¥ª¥×¥·¥ç¥ó¤Ç¤¹¡¥
+% \subsubsection*{$BMQ;f%*%W%7%g%s(B}
+% $BMQ;f%5%$%:$r;XDj$9$k%*%W%7%g%s$G$9!%(B
 %    \begin{macrocode}
 \DeclareOption{a4paper}{\setcounter{@paper}{1}%
   \setlength\paperheight {279mm}%
@@ -413,88 +425,89 @@
   \setlength\paperwidth  {182mm}}
 %    \end{macrocode}
 %
-% \subsubsection*{¥µ¥¤¥º¥ª¥×¥·¥ç¥ó}
-% ´ð½à¤È¤Ê¤ë¥Õ¥©¥ó¥È¤ÎÂç¤­¤µ¤ò»ØÄê¤·¤Þ¤¹¡¥
+% \subsubsection*{$B%5%$%:%*%W%7%g%s(B}
+% $B4p=`$H$J$k%U%)%s%H$NBg$-$5$r;XDj$7$^$9!%(B
 %    \begin{macrocode}
 \DeclareOption{12pt}{\renewcommand{\@ptsize}{2}}
 \DeclareOption{11pt}{\renewcommand{\@ptsize}{1}}
 \DeclareOption{10pt}{\renewcommand{\@ptsize}{0}}
 %    \end{macrocode}
 %
-% \subsubsection*{Î¾ÌÌºþ¤ê¥ª¥×¥·¥ç¥ó}
-% Î¾ÌÌ°õºþ¤Ë¤¹¤ë¤«¤É¤¦¤«¤ò»ØÄê¤·¤Þ¤¹¡¥º¸±¦¤Î¥Þ¡¼¥¸¥ó¤¬¤Á¤ç¤Ã¤ÈÊÑ¤ï¤ê¤Þ¤¹¡¥
+% \subsubsection*{$BN>LL:~$j%*%W%7%g%s(B}
+% $BN>LL0u:~$K$9$k$+$I$&$+$r;XDj$7$^$9!%:81&$N%^!<%8%s$,$A$g$C$HJQ$o$j$^$9!%(B
 %    \begin{macrocode}
 \DeclareOption{oneside}{\@twosidefalse}
 \DeclareOption{twoside}{\@twosidetrue}
 %    \end{macrocode}
 %
-% \subsubsection*{ÆóÃÊÁÈ¥ª¥×¥·¥ç¥ó}
-% ÆóÃÊÁÈ¤Ë¤¹¤ë¤«¤É¤¦¤«¤ò»ØÄê¤·¤Þ¤¹¡¥
+% \subsubsection*{$BFsCJAH%*%W%7%g%s(B}
+% $BFsCJAH$K$9$k$+$I$&$+$r;XDj$7$^$9!%(B
 %    \begin{macrocode}
 \DeclareOption{onecolumn}{\@twocolumnfalse}
 \DeclareOption{twocolumn}{\@twocolumntrue}
 %    \end{macrocode}
 %
-% \subsubsection*{¥¿¥¤¥È¥ë¥Ú¡¼¥¸¥ª¥×¥·¥ç¥ó}
-% ¥¿¥¤¥È¥ë¤òÆÈÎ©¤·¤¿¥Ú¡¼¥¸¤Ë°õºþ¤¹¤ë¤«¤É¤¦¤«¤ò»ØÄê¤·¤Þ¤¹¡¥
+% \subsubsection*{$B%?%$%H%k%Z!<%8%*%W%7%g%s(B}
+% $B%?%$%H%k$rFHN)$7$?%Z!<%8$K0u:~$9$k$+$I$&$+$r;XDj$7$^$9!%(B
 %    \begin{macrocode}
 \DeclareOption{titlepage}{\@titlepagetrue}
 \DeclareOption{notitlepage}{\@titlepagefalse}
 %    \end{macrocode}
 %
-% \subsubsection*{¿ô¼°¥ª¥×¥·¥ç¥ó}
-% |leqno| ¤ò»ØÄê¤¹¤ë¤È¡¤¿ô¼°¤ÎÈÖ¹æ¤òº¸Â¦¤Ë½ÐÎÏ¤·¤Þ¤¹¡¥|fleqn| ¤ò»ØÄê¤¹¤ë¤È¡¤
-% ¥Ç¥£¥¹¥×¥ì¥¤¿ô¼°¤òº¸Â·¤¨¤Ç½ÐÎÏ¤·¤Þ¤¹¡¥
+% \subsubsection*{$B?t<0%*%W%7%g%s(B}
+% |leqno| $B$r;XDj$9$k$H!$?t<0$NHV9f$r:8B&$K=PNO$7$^$9!%(B|fleqn| $B$r;XDj$9$k$H!$(B
+% $B%G%#%9%W%l%$?t<0$r:8B7$($G=PNO$7$^$9!%(B
 %    \begin{macrocode}
 \DeclareOption{leqno}{\input{leqno.clo}}
 \DeclareOption{fleqn}{\input{fleqn.clo}}
 %    \end{macrocode}
 %
-% \subsubsection*{ÆüËÜ¸ì¥Õ¥¡¥ß¥êÍÞÀ©¥ª¥×¥·¥ç¥ó}
-% ¥Ç¥Õ¥©¥ë¥È¤Ç¤Ï¡¤¿ô¼°Æâ¤ÇÆüËÜ¸ì¤¬»È¤¨¤ë¤è¤¦¤Ë¡¤¿ô¼°¥Õ¥¡¥ß¥ê¤òÀë¸À¤·¤Þ¤¹¤¬¡¤
-% disablejfam ¤ò»ØÄê¤¹¤ë¤³¤È¤Ç¤³¤ì¤òÍÞÀ©¤·¤Þ¤¹¡¥
+% \subsubsection*{$BF|K\8l%U%!%_%jM^@)%*%W%7%g%s(B}
+% $B%G%U%)%k%H$G$O!$?t<0Fb$GF|K\8l$,;H$($k$h$&$K!$?t<0%U%!%_%j$r@k8@$7$^$9$,!$(B
+% disablejfam $B$r;XDj$9$k$3$H$G$3$l$rM^@)$7$^$9!%(B
 %    \begin{macrocode}
   \DeclareOption{disablejfam}{\@enablejfamfalse}
 %    \end{macrocode}
 %
-% \subsubsection*{¥É¥é¥Õ¥È¥ª¥×¥·¥ç¥ó}
-% Áð¹ÆÃÊ³¬¤«·èÄêÈÇ¤«¤ò»ØÄê¤·¤Þ¤¹¡¥¥Ç¥Õ¥©¥ë¥È¤Ï final ¤Ç¤¹¡¥
+% \subsubsection*{$B%I%i%U%H%*%W%7%g%s(B}
+% $BAp9FCJ3,$+7hDjHG$+$r;XDj$7$^$9!%%G%U%)%k%H$O(B final $B$G$9!%(B
 % 
 %    \begin{macrocode}
 \DeclareOption{draft}{\drafttrue}
 \DeclareOption{final}{\draftfalse}
 %    \end{macrocode}
 %
-% \subsubsection*{ÄÌ¤·ÈÖ¹æ¥ª¥×¥·¥ç¥ó}
-% ¿ÞÉ½¤ËÄÌ¤·ÈÖ¹æ¤ò¤Ä¤±¤Þ¤¹¡¥|noserial| ¤Ç¤Ï¾Ï¤´¤È¤Ë¥«¥¦¥ó¥¿¤ò¥ê¥»¥Ã¥È¤·¤Þ¤¹¡¥
+% \subsubsection*{$BDL$7HV9f%*%W%7%g%s(B}
+% $B?^I=$KDL$7HV9f$r$D$1$^$9!%(B|noserial| $B$G$O>O$4$H$K%+%&%s%?$r%j%;%C%H$7$^$9!%(B
 %    \begin{macrocode}
 \DeclareOption{serial}{\@serialtrue}
 \DeclareOption{noserial}{\@serialfalse}
 %    \end{macrocode}
 %
-% \subsubsection*{jinka ¥¹¥¿¥¤¥ë¥ª¥×¥·¥ç¥ó}
-% 30 ·å $\times$ 20 ¹Ô ¥¹¥¿¥¤¥ë¤Ë¤¹¤ë¤«¤É¤¦¤«¤ò»ØÄê¤·¤Þ¤¹¡¥
+% \subsubsection*{jinka $B%9%?%$%k%*%W%7%g%s(B}
+% jinka $B%9%?%$%k$K$9$k$+$I$&$+$r;XDj$7$^$9!%(B
 %    \begin{macrocode}
 \DeclareOption{jinka}{\@jinkatrue}
+\DeclareOption{double}{\@doublefalse}
 \DeclareOption{nojinka}{\@jinkafalse}
 %    \end{macrocode}
 %
-% \subsubsection*{¥ª¥×¥·¥ç¥ó¤Î¼Â¹Ô}
-% ¥Ç¥Õ¥©¥ë¥È¤ÎÀßÄê¤ò¤·¤¿¸å¡¤¥ª¥×¥·¥ç¥ó¤ò¼Â¹Ô¤·¤Þ¤¹¡¥
+% \subsubsection*{$B%*%W%7%g%s$N<B9T(B}
+% $B%G%U%)%k%H$N@_Dj$r$7$?8e!$%*%W%7%g%s$r<B9T$7$^$9!%(B
 %    \begin{macrocode}
-\ExecuteOptions{a4j,12pt,oneside,onecolumn,titlepage,final,noserial,nojinka}
+\ExecuteOptions{a4j,11pt,oneside,onecolumn,titlepage,final,noserial,jinka}
 \ProcessOptions\relax
 \input{jsize1\@ptsize.clo}
 %    \end{macrocode}
 %
 %
-% \subsection*{¥ì¥¤¥¢¥¦¥È}
+% \subsection*{$B%l%$%"%&%H(B}
 %
-% \subsubsection*{ËÜÊ¸ÎÎ°è}
+% \subsubsection*{$BK\J8NN0h(B}
 %
 % \begin{macro}{\Columns}
-% |\textwidth| ¤ò¡¤»ØÄê¤·¤¿»úµÍ¤á¤ÎÉý¤ËÀßÄê¤·¤Þ¤¹¡¥¤Û¤ó¤Î¾¯¤·Í¾Íµ¤ò
-% ¤â¤¿¤»¤Æ¤¤¤Þ¤¹¡¥
+% |\textwidth| $B$r!$;XDj$7$?;z5M$a$NI}$K@_Dj$7$^$9!%$[$s$N>/$7M>M5$r(B
+% $B$b$?$;$F$$$^$9!%(B
 %    \begin{macrocode}
 \newcommand{\Columns}[1]{%
   \setlength\textwidth{#1.1\Cwd}
@@ -502,7 +515,7 @@
   \addtolength{\@tempdima}{-2in}
   \ifdim \textwidth > \@tempdima
     \setlength{\textwidth}{\@tempdima}
-    \ClassWarning{jikna}{»ØÄê¤µ¤ì¤¿¥«¥é¥à¤¬Âç¤­¤¹¤®¤ë¤Î¤Ç¡¤¥Æ¥­¥¹¥ÈÉý¤ò¼«Æ°Åª¤ËÀßÄê¤·¤Þ¤·¤¿¡¥\space\string\textwidth=\the\@tempdima}
+    \ClassWarning{jikna}{$B;XDj$5$l$?%+%i%`$,Bg$-$9$.$k$N$G!$%F%-%9%HI}$r<+F0E*$K@_Dj$7$^$7$?!%(B\space\string\textwidth=\the\@tempdima}
   \fi
   \addtolength{\@tempdima}{-\textwidth}
   \setlength{\oddsidemargin}{.5\@tempdima}
@@ -515,7 +528,7 @@
 % \end{macro}
 %
 % \begin{macro}{\Lines}
-% |\baselinestrech| ¤ò¡¤1 ¥Ú¡¼¥¸¤¢¤¿¤ê»ØÄê¤·¤¿¹Ô¿ô¤Ë¤Ê¤ë¤è¤¦¤ËÀßÄê¤·¤Þ¤¹¡¥
+% |\baselinestrech| $B$r!$(B1 $B%Z!<%8$"$?$j;XDj$7$?9T?t$K$J$k$h$&$K@_Dj$7$^$9!%(B
 %    \begin{macrocode}
 \newcommand{\Lines}[1]{%
   \@tempcnta=#1
@@ -530,7 +543,7 @@
 % \end{macro}
 % 
 % \begin{macro}{\textwidth}
-% ´ðËÜ¤Î¥Æ¥­¥¹¥ÈÉý¤ÎÀßÄê¤Ç¤¹¡¥¼ÂºÝ¤Ë¤Ï |\Columns| ¤ÇºÆÀßÄê¤·¤Þ¤¹¡¥
+% $B4pK\$N%F%-%9%HI}$N@_Dj$G$9!%<B:]$K$O(B |\Columns| $B$G:F@_Dj$7$^$9!%(B
 %    \begin{macrocode}
 \setlength\textwidth{\paperwidth}
 \addtolength\textwidth{-2in}
@@ -538,7 +551,7 @@
 % \end{macro}
 %
 % \begin{macro}{\textheight}
-% ËÜÊ¸ÎÎ°è¤Î¹â¤µ¤Ç¤¹¡¥ÍÑ»æ¥µ¥¤¥º¤Î75¥Ñ¡¼¥»¥ó¥È¤Ë |\topskip| ¤ò²Ã¤¨¤Þ¤¹¡¥
+% $BK\J8NN0h$N9b$5$G$9!%MQ;f%5%$%:$N(B75$B%Q!<%;%s%H$K(B |\topskip| $B$r2C$($^$9!%(B
 %    \begin{macrocode}
 \setlength\textheight{.75\paperheight}
 \addtolength\textheight{\topskip}
@@ -546,12 +559,12 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsubsection*{ÃÊÍî¤Î·Á}
+% \subsubsection*{$BCJMn$N7A(B}
 %
 % \begin{macro}{\columnsep}
 % \begin{macro}{\columnseprule}
-% ÆóÃÊÁÈ¤Î¤È¤­¡¤ÃÊ¤Î´Ö¤Ë |\columnsep| ¤Î¶õÇò¤¬Æþ¤ê¡¤¤½¤ÎÃæ±û¤Ë |\columnseprule|
-% ¤Î·ÓÀþ¤¬°ú¤«¤ì¤Þ¤¹¡¥
+% $BFsCJAH$N$H$-!$CJ$N4V$K(B |\columnsep| $B$N6uGr$,F~$j!$$=$NCf1{$K(B |\columnseprule|
+% $B$N7S@~$,0z$+$l$^$9!%(B
 %    \begin{macrocode}
 \setlength\columnsep{10\p@}
 \setlength\columnseprule{0\p@}
@@ -561,7 +574,7 @@
 %
 % \begin{macro}{\lineskip}
 % \begin{macro}{\normallineskip}
-% ¹Ô´Ö¤¬¶á¤Å¤­²á¤®¤¿¤È¤­¤Î \TeX{} ¤ÎÆ°ºî¤òÀ©¸æ¤·¤Þ¤¹¡¥
+% $B9T4V$,6a$E$-2a$.$?$H$-$N(B \TeX{} $B$NF0:n$r@)8f$7$^$9!%(B
 %    \begin{macrocode}
 \setlength\lineskip{1\p@}
 \setlength\normallineskip{1\p@}
@@ -571,8 +584,8 @@
 %
 % \begin{macro}{\parskip}
 % \begin{macro}{\parindent}
-% |\parskip| ¤ÏÃÊÍî´Ö¤ËÁÞÆþ¤µ¤ì¤ë½ÄÊý¸þ¤Î¶õÇò¡¤
-% |\parindent| ¤ÏÃÊÍîÀèÆ¬¤Î»ú²¼¤²Éý¤Ç¤¹¡¥
+% |\parskip| $B$OCJMn4V$KA^F~$5$l$k=DJ}8~$N6uGr!$(B
+% |\parindent| $B$OCJMn@hF,$N;z2<$2I}$G$9!%(B
 %    \begin{macrocode}
 \setlength\parskip{5\p@ \@plus 3\p@ \@minus 2\p@}
 \setlength\parindent{1zw}
@@ -583,8 +596,8 @@
 % \begin{macro}{\smallskipamount}
 % \begin{macro}{\medskipamount}
 % \begin{macro}{\bigskipamount}
-% ¤³¤ì¤é¤ÎÃÍ¤Ï¡¤¥µ¥¤¥º¥ª¥×¥·¥ç¥ó¤Î»ØÄê¤È¤È¤â¤ËÊÑ¹¹¤¹¤ë¤Ù¤­¤Ç¤¹¤¬¡¤
-% °ÊÁ°¤Î¥Ð¡¼¥¸¥ç¥ó¤È¤Î¸ß´¹À­¤òÊÝ¤Ä¤¿¤á¡¤°ìÄê¤ÎÃÍ¤È¤·¤Æ¤¤¤ë¤½¤¦¤Ç¤¹¡¥
+% $B$3$l$i$NCM$O!$%5%$%:%*%W%7%g%s$N;XDj$H$H$b$KJQ99$9$k$Y$-$G$9$,!$(B
+% $B0JA0$N%P!<%8%g%s$H$N8_49@-$rJ]$D$?$a!$0lDj$NCM$H$7$F$$$k$=$&$G$9!%(B
 %    \begin{macrocode}
 \setlength\smallskipamount{5\p@ \@plus 1\p@ \@minus 1\p@}
 \setlength\medskipamount{10\p@ \@plus 2\p@ \@minus 2\p@}
@@ -597,7 +610,7 @@
 % \begin{macro}{\@lowpenalty}
 % \begin{macro}{\@medpenalty}
 % \begin{macro}{\@highpenalty}
-% |\nopagebreak| ¤ä |\nolinebreak| ¤ÇÃÖ¤«¤ì¤ë¥Ú¥Ê¥ë¥Æ¥£¤ÎÃÍ¤Ç¤¹¡¤
+% |\nopagebreak| $B$d(B |\nolinebreak| $B$GCV$+$l$k%Z%J%k%F%#$NCM$G$9!$(B
 %    \begin{macrocode}
 \@lowpenalty   51
 \@medpenalty  151
@@ -607,10 +620,10 @@
 % \end{macro}
 % \end{macro}
 %
-% \subsubsection*{¥Ú¡¼¥¸¥ì¥¤¥¢¥¦¥È}
+% \subsubsection*{$B%Z!<%8%l%$%"%&%H(B}
 % \begin{macro}{\hoffset}
 % \begin{macro}{\voffset}
-% ¥Ú¡¼¥¸¾å¤ÎºÂÉ¸¤ò»²¾È¤¹¤ë¤È¤­¤Ë¡¤¸¶ÅÀ¤È¤Ê¤ëÅÀ¤òÀßÄê¤·¤Þ¤¹¡¥
+% $B%Z!<%8>e$N:BI8$r;2>H$9$k$H$-$K!$86E@$H$J$kE@$r@_Dj$7$^$9!%(B
 % $(|\hoffset| + \mathrm{1in}, |\voffset| + \mathrm{1in})$
 %    \begin{macrocode}
 \setlength{\hoffset}{\z@}
@@ -622,10 +635,10 @@
 % \begin{macro}{\headheight}
 % \begin{macro}{\headsep}
 % \begin{macro}{\footskip}
-% ¤³¤ì¤é¤ÎÃÍ¤Ï¡¤¥Ú¡¼¥¸¤Î½ÄÊý¸þ¤Î¥¹¥Ú¡¼¥¹¤ÎÂç¤­¤µ¤òÉ½¤·¤Þ¤¹¡¥|\headheight| ¤Ï
-% ¥Ø¥Ã¥À¥Ü¥Ã¥¯¥¹¤Î¹â¤µ¤ò¡¤|\headsep| ¤Ï¥Ø¥Ã¥À¤ÈËÜÊ¸¤Î¥¢¥­¤òÉ½¤·¤Þ¤¹¡¥
-% ¤Þ¤¿¡¤|\footskip| ¤ÏËÜÊ¸ÎÎ°è¤Î²¼Ã¼¤«¤é¥Õ¥Ã¥¿¥Ü¥Ã¥¯¥¹¤Î
-% \textbf{²¼Ã¼}¤Þ¤Ç¤Îµ÷Î¥¤Ç¤¹¡¥
+% $B$3$l$i$NCM$O!$%Z!<%8$N=DJ}8~$N%9%Z!<%9$NBg$-$5$rI=$7$^$9!%(B|\headheight| $B$O(B
+% $B%X%C%@%\%C%/%9$N9b$5$r!$(B|\headsep| $B$O%X%C%@$HK\J8$N%"%-$rI=$7$^$9!%(B
+% $B$^$?!$(B|\footskip| $B$OK\J8NN0h$N2<C<$+$i%U%C%?%\%C%/%9$N(B
+% \textbf{$B2<C<(B}$B$^$G$N5wN%$G$9!%(B
 %    \begin{macrocode}
 \setlength\headheight{16\p@}
 \setlength\headsep{20\p@}
@@ -636,7 +649,7 @@
 % \end{macro}
 % 
 % \begin{macro}{\maxdepth}
-% |\maxdepth| ¤Ï \TeX{}¤Î¥×¥ê¥ß¥Æ¥£¥Ö¤Ç¤¹¡¥|\topskip| ¤ÎÈ¾Ê¬¤ËÀßÄê¤·¤Þ¤¹¡¥
+% |\maxdepth| $B$O(B \TeX{}$B$N%W%j%_%F%#%V$G$9!%(B|\topskip| $B$NH>J,$K@_Dj$7$^$9!%(B
 %    \begin{macrocode}
 \setlength\maxdepth{.5\topskip}
 %    \end{macrocode}
@@ -644,7 +657,7 @@
 % 
 % 
 % \begin{macro}{\topmargin}
-% |\topmargin| ¤Ï¡¤°õ»ú²ÄÇ½ÎÎ°è¤Î¾åÃ¼¤«¤é¥Ø¥Ã¥ÀÉôÊ¬¤Î¾åÃ¼¤Þ¤Ç¤Îµ÷Î¥¤Ç¤¹¡¥
+% |\topmargin| $B$O!$0u;z2DG=NN0h$N>eC<$+$i%X%C%@ItJ,$N>eC<$^$G$N5wN%$G$9!%(B
 %    \begin{macrocode}
 \setlength\topmargin{25mm}
 \addtolength\topmargin{-1in}
@@ -654,8 +667,8 @@
 %
 % \begin{macro}{\marginparsep}
 % \begin{macro}{\marginparpush}
-% |\marginparsep| ¤Ï¡¤ËÜÊ¸¤ÈËµÃí¤Î´Ö¤Ë¤¢¤±¤ë¥¹¥Ú¡¼¥¹¤ÎÉý¤Ç¤¹¡¥
-% |\marginparpush| ¤Ï¡¤ËµÃí¤ÈËµÃí¤Î´Ö¤Î¥¹¥Ú¡¼¥¹¤ÎÉý¤Ç¤¹¡¥
+% |\marginparsep| $B$O!$K\J8$HK5Cm$N4V$K$"$1$k%9%Z!<%9$NI}$G$9!%(B
+% |\marginparpush| $B$O!$K5Cm$HK5Cm$N4V$N%9%Z!<%9$NI}$G$9!%(B
 %    \begin{macrocode}
 \if@twocolumn
   \setlength\marginparsep{12\p@}
@@ -670,11 +683,11 @@
 % \begin{macro}{\oddsidemargin}
 % \begin{macro}{\evensidemargin}
 % \begin{macro}{\marginparwidth}
-% Î¾ÌÌ°õºþ¤Î¤È¤­¤Îº¸±¦¥Þ¡¼¥¸¥ó¤ÎÉý¤Ë´Ø¤¹¤ë¥Ñ¥é¥á¡¼¥¿¤Ç¤¹¡¥
-% |\oddsidemargin| ¤Ï´ñ¿ô¥Ú¡¼¥¸¤Î°õ»ú²ÄÇ½ÎÎ°è¤Îº¸Ã¼¤«¤éËÜÊ¸ÎÎ°è¤Îº¸Ã¼¤Îµ÷Î¥¡¤
-% |\evensidemargin| ¤Ï¶ö¿ô¥Ú¡¼¥¸¤Î°õ»ú²ÄÇ½ÎÎ°è¤Îº¸Ã¼¤«¤éËÜÊ¸ÎÎ°è¤Îº¸Ã¼¤Îµ÷Î¥¡¤
-% |\marginparwidth| ¤ÏËµÃí¤ÎÆþ¤ë¥Ü¥Ã¥¯¥¹¤ÎÉý¤òÉ½¤·¤Þ¤¹¡¥
-% ¤³¤ì¤é¤ÎÃÍ¤Ï |\Columns| ¤Ë¤è¤Ã¤ÆºÆÀßÄê¤µ¤ì¤Þ¤¹¡¥
+% $BN>LL0u:~$N$H$-$N:81&%^!<%8%s$NI}$K4X$9$k%Q%i%a!<%?$G$9!%(B
+% |\oddsidemargin| $B$O4q?t%Z!<%8$N0u;z2DG=NN0h$N:8C<$+$iK\J8NN0h$N:8C<$N5wN%!$(B
+% |\evensidemargin| $B$O6v?t%Z!<%8$N0u;z2DG=NN0h$N:8C<$+$iK\J8NN0h$N:8C<$N5wN%!$(B
+% |\marginparwidth| $B$OK5Cm$NF~$k%\%C%/%9$NI}$rI=$7$^$9!%(B
+% $B$3$l$i$NCM$O(B |\Columns| $B$K$h$C$F:F@_Dj$5$l$^$9!%(B
 %    \begin{macrocode}
 \setlength\@tempdima{\paperwidth}
 \addtolength\@tempdima{-\textwidth}
@@ -696,16 +709,16 @@
 % \end{macro}
 % \end{macro}
 %
-% \subsubsection*{µÓÃí¡¦¥Õ¥í¡¼¥È}
+% \subsubsection*{$B5SCm!&%U%m!<%H(B}
 % \begin{macro}{\footnotesep}
-% ¤½¤ì¤¾¤ì¤ÎµÓÃí¤ÎÀèÆ¬¤ËÃÖ¤«¤ì¤ë ``»ÙÃì'' ¤Î¹â¤µ¤Ç¤¹¡¥
+% $B$=$l$>$l$N5SCm$N@hF,$KCV$+$l$k(B ``$B;YCl(B'' $B$N9b$5$G$9!%(B
 %    \begin{macrocode}
 \setlength\footnotesep{8.4\p@}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\skip\footins}
-% ËÜÊ¸¤ÎºÇ½ª¹Ô¤ÈµÓÃí¤È¤Î´Ö¤Îµ÷Î¥¤Ç¤¹¡¥
+% $BK\J8$N:G=*9T$H5SCm$H$N4V$N5wN%$G$9!%(B
 %    \begin{macrocode}
 \setlength{\skip\footins}{10.8\p@ \@plus 4\p@ \@minus 2\p@}
 %    \end{macrocode}
@@ -714,10 +727,10 @@
 % \begin{macro}{\floatsep}
 % \begin{macro}{\textfloatsep}
 % \begin{macro}{\intestsep}
-% ¥Õ¥í¡¼¥È¤È¥ª¥Ö¥¸¥§¥¯¥È¤È¤Î´Ö³Ö¤òÀ©¸æ¤·¤Þ¤¹¡¥
-% |\floatsep| ¤Ï¡¤¥Ú¡¼¥¸¾åÉô¤¢¤ë¤¤¤Ï²¼Éô¤Î¥Õ¥í¡¼¥È´Ö¤Îµ÷Î¥¤Ç¤¹¡¥
-% |\textfloatsep| ¤Ï¡¤¥Ú¡¼¥¸¾åÉô¤¢¤ë¤¤¤Ï²¼Éô¤Î¥Õ¥í¡¼¥È¤ÈËÜÊ¸¤È¤Îµ÷Î¥¤Ç¤¹¡¥
-% |\intextsep| ¤Ï¡¤ËÜÊ¸¤ÎÅÓÃæ¤Ë½ÐÎÏ¤µ¤ì¤ë¥Õ¥í¡¼¥È¤ÈËÜÊ¸¤È¤Îµ÷Î¥¤Ç¤¹¡¥
+% $B%U%m!<%H$H%*%V%8%'%/%H$H$N4V3V$r@)8f$7$^$9!%(B
+% |\floatsep| $B$O!$%Z!<%8>eIt$"$k$$$O2<It$N%U%m!<%H4V$N5wN%$G$9!%(B
+% |\textfloatsep| $B$O!$%Z!<%8>eIt$"$k$$$O2<It$N%U%m!<%H$HK\J8$H$N5wN%$G$9!%(B
+% |\intextsep| $B$O!$K\J8$NESCf$K=PNO$5$l$k%U%m!<%H$HK\J8$H$N5wN%$G$9!%(B
 %    \begin{macrocode}
 \setlength\floatsep    {12\p@ \@plus 2\p@ \@minus 4\p@}
 \setlength\textfloatsep{20\p@ \@plus 2\p@ \@minus 4\p@}
@@ -729,7 +742,7 @@
 %
 % \begin{macro}{\dblfloatsep}
 % \begin{macro}{\dbltextfloatsep}
-% ÆóÃÊÁÈ¤Î¾ì¹ç¡¤ÃÊÈ´¤­¤Î¥Õ¥í¡¼¥È¤È¥ª¥Ö¥¸¥§¥¯¥È¤Î´Ö³Ö¤òÀ©¸æ¤·¤Þ¤¹¡¥
+% $BFsCJAH$N>l9g!$CJH4$-$N%U%m!<%H$H%*%V%8%'%/%H$N4V3V$r@)8f$7$^$9!%(B
 %    \begin{macrocode}
 \setlength\dblfloatsep    {14\p@ \@plus 2\p@ \@minus 4\p@}
 \setlength\dbltextfloatsep{20\p@ \@plus 2\p@ \@minus 4\p@}
@@ -740,9 +753,9 @@
 % \begin{macro}{\@fptop}
 % \begin{macro}{\@fpsep}
 % \begin{macro}{\@fpbot}
-% ¥Õ¥í¡¼¥È¤¬ÆÈÎ©¤·¤¿¥Ú¡¼¥¸¤ËÃÖ¤«¤ì¤ë¤È¤­¡¤¤³¤ì¤é¤Î¥Ñ¥é¥á¡¼¥¿¤ÇÀ©¸æ¤µ¤ì¤Þ¤¹¡¥
-% |\@fptop| ¤Ï¥Ú¡¼¥¸¾åÉô¤Ë¡¤|\@fpsep| ¤Ï¥Õ¥í¡¼¥È´Ö¤Ë¡¤|\@fpbot| ¤Ï¥Ú¡¼¥¸²¼Éô¤Ë
-% ÁÞÆþ¤µ¤ì¤Þ¤¹¡¥ 
+% $B%U%m!<%H$,FHN)$7$?%Z!<%8$KCV$+$l$k$H$-!$$3$l$i$N%Q%i%a!<%?$G@)8f$5$l$^$9!%(B
+% |\@fptop| $B$O%Z!<%8>eIt$K!$(B|\@fpsep| $B$O%U%m!<%H4V$K!$(B|\@fpbot| $B$O%Z!<%82<It$K(B
+% $BA^F~$5$l$^$9!%(B 
 %    \begin{macrocode}
 \setlength\@fptop{0\p@ \@plus 1fil}
 \setlength\@fpsep{10\p@ \@plus 2fil}
@@ -755,8 +768,8 @@
 % \begin{macro}{\@dblfptop}
 % \begin{macro}{\@dblfpsep}
 % \begin{macro}{\@dblfpbot}
-% ÆóÃÊÁÈ¤Î¾ì¹ç¡¤ÃÊÈ´¤­¤Î¥Õ¥í¡¼¥È¤¬ÆÈÎ©¤·¤¿¥Ú¡¼¥¸¤ËÃÖ¤«¤ì¤ë¤È¤­¤Ï¡¤¤³¤ì¤é¤Î
-% ¥Ñ¥é¥á¡¼¥¿¤ÇÀ©¸æ¤µ¤ì¤Þ¤¹¡¥
+% $BFsCJAH$N>l9g!$CJH4$-$N%U%m!<%H$,FHN)$7$?%Z!<%8$KCV$+$l$k$H$-$O!$$3$l$i$N(B
+% $B%Q%i%a!<%?$G@)8f$5$l$^$9!%(B
 %    \begin{macrocode}
 \setlength\@dblfptop{0\p@ \@plus 1fil}
 \setlength\@dblfpsep{10\p@ \@plus 2fil}
@@ -767,80 +780,80 @@
 % \end{macro}
 %
 % \begin{macro}{\c@topnumber}
-% topnumber ¤ÏËÜÊ¸¥Ú¡¼¥¸¾åÉô¤Ë½ÐÎÏ¤Ç¤­¤ë¥Õ¥í¡¼¥È¤ÎºÇÂç¿ô¤Ç¤¹¡¥
+% topnumber $B$OK\J8%Z!<%8>eIt$K=PNO$G$-$k%U%m!<%H$N:GBg?t$G$9!%(B
 %    \begin{macrocode}
 \setcounter{topnumber}{2}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\c@bottomnumber}
-% bottomnumber ¤ÏËÜÊ¸¥Ú¡¼¥¸²¼Éô¤Ë½ÐÎÏ¤Ç¤­¤ë¥Õ¥í¡¼¥È¤ÎºÇÂç¿ô¤Ç¤¹¡¥
+% bottomnumber $B$OK\J8%Z!<%82<It$K=PNO$G$-$k%U%m!<%H$N:GBg?t$G$9!%(B
 %    \begin{macrocode}
 \setcounter{bottomnumber}{1}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\c@totalnumber}
-% ËÜÊ¸¥Ú¡¼¥¸¤Ë½ÐÎÏ¤Ç¤­¤ë¥Õ¥í¡¼¥È¤Î¹ç·×¤ÎºÇÂç¿ô¤Ç¤¹¡¥
+% $BK\J8%Z!<%8$K=PNO$G$-$k%U%m!<%H$N9g7W$N:GBg?t$G$9!%(B
 %    \begin{macrocode}
 \setcounter{totalnumber}{3}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\c@dbltopnumber}
-% ÆóÃÊÁÈ¤ÎÃÊÈ´¤­¥Õ¥í¡¼¥È¤Ë»È¤ï¤ì¤ë |\topnumber| ¤Ç¤¹¡¥
+% $BFsCJAH$NCJH4$-%U%m!<%H$K;H$o$l$k(B |\topnumber| $B$G$9!%(B
 %    \begin{macrocode}
 \setcounter{dbltopnumber}{2}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\topfraction}
-% ¥Ú¡¼¥¸¾åÉô¤ËÃÖ¤«¤ì¤ë¥Õ¥í¡¼¥È¤¬ÀêÍ­¤Ç¤­¤ëºÇÂç¤Î³ä¹ç¤Ç¤¹¡¥
+% $B%Z!<%8>eIt$KCV$+$l$k%U%m!<%H$,@jM-$G$-$k:GBg$N3d9g$G$9!%(B
 %    \begin{macrocode}
 \renewcommand{\topfraction}{.7}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\bottomfraction}
-% ¥Ú¡¼¥¸²¼Éô¤ËÃÖ¤«¤ì¤ë¥Õ¥í¡¼¥È¤¬ÀêÍ­¤Ç¤­¤ëºÇÂç¤Î³ä¹ç¤Ç¤¹¡¥
+% $B%Z!<%82<It$KCV$+$l$k%U%m!<%H$,@jM-$G$-$k:GBg$N3d9g$G$9!%(B
 %    \begin{macrocode}
 \renewcommand{\bottomfraction}{.3}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\textfraction}
-% ËÜÊ¸¥Ú¡¼¥¸¤ËºÇ¾®¸Â¡¤Æþ¤é¤Ê¤±¤ì¤Ð¤Ê¤é¤Ê¤¤ËÜÊ¸¤Î³ä¹ç¤Ç¤¹¡¥
+% $B3F%Z!<%8$K:G>.8B!$F~$i$J$1$l$P$J$i$J$$K\J8$N3d9g$G$9!%(B
 %    \begin{macrocode}
 \renewcommand{\textfraction}{.2}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\floatpagefraction}
-% ¥Õ¥í¡¼¥È¤À¤±¤Î¥Ú¡¼¥¸¤ÇºÇ¾®¸Â¡¤Æþ¤é¤Ê¤±¤ì¤Ð¤Ê¤é¤Ê¤¤¥Õ¥í¡¼¥È¤Î³ä¹ç¤Ç¤¹¡¥
+% $B%U%m!<%H$@$1$N%Z!<%8$G:G>.8B!$F~$i$J$1$l$P$J$i$J$$%U%m!<%H$N3d9g$G$9!%(B
 %    \begin{macrocode}
 \renewcommand{\floatpagefraction}{.5}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\dbltopfraction}
-% ÆóÃÊÁÈ¤Î¾ì¹ç¡¤ËÜÊ¸¥Ú¡¼¥¸¤ÇÃÊÈ´¤­¥Õ¥í¡¼¥È¤¬ÀêÍ­¤Ç¤­¤ëºÇÂç¤Î³ä¹ç¤Ç¤¹¡¥
+% $BFsCJAH$N>l9g!$K\J8%Z!<%8$GCJH4$-%U%m!<%H$,@jM-$G$-$k:GBg$N3d9g$G$9!%(B
 %    \begin{macrocode}
 \renewcommand{\dbltopfraction}{.7}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\dblfloatpagefraction}
-% ÆóÃÊÁÈ¤Î¾ì¹ç¡¤¥Õ¥í¡¼¥È¤À¤±¤Î¥Ú¡¼¥¸¤ÇÃÊÈ´¤­¥Õ¥í¡¼¥È¤¬ºÇ¾®¸Â¡¤
-% Æþ¤é¤Ê¤¯¤Æ¤Ï¤Ê¤é¤Ê¤¤³ä¹ç¤Ç¤¹¡¥
+% $BFsCJAH$N>l9g!$%U%m!<%H$@$1$N%Z!<%8$GCJH4$-%U%m!<%H$,:G>.8B!$(B
+% $BF~$i$J$/$F$O$J$i$J$$3d9g$G$9!%(B
 %    \begin{macrocode}
 \renewcommand{\dblfloatpagefraction}{.5}
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsection*{¥Ú¡¼¥¸¥¹¥¿¥¤¥ë}
+% \subsection*{$B%Z!<%8%9%?%$%k(B}
 %
 % \begin{macro}{\ps@plain}
-% |plain| ¤Ï¡¤¥Ø¥Ã¥À¤Ï¶õ¤Ç¡¤¥Õ¥Ã¥¿¤Ë¥Ú¡¼¥¸ÈÖ¹æ¤ò½ÐÎÏ¤·¤Þ¤¹¡¥
+% |plain| $B$O!$%X%C%@$O6u$G!$%U%C%?$K%Z!<%8HV9f$r=PNO$7$^$9!%(B
 %    \begin{macrocode} 
 \def\ps@plain{\let\@mkboth\@gobbletwo
    \let\ps@jpl@in\ps@plain
@@ -852,15 +865,15 @@
 % \end{macro}
 %
 % \begin{macro}{\ps@jpl@in}
-% |jpl@in| ¤Ï¡¤¥¹¥¿¥¤¥ë¥Õ¥¡¥¤¥ëÆâ¤Î|\tableofcontents| ¤ä |\theindex| ¤Ê¤É¤Ç
-% »ÈÍÑ¤µ¤ì¤Þ¤¹¡¥½é´üÃÍ¤Ï |\ps@plain| ¤ËÀßÄê¤·¤Æ¤¤¤Þ¤¹¡¥
+% |jpl@in| $B$O!$%9%?%$%k%U%!%$%kFb$N(B|\tableofcontents| $B$d(B |\theindex| $B$J$I$G(B
+% $B;HMQ$5$l$^$9!%=i4|CM$O(B |\ps@plain| $B$K@_Dj$7$F$$$^$9!%(B
 %    \begin{macrocode}
 \let\ps@jpl@in\ps@plain
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\ps@headnombre}
-% ¥Ø¥Ã¥À¤Ë¥Ú¡¼¥¸ÈÖ¹æ¤ò½ÐÎÏ¤·¤Þ¤¹¡¥
+% $B%X%C%@$K%Z!<%8HV9f$r=PNO$7$^$9!%(B
 %    \begin{macrocode}
 \def\ps@headnombre{\let\@mkboth\@gobbletwo
     \let\ps@jpl@in\ps@headnombre
@@ -872,7 +885,7 @@
 % \end{macro}
 %
 % \begin{macro}{\ps@footnombre}
-% ¥Õ¥Ã¥¿¤Ë¥Ú¡¼¥¸ÈÖ¹æ¤ò½ÐÎÏ¤·¤Þ¤¹¡¥
+% $B%U%C%?$K%Z!<%8HV9f$r=PNO$7$^$9!%(B
 %    \begin{macrocode}
 \def\ps@footnombre{\let\@mkboth\@gobbletwo
     \let\ps@jpl@in\ps@footnombre
@@ -884,7 +897,7 @@
 % \end{macro}
 %
 % \begin{macro}{\ps@headings}
-% ¥Õ¥Ã¥¿¤Ï½ÐÎÏ¤»¤º¡¤¥Ø¥Ã¥À¤Ë¥Ú¡¼¥¸ÈÖ¹æ¤È¾Ï¸«½Ð¤·¤òÆþ¤ì¤Þ¤¹¡¥
+% $B%U%C%?$O=PNO$;$:!$%X%C%@$K%Z!<%8HV9f$H>O8+=P$7$rF~$l$^$9!%(B
 %    \begin{macrocode}
 \def\ps@headings{\let\ps@jpl@in\ps@plain%
   \let\@oddfoot\@empty
@@ -904,7 +917,7 @@
 % \end{macro}
 %
 % \begin{macro}{\ps@nopage}
-% ¥Õ¥Ã¥¿¤Ï½ÐÎÏ¤»¤º¡¤¥Ø¥Ã¥À¤Ë¾Ï¸«½Ð¤·¤À¤±¤òÆþ¤ì¤Þ¤¹¡¥
+% $B%U%C%?$O=PNO$;$:!$%X%C%@$K>O8+=P$7$@$1$rF~$l$^$9!%(B
 %    \begin{macrocode}
 \def\ps@nopage{\let\ps@jpl@in\ps@plain%
   \let\@oddfoot\@empty
@@ -924,7 +937,7 @@
 % \end{macro}
 %
 % \begin{macro}{\ps@bothstyle}
-% ¥Ø¥Ã¥À¤Ë¾Ï¸«½Ð¤·¤ò¡¤¥Õ¥Ã¥¿¤Ë¥Ú¡¼¥¸ÈÖ¹æ¤ò½ÐÎÏ¤·¤Þ¤¹¡¥
+% $B%X%C%@$K>O8+=P$7$r!$%U%C%?$K%Z!<%8HV9f$r=PNO$7$^$9!%(B
 %    \begin{macrocode}
 \if@twoside
   \def\ps@bothstyle{
@@ -963,7 +976,7 @@
 % \end{macro}
 %
 % \begin{macro}{\headrule}
-% |linehead| ¥Ú¡¼¥¸¥¹¥¿¥¤¥ë¤Ç¡¤¥Ø¥Ã¥À¤ÈËÜÊ¸ÎÎ°è¤Î´Ö¤Ë°ú¤¯·ÓÀþ¤ÎÄêµÁ¤Ç¤¹¡¥
+% |linehead| $B%Z!<%8%9%?%$%k$G!$%X%C%@$HK\J8NN0h$N4V$K0z$/7S@~$NDj5A$G$9!%(B
 %    \begin{macrocode}
 \newcommand\headrule{
   \vskip 2\p@
@@ -973,7 +986,7 @@
 % \end{macro}
 % 
 % \begin{macro}{\ps@linehead}
-% ¥Ø¥Ã¥À¤Ë¥¢¥ó¥À¡¼¥é¥¤¥ó¤òÉÕ²Ã¤·¤¿ |bothstyle| ¤Ç¤¹¡¥
+% $B%X%C%@$K%"%s%@!<%i%$%s$rIU2C$7$?(B |bothstyle| $B$G$9!%(B
 %    \begin{macrocode}
 \if@twoside
   \def\ps@linehead{
@@ -1013,30 +1026,30 @@
 % \end{macro}
 %
 % \begin{macro}{\ps@jinka}
-% jinka.cls ¤Î¥Ç¥Õ¥©¥ë¥È¥Ú¡¼¥¸¥¹¥¿¥¤¥ë¤Ç¤¹¡¥
+% jinka.cls $B$N%G%U%)%k%H%Z!<%8%9%?%$%k$G$9!%(B
 %    \begin{macrocode}
 \let\ps@jinka\ps@linehead
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsection*{¥¿¥¤¥È¥ë¥Ú¡¼¥¸}
+% \subsection*{$B%?%$%H%k%Z!<%8(B}
 %
 % \begin{macro}{\subtitle}
-% ¥¿¥¤¥È¥ë¥Ú¡¼¥¸¤Ç»È¤¦ÄÉ²Ã¹àÌÜ¤Ç¤¹¡¥¥µ¥Ö¥¿¥¤¥È¥ë¤òµ­½Ò¤·¤Þ¤¹¡¥
+% $B%?%$%H%k%Z!<%8$G;H$&DI2C9`L\$G$9!%%5%V%?%$%H%k$r5-=R$7$^$9!%(B
 %    \begin{macrocode}
 \newcommand{\subtitle}[1]{\xdef\@subtitle{#1}}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\institute}
-% ¥¿¥¤¥È¥ë¥Ú¡¼¥¸¤Ç»È¤¦ÄÉ²Ã¹àÌÜ¤Ç¤¹¡¥½êÂ°µ¡´Ø¤òµ­½Ò¤·¤Þ¤¹¡¥
+% $B%?%$%H%k%Z!<%8$G;H$&DI2C9`L\$G$9!%=jB05!4X$r5-=R$7$^$9!%(B
 %    \begin{macrocode}
 \newcommand{\institute}[1]{\xdef\@institute{#1}}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{environment}{titlepage}
-% ¥¿¥¤¥È¥ë¥Ú¡¼¥¸´Ä¶­¤Ç¤¹¡¥
+% $B%?%$%H%k%Z!<%84D6-$G$9!%(B
 %    \begin{macrocode}
 \newenvironment{titlepage}
   { \if@twocolumn\@restonecoltrue\onecolumn
@@ -1054,7 +1067,7 @@
 % \end{environment}
 %
 % \begin{macro}{\maketitle}
-% ¥¿¥¤¥È¥ë¥Ú¡¼¥¸¤ò½ÐÎÏ¤¹¤ë¥³¥Þ¥ó¥É¤Ç¤¹¡¥
+% $B%?%$%H%k%Z!<%8$r=PNO$9$k%3%^%s%I$G$9!%(B
 %    \begin{macrocode}
 \if@titlepage
 \newcommand{\maketitle}{%
@@ -1160,7 +1173,7 @@
 % \end{macro}
 %
 % \begin{environment}{abstruct}
-% ¡Ö³µÍ×¡×¤òµ­½Ò¤¹¤ë´Ä¶­¤Ç¤¹¡¥
+% $B!V35MW!W$r5-=R$9$k4D6-$G$9!%(B
 %    \begin{macrocode}
 \if@titlepage
   \newenvironment{abstract}{%
@@ -1190,7 +1203,7 @@
 %
 % \begin{environment}{acknowledgement}
 % \begin{environment}{acknowledgement*}
-% ¡Ö¼Õ¼­¡×¤òµ­½Ò¤¹¤ë´Ä¶­¤Ç¤¹¡¥
+% $B!V<U<-!W$r5-=R$9$k4D6-$G$9!%(B
 %    \begin{macrocode}
 \newenvironment{acknowledgement}
   {\chapter*{\acknowledgementname}
@@ -1210,24 +1223,24 @@
 % \end{environment}
 % \end{environment}
 %
-% \subsection*{¾Ï¸«½Ð¤·}
+% \subsection*{$B>O8+=P$7(B}
 % \begin{macro}{\chaptermark}
-% |\chaptermark| ¥³¥Þ¥ó¥É¤Î½é´ü²½¤ò¤·¤Þ¤¹¡¥¥Ú¡¼¥¸¥¹¥¿¥¤¥ë¤ÎÄêµÁ¤Ç»È¤ï¤ì¤Þ¤¹¡¥
+% |\chaptermark| $B%3%^%s%I$N=i4|2=$r$7$^$9!%%Z!<%8%9%?%$%k$NDj5A$G;H$o$l$^$9!%(B
 %    \begin{macrocode}
 \newcommand*{\chaptermark}[1]{}
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsubsection{¥«¥¦¥ó¥¿¤ÎÀë¸À}
+% \subsubsection{$B%+%&%s%?$N@k8@(B}
 % \begin{macro}{\c@secnumdepth}
-% ¤³¤Î¥«¥¦¥ó¥¿¤Ï¡¤¸«½Ð¤·ÈÖ¹æ¤òÉÕ¤±¤ë¥ì¥Ù¥ë¤ò¼¨¤·¤Þ¤¹¡¥
+% $B$3$N%+%&%s%?$O!$8+=P$7HV9f$rIU$1$k%l%Y%k$r<($7$^$9!%(B
 %    \begin{macrocode}
 \setcounter{secnumdepth}{2}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\c@chapter}
-% °Ê²¼¤Î¥«¥¦¥ó¥¿¤Ï¸«½Ð¤·ÈÖ¹æ¤Ë»È¤ï¤ì¤ë¤â¤Î¤Ç¤¹¡¥
+% $B0J2<$N%+%&%s%?$O8+=P$7HV9f$K;H$o$l$k$b$N$G$9!%(B
 %    \begin{macrocode}
 \newcounter{part}
 \newcounter{chapter}
@@ -1240,7 +1253,7 @@
 % \end{macro}
 %
 % \begin{macro}{\thechapter}
-% ¼ÂºÝ¤Ë¥«¥¦¥ó¥¿¤ÎÃÍ¤ò½ÐÎÏ¤¹¤ë¥³¥Þ¥ó¥É¤Ç¤¹¡¥
+% $B<B:]$K%+%&%s%?$NCM$r=PNO$9$k%3%^%s%I$G$9!%(B
 %    \begin{macrocode}
 \renewcommand{\thepart}{\@Roman\c@part}
 \renewcommand{\thechapter}{\@arabic\c@chapter}
@@ -1257,8 +1270,8 @@
 %
 % \begin{macro}{\@chapapp}
 % \begin{macro}{\@chappos}
-% ¾Ï¤Î¸«½Ð¤·ÈÖ¹æ¤òºîÀ®¤¹¤ë¤È¤­¤Ë»È¤¦Ê¸»úÎó¤Ç¤¹¡¥¥Ç¥Õ¥©¥ë¥È¤Ï¤½¤ì¤¾¤ì¡¤
-% |\prechaptername|, |\postchaptername| ¤Ç¤¹¡¥
+% $B>O$N8+=P$7HV9f$r:n@.$9$k$H$-$K;H$&J8;zNs$G$9!%%G%U%)%k%H$O$=$l$>$l!$(B
+% |\prechaptername|, |\postchaptername| $B$G$9!%(B
 %    \begin{macrocode}
 \newcommand{\@chapapp}{\prechaptername}
 \newcommand{\@chappos}{\postchaptername}
@@ -1266,9 +1279,9 @@
 % \end{macro}
 % \end{macro}
 %
-% \subsubsection*{³Æ¸«½Ð¤·¥³¥Þ¥ó¥É¤ÎÄêµÁ}
-% ¤³¤ÎÉôÊ¬¤Ç¤Ï¡¤\LaTeX{} ÆâÉô¥³¥Þ¥ó¥É¤Î|\@startsection| ¤È |\secdef| ¤ò
-% »ÈÍÑ¤·¤Þ¤¹¡¥
+% \subsubsection*{$B3F8+=P$7%3%^%s%I$NDj5A(B}
+% $B$3$NItJ,$G$O!$(B\LaTeX{} $BFbIt%3%^%s%I$N(B|\@startsection| $B$H(B |\secdef| $B$r(B
+% $B;HMQ$7$^$9!%(B
 % \begin{macro}{\@startsection}
 % \begin{macro}{\secdef}
 % |\@startsection <name><level><indent><before><after><sty>[alt]<head>|\par 
@@ -1277,7 +1290,7 @@
 % \end{macro}
 % 
 % \begin{macro}{\part}
-% ¿·¤·¤¯¥Ñ¡¼¥È¡ÊÉô¡Ë¤ò»Ï¤á¤ë¥³¥Þ¥ó¥É¤Ç¤¹¡¥
+% $B?7$7$/%Q!<%H!JIt!K$r;O$a$k%3%^%s%I$G$9!%(B
 %    \begin{macrocode}
 \newcommand{\part}{%
   \clearpage
@@ -1285,7 +1298,7 @@
   \if@twocolumn\onecolumn\@tempswatrue\else\@tempswafalse\fi
   \null\vfil
   \secdef\@part\@spart}
-% ¼ÂºÝ¤Ë¸«½Ð¤·¤ò½ÐÎÏ¤¹¤ë¥³¥Þ¥ó¥É¤ÎÄêµÁ
+% $B<B:]$K8+=P$7$r=PNO$9$k%3%^%s%I$NDj5A(B
 \def\@part[#1]#2{%
   \ifnum \c@secnumdepth >-2\relax
     \if@mainmatter
@@ -1325,7 +1338,7 @@
 % \end{macro}
 %
 % \begin{macro}{\chapter}
-% ¿·¤·¤¯¾Ï¤ò»Ï¤á¤ë¥³¥Þ¥ó¥É¤Ç¤¹¡¥
+% $B?7$7$/>O$r;O$a$k%3%^%s%I$G$9!%(B
 %    \begin{macrocode}
 \newcommand{\chapter}{%
   \clearpage
@@ -1333,7 +1346,7 @@
   \global\@topnum\z@
   \@afterindentfalse
   \secdef{\@chapter}{\@schapter}}
-% ¼ÂºÝ¤Ë¾Ï¸«½Ð¤·¤ò½ÐÎÏ¤¹¤ë¥³¥Þ¥ó¥É¤ÎÄêµÁ
+% $B<B:]$K>O8+=P$7$r=PNO$9$k%3%^%s%I$NDj5A(B
 \def\@chapter[#1]#2{%
   \ifnum \c@secnumdepth >\m@ne
     \if@mainmatter
@@ -1355,7 +1368,7 @@
   \@makechapterhead{#2}\@afterheading}
 \def\@schapter#1{%
   \@makeschapterhead{#1}\@afterheading}
-% ¾Ï¸«½Ð¤·¤ÎºîÀ®
+% $B>O8+=P$7$N:n@.(B
 \def\@makechapterhead#1{\hbox{}%
   \vskip.5\Cvs
   {\parindent\z@
@@ -1377,8 +1390,8 @@
 % \end{macro}
 %
 % \begin{macro}{\section}
-% ¿·¤·¤¯Àá¤ò»Ï¤á¤ë¥³¥Þ¥ó¥É¤Ç¤¹¡¥¸«½Ð¤·¤ÏÁ°¸å¤Ë¶õÇò¤òÉÕ¤±¡¤
-% large, bold ¤Ç½ÐÎÏ¤µ¤ì¤Þ¤¹¡¥
+% $B?7$7$/@a$r;O$a$k%3%^%s%I$G$9!%8+=P$7$OA08e$K6uGr$rIU$1!$(B
+% large, bold $B$G=PNO$5$l$^$9!%(B
 %    \begin{macrocode}
 \newcommand{\section}{\@startsection{section}{1}{\z@}%
    {1.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
@@ -1388,7 +1401,7 @@
 % \end{macro}
 %
 % \begin{macro}{\subection}
-% ¸«½Ð¤·¤Î½ÐÎÏ¤Ï large, bold ¤Ç¤¹¡¥
+% $B8+=P$7$N=PNO$O(B large, bold $B$G$9!%(B
 %    \begin{macrocode}
 \newcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
    {1.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
@@ -1398,7 +1411,7 @@
 % \end{macro}
 %
 % \begin{macro}{\subsubsection}
-% ¸«½Ð¤·¤Ï normalsize, bold ¤Ç½ÐÎÏ¤µ¤ì¤Þ¤¹¡¥
+% $B8+=P$7$O(B normalsize, bold $B$G=PNO$5$l$^$9!%(B
 %    \begin{macrocode}
 \newcommand{\subsubsection}{\@startsection{subsubsection}{3}{\z@}%
    {1.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
@@ -1408,7 +1421,7 @@
 % \end{macro}
 %
 % \begin{macro}{\paragraph}
-% ¿·¤·¤¯ÃÊÍî¤ò»Ï¤á¤Þ¤¹¡¥
+% $B?7$7$/CJMn$r;O$a$^$9!%(B
 %    \begin{macrocode}
 \newcommand{\paragraph}{\@startsection{paragraph}{4}{\z@}%
    {3.25ex \@plus 1ex \@minus .2ex}%
@@ -1432,7 +1445,7 @@
 % 
 %    \begin{macrocode}
 \newcommand{\frontmatter}{%
-  \cleardoublepage
+  \if@titlepage \cleardoublepage \fi
   \@mainmatterfalse
   \pagenumbering{roman}}
 \newcommand{\mainmatter}{%
@@ -1448,7 +1461,7 @@
 % \end{macro}
 % 
 % \begin{macro}{\appendix}
-% ¿·¤·¤¤ÉÕÏ¿¤ò»Ï¤á¤Þ¤¹¡¥
+% $B?7$7$$IUO?$r;O$a$^$9!%(B
 %    \begin{macrocode}
 \newcommand{\appendix}{\par
   \setcounter{chapter}{0}%
@@ -1459,9 +1472,9 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsection{¥ê¥¹¥È´Ä¶­}
+% \subsection{$B%j%9%H4D6-(B}
 % \begin{macro}{\leftmargini}
-% ÆóÃÊÁÈ¤Î¾ì¹ç¡¤¾¯¤·¾®¤µ¤¯ÀßÄê¤·¤Þ¤¹¡¥
+% $BFsCJAH$N>l9g!$>/$7>.$5$/@_Dj$7$^$9!%(B
 %    \begin{macrocode}
 \if@twocolumn
   \setlength\leftmargini {2em}
@@ -1496,14 +1509,14 @@
 % \end{macro}
 %
 % \begin{macro}{\labelsep}
-% ¥é¥Ù¥ë¤È¥Æ¥­¥¹¥È¤Î´Ö¤Îµ÷Î¥¤Ç¤¹¡¥
+% $B%i%Y%k$H%F%-%9%H$N4V$N5wN%$G$9!%(B
 %    \begin{macrocode}
 \setlength  \labelsep  {.5em}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\labelwidth}
-% ¥é¥Ù¥ë¤ÎÉý¤Ç¤¹¡¥
+% $B%i%Y%k$NI}$G$9!%(B
 %    \begin{macrocode}
 \setlength\labelwidth{\leftmargini}
 \addtolength\labelwidth{-\labelsep}
@@ -1513,7 +1526,7 @@
 % \begin{macro}{\beginparpenalty}
 % \begin{macro}{\endparpenalty}
 % \begin{macro}{\itempenalty}
-% ÃÊÍî¤Î»Ï¤á¡¤½ª¤ê¡¤¥ê¥¹¥È¹àÌÜ¤Î²Õ½ê¤Ç²þ¹Ô¤¹¤ë¤³¤È¤ËÂÐ¤¹¤ë¥Ú¥Ê¥ë¥Æ¥£¤Ç¤¹¡¥
+% $BCJMn$N;O$a!$=*$j!$%j%9%H9`L\$N2U=j$G2~9T$9$k$3$H$KBP$9$k%Z%J%k%F%#$G$9!%(B
 %    \begin{macrocode}
 \@beginparpenalty -\@lowpenalty
 \@endparpenalty   -\@lowpenalty
@@ -1523,12 +1536,12 @@
 % \end{macro}
 % \end{macro}
 %
-% \subsubsection*{enumerate ´Ä¶­}
+% \subsubsection*{enumerate $B4D6-(B}
 % \begin{macro}{\theenumi}
 % \begin{macro}{\theenumii}
 % \begin{macro}{\theenumiii}
 % \begin{macro}{\theenumiv}
-% ½ÐÎÏ¤¹¤ëÈÖ¹æ¤Î½ñ¼°¤òÀßÄê¤·¤Þ¤¹¡¥
+% $B=PNO$9$kHV9f$N=q<0$r@_Dj$7$^$9!%(B
 %    \begin{macrocode}
 \renewcommand{\theenumi}{\@arabic\c@enumi}
 \renewcommand{\theenumii}{\@Alph\c@enumii}
@@ -1544,7 +1557,7 @@
 % \begin{macro}{\labelenumii}
 % \begin{macro}{\labelenumiii}
 % \begin{macro}{\labelenumiv}
-% ¹àÌÜ¤Î¥é¥Ù¥ë¤òÀ¸À®¤¹¤ë¤È¤­¤Î¥³¥Þ¥ó¥É¤Ç¤¹¡¥
+% $B9`L\$N%i%Y%k$r@8@.$9$k$H$-$N%3%^%s%I$G$9!%(B
 %    \begin{macrocode}
 \newcommand{\labelenumi}{\theenumi.}
 \newcommand{\labelenumii}{(\theenumii)}
@@ -1559,7 +1572,7 @@
 % \begin{macro}{\p@enumii}
 % \begin{macro}{\p@enumiii}
 % \begin{macro}{\p@enumiv}
-% |\ref| ¥³¥Þ¥ó¥É¤Ë¤è¤ë»²¾È¤Î½ñ¼°¤òÀßÄê¤·¤Þ¤¹¡¥
+% |\ref| $B%3%^%s%I$K$h$k;2>H$N=q<0$r@_Dj$7$^$9!%(B
 %    \begin{macrocode}
 \renewcommand{\p@enumii}{\theenumi.}
 \renewcommand{\p@enumiii}{\theenumi(\theenumii)}
@@ -1570,7 +1583,7 @@
 % \end{macro}
 %
 % \begin{environment}{enumerate}
-% enumerate ´Ä¶­¤¬¥È¥Ã¥×¥ì¥Ù¥ë¤Ç»È¤ï¤ì¤¿¤È¤­¡¤¾å²¼¤ËÈ¾¹ÔÊ¬¤Î¥¢¥­¤òºî¤ê¤Þ¤¹¡¥
+% enumerate $B4D6-$,%H%C%W%l%Y%k$G;H$o$l$?$H$-!$>e2<$KH>9TJ,$N%"%-$r:n$j$^$9!%(B
 %    \begin{macrocode}
 \renewenvironment{enumerate}
   { \ifnum \@enumdepth >3\relax\@toodeep\else
@@ -1594,7 +1607,7 @@
 % \begin{macro}{labelitemii}
 % \begin{macro}{labelitemiii}
 % \begin{macro}{labelitemiv}
-% ¤½¤ì¤¾¤ì¤Î¹àÌÜ¤Î¥é¥Ù¥ë¤òÀ¸À®¤·¤Þ¤¹¡¥
+% $B$=$l$>$l$N9`L\$N%i%Y%k$r@8@.$7$^$9!%(B
 %    \begin{macrocode}
 \newcommand{\labelitemi}{\textbullet}
 \newcommand{\labelitemii}{%
@@ -1613,7 +1626,7 @@
 % \end{macro}
 %
 % \begin{environment}{itemize}
-% ¤³¤ì¤â¾å²¼¤ËÈ¾¹ÔÊ¬¤Î¥¢¥­¤òºî¤ê¤Þ¤¹¡¥
+% $B$3$l$b>e2<$KH>9TJ,$N%"%-$r:n$j$^$9!%(B
 %    \begin{macrocode}
 \renewenvironment{itemize}
 { \ifnum \@itemdepth >3\relax\@toodeep\else
@@ -1637,7 +1650,7 @@
 % \end{environment}
 %
 % \begin{environment}{description}
-% description ´Ä¶­¤ÎÄêµÁ¤Ç¤¹¡¥
+% description $B4D6-$NDj5A$G$9!%(B
 %    \begin{macrocode}
 \newenvironment{description}
 { \list{}{\labelwidth\z@ \itemindent-\leftmargin
@@ -1652,7 +1665,7 @@
 % \end{environment}
 %
 % \begin{macro}{\descriptionlabel}
-% ¥é¥Ù¥ë¤Î·Á¼°¤Ï |\descriptionlabel| ¤òºÆÄêµÁ¤¹¤ë¤³¤È¤ÇÊÑ¹¹¤Ç¤­¤Þ¤¹¡¥
+% $B%i%Y%k$N7A<0$O(B |\descriptionlabel| $B$r:FDj5A$9$k$3$H$GJQ99$G$-$^$9!%(B
 %    \begin{macrocode}
 \newcommand{\descriptionlabel}[1]{%
   \hspace\labelsep\reset@font\bfseries #1}
@@ -1660,8 +1673,8 @@
 % \end{macro}
 %
 % \begin{environment}{verse}
-% verse ´Ä¶­¡Ê»íÊÔ¤Ê¤É¡Ë¤Ï¡¤¥ê¥¹¥È´Ä¶­¤òÍÑ¤¤¤ÆÄêµÁ¤µ¤ì¤Æ¤¤¤Þ¤¹¡¥
-% ²þ¹Ô¤Ë¤Ï |\\| ¤ò»È¤¤¤Þ¤¹¡¥
+% verse $B4D6-!J;mJT$J$I!K$O!$%j%9%H4D6-$rMQ$$$FDj5A$5$l$F$$$^$9!%(B
+% $B2~9T$K$O(B |\\| $B$r;H$$$^$9!%(B
 %    \begin{macrocode}
 \newenvironment{verse}
 { \let\\\@centercr
@@ -1674,8 +1687,8 @@
 % \end{environment}
 %
 % \begin{environment}{quotation}
-% quotation ´Ä¶­¡Ê°úÍÑ¡Ë¤â¡¤¥ê¥¹¥È´Ä¶­¤ò»È¤Ã¤Æ¼Â¸½¤µ¤ì¤Æ¤¤¤Þ¤¹¡¥³Æ¹Ô¤Ï¡¤
-% |\textwidth| ¤è¤ê¤â¾®¤µ¤¯ÀßÄê¤µ¤ì¤Æ¤¤¤Þ¤¹¡¥ÃÊÍî¤ÎºÇ½é¤Ï¥¤¥ó¥Ç¥ó¥È¤µ¤ì¤Þ¤¹¡¥
+% quotation $B4D6-!J0zMQ!K$b!$%j%9%H4D6-$r;H$C$F<B8=$5$l$F$$$^$9!%3F9T$O!$(B
+% |\textwidth| $B$h$j$b>.$5$/@_Dj$5$l$F$$$^$9!%CJMn$N:G=i$O%$%s%G%s%H$5$l$^$9!%(B
 %    \begin{macrocode}
 \newenvironment{quotation}
 { \list{}{\listparindent 1zw%
@@ -1688,7 +1701,7 @@
 % \end{environment}
 %
 % \begin{environment}
-% quote ´Ä¶­¤Ï quotation ´Ä¶­¤ÈÆ±¤¸¤Ç¤¹¤¬¡¤ÃÊÍî¤Î»Ï¤á¤¬¥¤¥ó¥Ç¥ó¥È¤µ¤ì¤Þ¤»¤ó¡¥
+% quote $B4D6-$O(B quotation $B4D6-$HF1$8$G$9$,!$CJMn$N;O$a$,%$%s%G%s%H$5$l$^$;$s!%(B
 %    \begin{macrocode}
 \newenvironment{quote}
   {\list{}{\rightmargin\leftmargin}%
@@ -1696,10 +1709,10 @@
 %    \end{macrocode}
 % \end{environment}
 %
-% \subsection*{¥Õ¥í¡¼¥È}
+% \subsection*{$B%U%m!<%H(B}
 % \subsubsection*{figure}
 % \begin{macro}{\c@figure}
-% ¿ÞÈÖ¹æ¤Î¤¿¤á¤Î¥«¥¦¥ó¥¿¤Ç¤¹¡¥
+% $B?^HV9f$N$?$a$N%+%&%s%?$G$9!%(B
 %    \begin{macrocode}
 \if@serial
   \newcounter{figure}
@@ -1717,7 +1730,7 @@
 % \begin{macro}{\ftype@figure}
 % \begin{macro}{\ext@figure}
 % \begin{macro}{\fnum@figure}
-% ¥Õ¥í¡¼¥È¥ª¥Ö¥¸¥§¥¯¥È¥¿¥¤¥× "figure" ¤Î¤¿¤á¤Î¥Ñ¥é¥á¥¿¤Ç¤¹¡¥
+% $B%U%m!<%H%*%V%8%'%/%H%?%$%W(B "figure" $B$N$?$a$N%Q%i%a%?$G$9!%(B
 %    \begin{macrocode}
 \def\fps@figure{tbp}
 \def\ftype@figure{1}
@@ -1730,7 +1743,7 @@
 % \end{macro}
 %
 % \begin{environment}{figure}
-% figure ´Ä¶­¤ÎÄêµÁ¤Ç¤¹¡¥|*| ·Á¼°¤ÏÆóÃÊÈ´¤­¤Î¥Õ¥í¡¼¥È¤È¤Ê¤ê¤Þ¤¹¡¥
+% figure $B4D6-$NDj5A$G$9!%(B|*| $B7A<0$OFsCJH4$-$N%U%m!<%H$H$J$j$^$9!%(B
 %    \begin{macrocode}
 \newenvironment{figure}
   {\@testopt{\float@figure}{\fps@figure}}
@@ -1745,7 +1758,7 @@
 % \end{environment}
 %
 % \begin{macro}{\c@table}
-% É½ÈÖ¹æ¤Î¤¿¤á¤Î¥«¥¦¥ó¥¿¤Ç¤¹¡¥
+% $BI=HV9f$N$?$a$N%+%&%s%?$G$9!%(B
 %    \begin{macrocode}
 \if@serial
   \newcounter{table}
@@ -1760,7 +1773,7 @@
 % \begin{macro}{\ftype@table}
 % \begin{macro}{\ext@table}
 % \begin{macro}{\fnum@table}
-% ¥Õ¥í¡¼¥È¥ª¥Ö¥¸¥§¥¯¥È¥¿¥¤¥× "table" ¤Î¤¿¤á¤Î¥Ñ¥é¥á¥¿¤Ç¤¹¡¥
+% $B%U%m!<%H%*%V%8%'%/%H%?%$%W(B "table" $B$N$?$a$N%Q%i%a%?$G$9!%(B
 %    \begin{macrocode}
 \def\fps@table{tbp}
 \def\ftype@table{2}
@@ -1773,7 +1786,7 @@
 % \end{macro}
 %
 % \begin{environment}{table}
-% table ´Ä¶­¤ÎÄêµÁ¤Ç¤¹¡¥|*| ·Á¼°¤ÏÆóÃÊÈ´¤­¤Î¥Õ¥í¡¼¥È¤Ë¤Ê¤ê¤Þ¤¹¡¥
+% table $B4D6-$NDj5A$G$9!%(B|*| $B7A<0$OFsCJH4$-$N%U%m!<%H$K$J$j$^$9!%(B
 %    \begin{macrocode}
 \newenvironment{table}
    {\@testopt{\float@table}{\fps@table}}
@@ -1786,10 +1799,10 @@
 %    \end{macrocode}
 % \end{environment}
 %
-% \subsubsection*{¥­¥ã¥×¥·¥ç¥ó}
+% \subsubsection*{$B%-%c%W%7%g%s(B}
 % \begin{macro}{\abovecaptionskip}
 % \begin{macro}{\belowcaptionskip}
-% ¥­¥ã¥×¥·¥ç¥ó¤Î¾å²¼¤ËÆþ¤ë¥¢¥­¤ÎÂç¤­¤µ¤Ç¤¹¡¥
+% $B%-%c%W%7%g%s$N>e2<$KF~$k%"%-$NBg$-$5$G$9!%(B
 %    \begin{macrocode}
 \newlength\abovecaptionskip
 \newlength\belowcaptionskip
@@ -1803,8 +1816,8 @@
 %    \begin{macrocode}
 \long\def\@makecaption#1#2{%
   \vskip\abovecaptionskip
-  \iftdir\sbox\@tempboxa{#1\hskip1zw#2}%
-  \else\sbox\@tempboxa{#1: #2}%
+  \iftdir\sbox\@tempboxa{\small #1\hskip1zw#2}%
+  \else\sbox\@tempboxa{\small #1: #2}%
   \fi
   \ifdim \wd\@tempboxa >\hsize
     \iftdir #1\hskip1zw#2\relax\par
@@ -1817,65 +1830,65 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsection*{¥³¥Þ¥ó¥É¥Ñ¥é¥á¥¿¤ÎÀßÄê}
+% \subsection*{$B%3%^%s%I%Q%i%a%?$N@_Dj(B}
 % \begin{macro}{arraycolsep}
-% array ´Ä¶­¤Î¥«¥é¥à¤òÊ¬Î¥¤¹¤ë¥¢¥­¤ÎÈ¾Ê¬¤ò¼¨¤·¤Þ¤¹¡¥
+% array $B4D6-$N%+%i%`$rJ,N%$9$k%"%-$NH>J,$r<($7$^$9!%(B
 %    \begin{macrocode}
 \setlength\arraycolsep{5\p@}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\tabcolsep}
-% tabular ´Ä¶­¤Î¥«¥é¥à¤òÊ¬Î¥¤¹¤ë¥¢¥­¤ÎÈ¾Ê¬¤Ç¤¹¡¥
+% tabular $B4D6-$N%+%i%`$rJ,N%$9$k%"%-$NH>J,$G$9!%(B
 %    \begin{macrocode}
 \setlength\tabcolsep{6\p@}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\arrayrulewidth}
-% array, tabular ´Ä¶­Æâ¤Î·ÓÀþ¤ÎÉý¤Ç¤¹¡¥
+% array, tabular $B4D6-Fb$N7S@~$NI}$G$9!%(B
 %    \begin{macrocode}
 \setlength\arrayrulewidth{.4\p@}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\doublerulesep}
-% array, tabular ´Ä¶­Æâ¤ÎÆó½Å·ÓÀþ¤Î´Ö¤òÄ´À°¤¹¤ë¥¢¥­¤Ç¤¹¡¥
+% array, tabular $B4D6-Fb$NFs=E7S@~$N4V$rD4@0$9$k%"%-$G$9!%(B
 %    \begin{macrocode}
 \setlength\doublerulesep{2\p@}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\tabbingsep}
-% tabbing ´Ä¶­Æâ¤Ç¡¤|\'| ¥³¥Þ¥ó¥É¤ÇÃÖ¤«¤ì¤ë¶õÇò¤òÀ©¸æ¤·¤Þ¤¹¡¥
+% tabbing $B4D6-Fb$G!$(B|\'| $B%3%^%s%I$GCV$+$l$k6uGr$r@)8f$7$^$9!%(B
 %    \begin{macrocode}
 \setlength\tabbingsep{\labelsep}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\skip\@mpfootins}
-% minipage ´Ä¶­¤Ç¡¤µÓÃí¤Þ¤Ç¤Î¥¢¥­¤òÉ½¤·¤Þ¤¹¡¥
+% minipage $B4D6-$G!$5SCm$^$G$N%"%-$rI=$7$^$9!%(B
 %    \begin{macrocode}
 \skip\@mpfootins = \skip\footins
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\fboxsep}
-% |\fbox|, |\framebox| ¤Ç¡¤¥Æ¥­¥¹¥È¤È¥Ü¥Ã¥¯¥¹¤Î´Ö¤ËÆþ¤ë¶õÇò¤ÎÂç¤­¤µ¤Ç¤¹¡¥
+% |\fbox|, |\framebox| $B$G!$%F%-%9%H$H%\%C%/%9$N4V$KF~$k6uGr$NBg$-$5$G$9!%(B
 %    \begin{macrocode}
 \setlength\fboxsep{3\p@}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\fboxrule}
-% |\fbox|, |\famebox| ¤ÇºîÀ®¤µ¤ì¤ë·ÓÀþ¤ÎÉý¤Ç¤¹¡¥
+% |\fbox|, |\famebox| $B$G:n@.$5$l$k7S@~$NI}$G$9!%(B
 %    \begin{macrocode}
 \setlength\fboxrule{.4\p@}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\c@equation}
-% equation, enarray ´Ä¶­¤Ç»È¤¦¿ô¼°ÈÖ¹æÍÑ¥«¥¦¥ó¥¿¤Ç¤¹¡¥
+% equation, enarray $B4D6-$G;H$&?t<0HV9fMQ%+%&%s%?$G$9!%(B
 %    \begin{macrocode}
 \if@serial\else
   \@addtoreset{equation}{chapter}
@@ -1885,11 +1898,11 @@
 %    \end{macrocode}
 % \end{macro}
 %
-%\subsection*{¥Õ¥©¥ó¥È¥³¥Þ¥ó¥É}
-% ¿ô¼°Æâ¤ÇÆüËÜ¸ì¤òÄ¾ÀÜµ­½Ò¤¹¤ë¤¿¤á¡¤¿ô¼°µ­¹æÍÑÊ¸»ú¤ËÆüËÜ¸ì¥Õ¥©¥ó¥È¥Õ¥¡¥ß¥ê
-% ¤òÅÐÏ¿¤·¤Þ¤¹¡¥¤¿¤À¤·¡¤\TeX{}¤Ç¤Ï°·¤¨¤ë¿ô¼°¥Õ¥¡¥ß¥ê¤ËÀ©¸Â¡Ê16¸Ä¡Ë¤È¤¤¤¦À©¸Â
-% ¤¬¤¢¤ë¤¿¤á¡¤¤È¤­¤Ë¤ÏÆüËÜ¸ì¤òÄ¾ÀÜµ­½Ò¤¹¤ë¤³¤È¤òÄü¤á¤Ê¤±¤ì¤Ð¤Ê¤é¤Ê¤¤¤«¤â¤·¤ì
-% ¤Þ¤»¤ó¡¥
+%\subsection*{$B%U%)%s%H%3%^%s%I(B}
+% $B?t<0Fb$GF|K\8l$rD>@\5-=R$9$k$?$a!$?t<05-9fMQJ8;z$KF|K\8l%U%)%s%H%U%!%_%j(B
+% $B$rEPO?$7$^$9!%$?$@$7!$(B\TeX{}$B$G$O07$($k?t<0%U%!%_%j$K@)8B!J(B16$B8D!K$H$$$&@)8B(B
+% $B$,$"$k$?$a!$$H$-$K$OF|K\8l$rD>@\5-=R$9$k$3$H$rD|$a$J$1$l$P$J$i$J$$$+$b$7$l(B
+% $B$^$;$s!%(B
 %    \begin{macrocode}
 \if@enablejfam
   \DeclareSymbolFont{mincho}{JY1}{mc}{m}{n}
@@ -1916,8 +1929,8 @@
 % \begin{macro}{\rm}
 % \begin{macro}{\sf}
 % \begin{macro}{\tt}
-% ¥Õ¥©¥ó¥È¥Õ¥¡¥ß¥ê¤òÊÑ¹¹¤¹¤ë¥³¥Þ¥ó¥É¤Ç¤¹¡¥¥Õ¥©¥ó¥È¤ò°ìÅÙ¥ê¥»¥Ã¥È¤·¤Æ¤«¤é
-% »ØÄê¤Î¥Õ¥©¥ó¥È¤ËÊÑ¹¹¤·¤Þ¤¹¡¥
+% $B%U%)%s%H%U%!%_%j$rJQ99$9$k%3%^%s%I$G$9!%%U%)%s%H$r0lEY%j%;%C%H$7$F$+$i(B
+% $B;XDj$N%U%)%s%H$KJQ99$7$^$9!%(B
 %    \begin{macrocode}
 \DeclareOldFontCommand{\mc}{\reset@font\mcfamily}{\mathmc}
 \DeclareOldFontCommand{\gt}{\reset@font\gtfamily}{\mathgt}
@@ -1932,7 +1945,7 @@
 % \end{macro}
 %
 % \begin{macro}{\bf}
-% ¥Õ¥©¥ó¥È¤ò¥Ü¡¼¥ë¥É½ñÂÎ¤ËÊÑ¹¹¤·¤Þ¤¹¡¥|\mdseries| ¤Ç¥Î¡¼¥Þ¥ë½ñÂÎ¤ËÊÑ¹¹¤·¤Þ¤¹¡¥
+% $B%U%)%s%H$r%\!<%k%I=qBN$KJQ99$7$^$9!%(B|\mdseries| $B$G%N!<%^%k=qBN$KJQ99$7$^$9!%(B
 %    \begin{macrocode}
 \DeclareOldFontCommand{\bf}{\reset@font\bfseries}{\mathbf}
 %    \end{macrocode}
@@ -1941,7 +1954,7 @@
 % \begin{macro}{\it}
 % \begin{macro}{\sl}
 % \begin{macro}{\sc}
-% ¥Õ¥©¥ó¥È¥·¥§¡¼¥×¤òÀÚ¤ê´¹¤¨¤Þ¤¹¡¥|\upshape| ¤ÇÄÌ¾ï¤Î¥·¥§¥¤¥×¤ËÌá¤·¤Þ¤¹¡¥
+% $B%U%)%s%H%7%'!<%W$r@Z$j49$($^$9!%(B|\upshape| $B$GDL>o$N%7%'%$%W$KLa$7$^$9!%(B
 %    \begin{macrocode}
 \DeclareOldFontCommand{\it}{\reset@font\itshape}{\mathit}
 \DeclareOldFontCommand{\sl}{\reset@font\slshape}{\@nomath\sl}
@@ -1953,7 +1966,7 @@
 %
 % \begin{macro}{\cal}
 % \begin{macro}{\mit}
-% ¤³¤ì¤é¤Ï¿ô¼°Æâ¤Ç¤Î¤ß»ÈÍÑ¤Ç¤­¤Þ¤¹¡¥
+% $B$3$l$i$O?t<0Fb$G$N$_;HMQ$G$-$^$9!%(B
 %    \begin{macrocode}
 \DeclareRobustCommand*{\cal}{\@fontswitch\relax\mathcal}
 \DeclareRobustCommand*{\mit}{\@fontswitch\relax\mathnormal}
@@ -1961,37 +1974,37 @@
 % \end{macro}
 % \end{macro}
 %
-% \subsection*{Áê¸ß»²¾È}
+% \subsection*{$BAj8_;2>H(B}
 % \begin{macro}{\c@tocdepth}
-% ÌÜ¼¡¤Ë½ÐÎÏ¤¹¤ë¸«½Ð¤·¥ì¥Ù¥ë¤òÉ½¤·¤Þ¤¹¡¥
+% $BL\<!$K=PNO$9$k8+=P$7%l%Y%k$rI=$7$^$9!%(B
 %    \begin{macrocode}
 \setcounter{tocdepth}{2}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\@pnumwidth}
-% ¥Ú¡¼¥¸ÈÖ¹æ¤ÎÆþ¤ë¥Ü¥Ã¥¯¥¹¤ÎÉý¤òÉ½¤·¤Þ¤¹¡¥
+% $B%Z!<%8HV9f$NF~$k%\%C%/%9$NI}$rI=$7$^$9!%(B
 %    \begin{macrocode}
 \newcommand{\@pnumwidth}{2.0em}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\@tocmarg}
-% Ê£¿ô¹Ô¤Ë¤ï¤¿¤ë¾ì¹ç¤Î±¦¥Þ¡¼¥¸¥ó¤òÉ½¤·¤Þ¤¹¡¥
+% $BJ#?t9T$K$o$?$k>l9g$N1&%^!<%8%s$rI=$7$^$9!%(B
 %    \begin{macrocode}
 \newcommand{\@tocrmarg}{2.55em}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\@dotsep}
-% ¥É¥Ã¥È¤Î´Ö³Ö¤Ç¤¹¡¥¡ÊÃ±°Ì¤Ï mu ¡Ë
+% $B%I%C%H$N4V3V$G$9!%!JC10L$O(B mu $B!K(B
 %    \begin{macrocode}
 \newcommand{\@dotsep}{4.5}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\toclineskip}
-% ÌÜ¼¡¹àÌÜ´Ö¤Î¥¢¥­¤Ç¤¹¡¥¥Ç¥Õ¥©¥ë¥È¤Ï 0 ¤Ë¤Ê¤Ã¤Æ¤¤¤Þ¤¹¡¥
+% $BL\<!9`L\4V$N%"%-$G$9!%%G%U%)%k%H$O(B 0 $B$K$J$C$F$$$^$9!%(B
 %    \begin{macrocode}
 \newdimen\toclineskip
 \setlength\toclineskip{\z@}
@@ -2000,7 +2013,7 @@
 %
 % \begin{macro}{\@lnumwidth}
 % \begin{macro}{\numberline}
-% |\numberline| ¤Ï¡¤¸«½Ð¤·ÈÖ¹æ¤ÎÆþ¤Ã¤¿¥Ü¥Ã¥¯¥¹¤òºîÀ®¤·¤Þ¤¹¡¥
+% |\numberline| $B$O!$8+=P$7HV9f$NF~$C$?%\%C%/%9$r:n@.$7$^$9!%(B
 %    \begin{macrocode}
 \newdimen\@lnumwidth
 \def\numberline#1{\hbox to\@lnumwidth{#1\hfil}}
@@ -2009,8 +2022,8 @@
 % \end{macro}
 %
 % \begin{macro}{\@dottedtocline}
-% ¥É¥Ã¥È¤Î¥ê¡¼¥À¤ò»È¤Ã¤Æ¡¤ÌÜ¼¡¹Ô¤ò½ÐÎÏ¤·¤Þ¤¹¡¥
-% ÌÜ¼¡¤Î³Æ¹Ô´Ö¤Ë¡¤|\toclineskip| ¤òÆþ¤ì¤Þ¤¹¡¥
+% $B%I%C%H$N%j!<%@$r;H$C$F!$L\<!9T$r=PNO$7$^$9!%(B
+% $BL\<!$N3F9T4V$K!$(B|\toclineskip| $B$rF~$l$^$9!%(B
 %    \begin{macrocode}
 \def\@dottedtocline#1#2#3#4#5{\ifnum #1>\c@tocdepth \else
   \vskip\toclineskip \@plus.2\p@
@@ -2027,7 +2040,7 @@
 % \end{macro}
 %
 % \begin{macro}{\tableofcontents}
-% ÌÜ¼¡¤òÀ¸À®¤·¤Þ¤¹¡¥
+% $BL\<!$r@8@.$7$^$9!%(B
 %    \begin{macrocode}
 \newcommand{\tableofcontents}{%
   \if@twocolumn\@restonecoltrue\onecolumn
@@ -2041,7 +2054,7 @@
 % \end{macro}
 %
 % \begin{macro}{\l@part}
-% part ¥ì¥Ù¥ë¤ÎÌÜ¼¡¤ÎÂÎºÛ¤Ç¤¹¡¥
+% part $B%l%Y%k$NL\<!$NBN:[$G$9!%(B
 %    \begin{macrocode}
 \newcommand*{\l@part}[2]{%
   \ifnum \c@tocdepth >-2\relax
@@ -2063,7 +2076,7 @@
 % \end{macro}
 %
 % \begin{macro}{\l@chapter}
-% chapter ¥ì¥Ù¥ë¤ÎÌÜ¼¡¤ÎÂÎºÛ¤Ç¤¹¡¥
+% chapter $B%l%Y%k$NL\<!$NBN:[$G$9!%(B
 %    \begin{macrocode}
 \newcommand*{\l@chapter}[2]{%
   \ifnum \c@tocdepth >\m@ne
@@ -2082,42 +2095,42 @@
 % \end{macro}
 %
 % \begin{macro}{\l@section}
-% section ¥ì¥Ù¥ë¤ÎÌÜ¼¡¤ÎÂÎºÛ¤Ç¤¹¡¥
+% section $B%l%Y%k$NL\<!$NBN:[$G$9!%(B
 %    \begin{macrocode}
 \newcommand*{\l@section}{\@dottedtocline{1}{1.5em}{2.3em}}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\l@subsection}
-% subsection ¥ì¥Ù¥ë¤ÎÌÜ¼¡¤ÎÂÎºÛ¤Ç¤¹¡¥
+% subsection $B%l%Y%k$NL\<!$NBN:[$G$9!%(B
 %    \begin{macrocode}
 \newcommand*{\l@subsection}{\@dottedtocline{2}{3.8em}{3.2em}}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\l@subsubsection}
-% subsubsection ¥ì¥Ù¥ë¤ÎÌÜ¼¡¤ÎÂÎºÛ¤Ç¤¹¡¥
+% subsubsection $B%l%Y%k$NL\<!$NBN:[$G$9!%(B
 %    \begin{macrocode}
 \newcommand*{\l@subsubsection}{\@dottedtocline{3}{7.0em}{4.1em}}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\l@paragraph}
-% paragraph ¥ì¥Ù¥ë¤ÎÌÜ¼¡¤ÎÂÎºÛ¤Ç¤¹¡¥
+% paragraph $B%l%Y%k$NL\<!$NBN:[$G$9!%(B
 %    \begin{macrocode}
 \newcommand*{\l@paragraph}{\@dottedtocline{4}{10em}{5em}}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\l@subparagraph}
-% subparagraph ¥ì¥Ù¥ë¤ÎÌÜ¼¡¤ÎÂÎºÛ¤Ç¤¹¡¥
+% subparagraph $B%l%Y%k$NL\<!$NBN:[$G$9!%(B
 %    \begin{macrocode}
 \newcommand*{\l@subparagraph}{\@dottedtocline{5}{12em}{6em}}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\listoffigures}
-% ¿Þ¤Î°ìÍ÷¤òÀ¸À®¤·¤Þ¤¹¡¥
+% $B?^$N0lMw$r@8@.$7$^$9!%(B
 %    \begin{macrocode}
 \newcommand{\listoffigures}{%
   \if@twocolumn\@restonecoltrue\onecolumn
@@ -2131,14 +2144,14 @@
 % \end{macro}
 %
 % \begin{macro}{\l@figure}
-% ¿ÞÌÜ¼¡¤ÎÂÎºÛ¤ò·è¤á¤Þ¤¹¡¥
+% $B?^L\<!$NBN:[$r7h$a$^$9!%(B
 %    \begin{macrocode}
 \newcommand*{\l@figure}{\@dottedtocline{1}{1.5em}{2.3em}}
 %    \end{macrocode}
 % \end{macro}
 % 
 % \begin{macro}{\listofcontents}
-% É½¤Î°ìÍ÷¤òÀ¸À®¤·¤Þ¤¹¡¥
+% $BI=$N0lMw$r@8@.$7$^$9!%(B
 %    \begin{macrocode}
 \newcommand{\listoftables}{%
   \if@twocolumn\@restonecoltrue\onecolumn
@@ -2152,22 +2165,22 @@
 % \end{macro}
 %
 % \begin{macro}{\l@table}
-% É½ÌÜ¼¡¤ÎÂÎºÛ¤Ç¤¹¡¥¿ÞÌÜ¼¡¤ÈÆ±¤¸¤Ë¤·¤Þ¤¹¡¥
+% $BI=L\<!$NBN:[$G$9!%?^L\<!$HF1$8$K$7$^$9!%(B
 %    \begin{macrocode}
 \let\l@table\l@figure
 %    \end{macrocode}
 % \end{macro}
-% \subsection*{»²¹ÍÊ¸¸¥}
-% »²¹ÍÊ¸¸¥¤Ï¡¤apalike ¥¹¥¿¥¤¥ë¤Î¥ê¥¹¥È´Ä¶­¤Ç¤¹¡¥
+% \subsection*{$B;29MJ88%(B}
+% $B;29MJ88%$O!$(Bapalike $B%9%?%$%k$N%j%9%H4D6-$G$9!%(B
 % \begin{macro}{\bibname}
-% »²¹ÍÊ¸¸¥´Ä¶­¤Î¸«½Ð¤·¤È¤Ê¤ëÊ¸»úÎó¤ò»ØÄê¤·¤Þ¤¹¡¥
+% $B;29MJ88%4D6-$N8+=P$7$H$J$kJ8;zNs$r;XDj$7$^$9!%(B
 %    \begin{macrocode}
-\@ifundefined{bibname}{\newcommand{\bibname}{»²¹ÍÊ¸¸¥}}{}
+\@ifundefined{bibname}{\newcommand{\bibname}{$B;29MJ88%(B}}{}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\bibhang}
-% Ê¸¸¥¥ê¥¹¥È¤ÎÀèÆ¬¤Î»ú²¼¤²Éý¤Ç¤¹¡¥
+% $BJ88%%j%9%H$N@hF,$N;z2<$2I}$G$9!%(B
 %    \begin{macrocode}
 \newdimen\bibhang
 \setlength\bibhang{-1zw}
@@ -2175,7 +2188,7 @@
 % \end{macro}
 %
 % \begin{macro}
-% Ê¸¸¥¥ê¥¹¥È¤Î¥Ö¥í¥Ã¥¯´Ö¤Ë¤¢¤±¤ë¾®¤µ¤Ê¶õÇò¤ÎÂç¤­¤µ¤Ç¤¹¡¥
+% $BJ88%%j%9%H$N%V%m%C%/4V$K$"$1$k>.$5$J6uGr$NBg$-$5$G$9!%(B
 %    \begin{macrocode}
 \def\newblock{\hskip .8em\@plus.33em\@minus.07em}
 %    \end{macrocode}
@@ -2183,7 +2196,7 @@
 %
 % \begin{macro}{\bibitem}
 % \begin{macro}{\@bibitem}
-% |\thebibliography| ´Ä¶­¤ÇÍÑ¤¤¤Þ¤¹¡¥|\bibitem[label]{key}| 
+% |\thebibliography| $B4D6-$GMQ$$$^$9!%(B|\bibitem[label]{key}| 
 %    \begin{macrocode}
 \def\bibitem{\@ifnextchar [{\@bibitem}{\@bibitem[]}}
 \def\@bibitem[#1]#2{\item[]%
@@ -2198,7 +2211,7 @@
 %
 % \begin{macro}{\@citex}
 % \begin{macro}{\@cite}
-% |\cite| ¤Ë¤è¤Ã¤Æ¸Æ¤Ó½Ð¤µ¤ì¤ëÆâÉô¥³¥Þ¥ó¥É¤òºÆÄêµÁ¤·¤Æ¤¤¤Þ¤¹¡¥
+% |\cite| $B$K$h$C$F8F$S=P$5$l$kFbIt%3%^%s%I$r:FDj5A$7$F$$$^$9!%(B
 %    \begin{macrocode}
 \def\@citex[#1]#2{%
   \let\@citea\@empty
@@ -2212,15 +2225,15 @@
       \mbox{\reset@font\bfseries ?}%
       \G@refundefinedtrue
       \@latex@warning
-      {Citation `\@citeb' on page \thepage \space undefined}}
-     {\hbox{\csname b@\@citeb\endcsname}}}}{#1}}
-\def\@cite#1#2{¡Ê#1\if@tempswa #2\fi¡Ë}
+      {Citation `\@citeb' on page \thepage\space undefined}}
+     {\csname b@\@citeb\endcsname}}}{#1}}
+\def\@cite#1#2{ (#1\if@tempswa #2\fi) }
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
-%
+% 
 % \begin{environment}{thebibliography}
-% »²¹ÍÊ¸¸¥¥ê¥¹¥È¤òÄó¶¡¤¹¤ë´Ä¶­¤Ç¤¹¡¥
+% $B;29MJ88%%j%9%H$rDs6!$9$k4D6-$G$9!%(B
 %    \begin{macrocode}
 \newenvironment{thebibliography}[1]
  {\chapter*{\bibname\@mkboth{\bibname}{\bibname}}
@@ -2240,9 +2253,9 @@
  {\endlist\clearpage}
 %    \end{macrocode}
 % \end{environment}
-% \subsubsection*{º÷°ú}
+% \subsubsection*{$B:w0z(B}
 % \begin{environment}{theindex}
-% ÆóÃÊÁÈ¤Îº÷°ú¤òºîÀ®¤·¤Þ¤¹¡¥
+% $BFsCJAH$N:w0z$r:n@.$7$^$9!%(B
 %    \begin{macrocode}
 \newenvironment{theindex}
   {\if@twocolumn\@restonecolfalse\else\@restonecoltrue\fi
@@ -2260,7 +2273,7 @@
 % \begin{macro}{\subitem}
 % \begin{macro}{\subsubitem}
 % \begin{macro}{\indexspace}
-% º÷°ú¹àÌÜ¤Î»ú²¼¤²Éý¤È¡¤¸«½Ð¤·¤ÎÁ°¤ËÃÖ¤«¤ì¤ë¶õÇò¤Ç¤¹¡¥
+% $B:w0z9`L\$N;z2<$2I}$H!$8+=P$7$NA0$KCV$+$l$k6uGr$G$9!%(B
 %    \begin{macrocode}
 \newcommand{\@idxitem}{\par\hangindent 40\p@}
 \newcommand{\subitem}{\@idxitem \hspace*{20\p@}}
@@ -2272,9 +2285,9 @@
 % \end{macro}
 % \end{macro}
 %
-% \subsubsection*{µÓÃí}
+% \subsubsection*{$B5SCm(B}
 % \begin{macro}{\footnoterule}
-% ËÜÊ¸¤ÈµÓÃí¤Î´Ö¤Ë°ú¤«¤ì¤ë·ÓÀþ¤òºÆÄêµÁ¤·¤Þ¤¹¡¥
+% $BK\J8$H5SCm$N4V$K0z$+$l$k7S@~$r:FDj5A$7$^$9!%(B
 %    \begin{macrocode}
 \renewcommand{\footnoterule}{%
   \kern-3\p@
@@ -2284,7 +2297,7 @@
 % \end{macro}
 %
 % \begin{macro}{\c@footnote}
-% |noserial| ¥ª¥×¥·¥ç¥ó¤Ç¤Ï¡¤ |footnote| ¥«¥¦¥ó¥¿¤ò¾Ï¤´¤È¤Ë¥ê¥»¥Ã¥È¤·¤Þ¤¹¡¥
+% |noserial| $B%*%W%7%g%s$G$O!$(B |footnote| $B%+%&%s%?$r>O$4$H$K%j%;%C%H$7$^$9!%(B
 %    \begin{macrocode}
 \if@serial\else
   \@addtoreset{footnote}{chapter}
@@ -2293,55 +2306,55 @@
 % \end{macro}
 %
 % \begin{macro}{\@makefntext}
-% µÓÃí¤Î¥Æ¥­¥¹¥È¤òÁÈ¤ß¤Þ¤¹¡¥
+% $B5SCm$N%F%-%9%H$rAH$_$^$9!%(B
 %    \begin{macrocode}
 \newcommand\@makefntext[1]{\parindent 1em%
   \noindent\hbox to 1.8em{\hss\@makefnmark}#1}
 %    \end{macrocode}
 % \end{macro}
 %
-% \subsection*{ÆüÉÕ}
-% \begin{macro}{\À¾Îñ}
-% \begin{macro}{\ÏÂÎñ}
-% ÆüÉÕ¤òÀ¾Îñ¡¤ÏÂÎñ¤Î¤É¤Á¤é¤ÇÉ½¼¨¤¹¤ë¤«¤ò·è¤á¤Þ¤¹¡¥
-% \DisableCrossrefs       % <- ¥¨¥é¡¼²óÈò¤Î¤¿¤á
+% \subsection*{$BF|IU(B}
+% \begin{macro}{\$B@>Nq(B}
+% \begin{macro}{\$BOBNq(B}
+% $BF|IU$r@>Nq!$OBNq$N$I$A$i$GI=<($9$k$+$r7h$a$^$9!%(B
+% \DisableCrossrefs       % <- $B%(%i!<2sHr$N$?$a(B
 %    \begin{macrocode}
-\newif\ifÀ¾Îñ \À¾Îñtrue
-\def\À¾Îñ{\À¾Îñtrue}
-\def\ÏÂÎñ{\À¾Îñfalse}
+\newif\if$B@>Nq(B \$B@>Nq(Btrue
+\def\$B@>Nq(B{\$B@>Nq(Btrue}
+\def\$BOBNq(B{\$B@>Nq(Bfalse}
 %    \end{macrocode}
-% \EnableCrossrefs        % <- ¥¨¥é¡¼²óÈò¤Î¤¿¤á
+% \EnableCrossrefs        % <- $B%(%i!<2sHr$N$?$a(B
 % \end{macro}
 % \end{macro}
 %
 % \begin{macro}{\today}
-% ÁÈÈÇ»þ¤ÎÆüÉÕ¤ò½ÐÎÏ¤·¤Þ¤¹¡¥
+% $BAHHG;~$NF|IU$r=PNO$7$^$9!%(B
 %    \begin{macrocode}
 \def\today{%
-  \ifÀ¾Îñ
-      \number\year\, Ç¯\hspace{.5em}\nobreak 
-      \number\month\, ·î\hspace{.5em}\nobreak
-      \number\day\, Æü
+  \if$B@>Nq(B
+      \number\year\, $BG/(B\hspace{.5em}\nobreak 
+      \number\month\, $B7n(B\hspace{.5em}\nobreak
+      \number\day\, $BF|(B
   \else
       \@tempcnta\year
-      \advance\@tempcnta-1988 Ê¿À®
-      \ifnum \@tempcnta =1 ¸µ\else\number\@tempcnta\fi
-        \, Ç¯\hspace{.5em}\nobreak%
-      \number\month\, ·î\hspace{.5em}\nobreak\number\day\, Æü
+      \advance\@tempcnta-1988 $BJ?@.(B
+      \ifnum \@tempcnta =1 $B85(B\else\number\@tempcnta\fi
+        \, $BG/(B\hspace{.5em}\nobreak%
+      \number\month\, $B7n(B\hspace{.5em}\nobreak\number\day\, $BF|(B
   \fi}
 %    \end{macrocode}
 % \end{macro}
 % 
-% \subsection{½é´üÀßÄê}
+% \subsection{$B=i4|@_Dj(B}
 % \begin{macro}{\prepartname}
 % \begin{macro}{\postpartname}
 % \begin{macro}{\prechaptername}
 % \begin{macro}{\postchaptername}
 %    \begin{macrocode}
-\newcommand{\prepartname}{Âè}
-\newcommand{\postpartname}{Éô}
-\newcommand{\prechaptername}{Âè}
-\newcommand{\postchaptername}{¾Ï}
+\newcommand{\prepartname}{$BBh(B}
+\newcommand{\postpartname}{$BIt(B}
+\newcommand{\prechaptername}{$BBh(B}
+\newcommand{\postchaptername}{$B>O(B}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -2352,9 +2365,9 @@
 % \begin{macro}{\listfigurename}
 % \begin{macro}{\listtablename}
 %    \begin{macrocode}
-\newcommand{\contentsname}{ÌÜ~¼¡}
-\newcommand{\listfigurename}{¿Þ~ÌÜ~¼¡}
-\newcommand{\listtablename}{É½~ÌÜ~¼¡}
+\newcommand{\contentsname}{$BL\(B~$B<!(B}
+\newcommand{\listfigurename}{$B?^(B~$BL\(B~$B<!(B}
+\newcommand{\listtablename}{$BI=(B~$BL\(B~$B<!(B}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -2367,12 +2380,12 @@
 % \begin{macro}{\abstractname}
 % \begin{macro}{\acknowledgementname}
 %    \begin{macrocode}
-\newcommand{\indexname}{º÷~°ú}
-\newcommand{\figurename}{¿Þ}
-\newcommand{\tablename}{É½}
-\newcommand{\appendixname}{ÉÕ~Ï¿}
-\newcommand{\abstractname}{³µ~Í×}
-\newcommand{\acknowledgementname}{¼Õ~¼­}
+\newcommand{\indexname}{$B:w(B~$B0z(B}
+\newcommand{\figurename}{$B?^(B}
+\newcommand{\tablename}{$BI=(B}
+\newcommand{\appendixname}{$BIU(B~$BO?(B}
+\newcommand{\abstractname}{$B35(B~$BMW(B}
+\newcommand{\acknowledgementname}{$B<U(B~$B<-(B}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -2401,7 +2414,8 @@
 
 \if@jinka
   \Columns{30}
-  \Lines{20}
+  \if@double \Lines{40}
+  \else      \Lines{20}\fi
 \else
   \Columns{38}
   \Lines{32}

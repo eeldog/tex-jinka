@@ -8,10 +8,13 @@
 <body>
 
 <h1> jinka $B%/%i%9%U%!%$%k(B ver. @VERSION@ </h1>
-<p>jinka.cls $B$O!$Bg:eBg3X?M4V2J3XIt(B/$B8&5f2J$NB46HO@J8(B/$B=$;NO@J8$r:n@.$9$k$?$a$N(B LaTeX2e $B%/%i%9%U%!%$%k$G$9!%(B</p>
+<p>
+jinka.cls $B$O!$Bg:eBg3X?M4V2J3X8&5f2J(B($B9TF07O(B)$B$NB46HO@J8(B/$B=$;NO@J8(B/$BGn;NO@J8$r(B
+$B$9$k$?$a$N(B LaTeX2e $B%/%i%9%U%!%$%k$G$9!%(B</p>
 
 <a href="#install">$B%$%s%9%H!<%k(B</a>&nbsp;
-<a href="#list">$B%Q%C%1!<%8(B</a>&nbsp;
+<a href="#usage">$B;H$$J}(B</a>&nbsp;
+<a href="#list">$B%Q%C%1!<%80lMw(B</a>&nbsp;
 <a href="#download">$B%@%&%s%m!<%I(B</a>&nbsp;
 <a href="#contact">$B%3%s%?%/%H(B</a>&nbsp;
 <hr />
@@ -19,91 +22,135 @@
 
 <h2><a name="install">$B%$%s%9%H!<%k(B</a></h2>
 <h3> $B<j=g$N35MW(B </h3>
-<p> jinka.cls $B$O(B jinka.dtx $B$H$$$&%U%!%$%k$+$i(B DOCSTRIP $B%f!<%F%#%j%F%#$rMQ$$$F@8@.$7$^$9!%%$%s%9%H!<%k:n6H$r4JN,$K$9$k$?$a$N%P%C%A%U%!%$%k$rMQ0U$7$^$7$?!%%$%s%9%H!<%k$KI,MW$J:n6H$O<!$N(B2$BE@$G$9!%(B</p>
+<p><kbd>jinka.ins</kbd> $B%U%!%$%k$r(B LaTeX $B$G=hM}$9$k$H!$(B<kbd>jinka.cls</kbd>
+$B$,@8@.$5$l$^$9!%E,Ev$J%G%#%l%/%H%j$K%3%T!<$7$F$*;H$$$/$@$5$$!%(B</p>
 
-<ol>
- <li> LaTeX $B$G(B jinka.ins $B%U%!%$%k$r=hM}$7!$(Bjinka.cls $B$r@8@.$9$k!%(B</li>
- <li> $BI,MW$J%U%!%$%k$rE,Ev$J%G%#%l%/%H%j$K%3%T!<$9$k!%(B</li>
-</ol>
+<p>$B4A;z%3!<%I$O(B JIS $B%3!<%I$K$J$C$F$$$^$9!%B?$/$NF|K\8lBP1~(B LaTeX $B$G@5>o$K(B
+$B07$($k$O$:$G$9$,!$=hM}7O$K$h$C$F$O4A;z%3!<%I$NJQ49$r$*$3$J$&I,MW$,$"$k(B
+$B$+$b$7$l$^$;$s!%(B</p>
 
-<p>$B!VE,Ev$J%G%#%l%/%H%j!W$H$O!$(BTeX $B$N8!:w%Q%9$K4^$^$l$k%G%#%l%/%H%j$N(B
-$B$3$H$G$9!%(BUNIX $B4D6-$G$O!$4D6-JQ?t(B <tt>TEXINPUTS</tt> $B$G;XDj$G$-$^$9!%(B</p>
+<p>$BF0:n3NG'$O(B pLaTeX 1.0i $B$G$*$3$J$C$F$$$^$9!%(B</p>
 
-<h3> UNIX $B7O$N4D6-$G$N<B9TNc(B </h3>
-<p>$B%$%s%9%H!<%k$9$k%G%#%l%/%H%j$r(B ${HOME}/lib/tex $B$H$9$k$H!$6qBNE*$K$O(B
-$B<!$N$h$&$J%3%^%s%I$r<B9T$9$k$3$H$K$J$j$^$9!%(B</p>
-<blockquote><kbd>
-  $ platex jinka.ins <br>
-  $ cp jinka.cls ${HOME}/lib/tex <br>
-  $ cp jpa.bst ${HOME}/lib/tex <br>
-</kbd></blockquote>
-
-<h3> Macintosh $B$d(B Windows $BHG$G$NCm0UE@(B </h3>
-<p>$B%/%i%9%U%!%$%k$N4A;z%3!<%I$O(B EUC$B!$2~9T%3!<%I$O(B LF $B$H$J$C$F$$$^$9!%(B
-Macintosh $B$d(B Windows $B$G;HMQ$9$k:]$K$O!$4A;z%3!<%I$r(B Shift JIS$B$K!$2~9T%3!<%I$r(B
-CR (Mac) $B$b$7$/$O(B CR+LF (Win) $B$KJQ49$9$kI,MW$,$"$j$^$9!%(B </p>
-
-<p class="dim"> Macintosh, Mac $B$O(B <a href="http://www.apple.com/">
-Apple Computer Inc.</a> $B$NEPO?>&I8$G$9!%(B
-Windows $B$O(B <a href="http://www.microsoft.com/">Microsoft $B<R(B</a>$B$N(B
-$BEPO?>&I8$G$9!%(B</p>
 <hr />
 
+<h2><a name="usage">$B;H$$J}(B</a></h2>
+<h3>$B%/%i%9%U%!%$%k$N;XDj(B</h3>
+<p>$B%I%-%e%a%s%H%/%i%9$*$h$S$=$N%*%W%7%g%s$K(B `<kbd>jinka</kbd>' $B$r;XDj$9$k(B
+$B$3$H$G!$(B1 $BJG$"$?$j(B 30$B;z(B $B!_(B20 $B9T%U%)!<%^%C%H$K$J$j$^$9!%(B
+$B%*%W%7%g%s$K(B <kbd>jinka</kbd>$B$r;XDj$7$J$+$C$?>l9g$K$O!$(B1$BJG$"$?$j(B 38$B;z(B $B!_(B 
+32 $B9T$H$J$j$^$9!%(B </p>
+<blockquote style="border: 1px solid blue; padding: 5pt;">
+<kbd>\documentclass[jinka]{jinka}</kbd>
+</blockquote>
 
-<h2><a name="list">$B%Q%C%1!<%8(B</a></h2>
+
+<h3>$B;29M!'<9I.5,Dj(B ($BJ?@.(B14$BG/EY2~Dj(B)</h3>
+<table width="50%" align="center" border="1">
+<thead>
+ <tr>
+    <th>1$BJG$"$?$j;z?t(B</th>
+    <td align="center">600$B;z(B/$BJG(B</td>
+    <td align="center">1200$B;z(B/$BJG(B</td></tr>
+</thead>
+<tbody>
+  <tr>
+    <th>   $BMQ;f(B  </th>
+    <td align="center"> A4 $BJRLL(B </td>
+    <td align="center"> A4 $BN>LL(B </td>
+  </tr>
+  <tr>
+    <th>  1$B9T$"$?$j;z?t(B  </th>
+    <td colspan="2" align="center"> 30 $B;z(B/$B9T(B </td>
+  </tr>
+  <tr>
+    <th>  1$BJG$"$?$j9T?t(B  </th>
+    <td align="center"> 20 $B9T(B/$BJG(B </td><td align="center"> 40 $B9T(B/$BJG(B </td>
+  </tr>
+  <tr>
+    <th> $B>e(B $BM>Gr(B </th>
+    <td colspan="2" align="center"> 25 - 40 mm </td>
+  </tr>
+  <tr>
+    <th> $B2<(B $BM>Gr(B </th>
+    <td colspan="2" align="center"> 25 - 40 mm </td>
+  </tr>
+  <tr>
+    <th> $B:8(B $BM>Gr(B </th>
+    <td colspan="2" align="center"> 25 - 40 mm </td>
+  </tr>
+  <tr>
+    <th> $B1&(B $BM>Gr(B </th>
+    <td colspan="2" align="center"> 25 - 40 mm </td>
+  </tr>
+  <tr>
+    <th>  $B;f<A(B   </th>
+    <td colspan="2" align="center"> $B>e<A;f(B 55-70g/m<sup>2</sup></td>
+  </tr>
+</tbody>
+</table>
+
+<hr />
+
+<h2><a name="list">$B%Q%C%1!<%80lMw(B</a></h2>
 <a href="jinka-@VERSION@.tar.gz"> <tt>jinka-@VERSION@/</tt></a>
-<ul>
- <li><a href="Makefile">Makefile</a></li>
- <li><a href="README">README</a></li>
- <li><a href="jinka.dtx">jinka.dtx</a></li>
- <li><a href="jinka.ins">jinka.ins</a></li>
- <li><a href="jpa.bst">jpa.bst</a></li>
- <li><a href="jpa.dtx">jpa.dtx</a></li>
- <li><a href="jpa.ins">jpa.ins</a></li>
- <li><a href="english.sty">english.sty</a></li>
-</ul>
+
+<table cellspacing="8" align="center">
+ <tbody>
+ <tr>
+  <td><a href="Makefile">Makefile</a></td>
+  <td>Makefile</td>
+ </tr>
+ <tr>
+  <td><a href="README">README</a></td>
+  <td>$B4JC1$J@bL@=q(B</td>
+ </tr>
+ <tr>
+  <td><a href="jinka.dtx">jinka.dtx</a></td>
+  <td>jinka $B%/%i%9(B DOCSTRIP $B%U%!%$%k(B</td>
+ </tr>
+ <tr>
+  <td><a href="jinka.ins">jinka.ins</a></td>
+  <td>jinka $B%/%i%9(B $B%$%s%9%H!<%k%I%i%$%P(B</td>
+ </tr>
+ <tr>
+  <td><a href="japa.bst">japa.bst</a></td>
+  <td> APA $B$N0zMQ=q<0$rDj5A$7$?(B jBibTeX $B%9%?%$%k%U%!%$%k(B</td>
+ </tr>
+ <tr>
+  <td><a href="japa.dtx">japa.dtx</a></td>
+  <td>japa.bst $BMQ(B $B;29MJ88%4D6-(B</td>
+ </tr>
+ <tr>
+  <td><a href="japa.ins">japa.ins</a></td>
+  <td>japa.sty $B$N%$%s%9%H!<%k%I%i%$%P(B</td>
+ </tr>
+ <tr>
+  <td><a href="english.sty">english.sty</a></td>
+  <td>$B>OBj!$?^I=%-%c%W%7%g%s$J$I$r1Q8l$K$9$k$?$a$N%Q%C%1!<%8(B</td>
+ </tr>
+ <tr>
+  <td><a href="obsolete/sotsu.sty">obsolete/sotsu.sty</a></td>
+  <td> LaTeX 2.09 $BMQ%9%?%$%k(B ($B86ED(B $B>O(B $B;a$N:n$K$h$k(B) </td>
+ </tr>
+ </tbody>
+</table>
 
 
 <h2><a name="download">$B%@%&%s%m!<%I(B</a></h2>
-<p>$B:GDc8BI,MW$H$J$k%U%!%$%k$O!$(B<a href="jis/jinka.cls">jinka.cls</a> $B$G$9!%(B
-$B4A;z%3!<%I$KCm0U$7$F$/$@$5$$!%(B</p>
-<table cellpadding="5" cellspacing="0">
- <tr style="background: white;">
-  <td><a href="jinka.cls">jinka.cls</a></td>
-  <td><a href="jis/jinka.cls">[JIS]</a></td>
-  <td><a href="mac/jinka.cls">[Mac]</a></td>
-  <td><a href="win/jinka.cls">[Win]</a></td>
- </tr>
- <tr style="background: lightgray;">
-  <td><a href="jpa.sty">jpa.sty</a></td>
-  <td><a href="jis/jpa.sty">[JIS]</a></td>
-  <td><a href="mac/jpa.sty">[Mac}</a></td>
-  <td><a href="win/jpa.sty">[Win]</a></td>
- </tr>
- <tr style="background: white;">
-  <td><a href="jpa.bst">jpa.bst</a></td>
-  <td><a href="jis/jpa.bst">[JIS]</a></td>
-  <td><a href="mac/jpa.bst">[Mac]</a></td>
-  <td><a href="win/jpa.bst">[Win]</a></td>
- </tr>
- <tr style="background: lightgray;">
-  <td colspan="4"><a href="obsolete/sotsu.sty">obsolete/sotsu.sty</a></td>
- </tr>
- <tr style="background: white;">
-  <td colspan="4"><a href="english.sty">english.sty</a></td>
- </tr>
-</table>
-
+jinka-@VERSION@ $B$N0l<!G[I[85$O(B
+<blockquote>
+<a href="http://koko15.hus.osaka-u.ac.jp/%7Eyusuke/archive/jinka/jinka-@VERSION@.tar.gz">
+http://koko15.hus.osaka-u.ac.jp/~yusuke/archive/jinka/jinka-@VERSION@.tar.gz
+</a></blockquote>
+$B$G$9!%(B
 <hr />
 
 <h2><a name="contact">$B%3%s%?%/%H(B</a></h2>
 <ul>
 <li> jinka $B%/%i%9$N(B web $B%Z!<%8$O$3$A$i!%(B
-  <address>
-    <a href="http://koko15.hus.osaka-u.ac.jp/~yusuke/archive/jinka/">
+    <a href="http://koko15.hus.osaka-u.ac.jp/%7Eyusuke/archive/jinka/">
      http://koko15.hus.osaka-u.ac.jp/~yusuke/archive/jinka/
     </a>
-  </address>
 </li>
 <li> $B$40U8+!$$4MWK>!$%P%0Js9p$O$3$A$i$^$G$*4s$;$/$@$5$$!%(B
   <address>
@@ -116,7 +163,7 @@ Windows $B$O(B <a href="http://www.microsoft.com/">Microsoft $B<R(B</a>$B$N
 
 <hr />
 <div align="right">
-$Date: 2002-01-14 08:48:17 $
+$Date: 2003-01-04 18:55:08 $
 </div>
 
 </body>

@@ -1,5 +1,6 @@
 /* jinka.css
- * $Id: jinka.css,v 1.2 2002-02-05 16:40:14 pooh Exp $
+ * $Revision: 1.3 $
+ * $Date: 2003-01-04 18:55:08 $
  */	
 a:link    { color: blue;   background: transparent; }
 a:visited { color: purple;   background: transparent; }
@@ -47,3 +48,12 @@ em {
   }
 
 ul { list-style-type: circle; }
+
+table {
+    border: 1px solid darkblue;
+}
+
+table th {
+     color: white;
+     background: black;
+}
