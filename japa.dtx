@@ -1,12 +1,13 @@
 % \iffalse     META-COMMENT
-% Source File: jpa.dtx
-% $Id: jpa.dtx,v 1.4 2001-01-13 18:37:00 yusuke Exp $
+% Source File: japa.dtx
+% $Revision: 1.1 $
+% $Date: 2002-12-30 07:11:17 $
 %
-% Copyright (C) 1998-2000  MIYAMOTO Yusuke
+% Copyright (C) 1998-2002  MIYAMOTO Yusuke
 % \fi
-\def\filename{jpa.dtx}
-\def\fileversion{v1.0a}
-\def\filedate{2000/10/01}
+\def\filename{japa.dtx}
+\def\fileversion{1.1.1}
+\def\filedate{2002/01/13}
 %  \CheckSum{0}
 %%
 %% \CharacterTable
@@ -27,13 +28,15 @@
 %%
 %
 % \changes{v1.0a}{2000/10/01}
-%         {jpa.sty v1.0a}
+%         {japa.sty v1.0a}
+% \changes{v1.0a}{2000/01/13}
+%         {japa.sty 1.1}
 % 
 % \iffalse
-%<*jpa>
+%<*japa>
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{jpa}[\filedate]
-%</jpa>
+\ProvidesClass{japa}[\filedate]
+%</japa>
 %<*driver>
 \documentclass[a4j]{jarticle}
   \usepackage{doc}
@@ -41,7 +44,7 @@
   \RecordChanges
   \MakeShortVerb{\|}
 \begin{document}
-  \title{JPA--like 参考文献リストパッケージ{\large \fileversion}}
+  \title{JAPA--like 参考文献リストパッケージ{\large \fileversion}}
   \author{MIYAMOTO Yusuke\thanks{大阪大学大学院人間科学研究科 行動学専攻}}
   \maketitle
   \DocInput{\filename}
@@ -51,12 +54,12 @@
 %
 % \section*{概要}
 % 日本語版 APA like な参考文献リストを作成するためのパッケージです．
-% BiBTeX スタイルファイル |jpa.bst| と共に使用します．
+% BiBTeX スタイルファイル |japa.bst| と共に使用します．
 % 
 % \StopEventually{}
 % \newpage
 % 
-%<*jpa>
+%<*japa>
 % \section*{コードの解説}
 % 
 % \subsection*{}
@@ -75,7 +78,7 @@
 % \begin{macro}{newblock}
 % ブロック間のアキを指定します．
 %    \begin{macrocode}
-\def\newblock{\hskip .11em\@plus.33em\@minus.07em}
+\def\newblock{\hskip .8em\@plus.33em\@minus.07em}
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{@biblabel}
@@ -103,7 +106,7 @@
 % \end{macro}
 % 
 % \begin{macro}{bibcite}
-% |\bibcite{key}{author}{year}| という形式で，引用を定義します．
+% |\bibsite{key}{author}{year}| という形式で，引用を定義します．
 %    \begin{macrocode}
 \def\bibcite#1#2#3{%
   \@newl@bel b{#1}{#2} \@newl@bel Y{#1}{#3}}
@@ -163,25 +166,28 @@
 % \begin{environment}{thebibliography}
 % 参考文献リストを作成するための環境です．
 %    \begin{macrocode}
-\def\thebibliography{ %
+\renewenvironment{thebibliography}[1]
+ {%
   \@ifundefined{chapter} %
-    {\section*{\bibname\@mkboth{\bibname}{\bibname}}}
-    {\chapter*{\bibname\@mkboth{\bibname}{\bibname}}}
+    {\section*{\bibname\@mkboth{\bibname}{\bibname}}
+     \addcontentsline{toc}{section}{\bibname}}
+    {\chapter*{\bibname\@mkboth{\bibname}{\bibname}}
+     \addcontentsline{toc}{chapter}{\bibname}}
   \list{\relax}{
     \setlength\leftmargin{-\bibhang}
     \setlength\itemindent{\bibhang}
     \setlength\labelsep{\z@}
     \setlength\itemsep{1.2\p@}}
   \def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}
-  \renewcommand{\baselinestretch}{}\selectfont
+  \linespread{}\selectfont
   \sloppy
   \clubpenalty=4000
   \@clubpenalty=\clubpenalty
   \widowpenalty=4000
   \sfcode`\.\@m}
-\let\endthebibliography=\endlist
+ {\endlist}
 %    \end{macrocode}
 % \end{environment}
-%</jpa>
+%</japa>
 \endinput
 %\Finale
