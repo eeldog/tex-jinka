@@ -1,6 +1,6 @@
 \def\filename{jinka.dtx}
-\def\fileversion{version 1.1}
-\def\filedate{2000/8/20}
+\def\fileversion{v1.1b}
+\def\filedate{2000/10/01}
 %  \CheckSum{0}
 %%
 %% \CharacterTable
@@ -20,10 +20,11 @@
 %%   Right brace   \}     Tilde         \~}
 %%
 % \iffalse     META-COMMENT
-% $Id: jinka.dtx,v 0.0 2000-09-20 10:21:19 yusuke Exp $
 % Source File: jinka.dtx
-% 
+% $Id: jinka.dtx,v 0.1 2000-09-27 12:08:30 yusuke Exp $
+%
 % Copyright (C) 1998-2000  MIYAMOTO Yusuke.
+% 
 % \fi
 %
 % \changes{v1.0}{1998/10/01}
@@ -38,18 +39,28 @@
 %         {ドキュメントの修正}
 % \changes{v1.1a}{2000/09/19}
 %         {デフォルトのページスタイル，行数を変更}
+% \changes{v1.1a}{2000/09/27}
+%         {ランドスケープ削除．ページレイアウトのパラメタを変更}
 % \changes{v1.1b}{2000/10/01}
 %         {version 1.1 $\beta$}
 % 
 % \iffalse
+%<*package>
+\NeedsTeXFormat{pLaTeX2e}
+\ProvidesClass{jinka}
+%</package>
+% \fi
+% 
+% \iffalse
 %<*driver>
-\documentclass[a4j]{jarticle}
+\documentclass[a4paper]{jarticle}
   \usepackage{doc}
   \OnlyDescription
   \RecordChanges
   \MakeShortVerb{\|}
 \begin{document}
-  \title{人間科学研究科（行動学専攻）論文用クラスファイル\\ \fileversion}
+  \title{大阪大学大学院人間科学研究科/人間科学部\\
+         学位論文用クラスファイル\\ {\large \fileversion}}
   \author{MIYAMOTO Yusuke\thanks{大阪大学大学院人間科学研究科 行動学専攻}}
   \maketitle
   \DocInput{\filename}
@@ -68,7 +79,7 @@
 % 直接 \LaTeX{}で処理すると，dvi 形式のドキュメントが作成されます．
 % \begin{center}
 % \begin{tabular}{lcl}
-%  \file{jinka.dtx} & --- & ``jinka.cls'' の doc ファイル \\
+%  \textbf{jinka.dtx} & --- & ``jinka.cls'' の doc ファイル \\
 %  \textbf{jinka.ins} & --- &  同インストール・バッチファイル \\
 %  \textbf{jjpsy.bst} & --- &  『心理学研究』風 .bst ファイル \\
 %  \textbf{jjpsy.dtx} & --- &  jjpsy.bst 用スタイルファイル \\
@@ -103,7 +114,6 @@
 %    {\em a4j} / {\em b5j}                & 用紙サイズ指定オプション\\
 %    {\em a4paper} / {\em b5paper}        & 用紙サイズ指定オプション\\
 %    {\em 10pt} / {\em 11pt} / {\em 12pt} & フォントサイズ指定オプション\\
-%    {\em landscape} & 用紙の向きを横方向に指定\\
 %    {\em oneside} / {\em twoside} & 片面 / 両面刷り指定オプション\\
 %    {\em notitlepage} & タイトルページを独立させない．\\
 %    {\em draft} / {\em final} & +\ifdraft+ フラグを 真 / 偽 にする．\\
@@ -251,12 +261,9 @@
 %
 % \StopEventually{}
 % 
+% \newpage
 % \section*{コードの解説}
 %
-%<*package>
-\NeedsTeXFormat{pLaTeX2e}
-\ProvidesClass{jinka}[2000/09/01 pLaTeX2e ``jinka'' class]
-%</package>
 % \subsection*{ユーティリティ・マクロ}
 % 
 % \begin{macro}{setfraction}
@@ -291,8 +298,8 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\if@landscape}
-% 用紙の方向を示します. 縦向き (デフォルト) のときは, |\@landscapefalse| です. 
+% \begin{macro}{\if@@landscape}
+% 用紙の方向を示します．縦向きのときは |\@@landscapefalse| です．
 %    \begin{macrocode}
 \newif\if@landscape \@landscapefalse
 %    \end{macrocode}
@@ -414,12 +421,6 @@
 \DeclareOption{10pt}{\renewcommand{\@ptsize}{0}}
 %    \end{macrocode}
 %
-% \subsubsection*{用紙方向オプション}
-% 用紙の向きを横方向に指定します．
-%    \begin{macrocode}
-\DeclareOption{landscape}{\@landscapetrue}
-%    \end{macrocode}
-%
 % \subsubsection*{両面刷りオプション}
 % 両面印刷にするかどうかを指定します．左右のマージンがちょっと変わります．
 %    \begin{macrocode}
@@ -488,15 +489,6 @@
 %
 %
 % \subsection*{レイアウト}
-% \subsubsection*{用紙サイズの決定}
-% |landscape| オプションが指定されている場合，用紙の縦横幅を入れ換えます．
-%    \begin{macrocode}
-\if@landscape
-  \setlength\@tempdima{\paperheight}
-  \setlength\paperheight{\paperwidth}
-  \setlength\paperwidth{\@tempdima}
-\fi
-%    \end{macrocode}
 %
 % \subsubsection*{本文領域}
 %
@@ -508,16 +500,16 @@
   \setlength\textwidth{#1.1\Cwd}
   \setlength{\@tempdima}{\paperwidth}
   \addtolength{\@tempdima}{-2in}
-  \addtolength{\@tempdima}{-2\hoffset}
   \ifdim \textwidth > \@tempdima
     \setlength{\textwidth}{\@tempdima}
-	\@latex@warning{指定されたカラムが大きすぎるので，テキスト幅を
-                    自動的に設定しました．\the\@tempdima}
+    \@latex@warning{指定されたカラムが大きすぎるので，テキスト幅を自動的に設定しました．\space\the\@tempdima}
   \fi
   \addtolength{\@tempdima}{-\textwidth}
   \setlength{\oddsidemargin}{.5\@tempdima}
+  \@settopoint\oddsidemargin
   \if@twoside
     \setlength{\evensidemargin}{\oddsidemargin}
+    \@settopoint\evensidemargin
   \fi}
 %    \end{macrocode}
 % \end{macro}
@@ -537,7 +529,7 @@
 % \end{macro}
 % 
 % \begin{macro}{\textwidth}
-% 基本のテキスト幅の設定です．
+% 基本のテキスト幅の設定です．実際には |\Columns| で再設定します．
 %    \begin{macrocode}
 \setlength\textwidth{\paperwidth}
 \addtolength\textwidth{-2in}
@@ -550,17 +542,6 @@
 \setlength\textheight{.75\paperheight}
 \addtolength\textheight{\topskip}
 \@settopoint\textheight
-%    \end{macrocode}
-% \end{macro}
-%
-% \begin{macro}{\if@landscape}
-% ランドスケープはテキスト領域の幅と高さを入れ替えます．
-%    \begin{macrocode}
-\if@landscape
-  \setlength\@tempdima{\textheight}
-  \setlength\textheight{\textwidth}
-  \setlength\textwidth{\@tempdima}
-\fi
 %    \end{macrocode}
 % \end{macro}
 %
@@ -626,6 +607,17 @@
 % \end{macro}
 %
 % \subsubsection*{ページレイアウト}
+% \begin{macro}{\hoffset}
+% \begin{macro}{\voffset}
+% ページ上の座標を参照するときに，原点となる点を設定します．
+% $(|\hoffset| + \mathrm{1in}, |\voffset| + \mathrm{1in})$
+%    \begin{macrocode}
+\setlength{\hoffset}{\z@}
+\setlength{\voffset}{\z@}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% 
 % \begin{macro}{\headheight}
 % \begin{macro}{\headsep}
 % \begin{macro}{\footskip}
@@ -641,28 +633,20 @@
 % \end{macro}
 % \end{macro}
 % \end{macro}
-%
+% 
 % \begin{macro}{\maxdepth}
-% |\maxdepth| は，\TeX{}のプリミティブで，|\topskip| の半分に設定します．
+% |\maxdepth| は \TeX{}のプリミティブです．|\topskip| の半分に設定します．
 %    \begin{macrocode}
 \setlength\maxdepth{.5\topskip}
 %    \end{macrocode}
 % \end{macro}
-%
-%
+% 
+% 
 % \begin{macro}{\topmargin}
 % |\topmargin| は，印字可能領域の上端からヘッダ部分の上端までの距離です．
-%    \begim{macrocode}
-\setlength\topmargin{\paperheight}
-\addtolength\topmargin{-\headheight}
-\addtolength\topmargin{-\headsep}
-\addtolength\topmargin{-\textheight}
-\addtolength\topmargin{-\footskip}
-\if@stysize
-  \addtolength\topmargin{-2in}
-\else
-  \addtolength\topmargin{-2.4in}
-\fi
+%    \begin{macrocode}
+\setlength\topmargin{25mm}
+\addtolength\topmargin{-1in}
 \@settopoint\topmargin
 %    \end{macrocode}
 % \end{macro}
@@ -694,7 +678,6 @@
 \setlength\@tempdima{\paperwidth}
 \addtolength\@tempdima{-\textwidth}
 \addtolength\@tempdima{-2in}
-\addtolength\@tempdima{-2\hoffset}
 \ifdim \@tempdima < 0 \setlength{\@tempdima}{\z@} \fi
 \if@twoside
   \setlength\oddsidemargin{.4\@tempdima}
@@ -803,7 +786,7 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\c@dbltopnumber}}
+% \begin{macro}{\c@dbltopnumber}
 % 二段組の段抜きフロートに使われる |\topnumber| です．
 %    \begin{macrocode}
 \setcounter{dbltopnumber}{2}
@@ -978,7 +961,7 @@
 %
 % \begin{macro}{\subtitle}
 % タイトルページで使う追加項目です．サブタイトルを記述します．
-%    \end{macrocode}
+%    \begin{macrocode}
 \newcommand{\subtitle}[1]{\gdef\@subtitle{#1}}
 %    \end{macrocode}
 % \end{macro}
@@ -1007,7 +990,7 @@
 \if@titlepage
 \newcommand{\maketitle}{%
   \begin{titlepage}
-    \def\baselinestretch{}
+    \def\baselinestretch{}\selectfont
     \let\footnotesize\small
     \let\footnoterule\relax
     \let\footnote\thanks
@@ -1017,7 +1000,7 @@
     {\LARGE \@title \par}
     \@ifundefined{@subtitle}%
       {\relax}%
-      {\large \@subtitle \par}
+      {\Large \@subtitle \par}
     \vskip 3em
     { \Large
       \lineskip .5em%
@@ -1046,7 +1029,7 @@
     {\global\let\@subtitle\@empty}
   \global\let\subtitle\relax
 }
-\else
+\else %% not @titlepage
 \newcommand{\maketitle}{\par
   \begingroup
     \def\baselinestretch{}
@@ -1173,7 +1156,7 @@
    \thesubsubsection.\@arabic\c@paragraph}
 \renewcommand{\thesubparagraph}{%
    \theparagraph.\@arabic\c@subparagraph}
-%    \edn{macrocode}
+%    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\@chapapp}
@@ -1248,7 +1231,7 @@
 \def\@chapter[#1]#2{%
   \ifnum \c@secnumdepth >\m@ne
     \refstepcounter{chapter}%
-    \typeout{\@chapapp\space\thechapter\space\@chappos\@spaces#1}%
+    \typeout{*** \@chapapp\space\thechapter\space\@chappos\@spaces#1 ***}%
     \addcontentsline{toc}{chapter}%
       {\protect\numberline{\@chapapp\thechapter\@chappos}#1}%
   \else
@@ -1285,7 +1268,7 @@
 %
 % \begin{macro}{\section}
 % 新しく節を始めるコマンドです．見出しは前後に空白を付け，
-% large bold で出力されます．
+% large, bold で出力されます．
 %    \begin{macrocode}
 \newcommand{\section}{\@startsection{section}{1}{\z@}%
    {1.5\Cvs \@plus.5\Cdp \@minus.2\Cdp}%
@@ -1385,7 +1368,7 @@
 % ラベルとテキストの間の距離です．
 %    \begin{macrocode}
 \setlength  \labelsep  {.5em}
-%    \begin{macrocode}
+%    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\labelwidth}
@@ -1457,9 +1440,9 @@
 %
 % \begin{environment}{enumerate}
 % enumerate 環境がトップレベルで使われたとき，上下に半行分のアキを作ります．
-%    \begin{macrocoede}
+%    \begin{macrocode}
 \renewenvironment{enumerate}
-{ \ifnum \@enumdepth >3\relax\@toodeep\else
+  { \ifnum \@enumdepth >3\relax\@toodeep\else
     \advance\@enumdepth\@ne
     \edef\@enumctr{enum\romannumeral\the\@enumdepth}%
     \list{\csname label\@enumctr\endcsname}{%
@@ -1471,9 +1454,8 @@
       \else\leftmargin\leftskip\fi
       \advance\leftmargin 1zw
       \usecounter{\@enumctr}%
-      \def\makelabel##1{\hss\llap{##1}}}%
-  \fi}
-{ \endlist}
+      \def\makelabel##1{\hss\llap{##1}}}\fi}
+  { \endlist}
 %    \end{macrocode}
 % \end{environment}
 %
@@ -2040,7 +2022,7 @@
 % \end{macro}
 %
 % \subsection*{参考文献}
-% 参考文献は，\BiBTeX{}と jjpsy.bst を使用した場合に合わせています．
+% 参考文献は，BiBTeX と jjpsy.bst を使用した場合に合わせています．
 % \begin{macro}{\bibindent}
 % 文献の先頭の字下げ幅です．
 %    \begin{macrocode}
@@ -2175,11 +2157,13 @@
 % \begin{macro}{\西暦}
 % \begin{macro}{\和暦}
 % 日付を西暦，和暦のどちらで表示するかを決めます．
+% \DisableCrossrefs
 %    \begin{macrocode}
 \newif\if西暦 \西暦false
 \def\西暦{\西暦true}
 \def\和暦{\西暦false}
 %    \end{macrocode}
+% \EnableCrossrefs
 % \end{macro}
 % \end{macro}
 %
@@ -2221,9 +2205,9 @@
 % \begin{macro}{\listfigurename}
 % \begin{macro}{\listtablename}
 %    \begin{macrocode}
-\newcommand{\contentsname}{目 次}
-\newcommand{\listfigurename}{図 目 次}
-\newcommand{\listtablename}{表 目 次}
+\newcommand{\contentsname}{目~次}
+\newcommand{\listfigurename}{図~目~次}
+\newcommand{\listtablename}{表~目~次}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -2237,7 +2221,7 @@
 % \begin{macro}{\abstractname}
 %    \begin{macrocode}
 \newcommand{\bibname}{参考文献}
-\newcommand{\indexname}{索 引}
+\newcommand{\indexname}{索~引}
 \newcommand{\figurename}{図}
 \newcommand{\tablename}{表}
 \newcommand{\appendixname}{付 録}

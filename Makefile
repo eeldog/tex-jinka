@@ -1,3 +1,7 @@
+## Makefile
+## $Id: Makefile,v 0.1 2000-09-27 12:08:29 yusuke Exp $
+## 
+
 INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 TEX = platex
