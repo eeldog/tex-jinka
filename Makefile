@@ -1,5 +1,5 @@
 # Makefile
-# $Id: Makefile,v 1.1 2002-01-06 07:01:03 pooh Exp $
+# $Id: Makefile,v 1.2 2002-01-13 14:08:46 pooh Exp $
 
 PACKAGE = jinka
 VERSION = 1.1.1
@@ -37,6 +37,11 @@ jpa.sty: jinka.dtx jpa.ins
 	@-rm -f $@
 	@echo -n "making $@ ..." 1>&2
 	@-$(TEX) jpa.ins 1> /dev/null 2>&1
+	@echo "done." 1>&2
+
+jpa.bst:
+	@echo -n "making $@ ..." 1>&2
+	@touch $@
 	@echo "done." 1>&2
 
 mac%: %
