@@ -1,0 +1,49 @@
+/* jinka.css
+ * $Id: jinka.css,v 1.1 2002-01-06 07:01:03 pooh Exp $
+ */	
+a:link    { color: blue;   background: transparent; }
+a:visited { color: gray;   background: transparent; }
+a:active  { color: yellow; background: transparent; }
+body {
+    color: rgb( 0, 0, 0);
+    background: rgb(220, 220, 256);
+    margin-left:  0.5in;
+    margin-right: 0.5in;
+}
+h1 {
+  text-align: center;
+  font-size: 140%;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+h2 {
+  font-size: 120%;
+  font-weight: bold;
+  margin-top: 0.2in;
+}
+h3 {
+  font-size: 105%;
+  font-weight: bold;
+}
+
+span.dim {
+  color: dark gray;
+  background: white;
+}
+
+div.dim {
+  color: dark gray;
+  background: white;
+}
+
+p.dim {
+  color: gray;
+  background: white;
+}
+
+em { 
+    color: red;
+    background: transparent; 
+  }
+
+ul { list-style-type: circle; }

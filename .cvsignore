@@ -1,0 +1,7 @@
+*~
+*.log
+*.aux
+jpa.sty
+jinka.cls
+jinka-*.tar.gz
+

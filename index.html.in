@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<hrml lang="ja">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-2022-JP">
+ <link rel="stylesheet" type="text/css" href="jinka.css">
+ <title> jinka クラスファイル </title>
+</head>
+<body>
+
+<h1> jinka クラスファイル ver. @VERSION@ </h1>
+<p>jinka.cls は，大阪大学人間科学部/研究科の卒業論文/修士論文を作成するための LaTeX2e クラスファイルです．</p>
+
+<a href="#install">インストール</a>&nbsp;
+<a href="#list">パッケージ</a>&nbsp;
+<a href="#download">ダウンロード</a>&nbsp;
+<a href="#contact">コンタクト</a>&nbsp;
+<hr />
+
+
+<h2><a name="install">インストール</a></h2>
+<h3> 手順の概要 </h3>
+<p> jinka.cls は jinka.dtx というファイルから DOCSTRIP ユーティリティを用いて生成します．インストール作業を簡略にするためのバッチファイルを用意しました．インストールに必要な作業は次の2点です．</p>
+
+<ol>
+ <li> LaTeX で jinka.ins ファイルを処理し，jinka.cls を生成する．</li>
+ <li> 必要なファイルを適当なディレクトリにコピーする．</li>
+</ol>
+
+<p>「適当なディレクトリ」とは，TeX の検索パスに含まれるディレクトリの
+ことです．UNIX 環境では，環境変数 <tt>TEXINPUTS</tt> で指定できます．</p>
+
+<h3> UNIX 系の環境での実行例 </h3>
+<p>インストールするディレクトリを ${HOME}/lib/tex とすると，具体的には
+次のようなコマンドを実行することになります．</p>
+<blockquote><kbd>
+  $ platex jinka.ins <br>
+  $ cp jinka.cls ${HOME}/lib/tex <br>
+  $ cp jpa.bst ${HOME}/lib/tex <br>
+</kbd></blockquote>
+
+<h3> Macintosh や Windows 版での注意点 </h3>
+<p>クラスファイルの漢字コードは EUC，改行コードは LF となっています．
+Macintosh や Windows で使用する際には，漢字コードを Shift JISに，改行コードを
+CR (Mac) もしくは CR+LF (Win) に変換する必要があります． </p>
+
+<p class="dim"> Macintosh, Mac は <a href="http://www.apple.com/">
+Apple Computer Inc.</a> の登録商標です．
+Windows は <a href="http://www.microsoft.com/">Microsoft 社</a>の
+登録商標です．</p>
+<hr />
+
+
+<h2><a name="list">ディレクトリ一覧</a></h2>
+<a href="jinka-@VERSION@.tar.gz"> <tt>jinka-@VERSION@/</tt></a>
+
+<ul>
+ <li><a href="Makefile">Makefile</a></li>
+ <li><a href="README">README</a></li>
+ <li><a href="jinka.dtx">jinka.dtx</a></li>
+ <li><a href="jinka.ins">jinka.ins</a></li>
+ <li><a href="jpa.bst">jpa.bst</a></li>
+ <li><a href="jpa.ins">jpa.ins</a></li>
+</ul>
+
+
+<h2><a name="download">ダウンロード</a></h2>
+<ul>
+ <li><a href="jinka.cls">jinka.cls</a></li>
+ <li><a href="macjinka.cls">jinka.cls</a> (Shift-JIS, CR)</li>
+ <li><a href="winjinka.cls">jinka.cls</a> (Shift-JIS, CR+LF)</li>
+
+ <li><a href="jpa.ins">jpa.sty</a></li>
+ <li><a href="macjpa.ins">jpa.sty</a> (Shift-JIS, CR)</li>
+ <li><a href="winjpa.ins">jpa.sty</a> (Shift-JIS, CR+LF)</li>
+
+ <li><a href="jpa.bst">jpa.bst</a></li>
+ <li><a href="macjpa.bst">jpa.bst</a> (Shift-JIS, CR)</li>
+ <li><a href="winjpa.bst">jpa.bst</a> (Shift-JIS, CR+LF)</li>
+
+ <li><a href="obsolete/sotsu.sty">obsolete/sotsu.sty</a></li>
+</ul>
+<hr />
+
+
+<h2><a name="contact">コンタクト</a></h2>
+<ul>
+<li> jinka クラスの web ページはこちら．
+  <address>
+    <a href="http://koko15.hus.osaka-u.ac.jp/~yusuke/archive/jinka/">
+     http://koko15.hus.osaka-u.ac.jp/~yusuke/archive/jinka/
+    </a>
+  </address>
+</li>
+<li> ご意見，ご要望，バグ報告はこちらまでお寄せください．
+  <address>
+    <a href="mailto:yusuke@koko15.hus.osaka-u.ac.jp">
+     yusuke@koko15.hus.osaka-u.ac.jp
+    </a>
+  </address>
+</li>
+</ul>
+
+<hr />
+<div align="right">
+$Date: 2002-01-06 07:01:03 $
+</div>
+
+</body>
+</html>

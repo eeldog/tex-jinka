@@ -1,5 +1,11 @@
+% \iffalse     META-COMMENT
+% Source File: jinka.dtx
+% $Id: jinka.dtx,v 1.1 2002-01-06 07:01:03 pooh Exp $
+%
+% Copyright (C) 1998-2002  MIYAMOTO Yusuke
+% \fi
 \def\filename{jinka.dtx}
-\def\fileversion{v1.1b}
+\def\fileversion{ver. 1.1.1}
 \def\filedate{2000/10/01}
 %  \CheckSum{0}
 %%
@@ -19,13 +25,6 @@
 %%   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %%   Right brace   \}     Tilde         \~}
 %%
-% \iffalse     META-COMMENT
-% Source File: jinka.dtx
-% $Id: jinka.dtx,v 0.1 2000-09-27 12:08:30 yusuke Exp $
-%
-% Copyright (C) 1998-2000  MIYAMOTO Yusuke.
-% 
-% \fi
 %
 % \changes{v1.0}{1998/10/01}
 %         {jinka.cls for pLaTeX2e version 1.0 公開}
@@ -40,20 +39,26 @@
 % \changes{v1.1a}{2000/09/19}
 %         {デフォルトのページスタイル，行数を変更}
 % \changes{v1.1a}{2000/09/27}
-%         {ランドスケープ削除．ページレイアウトのパラメタを変更}
+%         {ページレイアウトのパラメタを変更}
+% \changes{v1.1a}{2000/09/28}
+%         {参考文献スタイル jpa のパッケージファイルを統合}
+% \changes{v1.1a}{2000/09/30}
+%         {章見出しを二行形式に変更．}
 % \changes{v1.1b}{2000/10/01}
-%         {version 1.1 $\beta$}
+%         {version 1.1 $\beta$ としてリリース．}
+% \changes{v1.1a}{2000/10/09}
+%         {参考文献スタイル jpa のパッケージファイルを分離}
 % 
 % \iffalse
-%<*package>
-\NeedsTeXFormat{pLaTeX2e}
-\ProvidesClass{jinka}
-%</package>
+%<*jinka>
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{jinka}[\filedate]
+%</jinka>
 % \fi
 % 
 % \iffalse
 %<*driver>
-\documentclass[a4paper]{jarticle}
+\documentclass[a4]{jarticle}
   \usepackage{doc}
   \OnlyDescription
   \RecordChanges
@@ -69,74 +74,64 @@
 % \fi
 %
 % \section*{概要}
-% ``jinka.cls'' は，人間科学部行動系論文作成用の \LaTeXe{}クラスファイルです．
-% \LaTeXe{} では，\LaTeX{} の多くの機能が拡張され，より高度な組版が実現できる
-% ようになりました．
+% ``jinka.cls'' は，人間科学研究科（行動学専攻）論文作成用の \LaTeXe{}クラス
+% ファイルです．一行あたりの文字数，一頁あたりの行数を指定することができます．
 % 
-% \section*{インストール}
-% 配布ファイルでは，doc システム および DOCSTRIP ユーティリティを用いています．
-% このパッケージには以下のファイルが含まれてます．拡張子 ``.dtx'' のファイルを
-% 直接 \LaTeX{}で処理すると，dvi 形式のドキュメントが作成されます．
+% \subsection*{執筆規定}
+% 
 % \begin{center}
-% \begin{tabular}{lcl}
-%  \textbf{jinka.dtx} & --- & ``jinka.cls'' の doc ファイル \\
-%  \textbf{jinka.ins} & --- &  同インストール・バッチファイル \\
-%  \textbf{jjpsy.bst} & --- &  『心理学研究』風 .bst ファイル \\
-%  \textbf{jjpsy.dtx} & --- &  jjpsy.bst 用スタイルファイル \\
-%  \textbf{jjpsy.ins} & --- &  同インストール・バッチファイル
+% \DeleteShortVerb{\|}
+% \MakeShortVerb{+}
+% \begin{tabular}{|l|c|}\hline
+% 用紙サイズ         & A4 判      \\ \hline
+% 紙質               & 上質紙     \\ \hline\hline
+% 1頁の文字数        & 600字/頁   \\ \hline
+% 1行の文字数        & 30字       \\ \hline
+% 1頁の行数          & 20行       \\ \hline\hline
+% 上部 余白          & 25 -- 40mm \\ \hline
+% 下部 余白          & 10 -- 25mm \\ \hline
+% 左 余白（綴じしろ）& 25 -- 40mm \\ \hline
+% 右 余白            & 10 -- 25mm \\ \hline
 % \end{tabular}
+% \MakeShortVerb{\|}
 % \end{center}
 % 
-% インストールするには，拡張子 ``.ins'' のファイルを \LaTeX で処理して下さい．
-% カレント・ディレクトリに，``jinka.cls''，``jjpsy.sty'' が作成されます．
-% \begin{flushleft}
-%  \textbf{\% } \texttt{platex} \textit{jinka.ins}\\
-%  \textbf{\% } \texttt{platex} \textit{jjpsy.ins}\\
-% \end{flushleft}
-% できた 3 つのファイル (``jinka.cls''，``jjpsy.bst''，``jjpsy.sty'')
-% を \LaTeX のコンパイルを実行するディレクトリか，環境変数 |$TEXINPUTS| で
-% 指定したディレクトリにコピーして下さい．
-%
 % \section*{スタイルの詳細}
 %  \subsection*{オプション}
-%    |\documentclass| のオプションとして，以下のものが指定できます．
-%    パッケージの読み込みには，|\usepackage{|{\em package}|}| コマンド
-%    を使います．
-%    デフォルトでは{\em a4j, 12pt, oneside}, 「独立したタイトルページ」，
-%    「$30 \times 20$ スタイル」，「図表にはセクション毎の番号をつける」
-%    となっています．
+%    |\documentclass| のオプションとして以下のものが指定できます．
+%    デフォルトでは「独立したタイトルページ（|titlepage|）」，
+%    「$30 \times 30$ スタイル（|nojinka|）」，「図表にはセクション毎の
+%    番号をつける（|noserial|）」となっています．
 %  
 %    \DeleteShortVerb{\|}
 %    \MakeShortVerb{\+}
 %    \begin{center}
 %    \begin{tabular}{l|l} \hline
 %    オプション & 解説 \\ \hline
-%    {\em a4j} / {\em b5j}                & 用紙サイズ指定オプション\\
-%    {\em a4paper} / {\em b5paper}        & 用紙サイズ指定オプション\\
-%    {\em 10pt} / {\em 11pt} / {\em 12pt} & フォントサイズ指定オプション\\
-%    {\em oneside} / {\em twoside} & 片面 / 両面刷り指定オプション\\
-%    {\em notitlepage} & タイトルページを独立させない．\\
-%    {\em draft} / {\em final} & +\ifdraft+ フラグを 真 / 偽 にする．\\
-%    {\em serial} & 図表に通し番号をつける．\\
-%    {\em nojinka} & $30 \times 20$ スタイルを使用しない．\\ \hline
+%    \texttt{titlepage} & タイトルを独立したページにする．\\
+%    \texttt{notitlepage} & タイトルページを独立させない．\\
+%    \texttt{draft} & +\ifdraft+ スィッチを +true+ にする．\\
+%    \texttt{final} & +\ifdraft+ スィッチを +false+ にする．\\
+%    \texttt{serial} & 図表に通し番号をつける．\\
+%    \texttt{noserial} & 図表の番号を章ごとにリセットする．\\
+%    \texttt{jinka} & $30 \times 20$ の書式を使用する．\\
+%    \texttt{nojinka} & $30 \times 30$ の書式を使用する．\\ \hline
 %    \end{tabular}
 %    \end{center}
 %    \DeleteShortVerb{\+}
 %    \MakeShortVerb{\|}
 %    
 %  \subsection*{フォント}
-%    フォントサイズは 12pt がデフォルトになっています．上記のオプションで
-%    変更できます．旧版 (2.09) では 10pt は指定しないのが一般的でしたが，
-%    10pt にするときも，オプションで明示的に指定します．
+%    フォントサイズは 12pt がデフォルトになっています．一般的なクラスファイル
+%    と同様のオプションで変更できます．
 %    
 %  \subsection*{レイアウト}
-%    デフォルトでは，「$30 \times 20$ スタイル」 --- つまり 1 ページあたり
-%    30 桁 $\times$ 20 行 となるように |\textwidth|，|\baselinestretch| が
-%    設定されます．|\texthight| は用紙サイズの 75 \% を目安にしています．
-%    {\em nojinka} オプションにより，より一般的なスタイル 
-%    ( |\textwidth = \paperwidth - 2inch| ) になります．
+%    デフォルトでは，「$36 \times 36$ スタイル」 --- つまり1行あたり30字，
+%    1ページあたり30行 となるように |\textwidth|，|\baselinestretch| が
+%    設定されます．\texttt{jinka} オプションにより「$30 \times 20$ スタイル」
+%    になります．
 %    
-%    また，字詰め，行間の調節をおこなう 2 つのコマンドを用意しました．
+%    また，字詰め，行間の調節をおこなう2つのコマンドを用意しました．
 %    
 %    \begin{macro}{\Columns}
 %    |\Columns{|{\em cols}|}| は 1 行あたり約 {\em cols} 字 (全角) に
@@ -154,7 +149,8 @@
 %    \end{macro}
 %    
 %    その他のスタイル・パラメータについては，標準のクラスパッケージ
-%    (jreport.cls など) に準じます．そちらのドキュメントも参考にして下さい．
+%    (jreport.cls など) に準じます．そちらのドキュメントも参考にして
+%    下さい．
 %    
 %  \subsection*{ページスタイル}
 %    以下のページスタイルが定義されています．
@@ -163,12 +159,13 @@
 %    \begin{center}
 %    \begin{tabular}{l|l}\hline
 %    ページスタイル   & 内容 \\ \hline
-%    {\em plain}      & フッタ中央にページ番号を出力．\\
-%    {\em bothstyle}  & ヘッダに章見出し，フッタにページ番号を出力．\\
-%    {\em headnomble} & ヘッダにページ番号を出力．\\
-%    {\em footnomble} & フッタにページ番号を出力．\\
-%    {\em headings}   & ヘッダに章見出しとページ番号を出力．\\
-%    {\em nopage}     & ヘッダに章見出しのみを出力．\\ \hline
+%    \texttt{plain}      & フッタ中央にページ番号を出力．\\
+%    \texttt{jinka}      & デフォルトのページスタイル．+bothstyle+ と同じ．\\
+%    \texttt{bothstyle}  & ヘッダに章見出し，フッタにページ番号を出力．\\
+%    \texttt{headnomble} & ヘッダにページ番号を出力．\\
+%    \texttt{footnomble} & フッタにページ番号を出力．\\
+%    \texttt{headings}   & ヘッダに章見出しとページ番号を出力．\\
+%    \texttt{nopage}     & ヘッダに章見出しのみを出力．\\ \hline
 %    \end{tabular}
 %    \end{center}
 %    \DeleteShortVerb{\+}
@@ -198,9 +195,9 @@
 %    \end{macro}
 %    
 %  \subsection*{参考文献}
-%    「心理学研究」に倣った参考文献スタイルで |\thebibliography| 環境を
+%    「心理学研究」風の参考文献スタイルで |\thebibliography| 環境を
 %    実装しています．
-%    \textsc{JBib}\TeX 用 bst ファイル ``jjpsy.bst'' を付属しました．
+%    \textsc{JBib}\TeX 用 bst ファイル ``jpa.bst'' を付属しました．
 %    次のような出力になります．
 %    \vskip 12pt
 %    \fbox{\begin{minipage}{0.95\textwidth}
@@ -211,7 +208,7 @@
 %	\setlength{\leftmargin}{2em}}
 %    \item Goossens,M. , Mittelbach,F. Samarin,A.
 %      \newblock 1994
-%      \newblock The \LaTeX Companion.
+%      \newblock The \LaTeX{} Companion.
 %      \newblock Addison-Wesley Publishing Company.
 %    \item Lamport,L.
 %      \newblock 1994
@@ -225,7 +222,7 @@
 %    作るときは，``.tex'' ファイルの中に以下の記述を入れておきます．
 %    \begin{flushleft}
 %    |\nocite{*}|\\
-%    |\bibliographystyle{jjpsy}|\\
+%    |\bibliographystyle{jpa}|\\
 %    |\bibliography{|{\em bibdata}|}|\\
 %    \end{flushleft}
 %    \texttt{platex} コマンドを実行し， aux ファイルを生成した後， 
@@ -260,8 +257,9 @@
 % \end{center}
 %
 % \StopEventually{}
-% 
 % \newpage
+%
+%<*jinka>
 % \section*{コードの解説}
 %
 % \subsection*{ユーティリティ・マクロ}
@@ -458,7 +456,7 @@
 %    \end{macrocode}
 %
 % \subsubsection*{ドラフトオプション}
-% ドラフト版か決定版かを指定します．デフォルトは final です．
+% 草稿段階か決定版かを指定します．デフォルトは final です．
 % 
 %    \begin{macrocode}
 \DeclareOption{draft}{\drafttrue}
@@ -523,7 +521,8 @@
   \setlength{\@tempdima}{\textheight}
   \advance\@tempdima by -\topskip
   \divide\@tempdima by \@tempcnta
-  \setfraction[8]{\baselinestretch}{\@tempdima}{\baselineskip}
+  \setfraction[8]{\baselinestretch}{\@tempdima}{\Cvs}
+  \typeout{setting \string\basrlinestretch\space to \baselinestretch}
   \selectfont}
 %    \end{macrocode}
 % \end{macro}
@@ -573,7 +572,7 @@
 % |\parskip| は段落間に挿入される縦方向の空白，
 % |\parindent| は段落先頭の字下げ幅です．
 %    \begin{macrocode}
-\setlength\parskip{0\p@ \@plus 2\p@}
+\setlength\parskip{5\p@ \@plus 3\p@ \@minus 2\p@}
 \setlength\parindent{1zw}
 %    \end{macrocode}
 % \end{macro}
@@ -1018,7 +1017,6 @@
   \global\let\p@thanks\relax
   \global\let\@thanks\@empty
   \global\let\@author\@empty
-  \global\let\@date\@empty
   \global\let\@title\@empty
   \global\let\title\relax
   \global\let\author\relax
@@ -1032,7 +1030,7 @@
 \else %% not @titlepage
 \newcommand{\maketitle}{\par
   \begingroup
-    \def\baselinestretch{}
+    \linespread{}\selectfont
     \renewcommand{\thefootnote}{\fnsymbol{footnote}}%
     \def\@makefnmark{\hbox{%
       \ifydir $\m@th^{\@thefnmark}$
@@ -1057,7 +1055,6 @@
   \global\let\p@thanks\relax
   \global\let\@thanks\@empty
   \global\let\@author\@empty
-  \global\let\@date\@empty
   \global\let\@title\@empty
   \global\let\title\relax
   \global\let\author\relax
@@ -1111,6 +1108,16 @@
       \quotation
     \fi}{\if@twocolumn\else\endquotation\fi}
 \fi
+%    \end{macrocode}
+% \end{environment}
+%
+%
+% \begin{environment}{acknowledgement}
+% 「謝辞」を記述する環境です．
+%    \begin{macrocode}
+\newenvironment{acknowledgement}
+  {\chapter*{\Huge\acknowledgementname}}
+  {\vfill\flushright\pubdate\endflushright\vspace{3\Cvs}\clearpage}
 %    \end{macrocode}
 % \end{environment}
 %
@@ -1193,10 +1200,13 @@
 \def\@part[#1]#2{%
   \ifnum \c@secnumdepth >-2\relax
     \refstepcounter{part}%
-    \addcontentsline{toc}{part}{%
-       \prepartname\thepart\postpartname\hspace{1em}#1}%
+    \addcontentsline{toc}{part}
+      {\prepartname\thepart\postpartname\hspace{1em}#1}
+    \typeout
+      {*** \prepartname\space\thepart\space\postpartname\spaces #1 ***}
   \else
-    \addcontentsline{toc}{part}{#1}%
+    \addcontentsline{toc}{part}{#1}
+    \typeout{*** #1 ***}
   \fi
   \markboth{}{}%
   {\centering
@@ -1231,10 +1241,12 @@
 \def\@chapter[#1]#2{%
   \ifnum \c@secnumdepth >\m@ne
     \refstepcounter{chapter}%
-    \typeout{*** \@chapapp\space\thechapter\space\@chappos\@spaces#1 ***}%
+    \typeout
+      {*** \@chapapp\space\thechapter\space\@chappos\@spaces #1 ***}
     \addcontentsline{toc}{chapter}%
       {\protect\numberline{\@chapapp\thechapter\@chappos}#1}%
   \else
+    \typeout{*** #1 ***}
     \addcontentsline{toc}{chapter}{#1}%
   \fi
   \chaptermark{#1}%
@@ -1248,21 +1260,17 @@
   \vskip2\Cvs
   {\parindent\z@
    \raggedright
-   \reset@font\huge\bfseries
+   \reset@font\LARGE\bfseries
    \ifnum \c@secnumdepth >\m@ne
-     \setlength\@tempdima{\linewidth}%
-     \setbox\z@\hbox{\@chapapp\thechapter\@chappos\hskip1zw}%
-     \addtolength\@tempdima{-\wd\z@}%
-     \unhbox\z@\nobreak
-     \vtop{\hsize\@tempdima#1}%
-   \fi}\vskip3\Cvs}
+     \hbox{\@chapapp\thechapter\@chappos}\vskip1\Cvs%
+   \fi
+   \hbox{#1}\vskip3\Cvs}}
 \def\@makeschapterhead#1{\hbox{}%
   \vskip2\Cvs
   {\parindent\z@
    \raggedright
-   \reset@font\huge\bfseries
-   \setlength\@tempdima{\linewidth}%
-   \vtop{\hsize\@tempdima#1}}\vskip3\Cvs}
+   \reset@font\LARGE\bfseries
+   \hbox{#1}}\vskip3\Cvs}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1470,7 +1478,7 @@
   \iftdir
      {\textcircled{~}}
   \else
-     {\normalfont\bfseries\textendash}
+     {\reset@font\bfseries\textendash}
   \fi
 }
 \newcommand{\labelitemiii}{\textasteriskcentered}
@@ -1524,7 +1532,7 @@
 % ラベルの形式は |\descriptionlabel| を再定義することで変更できます．
 %    \begin{macrocode}
 \newcommand{\descriptionlabel}[1]{%
-  \hspace\labelsep\normalfont\bfseries #1}
+  \hspace\labelsep\reset@font\bfseries #1}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1602,11 +1610,14 @@
 % figure 環境の定義です．|*| 形式は二段抜きのフロートとなります．
 %    \begin{macrocode}
 \newenvironment{figure}
-               {\@float{figure}\linespread{}\selectfont}
-               {\end@float}
+  {\@testopt{\float@figure}{\fps@figure}}
+  {\end@float}
+\def\float@figure[#1]{\@float{figure}[#1]\linespread{}\selectfont}
+
 \newenvironment{figure*}
-               {\@dblfloat{figure}\linespread{}\selectfont}
-               {\end@dblfloat}
+  {\@testopt{\dblfloat@figure}{\fps@figure}}
+  {\end@dblfloat}
+\def\dblfloat@figure[#1]{\@float{figure}[#1]\linespread{}\selectfont}
 %    \end{macrocode}
 % \end{environment}
 %
@@ -1642,11 +1653,13 @@
 % table 環境の定義です．|*| 形式は二段抜きのフロートになります．
 %    \begin{macrocode}
 \newenvironment{table}
-               {\@float{table}\linespread{}\selectfont}
-               {\end@float}
+   {\@testopt{\float@table}{\fps@table}}
+   {\end@float}
+\def\float@table[#1]{\@float{table}[#1]\linespread{}\selectfont}
 \newenvironment{table*}
-               {\@dblfloat{table}\linespread{}\selectfont}
-               {\end@dblfloat}
+   {\@testopt{\float@table}{\fps@table}}
+   {\end@dblfloat\egroup}
+\def\dblfloat@table[#1]{\@dblfloat{table}[#1]\linespread{}\selectfont}
 %    \end{macrocode}
 % \end{environment}
 %
@@ -1741,8 +1754,7 @@
 % \begin{macro}{\c@equation}
 % equation, enarray 環境で使う数式番号用カウンタです．
 %    \begin{macrocode}
-\if@serial
-\else
+\if@serial\else
   \@addtoreset{equation}{chapter}
   \renewcommand{\theequation}{%
     \ifnum\c@chapter>\z@\thechapter.\fi \@arabic\c@equation}
@@ -1784,11 +1796,11 @@
 % フォントファミリを変更するコマンドです．フォントを一度リセットしてから
 % 指定のフォントに変更します．
 %    \begin{macrocode}
-\DeclareOldFontCommand{\mc}{\normalfont\mcfamily}{\mathmc}
-\DeclareOldFontCommand{\gt}{\normalfont\gtfamily}{\mathgt}
-\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
-\DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
-\DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
+\DeclareOldFontCommand{\mc}{\reset@font\mcfamily}{\mathmc}
+\DeclareOldFontCommand{\gt}{\reset@font\gtfamily}{\mathgt}
+\DeclareOldFontCommand{\rm}{\reset@font\rmfamily}{\mathrm}
+\DeclareOldFontCommand{\sf}{\reset@font\sffamily}{\mathsf}
+\DeclareOldFontCommand{\tt}{\reset@font\ttfamily}{\mathtt}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -1799,7 +1811,7 @@
 % \begin{macro}{\bf}
 % フォントをボールド書体に変更します．|\mdseries| でノーマル書体に変更します．
 %    \begin{macrocode}
-\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+\DeclareOldFontCommand{\bf}{\reset@font\bfseries}{\mathbf}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1808,9 +1820,9 @@
 % \begin{macro}{\sc}
 % フォントシェープを切り換えます．|\upshape| で通常のシェイプに戻します．
 %    \begin{macrocode}
-\DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}
-\DeclareOldFontCommand{\sl}{\normalfont\slshape}{\@nomath\sl}
-\DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
+\DeclareOldFontCommand{\it}{\reset@font\itshape}{\mathit}
+\DeclareOldFontCommand{\sl}{\reset@font\slshape}{\@nomath\sl}
+\DeclareOldFontCommand{\sc}{\reset@font\scshape}{\@nomath\sc}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -1995,7 +2007,7 @@
 % \end{macro}
 %
 % \begin{macro}{\l@figure}
-% 図目次の体裁です．
+% 図目次の体裁を決めます．
 %    \begin{macrocode}
 \newcommand*{\l@figure}{\@dottedtocline{1}{1.5em}{2.3em}}
 %    \end{macrocode}
@@ -2020,33 +2032,44 @@
 \let\l@table\l@figure
 %    \end{macrocode}
 % \end{macro}
-%
 % \subsection*{参考文献}
-% 参考文献は，BiBTeX と jjpsy.bst を使用した場合に合わせています．
-% \begin{macro}{\bibindent}
+% 参考文献は，apalike スタイルのリスト環境です．
+% \begin{macro}{\bibname}
+% 参考文献環境の見出しとなる文字列を指定します．
+%    \begin{macrocode}
+\@ifundefined{bibname}%
+  {\newcommand{\bibname}{参考文献}}{}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\bibhang}
 % 文献の先頭の字下げ幅です．
 %    \begin{macrocode}
-\newdimen\bibindent
-\setlength\bibindent{-1zw}
+\newdimen\bibhang
+\setlength\bibhang{-1zw}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}
 % 文献のブロック間にあける小さな空白の大きさです．
 %    \begin{macrocode}
-\newcommand{\newblock}{\hskip .11em\@plus.33em\@minus.07em}
+\@ifundefined{newblock}%
+  {\newcommand{\newblock}{\hskip .11em\@plus.33em\@minus.07em}}
+  {\renewcommand{\newblock}{\hskip .11em\@plus.33em\@minus.07em}}
 %    \end{macrocode}
 % \end{macro}
 %
 % \begin{macro}{\bibitem}
 % \begin{macro}{\@bibitem}
-% |\thebibliography| 環境で用います．|\@bibitem| はその内部定義です．
+% |\thebibliography| 環境で用います．|\bibitem[label]{key}| 
 %    \begin{macrocode}
-\def\bibitem{\@ifnextchar [{\@bibitem}{\@bibitem[文献]}}
-\def\@bibitem[#1]#2{\item[]
-    \if@filesw
-      {\let\protect\noexpand\immediate\write\@auxout{\string\bibcite{#2}{#1}}}
-    \fi\ignorespaces}
+\def\bibitem{\@ifnextchar [{\@bibitem}{\@bibitem[]}}
+\def\@bibitem[#1]#2{\item[]%
+    \if@filesw\bgroup
+      \let\protect\noexpand
+      \immediate\write\@auxout{\string\bibcite{#2}{#1}}
+    \egroup\fi
+    \ignorespaces}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -2058,43 +2081,45 @@
 \def\@citex[#1]#2{%
   \let\@citea\@empty
   \@cite{\@for\@citeb:=#2\do{%
-     \@citea\def\@citea{;\penalty\@m\ }%
-     \edef\@citeb{\expandafter\@firstofone\@citeb}%
-     \if@filesw
-       \immediate\write\@auxout{\string\citation{\@citeb}}
-     \fi
-     \@ifundefined{b@\@citeb}{%
-       \mbox{\reset@font\bfseries ?}%
-       \G@refundefinedtrue
-       \@latex@warning
-       {Citation `\@citeb' on page \thepage \space undefined}}%
+    \@citea\def\@citea{;\penalty\@m\ }%
+    \edef\@citeb{\expandafter\@firstofone\@citeb}%
+    \if@filesw
+      \immediate\write\@auxout{\string\citation{\@citeb}}
+    \fi
+    \@ifundefined{b@\@citeb}{%
+      \mbox{\reset@font\bfseries ?}%
+      \G@refundefinedtrue
+      \@latex@warning
+      {Citation `\@citeb' on page \thepage \space undefined}}
      {\hbox{\csname b@\@citeb\endcsname}}}}{#1}}
-\def\@cite#1#2{（#1\if@tempswa , #2\fi）}
+\def\@cite#1#2{（#1\if@tempswa #2\fi）}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
 %
 % \begin{environment}{thebibliography}
-% 
+% 参考文献リストを提供する環境です．
 %    \begin{macrocode}
-\newenvironment{thebibliography}[1]
-{ \chapter*{\bibname\@mkboth{\bibname}{\bibname}}
-  \list{\relax}{
-      \setlength\leftmargin{-\bibindent}
-      \setlength\itemindent{\bibindent}
+\def\thebibliography{%
+  \@ifundefined{chapter}%
+    {\section*{\bibname\@mkboth{\bibname}{\bibname}}}
+    {\chapter*{\bibname\@mkboth{\bibname}{\bibname}}}
+    \list{\relax}{
+      \setlength\leftmargin{-\bibhang}
+      \setlength\itemindent{\bibhang}
+      \setlength\labelsep{\z@}
       \setlength\itemsep{1.2\p@}}
-   \renewcommand{\baselinestretch}{}\large\normalsize
-   \sloppy
-   \clubpenalty4000
-   \@clubpenalty\clubpenalty
-   \widowpenalty4000
-   \sfcode`\.\@m }
-{ \def\@noitemerr{%
-    \@latex@warning{Empty `thebibliography' environment}}
-  \endlist}
+    \renewcommand{\baselinestretch}{}\selectfont
+    \def\@noitemerr{%
+      \@latex@warning{Empty `thebibliography' environment}}
+    \sloppy
+    \clubpenalty=4000
+    \@clubpenalty=\clubpenalty
+    \widowpenalty=4000
+    \sfcode`\.=\@m }
+\let\endthebibliography=\endlist
 %    \end{macrocode}
 % \end{environment}
-%
 % \subsubsection*{索引}
 % \begin{environment}{theindex}
 % 二段組の索引を作成します．
@@ -2129,7 +2154,7 @@
 %
 % \subsubsection*{脚注}
 % \begin{macro}{\footnoterule}
-% 本文と脚注の間に引かれる線を再定義します．
+% 本文と脚注の間に引かれる罫線を再定義します．
 %    \begin{macrocode}
 \renewcommand{\footnoterule}{%
   \kern-3\p@
@@ -2141,7 +2166,9 @@
 % \begin{macro}{\c@footnote}
 % |noserial| オプションでは， |footnote| カウンタを章ごとにリセットします．
 %    \begin{macrocode}
-\@addtoreset{footnote}{chapter}
+\if@serial\else
+  \@addtoreset{footnote}{chapter}
+\fi
 %    \end{macrocode}
 % \end{macro}
 %
@@ -2157,13 +2184,13 @@
 % \begin{macro}{\西暦}
 % \begin{macro}{\和暦}
 % 日付を西暦，和暦のどちらで表示するかを決めます．
-% \DisableCrossrefs
+% \DisableCrossrefs       % <- エラー回避のため
 %    \begin{macrocode}
-\newif\if西暦 \西暦false
+\newif\if西暦 \西暦true
 \def\西暦{\西暦true}
 \def\和暦{\西暦false}
 %    \end{macrocode}
-% \EnableCrossrefs
+% \EnableCrossrefs        % <- エラー回避のため
 % \end{macro}
 % \end{macro}
 %
@@ -2184,8 +2211,18 @@
   \fi}
 %    \end{macrocode}
 % \end{macro}
-%
+% 
 % \subsection{初期設定}
+% \begin{macro}{\pubdate}
+%    \begin{macrocode}
+\ifx\@date\@empty
+  \let\pubdate\today
+\else
+  \let\pubdate\@date
+\fi
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\prepartname}
 % \begin{macro}{\postpartname}
 % \begin{macro}{\prechaptername}
@@ -2213,21 +2250,20 @@
 % \end{macro}
 % \end{macro}
 %
-% \begin{macro}{\bibname}
 % \begin{macro}{\indexname}
 % \begin{macro}{\figurename}
 % \begin{macro}{\tablename}
 % \begin{macro}{\appendixname}
 % \begin{macro}{\abstractname}
+% \begin{macro}{\acknowledgementname}
 %    \begin{macrocode}
-\newcommand{\bibname}{参考文献}
 \newcommand{\indexname}{索~引}
 \newcommand{\figurename}{図}
 \newcommand{\tablename}{表}
-\newcommand{\appendixname}{付 録}
-\newcommand{\abstractname}{概 要}
+\newcommand{\appendixname}{付~録}
+\newcommand{\abstractname}{概~要}
+\newcommand{\acknowledgementname}{謝~辞}
 %    \end{macrocode}
-% \end{macro}
 % \end{macro}
 % \end{macro}
 % \end{macro}
@@ -2255,12 +2291,12 @@
 
 \if@jinka
   \Columns{30}
-  \AtBeginDocument{\Lines{20}}
+  \Lines{20}
 \else
-  \Columns{30}
-  \AtBeginDocument{\Lines{30}}
+  \Columns{36}
+  \Lines{32}
 \fi
 %    \end{macrocode}
-%
+%</jinka>
 \endinput
 % \Finale
