@@ -1,5 +1,5 @@
 %% jjpsy.bst
-%% $Id: jpa.bst,v 1.2 2000-10-09 08:42:28 yusuke Exp $
+%% $Id: jpa.bst,v 1.3 2001-01-13 18:34:45 yusuke Exp $
 %% 
 
 ENTRY {
@@ -245,18 +245,18 @@ FUNCTION {format.names}
       nameptr #1 >
 	{ namesleft #1 >
 	    { s is.kanji.str$
- 		{"$B!&(B" * t * }
+ 		{"¡¦" * t * }
 		{", " * t * }
 	      if$
 	    }
 	    { t "others" =
  		{ s is.kanji.str$
- 			{" $B$[$+(B" * }
+ 			{" ¤Û¤«" * }
  			{", et~al." * }
  		  if$
  		}
  		{ s is.kanji.str$
- 		    {"$B!&(B" * t * }
+ 		    {"¡¦" * t * }
 		    {", \& " * t * }
  		  if$
  		}
@@ -285,10 +285,10 @@ FUNCTION {format.editors}
     { editor format.names
       editor num.names$ #1 >
  	{ editor is.kanji.str$
- 		{" ($BJT(B) " * } {" (Ed.) " * } if$
+ 		{" (ÊÔ) " * } {" (Ed.) " * } if$
  	}
  	{ editor is.kanji.str$
- 		{" ($BJT(B) " *} {" (Eds.) " * } if$
+ 		{" (ÊÔ) " *} {" (Eds.) " * } if$
  	}
       if$
     }
@@ -302,7 +302,7 @@ FUNCTION {format.title}
   if$
 }
 
-% $B%Z!<%86h4V;XDj$N5-9f(B
+% ¥Ú¡¼¥¸¶è´Ö»ØÄê¤Îµ­¹æ
 FUNCTION {n.dashify}
 { 't :=
   ""
@@ -413,7 +413,7 @@ FUNCTION {format.edition}
     { edition is.kanji.str$
 	{ edition }
         { is.kanji.entry
-	    {"$BBh(B" edition * "$BHG(B" *}
+	    {"Âè" edition * "ÈÇ" *}
 	    { output.state mid.sentence =
 	      { edition "l" change.case$ " edition" * }
 	      { edition "t" change.case$ " edition" * }
@@ -492,7 +492,7 @@ FUNCTION {format.chapter.pages}
 	{ chapter is.kanji.str$
 	    { "" }
 	    { is.kanji.entry
-		{"$B>O(B"}
+		{"¾Ï"}
 		{"chapter"}
 	      if$
 	    }
@@ -501,7 +501,7 @@ FUNCTION {format.chapter.pages}
 	{ type "l" change.case$ }
       if$
       chapter is.kanji.str$ not is.kanji.entry and
-          {"$BBh(B" chapter * swap$ *}
+          {"Âè" chapter * swap$ *}
           { chapter is.kanji.str$
 		{chapter *}
 		{chapter tie.or.space.connect}
@@ -602,13 +602,13 @@ FUNCTION {format.crossref.editor}
   editor num.names$ duplicate$
   #2 >
     { editor is.kanji.str$
-	  {pop$ " $B$[$+(B" *} {pop$ ", et~al." * } if$
+	  {pop$ " ¤Û¤«" *} {pop$ ", et~al." * } if$
     }
     { #2 <
 	'skip$
 	{ editor #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" =
  	    { editor is.kanji.str$
- 		{" $B$[$+(B" *} {", et~al." * } if$
+ 		{" ¤Û¤«" *} {", et~al." * } if$
  	    }
  	    { editor is.kanji.str$
  		{
@@ -639,7 +639,7 @@ FUNCTION {format.book.crossref}
     { volume is.kanji.str$
 	{ volume }
 	{ is.kanji.entry
-	    {"$BBh(B" volume * "$B4,(B" *}
+	    {"Âè" volume * "´¬" *}
 	    {"Vol." volume tie.or.space.connect " of " *  }
 	  if$
 	}
@@ -1022,8 +1022,8 @@ MACRO {oct} {"October"}
 MACRO {nov} {"November"}
 MACRO {dec} {"December"}
 
-MACRO {jjpsy}  {"$B?4M}3X8&5f(B"}
-MACRO {jpsyr}  {"$B?4M}3XI>O@(B"}
+MACRO {jjpsy}  {"¿´Íý³Ø¸¦µæ"}
+MACRO {jpsyr}  {"¿´Íý³ØÉ¾ÏÀ"}
 MACRO {psyr}   {"Psychological Revieew"}
 MACRO {jxp}    {"Journal of Experimental Psychology: General"}
 MACRO {jxphpp} {"Journal of Experimental Psychology: Human Perception and Performance"}
@@ -1071,12 +1071,12 @@ FUNCTION {format.lab.names}
     if$
     s num.names$ duplicate$
     #2 >
-      { pop$ " $B$[$+(B." * }
+      { pop$ " ¤Û¤«." * }
       { #2 <
           'skip$
           { s #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" =
-              { " $B$[$+(B." * }
-              { "$B!&(B" * s #2 "{ff}" format.name$ * }
+              { " ¤Û¤«." * }
+              { "¡¦" * s #2 "{ff}" format.name$ * }
             if$
           }
         if$
@@ -1285,13 +1285,14 @@ FUNCTION {initialize.extra.label.stuff}
 }
 
 FUNCTION {forward.pass}
-{ last.label year.label =
+{ label year.label * last.label =
     { last.extra.num #1 + 'last.extra.num :=
       last.extra.num int.to.chr$ 'extra.label :=
     }
     { "a" chr.to.int$ 'last.extra.num :=
       "" 'extra.label :=
-      year.label 'last.label :=
+      label year.label *
+      #1 entry.max$ substring$ 'last.label :=
     }
   if$
 }

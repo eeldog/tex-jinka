@@ -18,6 +18,11 @@
     color: red;
     background: transparent; 
   }
+  KBD {
+    font-style: normal;
+    font-weight: bold;
+    
+  }
   UL { list-style-type: circle; }
  -->
  </STYLE>
@@ -60,6 +65,17 @@
   $ make all <BR>
   $ make install TEXDIR=${HOME}/lib/tex <BR>
 </KBD></BLOCKQUOTE>
+
+<P>TeX の検索パスは，環境変数<KBD>TEXINPUTS</KBD>で指定することができます．
+次のようにすれば，TeX はカレントディレクトリ，ユーザ指定のディレクトリ，
+システム定義のディレクトリの順にファイルを検索します．
+</P>
+<BLOCKQUOTE>
+<KBD>
+  %  setenv TEXINPUTS .:~/lib/tex: (csh 系)<BR>
+  $  setenv TEXINPUTS=.:~/lib/tex: ; export TEXINPUTS (sh 系)<BR>
+</KBD>
+</BLOCKQUOTE>
 
 <H3> Macintosh や Windows 版での注意点 </H3>
 <P>クラスファイルの漢字コードは EUC，改行コードは LF となっています．
@@ -105,7 +121,7 @@ Windows は Microsoft 社の登録商標です．</EM></P>
 
 <HR>
 <DIV align="right">
-  $Date: 2000-10-09 08:42:27 $
+  $Date: 2001-01-13 18:36:59 $
 </DIV>
 
 </BODY>
