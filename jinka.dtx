@@ -1,15 +1,15 @@
 % \iffalse     META-COMMENT
 % Source File: jinka.dtx
-% $Revision: 1.8 $
-% $Date: 2003-01-04 18:55:08 $
+% $Revision: 1.9 $
+% $Date: 2003-01-12 06:58:50 $
 %
 % Copyright (C) 1998-2002  MIYAMOTO Yusuke
 % All rights reserved.
 % \fi
 \def\filename{jinka.dtx}
 \def\fileversion{1.2.0}
-\def\filedate{2002/12/26}
-%  \CheckSum{0}
+\def\filedate{2003/01/12}
+%  \CheckSum{27516}
 %%
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -56,8 +56,8 @@
 %         {デフォルトページスタイルとして |linehead| を追加．}
 % \changes{1.1.2}{2002/02/06}
 %         {|\frontmatter|, |\mainmatter|, |\backmatter| コマンドを追加．}
-% \changes{1.2.0}{2002/12/26}
-%         {執筆規定の改定にともない，頁あたり字数の変更．}
+% \changes{1.2.0}{2003/01/12}
+%         {執筆規定の改定にともない，頁あたり字数のデフォルト値を変更．}
 % 
 % \iffalse
 %<*jinka>
@@ -515,15 +515,18 @@
   \addtolength{\@tempdima}{-2in}
   \ifdim \textwidth > \@tempdima
     \setlength{\textwidth}{\@tempdima}
-    \ClassWarning{jikna}{指定されたカラムが大きすぎるので，テキスト幅を自動的に設定しました．\space\string\textwidth=\the\@tempdima}
+    \ClassWarning{jikna}{指定されたテキスト幅が大きすぎるので，自動的に設定しました．\space\string\textwidth=\the\@tempdima}
   \fi
   \addtolength{\@tempdima}{-\textwidth}
-  \setlength{\oddsidemargin}{.5\@tempdima}
-  \@settopoint\oddsidemargin
   \if@twoside
+    \setlength{\oddsidemargin}{\@tempdima}
+    \setlength{\evensidemargin}{\z@}
+  \else
+    \setlength{\oddsidemargin}{.5\@tempdima}
     \setlength{\evensidemargin}{\oddsidemargin}
-    \@settopoint\evensidemargin
-  \fi}
+  \fi
+  \@settopoint\oddsidemargin
+  \@settopoint\evensidemargin}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -535,6 +538,7 @@
   \advance\@tempcnta\m@ne
   \setlength{\@tempdima}{\textheight}
   \advance\@tempdima by -\topskip
+  \advance\@tempdima by -\headsep
   \divide\@tempdima by \@tempcnta
   \setfraction[8]{\baselinestretch}{\@tempdima}{\baselineskip}
   \ClassInfo{jinka}{setting \string\basrlinestretch\space to \baselinestretch}
@@ -690,17 +694,19 @@
 % これらの値は |\Columns| によって再設定されます．
 %    \begin{macrocode}
 \setlength\@tempdima{\paperwidth}
-\addtolength\@tempdima{-\textwidth}
 \addtolength\@tempdima{-2in}
+\addtolength\@tempdima{-\textwidth}
 \ifdim \@tempdima < 0 \setlength{\@tempdima}{\z@} \fi
 \if@twoside
-  \setlength\oddsidemargin{.4\@tempdima}
-  \setlength\evensidemargin{.6\@tempdima}
+  \setlength\oddsidemargin{.6\@tempdima}
+  \setlength\evensidemargin{.4\@tempdima}
   \@settopoint\oddsidemargin
   \@settopoint\evensidemargin
 \else
-  \setlength\oddsidemargin{.5\@tempdima}
+  \setlength\oddsidemargin{.6\@tempdima}
+  \setlength\evensidemargin{\oddsidemargin}
   \@settopoint\oddsidemargin
+  \@settopoint\evensidemargin
 \fi
 \setlength\marginparwidth{\z@}
 \@settopoint\marginparwidth
@@ -991,9 +997,9 @@
 \if@twoside
   \def\ps@linehead{
     \let\ps@jpl@in\ps@footnombre
-    \def\@evenhead{\vbox{\hsize=\textwidth\leftmark\hfil}}
+    \def\@evenhead{\vbox{\hsize=\textwidth\leftmark\hfill\headrule}}
     \def\@evenfoot{\thepage\hfil}
-    \def\@oddhead{\vbox{\hsize=\textwidth\hfil\rightmark\headrule}}
+    \def\@oddhead{\vbox{\hsize=\textwidth\hfill\rightmark\headrule}}
     \def\@oddfoot{\hfil\thepage}
     \let\@mkboth\markboth
     \def\chaptermark##1{\markboth{%
@@ -1344,7 +1350,7 @@
   \clearpage
   \thispagestyle{jpl@in}%
   \global\@topnum\z@
-  \@afterindentfalse
+  \@afterindenttrue
   \secdef{\@chapter}{\@schapter}}
 % 実際に章見出しを出力するコマンドの定義
 \def\@chapter[#1]#2{%
@@ -1449,7 +1455,7 @@
   \@mainmatterfalse
   \pagenumbering{roman}}
 \newcommand{\mainmatter}{%
-  \clearpage
+  \if@twoside\cleardoublepage\else\clearpage\fi
   \@mainmattertrue
   \pagenumbering{arabic}}
 \newcommand{\backmatter}{%
@@ -1461,7 +1467,7 @@
 % \end{macro}
 % 
 % \begin{macro}{\appendix}
-% 新しい付録を始めます．
+% 付録を始めます．
 %    \begin{macrocode}
 \newcommand{\appendix}{\par
   \setcounter{chapter}{0}%
@@ -2198,37 +2204,39 @@
 % \begin{macro}{\@bibitem}
 % |\thebibliography| 環境で用います．|\bibitem[label]{key}| 
 %    \begin{macrocode}
-\def\bibitem{\@ifnextchar [{\@bibitem}{\@bibitem[]}}
-\def\@bibitem[#1]#2{\item[]%
+\def\bibitem{\@ifnextchar[{\@bibitem}{\@bibitem[]}}
+\def\@bibitem[#1]#2{\item[] %
     \if@filesw\bgroup
       \let\protect\noexpand
       \immediate\write\@auxout{\string\bibcite{#2}{#1}}
-    \egroup\fi
-    \ignorespaces}
+    \egroup\fi\ignorespaces}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
 %
-% \begin{macro}{\@citex}
+% \begin{macro}{\cite}
 % \begin{macro}{\@cite}
+% \begin{macro}{\@citex}
 % |\cite| によって呼び出される内部コマンドを再定義しています．
 %    \begin{macrocode}
+\DeclareRobustCommand\cite{%
+  \@ifnextchar [{\@tempswatrue\@citex}{\@tempswafalse\@citex[]}}
+\def\@cite#1#2{(#1\if@tempswa #2\fi)}
 \def\@citex[#1]#2{%
-  \let\@citea\@empty
-  \@cite{\@for\@citeb:=#2\do{%
-    \@citea\def\@citea{;\penalty\@m\ }%
-    \edef\@citeb{\expandafter\@firstofone\@citeb}%
-    \if@filesw
-      \immediate\write\@auxout{\string\citation{\@citeb}}
-    \fi
+  %\def\@citea{}%
+  \def\@citea{}%
+  \@cite{\ignorespaces\@for\@citeb:=#2\do{%
+    \@citea\def\@citea{; }%
+    \edef\@citeb{\expandafter\@firstofone\@citeb\@empty}%
+    \if@filesw\immediate\write\@auxout{\string\citation{\@citeb}}\fi%
     \@ifundefined{b@\@citeb}{%
       \mbox{\reset@font\bfseries ?}%
-      \G@refundefinedtrue
-      \@latex@warning
-      {Citation `\@citeb' on page \thepage\space undefined}}
-     {\csname b@\@citeb\endcsname}}}{#1}}
-\def\@cite#1#2{ (#1\if@tempswa #2\fi) }
+      \G@refundefinedtrue%
+       \@latex@warning
+         {Citation `\@citeb' on page \thepage\space undefined}}%
+      {\csname b@\@citeb\endcsname}}}{#1}}
 %    \end{macrocode}
+% \end{macro}
 % \end{macro}
 % \end{macro}
 % 
@@ -2393,6 +2401,9 @@
 % \end{macro}
 % \end{macro}
 %
+% \section*{デフォルトの設定を実行}
+% 初期設定のためのコマンド群を実行します．
+% 
 %    \begin{macrocode}
 \pagestyle{jinka}
 \pagenumbering{arabic}
@@ -2412,13 +2423,14 @@
   \@mparswitchfalse
 \fi
 
+%% jinka スタイル
 \if@jinka
   \Columns{30}
   \if@double \Lines{40}
   \else      \Lines{20}\fi
 \else
-  \Columns{38}
-  \Lines{32}
+  \Columns{40}
+  \Lines{30}
 \fi
 %    \end{macrocode}
 %</jinka>
