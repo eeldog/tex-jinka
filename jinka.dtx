@@ -1,12 +1,13 @@
 % \iffalse     META-COMMENT
 % Source File: jinka.dtx
-% $Id: jinka.dtx,v 1.1 2002-01-06 07:01:03 pooh Exp $
+% $Id: jinka.dtx,v 1.2 2002-01-07 08:09:00 pooh Exp $
 %
 % Copyright (C) 1998-2002  MIYAMOTO Yusuke
+% All rights reserved.
 % \fi
 \def\filename{jinka.dtx}
 \def\fileversion{ver. 1.1.1}
-\def\filedate{2000/10/01}
+\def\filedate{2002/01/06}
 %  \CheckSum{0}
 %%
 %% \CharacterTable
@@ -46,8 +47,10 @@
 %         {章見出しを二行形式に変更．}
 % \changes{v1.1b}{2000/10/01}
 %         {version 1.1 $\beta$ としてリリース．}
-% \changes{v1.1a}{2000/10/09}
+% \changes{v1.1c}{2000/10/09}
 %         {参考文献スタイル jpa のパッケージファイルを分離}
+% \changes{1.1.1}{2002/01/06}
+%         {フロートの [loc] オプション対応を修正}
 % 
 % \iffalse
 %<*jinka>
@@ -64,8 +67,8 @@
   \RecordChanges
   \MakeShortVerb{\|}
 \begin{document}
-  \title{大阪大学大学院人間科学研究科/人間科学部\\
-         学位論文用クラスファイル\\ {\large \fileversion}}
+  \title{{\normalsize 大阪大学大学院人間科学研究科/人間科学部}\\[0pt]
+         学位論文用クラスファイル {\fileversion}}
   \author{MIYAMOTO Yusuke\thanks{大阪大学大学院人間科学研究科 行動学専攻}}
   \maketitle
   \DocInput{\filename}
@@ -100,7 +103,7 @@
 %  \subsection*{オプション}
 %    |\documentclass| のオプションとして以下のものが指定できます．
 %    デフォルトでは「独立したタイトルページ（|titlepage|）」，
-%    「$30 \times 30$ スタイル（|nojinka|）」，「図表にはセクション毎の
+%    「$36 \times 32$ スタイル（|nojinka|）」，「図表にはセクション毎の
 %    番号をつける（|noserial|）」となっています．
 %  
 %    \DeleteShortVerb{\|}
@@ -126,8 +129,8 @@
 %    と同様のオプションで変更できます．
 %    
 %  \subsection*{レイアウト}
-%    デフォルトでは，「$36 \times 36$ スタイル」 --- つまり1行あたり30字，
-%    1ページあたり30行 となるように |\textwidth|，|\baselinestretch| が
+%    デフォルトでは，「$36 \times 32$ スタイル」 --- つまり1行あたり36字，
+%    1ページあたり32行 となるように |\textwidth|，|\baselinestretch| が
 %    設定されます．\texttt{jinka} オプションにより「$30 \times 20$ スタイル」
 %    になります．
 %    
@@ -195,7 +198,7 @@
 %    \end{macro}
 %    
 %  \subsection*{参考文献}
-%    「心理学研究」風の参考文献スタイルで |\thebibliography| 環境を
+%    「心理学研究」風の参考文献スタイルで |thebibliography| 環境を
 %    実装しています．
 %    \textsc{JBib}\TeX 用 bst ファイル ``jpa.bst'' を付属しました．
 %    次のような出力になります．
@@ -367,7 +370,7 @@
 % \begin{macro}{\if@serial}
 % 図表に通し番号を振るオプション・スイッチです．
 %    \begin{macrocode}
-\newif\if@serial \@serialfalse
+\newif\if@serial\@serialfalse
 %    \end{macrocode}
 % \end{macro}
 %
