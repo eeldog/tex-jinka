@@ -1,6 +1,6 @@
 % \iffalse     META-COMMENT
 % Source File: jinka.dtx
-% $Id: jinka.dtx,v 1.4 2002-01-13 13:37:14 pooh Exp $
+% $Id: jinka.dtx,v 1.5 2002-01-14 08:48:17 pooh Exp $
 %
 % Copyright (C) 1998-2002  MIYAMOTO Yusuke
 % All rights reserved.
@@ -214,7 +214,7 @@
 %   次のような出力になります．
 %    \vskip 12pt
 %    \fbox{\begin{minipage}{0.95\textwidth}
-%    \def\newblock{\hskip .11em plus .33em minus .07em}
+%    \def\newblock{\hskip 1em plus .33em minus .07em}
 %    \begin{list}{\relax}{
 %       \setlength{\labelsep}{0em}
 %	\setlength{\itemindent}{-2em}
@@ -2110,9 +2110,7 @@
 % \begin{macro}
 % 文献リストのブロック間にあける小さな空白の大きさです．
 %    \begin{macrocode}
-\@ifundefined{newblock}%
-  {\newcommand{\newblock}{\hskip .11em\@plus.33em\@minus.07em}}
-  {\renewcommand{\newblock}{\hskip .11em\@plus.33em\@minus.07em}}
+\def\newblock{\hskip .8em\@plus.33em\@minus.07em}
 %    \end{macrocode}
 % \end{macro}
 %
