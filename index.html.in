@@ -8,93 +8,50 @@
 <body>
 
 <h1> jinka $B%/%i%9%U%!%$%k(B ver. @VERSION@ </h1>
+
+<div align="center">
+&nbsp;:&nbsp;
+ <a href="#download">$B%@%&%s%m!<%I(B</a>&nbsp;:&nbsp;
+ <a href="#list">$B%Q%C%1!<%8%j%9%H(B</a>&nbsp;:&nbsp;
+ <a href="#install">$B%$%s%9%H!<%k(B</a>&nbsp;:&nbsp;
+ <a href="#usage">$B;H$$J}(B</a>&nbsp;:&nbsp;
+ <a href="#contact">$B%3%s%?%/%H(B</a>&nbsp;:&nbsp;
+</div>
+<hr />
+
 <p>
 jinka.cls $B$O!$Bg:eBg3X?M4V2J3X8&5f2J(B($B9TF07O(B)$B$NB46HO@J8(B/$B=$;NO@J8(B/$BGn;NO@J8$r(B
-$B$9$k$?$a$N(B LaTeX2e $B%/%i%9%U%!%$%k$G$9!%(B</p>
-
-<a href="#install">$B%$%s%9%H!<%k(B</a>&nbsp;
-<a href="#usage">$B;H$$J}(B</a>&nbsp;
-<a href="#list">$B%Q%C%1!<%80lMw(B</a>&nbsp;
-<a href="#download">$B%@%&%s%m!<%I(B</a>&nbsp;
-<a href="#contact">$B%3%s%?%/%H(B</a>&nbsp;
-<hr />
+$B$9$k$?$a$N(B LaTeX2e $B%/%i%9%U%!%$%k$G$9!%F0:n3NG'$O(B ASCII pLaTeX $B$G$*$3$J$C$F(B
+$B$$$^$9!%(B
+</p>
 
 
-<h2><a name="install">$B%$%s%9%H!<%k(B</a></h2>
-<h3> $B<j=g$N35MW(B </h3>
-<p><kbd>jinka.ins</kbd> $B%U%!%$%k$r(B LaTeX $B$G=hM}$9$k$H!$(B<kbd>jinka.cls</kbd>
-$B$,@8@.$5$l$^$9!%E,Ev$J%G%#%l%/%H%j$K%3%T!<$7$F$*;H$$$/$@$5$$!%(B</p>
 
-<p>$B4A;z%3!<%I$O(B JIS $B%3!<%I$K$J$C$F$$$^$9!%B?$/$NF|K\8lBP1~(B LaTeX $B$G@5>o$K(B
-$B07$($k$O$:$G$9$,!$=hM}7O$K$h$C$F$O4A;z%3!<%I$NJQ49$r$*$3$J$&I,MW$,$"$k(B
-$B$+$b$7$l$^$;$s!%(B</p>
+<h2><a name="download">$B%@%&%s%m!<%I(B</a></h2>
+<p>
+jinka-@VERSION@ $B$N0l<!G[I[85(B URI:
+<div align="center">
+<a href="http://koko15.hus.osaka-u.ac.jp/%7Eyusuke/archive/jinka/jinka-@VERSION@.tar.gz">
+http://koko15.hus.osaka-u.ac.jp/~yusuke/archive/jinka/jinka-@VERSION@.tar.gz
+</a>
+</div>
+</p>
 
-<p>$BF0:n3NG'$O(B pLaTeX 1.0i $B$G$*$3$J$C$F$$$^$9!%(B</p>
-
-<hr />
-
-<h2><a name="usage">$B;H$$J}(B</a></h2>
-<h3>$B%/%i%9%U%!%$%k$N;XDj(B</h3>
-<p>$B%I%-%e%a%s%H%/%i%9$*$h$S$=$N%*%W%7%g%s$K(B `<kbd>jinka</kbd>' $B$r;XDj$9$k(B
-$B$3$H$G!$(B1 $BJG$"$?$j(B 30$B;z(B $B!_(B20 $B9T%U%)!<%^%C%H$K$J$j$^$9!%(B
-$B%*%W%7%g%s$K(B <kbd>jinka</kbd>$B$r;XDj$7$J$+$C$?>l9g$K$O!$(B1$BJG$"$?$j(B 38$B;z(B $B!_(B 
-32 $B9T$H$J$j$^$9!%(B </p>
-<blockquote style="border: 1px solid blue; padding: 5pt;">
-<kbd>\documentclass[jinka]{jinka}</kbd>
-</blockquote>
+<p>
+$B0J2<$N%Q%C%1!<%8%j%9%H$+$i$b8D!9$N%U%!%$%k$r%@%&%s%m!<%I$9$k$3$H$,$G$-$^$9!%(B
+</p>
 
 
-<h3>$B;29M!'<9I.5,Dj(B ($BJ?@.(B14$BG/EY2~Dj(B)</h3>
-<table width="50%" align="center" border="1">
+
+<h2><a name="list">$B%Q%C%1!<%8%j%9%H(B</a></h2>
+<table cellspacing="8" align="center" border="0">
 <thead>
- <tr>
-    <th>1$BJG$"$?$j;z?t(B</th>
-    <td align="center">600$B;z(B/$BJG(B</td>
-    <td align="center">1200$B;z(B/$BJG(B</td></tr>
+ <tr><td  colspan="2">
+  <a href="jinka-@VERSION@.tar.gz"><tt>jinka-@VERSION@/</tt></a>
+ </td></tr>
 </thead>
-<tbody>
-  <tr>
-    <th>   $BMQ;f(B  </th>
-    <td align="center"> A4 $BJRLL(B </td>
-    <td align="center"> A4 $BN>LL(B </td>
-  </tr>
-  <tr>
-    <th>  1$B9T$"$?$j;z?t(B  </th>
-    <td colspan="2" align="center"> 30 $B;z(B/$B9T(B </td>
-  </tr>
-  <tr>
-    <th>  1$BJG$"$?$j9T?t(B  </th>
-    <td align="center"> 20 $B9T(B/$BJG(B </td><td align="center"> 40 $B9T(B/$BJG(B </td>
-  </tr>
-  <tr>
-    <th> $B>e(B $BM>Gr(B </th>
-    <td colspan="2" align="center"> 25 - 40 mm </td>
-  </tr>
-  <tr>
-    <th> $B2<(B $BM>Gr(B </th>
-    <td colspan="2" align="center"> 25 - 40 mm </td>
-  </tr>
-  <tr>
-    <th> $B:8(B $BM>Gr(B </th>
-    <td colspan="2" align="center"> 25 - 40 mm </td>
-  </tr>
-  <tr>
-    <th> $B1&(B $BM>Gr(B </th>
-    <td colspan="2" align="center"> 25 - 40 mm </td>
-  </tr>
-  <tr>
-    <th>  $B;f<A(B   </th>
-    <td colspan="2" align="center"> $B>e<A;f(B 55-70g/m<sup>2</sup></td>
-  </tr>
-</tbody>
-</table>
 
-<hr />
 
-<h2><a name="list">$B%Q%C%1!<%80lMw(B</a></h2>
-<a href="jinka-@VERSION@.tar.gz"> <tt>jinka-@VERSION@/</tt></a>
-
-<table cellspacing="8" align="center">
  <tbody>
  <tr>
   <td><a href="Makefile">Makefile</a></td>
@@ -103,6 +60,10 @@ jinka.cls $B$O!$Bg:eBg3X?M4V2J3X8&5f2J(B($B9TF07O(B)$B$NB46HO@J8(B/$B=$;N
  <tr>
   <td><a href="README">README</a></td>
   <td>$B4JC1$J@bL@=q(B</td>
+ </tr>
+ <tr>
+  <td><a href="jinka.cls">jinka.cls</a></td>
+  <td>jinka $B%/%i%9%U%!%$%k(B</td>
  </tr>
  <tr>
   <td><a href="jinka.dtx">jinka.dtx</a></td>
@@ -114,11 +75,15 @@ jinka.cls $B$O!$Bg:eBg3X?M4V2J3X8&5f2J(B($B9TF07O(B)$B$NB46HO@J8(B/$B=$;N
  </tr>
  <tr>
   <td><a href="japa.bst">japa.bst</a></td>
-  <td> APA $B$N0zMQ=q<0$rDj5A$7$?(B jBibTeX $B%9%?%$%k%U%!%$%k(B</td>
+  <td> $B;29MJ88%$N=q<0$rDj5A$7$?%U%!%$%k(B (JBibTeX $BMQ(B)</td>
+ </tr>
+ <tr>
+  <td><a href="japa.sty">japa.sty</a></td>
+  <td>japa.bst $BMQ(B $B;29MJ88%4D6-(B</td>
  </tr>
  <tr>
   <td><a href="japa.dtx">japa.dtx</a></td>
-  <td>japa.bst $BMQ(B $B;29MJ88%4D6-(B</td>
+  <td>japa.bst $BMQ(B $B;29MJ88%4D6-(B DOCSTRIP $B%U%!%$%k(B</td>
  </tr>
  <tr>
   <td><a href="japa.ins">japa.ins</a></td>
@@ -129,6 +94,10 @@ jinka.cls $B$O!$Bg:eBg3X?M4V2J3X8&5f2J(B($B9TF07O(B)$B$NB46HO@J8(B/$B=$;N
   <td>$B>OBj!$?^I=%-%c%W%7%g%s$J$I$r1Q8l$K$9$k$?$a$N%Q%C%1!<%8(B</td>
  </tr>
  <tr>
+  <td><a href="summary.cls">summary.cls</a></td>
+  <td>$B!VMWLs=8!W869F:n@.MQ$N%/%i%9%U%!%$%k(B</td>
+ </tr>
+ <tr>
   <td><a href="obsolete/sotsu.sty">obsolete/sotsu.sty</a></td>
   <td> LaTeX 2.09 $BMQ%9%?%$%k(B ($B86ED(B $B>O(B $B;a$N:n$K$h$k(B) </td>
  </tr>
@@ -136,14 +105,135 @@ jinka.cls $B$O!$Bg:eBg3X?M4V2J3X8&5f2J(B($B9TF07O(B)$B$NB46HO@J8(B/$B=$;N
 </table>
 
 
-<h2><a name="download">$B%@%&%s%m!<%I(B</a></h2>
-jinka-@VERSION@ $B$N0l<!G[I[85$O(B
+
+
+<h2><a name="install">$B%$%s%9%H!<%k(B</a></h2>
+<h3> quick install </h3>
+<ol>
+<li> <kbd>jinka.cls</kbd> $B%U%!%$%k$r%@%&%s%m!<%I$7$F!$J8=q%U%!%$%k$HF1$8(B
+$B%U%)%k%@$KJ]B8$7$F$/$@$5$$!%(B
+</ol>
+
+<h3> expert install </h3>
+<ol>
+<li>$B%/%i%9%U%!%$%k$KJQ99$r2C$($k$H$-$O!$(B<kbd>jinka.dtx</kbd> $B$r(B
+$BJT=8$7$F$/$@$5$$!%(B
+
+<li>$B%/%i%9%U%!%$%k(B <kbd>jinka.cls</kbd> $B$O!$(B<kbd>jinka.ins</kbd> 
+$B%U%!%$%k$r(B LaTeX $B$G=hM}$9$k$3$H$G@8@.$5$l$^$9!%(B
+
+<blockquote><kbd>$ platex jinka.ins</kbd></blockquote>
+
+<li> <kbd>jinka.cls</kbd> $B$rE,Ev$J%G%#%l%/%H%j(B<sup>*</sup>$B$K%3%T!<$7$F(B
+$B$*;H$$$/$@$5$$!%(B
+<div style="font-size: 9pt; color: gray;">
+<sup>*</sup> $BJ8=q(B LaTeX $B%=!<%9%U%!%$%k$HF1$8%G%#%l%/%H%j(B $B$b$7$/$O(B 
+$B4D6-JQ?t(B <kbd>TEXINPUTS</kbd> $B$G;XDj$5$l$?%G%#%l%/%H%j(B
+</div>
+
+<li> $B;29MJ88%%9%?%$%k%U%!%$%k$r;HMQ$9$k$H$-$O!$0J2<$N%U%!%$%k$bF1$8%G%#%l%/%H%j$K%3%T!<$7$F$/$@$5$$!%(B
+  <ul> 
+  <li> <kbd>japa.bst</kbd>
+  <li> <kbd>japa.sty</kbd>
+  </ul>
+</ol>
+
+
+<h3> RPM install </h3>
+<p>
+$B%Q%C%1!<%8$K$O(B RPM spec $B%U%!%$%k$,E:IU$5$l$F$$$k$N$G!$0J2<$N$h$&$K(B
+RPM $B%Q%C%1!<%8$r:n@.$9$k$3$H$b$G$-$^$9!%(B
+</p>
 <blockquote>
-<a href="http://koko15.hus.osaka-u.ac.jp/%7Eyusuke/archive/jinka/jinka-@VERSION@.tar.gz">
-http://koko15.hus.osaka-u.ac.jp/~yusuke/archive/jinka/jinka-@VERSION@.tar.gz
-</a></blockquote>
-$B$G$9!%(B
+<kbd>$ rpm -tb jinka-@VERSION@.tar.gz</kbd>
+</blockquote>
+
+
+<h3> $BCm0UE@(B </h3>
+<p>
+$B%/%i%9%U%!%$%k$NJ8;z%3!<%I$O(B EUC-JP $B$H$J$C$F$$$^$9!%(B
+$B=hM}7O$K$h$C$F$O!$%(%G%#%?$d%3%s%P!<%?$r;H$C$FJ8;z%3!<%I$d2~9T%3!<%I$N(B
+$BJQ49$r$*$3$J$&I,MW$,$"$k$+$b$7$l$^$;$s!%(B
+($BJ8=q%U%!%$%k$dB>$N%Q%C%1!<%8%U%!%$%k$HF1$8J8;z%3!<%I$K$7$F$*$/I,MW$,$"$j$^$9!%(B)
+</p>
+
+
+<table align="center" class="table">
+ <tr><th>  </th><th>$BJ8;z%3!<%I(B</th><th>$B2~9T%3!<%I(B</th></tr>
+ <tr><th>UNIX   </th><td>EUC-JP</td><td>LF</td></tr>
+ <tr><th>Windows</th><td>ShiftJIS</td><td>CR+LF</td></tr>
+ <tr><th>MacOS  </th><td>ShiftJIS</td><td>CR</td></tr>
+</table>
+
+
+<h2><a name="usage">$B;H$$J}(B</a></h2>
+<h3>$B%/%i%9%U%!%$%k$N;XDj(B</h3>
+<p>
+
+
+$B%I%-%e%a%s%H%/%i%9$*$h$S$=$N%*%W%7%g%s$K(B &quot;<kbd>jinka</kbd>&quot; $B$r(B
+$B;XDj$9$k$3$H$G!$(B1 $BJG$"$?$j(B 40$B;z!_(B30$B9T(B $B%U%)!<%^%C%H$K$J$j$^$9!%(B
+$B%*%W%7%g%s$K(B <kbd>jinka,obsolete</kbd>$B$r;XDj$7$?>l9g$K$O!$(B1$BJG$"$?$j(B
+30$B;z!_(B20$B9T(B $B$H$J$j$^$9!%(B </p>
+<blockquote>
+<kbd>\documentclass[jinka]{jinka}</kbd>
+</blockquote>
+
+<table align="center" class="table">
+<theard>
+ <tr><th>$B%/%i%9%*%W%7%g%s(B</th><th> $B=q<0(B </th></tr>
+</thead>
+<tbody>
+ <tr><th><kbd>jinka</kbd></th>         <td> 40$B;z!_(B30$B9T(B / $BJG(B </td></tr>
+ <tr><th><kbd>jinka,obsolete</kbd></th><td> 30$B;z!_(B20$B9T(B / $BJG(B </td></tr>
+ <tr><th><kbd>nojinka</kbd></th>       <td> 40$B;z!_(B30$B9T(B / $BJG(B </td></tr>
+</tbody>
+</table>
+
+
+<h3>$B;29M!'<9I.5,Dj(B</h3>
+<table align="center" border="0" class="table">
+<thead>
+<tr><th colspan="2">$B<9I.5,Dj(B ($BJ?@.(B14$BG/EY2~Dj(B)</th></tr>
+
+</thead>
+<tbody>
+  <tr>
+    <th>   $BMQ;f%5%$%:(B  </th>
+    <td align="center"> A4 ($BJRLL(B $B$b$7$/$O(B $BN>LL(B) </td>
+  </tr>
+  <tr>
+    <th rowspan="2">1$BJG$"$?$j(B</th>
+    <td align="center">600$B;z(B (30$B;z!_(B20$B9T(B)</td>
+  </tr>
+  <tr>
+    <td align="center">1,200$B;z(B (40$B;z!_(B30$B9T(B)</td>
+  </tr>
+  <tr>
+    <th> $B>e(B $BM>Gr(B </th>
+    <td align="center"> 25 - 40 mm </td>
+  </tr>
+  <tr>
+    <th> $B2<(B $BM>Gr(B </th>
+    <td align="center"> 25 - 40 mm </td>
+  </tr>
+  <tr>
+    <th> $B:8(B $BM>Gr(B </th>
+    <td align="center"> 25 - 40 mm </td>
+  </tr>
+  <tr>
+    <th> $B1&(B $BM>Gr(B </th>
+    <td colspan="2" align="center"> 25 - 40 mm </td>
+  </tr>
+  <tr>
+    <th>  $B;f<A(B   </th>
+    <td align="center"> $B>e<A;f(B 55-70g/m<sup>2</sup></td>
+  </tr>
+</tbody>
+</table>
+
 <hr />
+
 
 <h2><a name="contact">$B%3%s%?%/%H(B</a></h2>
 <ul>
@@ -154,8 +244,8 @@ http://koko15.hus.osaka-u.ac.jp/~yusuke/archive/jinka/jinka-@VERSION@.tar.gz
 </li>
 <li> $B$40U8+!$$4MWK>!$%P%0Js9p$O$3$A$i$^$G$*4s$;$/$@$5$$!%(B
   <address>
-    <a href="mailto:yusuke@koko15.hus.osaka-u.ac.jp">
-     yusuke@koko15.hus.osaka-u.ac.jp
+    <a href="mailto:yusuke&#64;bm.hus.osaka-u.ac.jp">
+     yusuke&#64;bm.hus.osaka-u.ac.jp
     </a>
   </address>
 </li>
@@ -163,7 +253,7 @@ http://koko15.hus.osaka-u.ac.jp/~yusuke/archive/jinka/jinka-@VERSION@.tar.gz
 
 <hr />
 <div align="right">
-$Date: 2003-01-04 18:55:08 $
+$Date: 2005-02-08 02:29:05 +0900 (Tue, 08 Feb 2005) $
 </div>
 
 </body>

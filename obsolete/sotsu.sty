@@ -1,0 +1,1020 @@
+\def\version{1.18}
+%% 卒論・修論用スタイル（行動系編） Ver. 1.18
+%%   原田章（人間科学研究科）
+%%       1993 / 01 / 17
+%% jreport.sty 18 Dec 88 をもとにした．
+%% 参考文献　「美文書作成入門」
+%%           「LaTeX自由自在」
+%%
+%% ＜このスタイルファイルのオプション＞
+%%   renban  : 図表，および数式の番号を連番にする．
+%%   jinka   : 行数を人間科学部スタイルで指定されている２０行に設定する．
+%%   soroeru : 本文の上下幅をそろえる．ただし，ワーニングが出やすくなる．
+%%   nopage  : 本文下にページ番号を出力しない．
+%%             ただし，オリジナルのページスタイルを用いる場合，その限りでは
+%%             ない．
+%%   cchap   : 章のタイトルを中央配置にする．
+%% ＜このスタイルファイルに含まれている特別な環境＞
+%%   環境「謝辞」    : 謝辞を入れるための環境．
+%%   環境「参考文献」: 参考文献を記述するための環境．文献ひとつひとつを空行で
+%%                     区切ること．
+%%                     この環境を使うと，「目次」に参考文献が表示される．
+%% ＜このスタイルファイルに含まれている特別なページスタイル＞
+%%   卒論柱  : 章題がページ右上に下線付きで表示され，ページ番号はページ
+%%   下部中央に表示．
+%%   nopagestyle : ページ番号だけが出力されない卒論柱スタイル．
+%% ＜このスタイルファイルに含まれている便利なマクロ＞
+%%   \kintou#1#2 : 均等配置をするマクロ．#1に指定された文字数の中に#2を均等に
+%%                 配置する． \kintou{5zw}{均等割り} from 「美文書作成入門」
+%%   \ruby#1#2   : 送り仮名をつけるマクロ．#1に指定された文字の上に#2をかき
+%%                 出す．
+%%                \ruby{漢字}{かんじ} from 「美文書作成入門」
+%% ＜相互参照に関する注意＞
+%%   図表の相互参照に，「図 \ref{name}」とか「表 \ref{name}」とする必要はない．
+%%   ラベルがつけられた時点で「図」「表」の文字列も同時にAUXファイルにかき
+%%   出す．
+%%   数式の参照についても同様．
+%% ＜表中の罫線について＞
+%%   罫線機能を強化した\xline（\hlineで罫線と文字が近づきすぎる点を補正する）
+%%   が\hlineの代わりに使える．ただし，次のような不具合あり．
+%%   ・縦罫線と併用した場合に，縦罫線が途中で切れる．
+%% ＜\appendix使用時の注意＞
+%%   \appendixは通常の定義とは別に引き数をとるように変更した．
+%%   引き数で指定した文字列が章番号の前につく．
+%%   （例） \appendix{資料} ---> 資料A
+%%
+%% ＜変更の履歴＞
+%%  93/10/26 Version 1.00 公開
+%%  93/10/26 デフォルトのページスタイルを「headings」から「卒論柱」に変更
+%%           \hlineの定義を若干修正 Version 1.01
+%%  93/11/04 section番号の変更，数式の参照に関するマクロの定義
+%%           \hlineの定義を元に戻す．環境「参考文献」作成
+%%           「謝辞」環境が目次に表示されるように変更． Version 1.02
+%%  93/11/07 table環境でcaptionが使えない不具合を修正 Version 1.03
+%%  93/11/08 Version 1.03 正式公開
+%%  93/11/08 脚注文字の大きさと行間を修正 Version 1.04
+%%  93/12/27 「謝辞」環境の設定を変更．\hlineの上に４分の１全角サイズの
+%%           スペースを組み込んで罫線を引く\xlineを追加．ただし，制限あり．
+%%           Version 1.05
+%%  93/12/30 「謝辞」環境がうまく目次に表示されない不具合を修正 Version 1.06
+%%  93/12/30 Version 1.06 正式公開
+%%  93/12/31 「謝辞」環境の中でマクロが展開されない不具合を修正
+%%           「参考文献」環境の文字サイズを変更 Version 1.07
+%%  93/12/31 Version 1.07 正式公開
+%%  93/01/01 ページ番号を出力しないオプション「nopage」を追加 Version 1.08
+%%  93/01/05 複数行になるキャプションの行間を調整
+%%           目次の章の部分が「第x章」となるように変更 Version 1.09
+%%  93/01/07 ２０行モードの時に正確に２０行にならない不具合を修正 Version 1.10
+%%  93/01/11 \part命令がうまく動作しない不具合を修正． Version 1.11
+%%  93/01/12 複数行になるキャプションの行間を再調整 Version 1.12
+%%  93/01/13 章題が中央に表示されるオプションcchapを追加 Version 1.13
+%%  93/01/14 隠しコマンド追加 非公開 Version 1.14
+%%  93/01/15 \appendix を改良．引き数によって\appendixの出力を変更化 
+%%           Version 1.15
+%%  93/01/17 \appendix が目次にうまく表示されない不具合を修正．
+%%           目次の部の部分が「第x部」となるように変更． Version 1.16
+%%
+%% a couple of bugs were fixed. (by MIYAMOTO Yusuke)
+%%  98/01/14 「参考文献」環境のページカウントを訂正
+%%  98/02/10 「参考文献」環境のスタイルを変更．インデントを１zwに．
+%%  98/02/26 figure 環境の [loc] オプションを使えるように訂正  Version 1.18
+%%  00/12/19 \ruby マクロの typo を修正．
+%%
+
+\typeout{卒業論文・修士論文スタイル（人間科学部，行動系編) Ver.\space\version}
+\typeout{　制作者：原田章（人間科学研究科）}
+\typeout{＜スタイルの詳細＞}
+
+\def\@ptsize{2} % 文字サイズの１の位
+
+\def\ds@twoside{\@twosidetrue \@mparswitchtrue}
+  % 左右のページデザインを変更するかどうか
+\def\ds@draft{\overfullrule 5pt}
+
+\newif\if連番 % 図表番号を連番にするかどうかのフラグ
+\連番false    % 初期状態は連番にしない
+\def\ds@renban{% 図表の番号を全体を通しての連番にする
+  \連番true}
+
+\newif\if人科 % 行数を人間科学部フォーマットにあわせるかどうかのフラグ
+\人科false    % 初期設定ではそれにはあわせない．
+\def\ds@jinka{% 行数を人間科学部フォーマットにする
+ \人科true}
+
+\newif\if下揃え % 本文の上下幅をそろえるかどうかのフラグ
+\下揃えtrue
+\def\ds@soroeru{ \下揃えfalse }
+
+\newif\if頁 % 本文下にページ番号を付けるかどうかのフラグ
+\頁true
+\def\ds@nopage{ \頁false }
+
+\newif\if章中央 % 章の出力を中央揃えにするかどうかのフラグ
+\章中央false
+\def\ds@cchap{ \章中央true }
+
+\newif\if付録 % \appendix が使われたかどうかのフラグ
+\付録false
+
+\@options
+
+% −−　字の大きさの設定　−−
+
+% 行間が狭すぎるときに間に入れる行間の空白
+\lineskip 1pt \normallineskip 1pt
+
+% 標準値の何倍を実際の\baselineskipの値にするかの指定
+\def\baselinestretch{1}
+
+\def\@normalsize{% \@normalsize の定義（標準文字サイズの選択）
+  \@setsize{\normalsize}{20pt}{\xiipt}{\@xiipt}%
+    % \@setsize{}{}{}{}
+    % 行送り(\baselineskip)を20ptにし，フォントを 12pt にする．
+  \kanjiskip=0zw plus .1zw minus .05zw % 漢字間の空き
+  \abovedisplayskip 12pt plus 3pt minus 7pt
+    % 別行立て数式の上の空き
+  \belowdisplayskip \abovedisplayskip
+    % 別行立て数式の下の空き
+  \abovedisplayshortskip \z@ plus 3pt
+    % 短い別行立て数式の上の空き( \z@ = 0pt )
+  \belowdisplayshortskip 6.5pt plus 3.5pt minus 3pt
+    % 短い別行立て数式の下の空き
+  \let\@listi=\@listI} % リスト環境の設定
+
+\def\capsize{% \caption用の文字
+  \@setsize{\capsize}{11pt}{\xpt}{\@xpt}}%
+
+\def\tablesize{% 表に使う文字
+  \@setsize{\tablesize}{11pt}{\xpt}{\@xpt}}
+
+\def\small{%
+  \@setsize{\small}{13.6pt}{\xipt}{\@xipt}%
+  \abovedisplayskip=11pt plus 3pt minus 6pt
+  \belowdisplayskip=\abovedisplayskip
+  \abovedisplayshortskip=\z@ plus 3pt
+  \belowdisplayshortskip=6.5pt plus 3.5pt minus 3pt
+  \def\@listi{%
+    \leftmargin=\leftmargini
+    \parsep=4.5pt plus 2pt minus 1pt
+    \itemsep=\parsep
+    \topsep=9pt plus 3pt minus 5pt}%
+  }
+
+\def\footnotesize{%
+  \@setsize{\footnotesize}{9pt}{\ixpt}{\@ixpt}%
+  \renewcommand{\baselinestretch}{1}
+  \abovedisplayskip 10pt plus 2pt minus 5pt
+  \belowdisplayskip = \abovedisplayskip
+  \abovedisplayshortskip \z@ plus 3pt
+  \belowdisplayshortskip 6pt plus 3pt minus 3pt
+  \def\@listi{%
+    \leftmargin=\leftmargini
+    \topsep=6pt plus 2pt minus 2pt
+    \parsep=3pt plus 2pt minus 1pt
+    \itemsep=\parsep}%
+  }
+
+% \scriptsizeの標準の\baselineskipが9.5ptで使う文字が8pt
+\def\scriptsize{\@setsize\scriptsize{9.5pt}\viiipt\@viiipt}
+
+% \tinyの標準の\baselineskipが7ptで使う文字が6pt
+\def\tiny{\@setsize\tiny{7pt}\vipt\@vipt}
+
+% \largeの標準の\baselineskipが21ptで使う文字が14pt
+\def\large{\@setsize\large{21pt}\xivpt\@xivpt}
+
+% \Largeの標準の\baselineskipが25ptで使う文字が17pt
+\def\Large{\@setsize\Large{25pt}\xviipt\@xviipt}
+
+% \LARGEの標準の\baselineskipが28ptで使う文字が20pt
+\def\LARGE{\@setsize\LARGE{28pt}\xxpt\@xxpt}
+
+% \hugeの標準の\baselineskipが33ptで使う文字が25pt
+\def\huge{\@setsize\huge{33pt}\xxvpt\@xxvpt}
+
+\let\Huge=\huge
+
+% \normalsize に設定
+\normalsize
+
+\if@twoside % 偶数頁と奇数頁のレイアウトが異なるときの設定
+  \oddsidemargin=5zw  % 奇数頁の左余白
+  \evensidemargin=8zw % 偶数頁の左余白
+  \marginparwidth=5zw % 欄外への書き込みの幅
+\else % 同じ時の設定
+  \oddsidemargin=5zw
+  \evensidemargin=5zw
+  \marginparwidth=5zw
+\fi
+
+\marginparsep=10pt % 欄外への書き込みと本文との水平距離
+\topmargin=\z@     % 上余白
+\headheight=1zw    % ヘッドの高さ
+\headsep=4zw       % 本文とヘッドとの距離
+\footheight=12pt   % フットの高さ
+\footskip=30pt     % 本文の最後の行の基準線とフットの基準線との距離
+
+\textheight=30\baselineskip
+  \advance \textheight by \topskip
+                   % １頁行数の設定
+\textwidth=30zw    % １行文字数
+\columnsep=2zw     % ２段組みのときの間隔
+\columnseprule=0pt % ２段組みのときの間に入れる線の太さ
+\if人科 % １ページ行数の変更
+  \def\baselinestretch{1.5}
+  \typeout{・行数は完全人間科学部フォーマット（２０行）です．}
+\else
+  \typeout{・行数はオリジナルフォーマット（３０行）です．}
+\fi
+
+\footnotesep=8.4pt % 各脚注の最初の行の高さ
+                   % 標準は \footnotesize の \baselineskip の 0.7 倍
+\skip\footins 10.8pt plus 4pt minus 2pt
+  % 本文の最後の行と脚注の頭との距離
+
+% 図・表に関する設定
+
+% 同じページに本文も図・表もある場合
+\floatsep=2zw plus 0.5zw minus 0.5zw
+  % ページ上部・下部の図・表どうしの間の距離
+\textfloatsep=2zw plus 0.5zw minus 0.5zw
+  % ページ上部・下部の図・表と本文の間の距離
+\intextsep=2zw plus 0.5zw minus 0.5zw
+  % 本文にうめこまれた図・表と本文の間の距離
+\@maxsep=3zw
+  % 上３つの最大値
+\dblfloatsep=2zw plus 0.5zw minus 0.5zw
+  % ページ上部・下部の図・表どうしの間の距離（２段組み）
+\dbltextfloatsep=2zw plus 0.5zw minus 0.5zw
+  % ページ上部・下部の図・表と本文の間の距離（２段組み）
+\@dblmaxsep=3zw
+  % 上２つの最大値
+
+% 同じページに本文がない場合
+\@fptop=0pt plus 1fil % ページ上部の余白
+\@fpsep=2zw plus 2fil % 図・表間の間隔
+\@fpbot=0pt plus 1fil % ページ下部の余白
+
+\@dblfptop=0pt plus 1fil % ページ上部の余白（２段組み）
+\@dblfpsep=2zw plus 2fil % 図・表間の間隔（２段組み）
+\@dblfpbot 0pt plus 1fil % ページ下部の余白（２段組み）
+
+\marginparpush=7pt % 欄外書き込みどうしの間の最少垂直距離
+
+% 図表に表示する文字に関するマクロ
+
+\def\tabtitle{表}
+\def\figtitle{図}
+
+% ----- 段落 ----- %
+\parskip=0pt % 段落間の空き
+\parindent=1zw % 段落の字下げ
+\partopsep=2pt plus 1pt minus 1pt
+  % 環境の直前に空行がなければ，環境の直後に \parskip + \topsepがはいる．
+  % 環境の直前に空行があればさらに，\partopsep がはいる．
+\@lowpenalty=51 \@medpenalty=151 \@highpenalty=301
+  % \nopagebreak[1][2][3]のペナルティ
+\@beginparpenalty=-\@lowpenalty % 段落の頭に入るペナルティ
+\@endparpenalty=-\@lowpenalty   % 段落の後ろに入るペナルティ
+\@itempenalty=-\@lowpenalty     % リストの項目間に入るペナルティ
+
+% ----- 章や節で用いるマクロ ----- %
+\def\@makechapterhead#1{%
+  \vspace*{1zw}%
+  { \if章中央
+      \begin{center}
+        \huge\bf \@chapapp{\thechapter}
+        \par
+        \Huge\bf #1
+      \end{center}
+      \nobreak\vskip 1zw
+    \else
+      \parindent=0pt % 頭下げしない
+      \raggedright   % 右端をそろえる必要なし
+      \ifnum \c@secnumdepth >\m@ne % もしsecnumdepthの値が-1より大なら
+        \huge\bf \@chapapp{\thechapter} \par
+        \vskip 1zw % 縦の空き
+      \fi
+      \Huge \bf #1\par
+      \nobreak \vskip 1zw
+    \fi}}
+
+\def\@makeschapterhead#1{% \chapter*用
+  \vspace*{1zw}
+   { \if章中央
+       \begin{center}\Huge\bf #1 \end{center}
+       \nobreak\vskip 1zw
+     \else
+       \parindent=0pt
+       \raggedright
+       \Huge\bf\hfil #1\hfil\par
+       \nobreak \vskip 1zw
+     \fi}}
+
+\def\chapter{
+  \clearpage % 改頁
+  \if頁
+    \thispagestyle{plain} % このページの柱はなし
+  \else
+    \thispagestyle{nopagestyle}
+  \fi
+  \global\@topnum\z@    % このページ上に図表を入れない
+  \@afterindenttrue     % 最初の段落の字下げをする
+  % \@afterindentfalse  % 最初の段落の字下げをしない
+  \secdef\@chapter\@schapter} % *がなければ，\@chapter あれば，\@schapter
+
+\def\@chapter[#1]#2{% 直後に * がない場合
+  \ifnum \c@secnumdepth >\m@ne
+    \refstepcounter{chapter} % カウンターを増す
+    \if付録
+      \typeout{\@chapapp\thechapter 「#1」に入りました．}  % 付録番号出力
+      \addcontentsline{toc}{chapter}{\@chapapp\thechapter\hspace{1zw} #1}
+    \else
+      \typeout{\@chapapp{\thechapter}「#1」に入りました．} % 章番号出力
+      \addcontentsline{toc}{chapter}{% TOCファイルに出力
+        第\protect\numberline{\thechapter}\protect\kern-0.7zw 章\protect\hspace{1zw}#1}%
+    \fi
+  \else
+      \addcontentsline{toc}{chapter}{#1}%
+  \fi
+  \chaptermark{#1} % 柱に章名を出力
+  \addtocontents{lof}{\protect\addvspace{10pt}}
+    % LOFファイルに空きを入れる
+  \addtocontents{lot}{\protect\addvspace{10pt}}
+    % LOTファイルに空きを入れる
+  \if@twocolumn
+    \@topnewpage[\@makechapterhead{#2}]
+  \else
+    \@makechapterhead{#2}
+    \@afterheading % 見出しの後の処理
+  \fi}
+
+\def\@schapter#1{% * がある場合
+  \if@twocolumn
+    \@topnewpage[\@makeschapterhead{#1}]
+  \else
+    \@makeschapterhead{#1}
+    \@afterheading
+  \fi}
+
+\def\section{%
+  \@startsection%
+  {section}        % セクション名はsection
+  {1}              % レベル（レベル<=secnumdepthのときだけ番号を出力
+  {-16.25mm}       % ページの左端から見出しまでの水平距離
+  {3.5ex plus 1ex minus .2ex}           % 見出し上の空き
+  {2.3ex plus .2ex}% 見出しの下の空き
+  {\large\bf}}
+
+\def\subsection{%
+  \@startsection%
+  {subsection}    % セクション名はsubsection
+  {2}		  % レベル（レベル<=secnumdepthのときだけ番号を出力
+  {\z@}		  % ページの左端から見出しまでの水平距離
+  {1zw}		  % 見出し上の空き
+  {1zw}		  % 見出しの下の空き
+  {\large\bf}}
+
+\def\subsubsection{%
+  \@startsection%
+  {subsubsection}{3}{\z@}{.5zw}{.5zw}%
+  {\normalsize\bf}}
+
+\def\paragraph{%
+  \@startsection%
+  {paragraph}{4}{\z@}{.5zw}{.5zw}%
+  {\normalsize\bf}}
+
+\def\subparagraph{%
+  \@startsection%
+  {subparagraph}{4}{\parindent}{.5zw}{.5zw}%
+  {\normalsize\bf}}
+
+\def\chaptermark#1{}
+
+\setcounter{secnumdepth}{1}
+  % 1 : セクション見出しまで番号付き
+  % 2 : サブセクション見出しまで番号付き
+
+\def\appendix#1{% \chapterの出力を「付録A」などに変更する
+  \par % 改段落
+  \setcounter{chapter}{0}% カウンタの再初期化
+  \setcounter{section}{0}%
+  \let\appendtitle = #1
+  \def\thechapter{\Alph{chapter}} % 章番号をA, B, Cにする
+  \def\@chapapp{#1}%
+  \付録true} %
+
+% ----- リストのスタイル ----- %
+\leftmargini=2zw  % 一番外側のリストの左余白
+\leftmarginii=2zw % ２番目のリストの左余白
+\leftmarginiii=2zw% ３番目のリストの左余白
+\leftmarginiv=2zw % ４番目のリストの左余白
+\leftmarginv=2zw  % ５番目のリストの左余白
+\leftmarginvi=2zw % ６番目のリストの左余白
+\leftmargin=\leftmargini % 左余白の初期化
+\labelsep=.5zw    % ラベルと本文の間隔
+\labelwidth=\leftmargini \advance \labelwidth by -\labelsep
+  % \labelwidth := \leftmargini - \labelsep
+
+\def\@listI{% 一番外側のリストのパラメータの初期値
+  \leftmargin=\leftmargini
+  \parsep=\z@  % 項目中の段落の空き
+  \topsep=\z@  % リスト上下の空き
+  \itemsep=\z@}% 項目間の空き
+
+\let\@listi\@listI
+\@listi
+
+\def\@listii{% その内側のリストのパラメータの初期値
+  \leftmargin=\leftmarginii
+  \labelwidth=\leftmarginii \advance \labelwidth by -\labelsep
+  \topsep=\z@
+  \parsep=\z@
+  \itemsep=\parsep}
+
+\def\@listiii{%
+  \leftmargin=\leftmarginiii
+  \labelwidth=\leftmarginiii \advance \labelwidth by -\labelsep
+  \topsep=\z@
+  \parsep=\z@
+  \itemsep=\parsep}
+
+\def\@listiv{%
+  \leftmargin=\leftmarginiv
+  \labelwidth=\leftmarginiv \advance \labelwidth by -\labelsep}
+
+\def\@listv{%
+  \leftmargin=\leftmarginv
+  \labelwidth=\leftmarginv \advance \labelwidth by -\labelsep}
+
+\def\@listvi{%
+  \leftmargin=\leftmarginvi
+  \labelwidth=\leftmarginvi \advance \labelwidth by -\labelsep}
+
+% ----- enumerate環境の形式 ----- %
+\def\labelenumi{\theenumi.}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumii{(\theenumii)}
+\def\theenumii{\alph{enumii}}
+\def\p@enumii{\theenumi}
+\def\labelenumiii{\theenumiii.}
+\def\theenumiii{\roman{enumiii}}
+\def\p@enumiii{\theenumi(\theenumii)}
+\def\labelenumiv{\theenumiv.}
+\def\theenumiv{\Alph{enumiv}}
+\def\p@enumiv{\p@enumiii\theenumiii}
+
+% ----- itemize環境の形式 ----- %
+\def\labelitemi{$\bullet$} % 一番外は黒丸
+\def\labelitemii{\bf --}   % その内側はダッシュ
+\def\labelitemiii{$\ast$}  % その内側はアスタリスク
+\def\labelitemiv{$\cdot$}  % その内側は中点
+
+% ----- verse環境 ----- %
+\def\verse{%
+  \let\\=\@centercr % 改行 \\ の定義
+  \list{}{%
+    \itemsep\z@                 % 項目間に余分な空白はいれない
+    \itemindent=-2zw            % 項目の頭は他の行より左に２文字突き出す
+    \listparindent=\itemindent  % 段落の頭も同様
+    \rightmargin=\leftmargin    % 右余白は左余白と同じ
+    \advance\leftmargin by 2zw} % 左余白だけさらに２文字広くする．
+  \item[]}
+\let\endverse\endlist
+
+% ----- quotation環境 ----- %
+\def\quotation{%
+  \list{}{%
+    \listparindent=1zw         % 段落の頭下げ１文字
+    \itemindent=\listparindent % 項目の字下げも同様
+    \rightmargin=\leftmargin}
+  \item[]}
+\let\endquotation=\endlist
+
+% ----- quote環境 ----- %
+\def\quote{%
+  \list{}{%
+    \rightmargin=\leftmargin}
+  \item[]}
+\let\endquote=\endlist
+
+% ----- description環境 ----- %
+\def\descriptionlabel#1{\hspace\labelsep \bf #1\hfil}
+\def\description{\list{}{%
+  \labelwidth=\leftmargin
+  \advance\labelwidth by -\labelsep
+  \let\makelabel=\descriptionlabel}}
+\let\enddescription\endlist
+
+
+\newif\if@restonecol % １段組みかどうかを保存する論理変数
+
+% ----- titlepage環境 ----- %
+\def\titlepage{%
+  \@restonecolfalse
+  \if@twocolumn
+    \@restonecoltrue
+    \onecolumn
+  \else
+    \newpage
+  \fi
+  \if頁
+    \thispagestyle{empty}
+  \else
+    \thispagestyle{nopagestyle}
+  \fi
+  \c@page\z@} % ページ番号を０にもどす
+\def\endtitlepage{%
+  \if@restonecol
+    \twocolumn
+  \else
+    \newpage
+  \fi}
+
+% ----- 謝辞環境 ----- %
+\def\謝辞{%
+  \chapter*{謝辞}
+  \addcontentsline{toc}{chapter}{謝辞}%
+  \list{}{}\item[]}
+\let\end謝辞=\endlist
+
+% ----- array, tabular環境のスタイル ----- %
+\arraycolsep=5pt % array環境の列間の空きの半分
+\tabcolsep=6pt   % tabular環境の列間の空きの半分
+\arrayrulewidth=.4pt  % array, tabular環境の罫線の幅
+\doublerulesep=1pt    % ２重罫線の間隔
+\tabbingsep=\labelsep % \' 命令の空き
+
+% ----- minipage,frameboxなどのスタイル ----- %
+\skip\@mpfootins=\skip\footins
+  % minipage の本文と脚注の間隔は通常の脚注と同じ
+\fboxsep = 3pt   % fbox, frameboxの枠と中身の間隔
+\fboxrule = .4pt % fbox, frameboxの枠の太さ
+
+% ----- 章や節に用いるカウンター ----- %
+\newcounter{part}
+\newcounter {chapter}
+\newcounter {section}[chapter]
+\newcounter {subsection}[section]
+\newcounter {subsubsection}[subsection]
+\newcounter {paragraph}[subsubsection]
+\newcounter {subparagraph}[paragraph]
+
+% ----- 章番号や節番号の出力書式 ----- %
+\def\thepart{\Roman{part}}
+\def\thechapter{\arabic{chapter}}
+\def\thesection{\thechapter.\arabic{section}}
+\def\thesubsection {\thesection.\arabic{subsection}}
+\def\thesubsubsection {\thesubsection.\arabic{subsubsection}}
+\def\theparagraph {\thesubsubsection.\arabic{paragraph}}
+\def\thesubparagraph {\theparagraph.\arabic{subparagraph}}
+\def\@chapapp#1{第#1章}
+
+% ----- \part関係の命令 ----- %
+\def\part{%
+  \cleardoublepage % 奇数頁起こしにする
+  \thispagestyle{plain}
+  \if@twocolumn
+    \onecolumn
+    \@tempswatrue
+  \else
+    \@tempswafalse
+  \fi
+  \hbox{}\vfil
+  \secdef\@part\@spart} % \part命令の後に*がなければ，\@partに，
+                        % *があれば，\@spartにすすむ
+
+\def\@part[#1]#2{%
+  \ifnum \c@secnumdepth >-2\relax
+    \refstepcounter{part}
+    \addcontentsline{toc}{part}{% .TOCファイルに出力
+      第\thepart 部 \hspace{1em}#1}%   番号も含めて出力
+  \else
+    \addcontentsline{toc}{part}{#1} % 番号を含めず出力
+  \fi
+  \markboth{}{}% 左右の柱を空にする
+    {\centering
+     \ifnum \c@secnumdepth >-2\relax
+       \huge\bf 第\thepart 部\par
+       \vskip 20pt
+     \fi
+     \Huge \bf #1\par}%
+  \@endpart}
+
+\def\@endpart{%
+  \vfil\newpage
+  \if@twoside
+    \hbox{}
+    \if頁
+      \thispagestyle{empty}
+    \else
+      \thispagestyle{nopagestyle}
+    \fi
+    \newpage
+  \fi
+  \if@tempswa \twocolumn \fi}
+
+\def\@spart#1{{\centering \Huge \bf #1\par}\@endpart}
+
+
+% ----- 目次のスタイル ----- %
+\def\@pnumwidth{1.55em} % ページ番号の収まる箱の横幅
+\def\@tocrmarg {2.55em} % 目次の１項目が複数行になるときの右余白
+  % pnumwidth <= tocrmarg となること
+\def\@dotsep{4.5}       % 点々の間隔
+\setcounter{tocdepth}{1}% レベル２の見出しまでを目次に記載する
+  % 1 : セクションまで   2 : サブセクションまで
+
+% ----- 目次の出力命令 ----- %
+\def\tableofcontents{%
+  \@restonecolfalse
+  \if@twocolumn
+    \@restonecoltrue
+    \onecolumn
+  \fi
+  \let\@mkboth=\markboth
+  \chapter*{目 次\@mkboth{目 次}{目 次}}
+    % 「目次」と出力（両側の柱にも）
+  \@starttoc{toc}% TOCファイルからの読み込み
+  \if@restonecol
+    \twocolumn
+  \fi
+  \thispagestyle{plain}}
+
+\def\l@part#1#2{% 部を目次に出力する命令
+  \addpenalty{-\@highpenalty} % 改頁を起こしやすくする
+  \addvspace{1zw}
+  \begingroup
+    \@tempdima=1.5em
+    \parindent=\z@
+    \rightskip=\@pnumwidth
+    \parfillskip=-\@pnumwidth
+    \large \bf \leavevmode \advance \leftskip \@tempdima
+    \hskip -\leftskip
+    #1\nobreak\hfil\nobreak \hbox to\@pnumwidth{\hss #2}\par
+  \endgroup}
+
+\def\l@chapter#1#2{% 章を目次に出力する命令
+  \pagebreak[3]
+  \vskip 1.0em plus 1pt
+  \@tempdima 1.5em
+  \begingroup
+    \parindent \z@
+    \rightskip \@pnumwidth
+    \parfillskip -\@pnumwidth
+    \bf \leavevmode \advance\leftskip\@tempdima
+    \hskip -\leftskip #1\nobreak\hfil
+    \nobreak\hbox to\@pnumwidth{\hss #2}\par
+  \endgroup}
+
+\def\l@section{\@dottedtocline{1}{1.5em}{2.3em}}
+
+\def\l@subsection{\@dottedtocline{2}{3.8em}{3.2em}}
+
+\def\l@subsubsection{\@dottedtocline{3}{7.0em}{4.1em}}
+
+\def\l@paragraph{\@dottedtocline{4}{10em}{5em}}
+
+\def\l@subparagraph{\@dottedtocline{5}{12em}{6em}}
+
+% ----- 図目次 ----- %
+\def\listoffigures{%
+  \@restonecolfalse
+  \if@twocolumn
+    \@restonecoltrue
+    \onecolumn
+  \fi
+  \chapter*{図 目 次\@mkboth{図 目 次}{図 目 次}}
+  \@starttoc{lof}
+  \if@restonecol
+    \twocolumn
+  \fi}
+
+\def\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
+
+% ----- 表目次 ----- %
+\def\listoftables{%
+  \@restonecolfalse
+  \if@twocolumn
+    \@restonecoltrue
+    \onecolumn
+  \fi
+  \chapter*{表 目 次\@mkboth{表 目 次}{表 目 次}}
+  \@starttoc{lot}
+  \if@restonecol
+   \twocolumn
+  \fi}
+\let\l@table\l@figure
+
+
+% ----- 参考文献 ----- %
+
+\def\thebibliography#1{%
+  \typeout{「参考文献」に入りました．}
+  \let\@mkboth\markboth
+  \chapter*{参考文献\@mkboth
+  {参 考 文 献}{参 考 文 献}}\list
+  {[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+  \advance\leftmargin\labelsep
+  \usecounter{enumi}}
+  \def\newblock{\hskip .11em plus .33em minus .07em}
+  \sloppy
+  \sfcode`\.=1000\relax}
+\let\endthebibliography=\endlist
+
+% 「参考文献」環境
+% 98/01/14  ページカウンタが正しく更新されない点を修正
+% 98/02/10  「心理学研究」に合わせてパラメタを変更
+\def\参考文献{%
+  \typeout{「参考文献」に入りました．}
+  \let\@mkboth\markboth
+  \chapter*{参考文献\@mkboth{参 考 文 献}{参 考 文 献}}
+  \addcontentsline{toc}{chapter}{参考文献} % 番号を含めず出力
+  \list{}{\itemsep=\z@ \itemindent=-1.0zw\listparindent\itemindent
+  \parsep=12pt\renewcommand{\baselinestretch}{1.2}
+  \rightmargin=\leftmargin\advance\leftmargin 1.0zw}\small
+  \item[]}
+\let\end参考文献=\endlist
+
+
+% ----- 索引 ----- %
+\def\theindex{%
+  \@restonecoltrue
+  \if@twocolumn
+    \@restonecolfalse
+  \fi
+  \columnseprule=.4pt
+  \columnsep=2zw
+  \twocolumn[\@makeschapterhead{索 引}]%
+  \@mkboth{索 引}{索 引}%
+  \thispagestyle{plain}%
+  \parindent=\z@
+  \parskip=\z@
+  \let\item\@idxitem} % \item の定義を一時的に変更
+
+\def\@idxitem{% 索引の項目
+  \par
+  \hangindent=4zw} % 段落の２段目以降は４文字下げる
+
+\def\subitem{% 索引の小項目
+  \par
+  \hangindent=4zw
+  \hspace*{2zw}} % 頭を２文字下げる
+
+\def\subsubitem{%
+  \par\hangindent=4zw
+  \hspace*{3zw}}
+
+\def\endtheindex{%
+  \if@restonecol
+    \onecolumn
+  \else
+    \clearpage
+  \fi}
+
+\def\indexspace{\par \vskip 10pt plus 5pt minus 3pt\relax}
+
+
+% −−　脚注　−−
+\def\footnoterule{%
+  \kern-3\p@ % 3pt戻る
+  \hrule width .4\columnwidth % コラム幅の0.4倍の長さの線を引く
+  \kern 2.6\p@} % 2.6pt進む
+
+\@addtoreset{footnote}{chapter} % 章ごとに脚注番号をリセットする
+
+\long\def\@makefntext#1{% 脚注そのものを出力する命令
+  \parindent=1zw
+  \noindent
+  \hbox to 2zw{\hss$^{\@thefnmark}$}#1} % 2文字分の幅に右寄せで脚注番号を出力
+
+
+% −−　図表の入れかたに関する設定　−−
+\setcounter{topnumber}{2}    % ページ上部の図表は２個まで
+\def\topfraction{.7}         % ページの上７割まで図表で占めてもよい
+\setcounter{bottomnumber}{1} % ページ下部の図表は１個まで
+\def\bottomfraction{.3}      % ページの下３割まで図表で占めてもよい
+\setcounter{totalnumber}{3}  % ページあたりの図表は３個まで
+\def\textfraction{.1}        % ページの１割以上は本文にする．
+\def\floatpagefraction{.7}   % 図表だけのページは少なくとも７割を図表が占める
+\setcounter{dbltopnumber}{2}
+\def\dbltopfraction{.7}
+\def\dblfloatpagefraction{.5}
+
+% −−　図表の見出しを作るマクロ　−−
+\long\def\@makecaption#1#2{
+  \vskip 10pt
+  \capsize\baselineskip=15pt
+  \setbox\@tempboxa\hbox{#1 \ #2} % 「図1 何々」という形の箱を作る
+  \ifdim \wd\@tempboxa >\hsize    % 箱が１行でおさまらないなら
+    \unhbox\@tempboxa\par         % 通常の段落として進む
+  \else
+    \hbox to\hsize{\hfil\box\@tempboxa\hfil} % そうでなければ中央
+  \fi}
+
+% −−　図表に関する諸設定　−−
+
+\if連番
+  \newcounter{figure}
+  \def\thefigure{\@arabic\c@figure}
+  \newcounter{table}
+  \def\thetable{\@arabic\c@table}
+  \typeout{・図表番号は連番です．}%
+\else
+  \newcounter{figure}[chapter]
+  \def\thefigure{\thechapter.\@arabic\c@figure}
+  \newcounter{table}[chapter]
+  \def\thetable{\thechapter.\@arabic\c@table}
+  \typeout{・図表番号は章ごとに初期化されます．}
+\fi
+
+\def\fps@figure{tbp}
+\def\ftype@figure{1}
+\def\ext@figure{lof}
+\def\fnum@figure{図 \thefigure}
+\def\figure{% 98/02/26  位置オプションが認識されない点を修正
+	\def\baselinestretch{}%
+	    \@float{figure}}
+\let\endfigure\end@float
+
+%\def\@float#1{\@ifnextchar[{\@xfloat{#1}}{\edef\@tempa{\noexpand\@xfloat
+%    {#1}[\csname fps@#1\endcsname]}\@tempa}}
+
+\@namedef{figure*}{\@dblfloat{figure}}
+\@namedef{endfigure*}{\end@dblfloat}
+
+\def\fps@table{tbp}
+\def\ftype@table{2}
+\def\ext@table{lot}
+\def\fnum@table{表 \thetable}
+\def\table{\def\baselinestretch{1}%
+  \tablesize
+  \@float{table}}
+\let\endtable\end@float
+
+\@namedef{table*}{\@dblfloat{table}}
+\@namedef{endtable*}{\end@dblfloat}
+
+
+% −−　タイトル　−−
+\def\maketitle{%
+  \begin{titlepage}%
+    \let\footnotesize=\small % 脚注は\smallで
+    \let\footnoterule=\relax % 脚注の上に横線を引かない
+    \setcounter{page}{0}     % 表紙は数えない
+    \null % 擬似出力
+    \vfil
+    \vskip 60pt
+    \begin{center}%
+      {\LARGE \@title \par} % タイトルを\LARGEで出力
+      \vskip 3em % 縦に3em
+      {\large \lineskip .75em % 行間隔をやや広く
+        \begin{tabular}[t]{c} %
+          \@author % 著者名出力
+        \end{tabular}%
+      \par}
+      \vskip 1.5em
+      {\large \@date \par} % 日付を出力
+    \end{center}%
+    \par % 改段
+    \@thanks % 脚注を入れる
+    \vfil \null
+  \end{titlepage}
+  \setcounter{footnote}{0} % 脚注番号を０に戻す
+  \let\thanks\relax
+  \gdef\@thanks{}
+  \gdef\@author{}
+  \gdef\@title{}
+  \let\maketitle\relax}
+
+% −−　要約　−− %
+\def\abstract{%
+  \titlepage
+  \null\vfil
+  \begin{center}
+    {\bf 要約}
+  \end{center}}
+\def\endabstract{\par\vfil\null\endtitlepage}
+
+% −−　ページスタイル　−− %
+\mark{{}{}} % 柱を初期化
+
+\def\ps@卒論柱{% 卒論柱ページスタイル
+  \typeout{・柱のスタイルは「卒論柱」です．}
+  \let\@mkboth=\gobbletwo
+  \if頁 % ページ番号を付けるとき
+    \def\@oddfoot{\hfil\thepage\hfil}  % 左ページのフット
+    \def\@evenfoot{\hfil\thepage\hfil} % 右ページのフットは左と同じ
+  \else
+    \typeout{　　ページ番号を出力しません．}
+    \def\@oddfoot{}  % ページ番号を出力しない
+    \def\@evenfoot{} % ページ番号を出力しない
+  \fi
+  \def\@oddhead{%
+    \underline{\hbox to \textwidth{%
+    \hfil \rightmark}}}
+  \let\@evenhead=\@oddhead
+  \def\chaptermark##1{\markright{%
+    \ifnum \c@secnumdepth >\m@ne
+      \@chapapp{\thechapter} \ \ \fi ##1}}}
+
+\def\ps@nopagestyle{ % 頁番号を出力しないemptyスタイル
+  \def\@oddfoot{}
+  \def\@evenfoot{}
+  \def\@oddhead{}
+  \def\@evenhead{}
+}
+
+\def\ps@headings{% headingsページスタイル
+  \typeout{・柱のスタイルは「headings」です．}
+  \let\@mkboth=\gobbletwo
+  \def\@oddfoot{\hfil\thepage\hfil}  % 左ページのフット
+  \def\@evenfoot{\hfil\thepage\hfil} % 右ページのフットは左と同じ
+  \def\@oddhead{\hspace{-2zw} \rightmark \hfil}
+  \def\@evenhead{\hspace{-2zw} \rightmark \hfil}
+  \def\chaptermark##1{\markright{%
+    \ifnum \c@secnumdepth >\m@ne
+      \@chapapp{\thechapter} \ \ \fi ##1}}}
+
+\def\ps@myheadings{% myheadingsページスタイル
+  \typeout{・柱のスタイルは「myheadings」です．}
+  \let\@mkboth=\@gobbletwo
+  \def\@oddhead{\hbox{}\sl\rightmark \hfil \rm\thepage}
+  \def\@oddfoot{}
+  \def\@evenhead{\rm \thepage\hfil\sl\leftmark\hbox{}}
+  \def\@evenfoot{}
+  \def\chaptermark##1{}%
+  \def\sectionmark##1{}
+  \def\subsectionmark##1{}}
+
+
+% −−　日付　−− %
+\newif\if西暦\let\if西暦=\iffalse
+\def\西暦{\let\if西暦=\iftrue}
+\def\today{{\if西暦\count0=\year\else%
+\count0=\year\advance\count0 -1988 平成\,\fi%
+\ifnum\count0=1 元\else\number\count0\fi\,年\hspace{.5em}\nobreak%
+\number\month\,月\hspace{.5em}\nobreak\number\day\,日}}
+
+% −−　数式　−− %
+
+\def\@eqnnum{{\rm \theequation}}
+
+\if連番
+  \@addtoreset{equation}{}
+  \def\theequation{(\arabic{equation})}%
+\else
+  \@addtoreset{equation}{chapter} % 章ごとに数式番号をリセット
+  \def\theequation{(\thechapter.\arabic{equation})} % 数式番号の書式
+\fi
+
+% −−　その他の設定　−− %
+
+\def\xline{%
+  \noalign{\hrule\vbox to 0.25zh{}}}
+
+\def\chapref#1{第\ref{#1}章}
+\def\secref#1{第\ref{#1}節}
+
+% −−　ちょっと便利なマクロ　−− %
+
+\def\kintou#1#2{ % 均等配置をするマクロ \kintou{5zw}{均等割り}
+  \makebox[#1]{%
+    \kanjiskip=0pt plus 1fill minus 1fill
+    \xkanjiskip=\kanjiskip
+    #2 }}
+
+\def\ruby#1#2{ % 送り仮名をつけるマクロ \ruby{漢字}{かんじ}
+  \leavevmode
+  \setbox0=\hbox{#1}\setbox1=\hbox{\tiny#2}%
+  \ifdim\wd0>\wd1 \dimen0=\wd0 \else \dimen0=\wd1 \fi
+  \hbox{\kanjiskip=\fill
+    \vbox{\hbox to \dimen0{\tiny \hfil#2\hfil}%
+      \nointerlineskip
+      \hbox to \dimen0{\hfill#1\hfill}}}}
+
+
+% −−　相互参照に関連するマクロ　−−
+
+\def\p@figure{図}
+\def\p@table{表}
+\def\p@equation{式}
+
+% −−　文書の初期化　−− %
+%\ps@headings           % ページスタイルはheadings
+\ps@卒論柱
+\pagenumbering{arabic} % ページ番号は算用数字
+\onecolumn % １段組み
+
+\if下揃え
+  \raggedbottom
+  \typeout{・本文の上下幅は不揃いになります．}
+\else
+  \typeout{・本文の上下幅をそろえます．}
+\fi
+\if章中央
+  \typeout{・章題はセンタリングされます．}
+\else
+  \typeout{・章題は右寄せされます．}
+\fi

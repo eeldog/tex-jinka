@@ -1,7 +1,7 @@
 % \iffalse     META-COMMENT
 % Source File: japa.dtx
 % $Revision: 1.1 $
-% $Date: 2002-12-30 07:11:17 $
+% $Date: 2005-02-06 11:25:42 +0900 (Sun, 06 Feb 2005) $
 %
 % Copyright (C) 1998-2002  MIYAMOTO Yusuke
 % \fi
@@ -44,46 +44,46 @@
   \RecordChanges
   \MakeShortVerb{\|}
 \begin{document}
-  \title{JAPA--like ª≤πÕ ∏∏••Í•π•»•—•√•±°º•∏{\large \fileversion}}
-  \author{MIYAMOTO Yusuke\thanks{¬Á∫Â¬Á≥ÿ¬Á≥ÿ±°øÕ¥÷≤ ≥ÿ∏¶µÊ≤  π‘∆∞≥ÿ¿Ïπ∂}}
+  \title{JAPA--like $B;29MJ88%%j%9%H%Q%C%1!<%8(B{\large \fileversion}}
+  \author{MIYAMOTO Yusuke\thanks{$BBg:eBg3XBg3X1!?M4V2J3X8&5f2J(B $B9TF03X@l96(B}}
   \maketitle
   \DocInput{\filename}
 \end{document}
 %</driver>
 % \fi
 %
-% \section*{≥µÕ◊}
-% ∆¸À‹∏Ï»« APA like § ª≤πÕ ∏∏••Í•π•»§Ú∫Ó¿Æ§π§Î§ø§·§Œ•—•√•±°º•∏§«§π°•
-% BiBTeX •π•ø•§•Î•’•°•§•Î |japa.bst| §»∂¶§Àª»Õ—§∑§ﬁ§π°•
+% \section*{$B35MW(B}
+% $BF|K\8lHG(B APA like $B$J;29MJ88%%j%9%H$r:n@.$9$k$?$a$N%Q%C%1!<%8$G$9!%(B
+% BiBTeX $B%9%?%$%k%U%!%$%k(B |japa.bst| $B$H6&$K;HMQ$7$^$9!%(B
 % 
 % \StopEventually{}
 % \newpage
 % 
 %<*japa>
-% \section*{•≥°º•…§Œ≤Ú¿‚}
+% \section*{$B%3!<%I$N2r@b(B}
 % 
 % \subsection*{}
 % \begin{macro}{bibname}
-% ª≤πÕ ∏∏••Í•π•»§Œæœ¬Í§ÚªÿƒÍ§∑§ﬁ§π°•
+% $B;29MJ88%%j%9%H$N>OBj$r;XDj$7$^$9!%(B
 %    \begin{macrocode}
-\@ifundefined{bibname}{\newcommand{\bibname}{ª≤πÕ ∏∏•}}{}
+\@ifundefined{bibname}{\newcommand{\bibname}{$B;29MJ88%(B}}{}
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{bibhang}
-% ≥∆π‡Ã‹§Œª˙≤º§≤…˝§ÚªÿƒÍ§∑§ﬁ§π°•
+% $B3F9`L\$N;z2<$2I}$r;XDj$7$^$9!%(B
 %    \begin{macrocode}
 \newdimen\bibhang \setlength\bibhang{-1zw}
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{newblock}
-% •÷•Ì•√•Ø¥÷§Œ•¢•≠§ÚªÿƒÍ§∑§ﬁ§π°•
+% $B%V%m%C%/4V$N%"%-$r;XDj$7$^$9!%(B
 %    \begin{macrocode}
 \def\newblock{\hskip .8em\@plus.33em\@minus.07em}
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{@biblabel}
-% À‹ÕË§œπ‡Ã‹§Œ•È•Ÿ•Î§»§∑§∆…Ωº®§µ§Ï§Î•∆•≠•π•»§ÚªÿƒÍ§π§Î§‚§Œ§«§π§¨°§§≥§Œ
-% •π•ø•§•Î§«§œª»Õ—§∑§ﬁ§ª§Û°•
+% $BK\Mh$O9`L\$N%i%Y%k$H$7$FI=<($5$l$k%F%-%9%H$r;XDj$9$k$b$N$G$9$,!$$3$N(B
+% $B%9%?%$%k$G$O;HMQ$7$^$;$s!%(B
 %    \begin{macrocode}
 \def\@biblabel#1{}
 %    \end{macrocode}
@@ -91,7 +91,7 @@
 %
 % \begin{macro}{bibitem}
 % \begin{macro}{@bibitem}
-% |thebibliography| ∆‚§«•Í•π•»π‡Ã‹§Œ≥´ªœ§Úªÿº®§π§Î•ﬁ•Ø•Ì§«§π°•
+% |thebibliography| $BFb$G%j%9%H9`L\$N3+;O$r;X<($9$k%^%/%m$G$9!%(B
 %    \begin{macrocode}
 \def\bibitem{\@ifnextchar[{\@bibitem}{\@bibitem[{}{}]}}
 \def\@bibitem[#1]#2{%
@@ -106,7 +106,7 @@
 % \end{macro}
 % 
 % \begin{macro}{bibcite}
-% |\bibsite{key}{author}{year}| §»§§§¶∑¡º∞§«°§∞˙Õ—§ÚƒÍµ¡§∑§ﬁ§π°•
+% |\bibcite{key}{author}{year}| $B$H$$$&7A<0$G!$0zMQ$rDj5A$7$^$9!%(B
 %    \begin{macrocode}
 \def\bibcite#1#2#3{%
   \@newl@bel b{#1}{#2} \@newl@bel Y{#1}{#3}}
@@ -116,12 +116,12 @@
 % \begin{macro}{cite}
 % \begin{macro}{@citex}
 % \begin{macro}{@cite}
-% |\cite| •≥•ﬁ•Û•…§ŒƒÍµ¡§«§π°•° \emph{author}, \emph{year}°À§À≈∏≥´§µ§Ï§ﬁ§π°•
+% |\cite| $B%3%^%s%I$NDj5A$G$9!%!J(B\emph{author}, \emph{year}$B!K$KE83+$5$l$^$9!%(B
 %    \begin{macrocode}
 \DeclareRobustCommand\cite{%
   \@ifnextchar [{\@tempswatrue\@citex}{\@tempswafalse\@citex[]}}
 \def\@citex[#1]#2{%
-  \let\@citea\@empty
+  \def\@citea\@empty
   \@cite{\@for\@citeb:=#2\do{%
     \@citea\def\@citea{;\penalty\@m\ }%
     \edef\@citeb{\expandafter\@firstofone\@citeb}%
@@ -132,23 +132,23 @@
       \@latex@warning
       {Citation `\@citeb' on page \thepage\space undefined}}
      {\csname b@\@citeb\endcsname, \csname Y@\@citeb\endcsname}}}{#1}}
-\def\@cite#1#2{° #1\if@tempswa #2\fi°À}
+\def\@cite#1#2{$B!J(B#1\if@tempswa #2\fi$B!K(B}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
 % \end{macro}
 % 
-% \begin{macro}{citeN}
-% \begin{macro}{citeNx}
-% \begin{macro}{@citeN}
-% |\citeN| •≥•ﬁ•Û•…§ŒƒÍµ¡§«§π°•\emph{author}° \emph{year}°À§À≈∏≥´§µ§Ï§ﬁ§π°•
+% \begin{macro}{citename}
+% \begin{macro}{@citenamex}
+% \begin{macro}{@citename}
+% |\citename| $B%3%^%s%I$NDj5A$G$9!%(B\emph{author}$B!J(B\emph{year}$B!K$KE83+$5$l$^$9!%(B
 %    \begin{macrocode}
-\DeclareRobustCommand\citeN{%
-  \@ifnextchar [{\@tempswatrue\@citeNx}{\@tempswafalse\@citeNx[]}}
-\def\@citeNx[#1]#2{%
+\DeclareRobustCommand\citename{%
+  \@ifnextchar [{\@tempswatrue\@citenamex}{\@tempswafalse\@citenamex[]}}
+\def\@citenamex[#1]#2{%
   \let\@citea\@empty
-  \@citeN{\@for\@citeb:=#2\do{%
-    \@citea\def\@citea{°§\penalty\@m\ }%
+  \@citename{\@for\@citeb:=#2\do{%
+    \@citea\def\@citea{$B!$(B\penalty\@m\ }%
     \edef\@citeb{\expandafter\@firstofone\@citeb}%
     \if@filesw\immediate\write\@auxout{\string\citation{\@citeb}}\fi
     \@ifundefined{b@\@citeb}{%
@@ -156,15 +156,15 @@
       \G@refundefinedtrue
       \@latex@warning
         {Citation `\@citeb' on page \thepage\space undefined}}
-    { \csname b@\@citeb\endcsname° \csname Y@\@citeb\endcsname°À}}}{#1}}
-\def\@citeN#1#2{#1\if@tempswa #2\fi}
+    { \csname b@\@citeb\endcsname$B!J(B\csname Y@\@citeb\endcsname$B!K(B}}}{#1}}
+\def\@citename#1#2{#1\if@tempswa #2\fi}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
 % \end{macro}
 % 
 % \begin{environment}{thebibliography}
-% ª≤πÕ ∏∏••Í•π•»§Ú∫Ó¿Æ§π§Î§ø§·§Œ¥ƒ∂≠§«§π°•
+% $B;29MJ88%%j%9%H$r:n@.$9$k$?$a$N4D6-$G$9!%(B
 %    \begin{macrocode}
 \renewenvironment{thebibliography}[1]
  {%

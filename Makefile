@@ -1,7 +1,9 @@
 # Makefile
+# $Revision: 1.4 $
+# $Date: 2005-02-06 11:25:42 +0900 $
 
 PACKAGE = jinka
-VERSION = 1.2.0
+VERSION = 1.2.1
 
 ## Modify these variables in tune with your site configuration.
 TEX      = platex

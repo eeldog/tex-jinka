@@ -3,7 +3,7 @@
 %% All rights reserved.
 %% 
 %% $Revision: 1.2 $
-%% $Date: 2003-01-12 07:00:26 $
+%% $Date: 2005-02-06 11:25:42 +0900 (Sun, 06 Feb 2005) $
 
 ENTRY {
     address
