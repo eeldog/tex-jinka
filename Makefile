@@ -72,6 +72,8 @@ clean:
 distclean: clean
 	-rm -f jinka.cls japa.sty index.html
 
+package: $(distdir).tar.gz
+
 $(distdir).tar.gz: distdir
 	@chmod -R a+r $(distdir)
 	tar cfz $(distdir).tar.gz $(distdir)
@@ -92,6 +94,7 @@ help:
 	@echo "    make all          build package files."
 	@echo "    make doc          make a documentation (dvi format)."
 	@echo "    make install      install package files."
+	@echo "    make package      pack up a tarball."
 	@echo "    make help         display this message."
 	@echo "    make version      display version infomation."
 	@echo "    make clean        delete auxiliary files."
@@ -106,4 +109,4 @@ help:
 version:
 	@echo "jinka.cls version $(VERSION)"
 
-.PHONY: all install clean distclean distdir doc help version
+.PHONY: all install clean distclean package distdir doc help version
