@@ -1,0 +1,187 @@
+% \iffalse     META-COMMENT
+% Source File: jpa.dtx
+% $Id: jpa.dtx,v 1.1 2000-10-09 08:42:28 yusuke Exp $
+%
+% Copyright (C) 1998-2000  MIYAMOTO Yusuke
+% \fi
+\def\filename{jpa.dtx}
+\def\fileversion{v1.0a}
+\def\filedate{2000/10/01}
+%  \CheckSum{0}
+%%
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%
+%
+% \changes{v1.0a}{2000/10/01}
+%         {jpa.sty v1.0a}
+% 
+% \iffalse
+%<*jpa>
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{jpa}[\filedate]
+%</jpa>
+%<*driver>
+\documentclass[a4j]{jarticle}
+  \usepackage{doc}
+  \OnlyDescription
+  \RecordChanges
+  \MakeShortVerb{\|}
+\begin{document}
+  \title{JPA--like 参考文献リストパッケージ{\large \fileversion}}
+  \author{MIYAMOTO Yusuke\thanks{大阪大学大学院人間科学研究科 行動学専攻}}
+  \maketitle
+  \DocInput{\filename}
+\end{document}
+%</driver>
+% \fi
+%
+% \section*{概要}
+% 日本語版 APA like な参考文献リストを作成するためのパッケージです．
+% BiBTeX スタイルファイル |jpa.bst| と共に使用します．
+% 
+% \StopEventually{}
+% \newpage
+% 
+%<*jpa>
+% \section*{コードの解説}
+% 
+% \subsection*{}
+% \begin{macro}{bibname}
+% 参考文献リストの章題を指定します．
+%    \begin{macrocode}
+\@ifundefined{bibname}{\newcommand{\bibname}{参考文献}}{}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{bibhang}
+% 各項目の字下げ幅を指定します．
+%    \begin{macrocode}
+\newdimen\bibhang \setlength\bibhang{-1zw}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{newblock}
+% ブロック間のアキを指定します．
+%    \begin{macrocode}
+\def\newblock{\hskip .11em\@plus.33em\@minus.07em}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{@biblabel}
+% 本来は項目のラベルとして表示されるテキストを指定するものですが，この
+% スタイルでは使用しません．
+%    \begin{macrocode}
+\def\@biblabel#1{}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{bibitem}
+% \begin{macro}{@bibitem}
+% |thebibliography| 内でリスト項目の開始を指示するマクロです．
+%    \begin{macrocode}
+\def\bibitem{\@ifnextchar[{\@bibitem}{\@bibitem[{}{}]}}
+\def\@bibitem[#1]#2{%
+  \item[]
+  \if@filesw{%
+    \let\protect\noexpand
+    \immediate\write\@auxout{\string\bibcite{#2}#1}}
+  \fi
+  \ignorespaces}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% 
+% \begin{macro}{bibcite}
+% |\bibsite{key}{author}{year}| という形式で，引用を定義します．
+%    \begin{macrocode}
+\def\bibcite#1#2#3{%
+  \@newl@bel b{#1}{#2} \@newl@bel Y{#1}{#3}}
+%    \end{macrocode}
+% \end{macro}
+% 
+% \begin{macro}{cite}
+% \begin{macro}{@citex}
+% \begin{macro}{@cite}
+% |\cite| コマンドの定義です．（\emph{author}, \emph{year}）に展開されます．
+%    \begin{macrocode}
+\DeclareRobustCommand\cite{%
+  \@ifnextchar [{\@tempswatrue\@citex}{\@tempswafalse\@citex[]}}
+\def\@citex[#1]#2{%
+  \let\@citea\@empty
+  \@cite{\@for\@citeb:=#2\do{%
+    \@citea\def\@citea{;\penalty\@m\ }%
+    \edef\@citeb{\expandafter\@firstofone\@citeb}%
+    \if@filesw\immediate\write\@auxout{\string\citation{\@citeb}}\fi
+    \@ifundefined{b@\@citeb}{%
+      \mbox{\reset@font\bfseries ?}%
+      \G@refundefinedtrue
+      \@latex@warning
+      {Citation `\@citeb' on page \thepage\space undefined}}
+     {\csname b@\@citeb\endcsname, \csname Y@\@citeb\endcsname}}}{#1}}
+\def\@cite#1#2{（#1\if@tempswa #2\fi）}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% 
+% \begin{macro}{citeN}
+% \begin{macro}{citeNx}
+% \begin{macro}{@citeM}
+% |\citeN| コマンドの定義です．\emph{author}（\emph{year}）に展開されます．
+%    \begin{macrocode}
+\DeclareRobustCommand\citeN{%
+  \@ifnextchar [{\@tempswatrue\@citeNx}{\@tempswafalse\@citeNx[]}}
+\def\@citeNx[#1]#2{%
+  \let\@citea\@empty
+  \@citeN{\@for\@citeb:=#2\do{%
+    \@citea\def\@citea{，\penalty\@m\ }%
+    \edef\@citeb{\expandafter\@firstofone\@citeb}%
+    \if@filesw\immediate\write\@auxout{\string\citation{\@citeb}}\fi
+    \@ifundefined{b@\@citeb}{%
+      \mbox{\reset@font\bfseries ?}%
+      \G@refundefinedtrue
+      \@latex@warning
+      {Citation `\@citeb' on page \thepage\space undefined}}
+      \csname b@\@citeb\endcsname（\csname Y@\@citeb\endcsname）}}{#1}}
+\def\@citeN#1#2{#1\if@tempswa #2\fi}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+% 
+% \begin{environment}{thebibliography}
+% 参考文献リストを作成するための環境です．
+%    \begin{macrocode}
+\def\thebibliography{ %
+  \@ifundefined{chapter} %
+    {\section*{\bibname\@mkboth{\bibname}{\bibname}}}
+    {\chapter*{\bibname\@mkboth{\bibname}{\bibname}}}
+  \list{\relax}{
+    \setlength\leftmargin{-\bibhang}
+    \setlength\itemindent{\bibhang}
+    \setlength\labelsep{\z@}
+    \setlength\itemsep{1.2\p@}}
+  \def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}
+  \renewcommand{\baselinestretch}{}\selectfont
+  \sloppy
+  \clubpenalty=4000
+  \@clubpenalty=\clubpenalty
+  \widowpenalty=4000
+  \sfcode`\.\@m}
+\let\endthebibliography=\endlist
+%    \end{macrocode}
+% \end{environment}
+%</jpa>
+\endinput
+%\Finale

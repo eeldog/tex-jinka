@@ -1,3 +1,9 @@
+% \iffalse     META-COMMENT
+% Source File: jinka.dtx
+% $Id: jinka.dtx,v 0.5 2000-10-09 08:42:27 yusuke Exp $
+%
+% Copyright (C) 1998-2000  MIYAMOTO Yusuke
+% \fi
 \def\filename{jinka.dtx}
 \def\fileversion{v1.1b}
 \def\filedate{2000/10/01}
@@ -19,13 +25,6 @@
 %%   Grave accent  \`     Left brace    \{     Vertical bar  \|
 %%   Right brace   \}     Tilde         \~}
 %%
-% \iffalse     META-COMMENT
-% Source File: jinka.dtx
-% $Id: jinka.dtx,v 0.4 2000-10-01 10:23:50 yusuke Exp $
-%
-% Copyright (C) 1998-2000  MIYAMOTO Yusuke
-% 
-% \fi
 %
 % \changes{v1.0}{1998/10/01}
 %         {jinka.cls for pLaTeX2e version 1.0 公開}
@@ -47,16 +46,14 @@
 %         {章見出しを二行形式に変更．}
 % \changes{v1.1b}{2000/10/01}
 %         {version 1.1 $\beta$ としてリリース．}
+% \changes{v1.1a}{2000/10/09}
+%         {参考文献スタイル jpa のパッケージファイルを分離}
 % 
 % \iffalse
 %<*jinka>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{jinka}[\filedate]
 %</jinka>
-%<*jpa>
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{jpa}[\filedate]
-%</jpa>
 % \fi
 % 
 % \iffalse
@@ -2016,23 +2013,21 @@
 \let\l@table\l@figure
 %    \end{macrocode}
 % \end{macro}
-%</jinka>
-%<*jinka|jpa>
 % \subsection*{参考文献}
-% 参考文献は，BiBTeX と jpa.bst を使用した場合に合わせています．
+% 参考文献は，apalike スタイルのリスト環境です．
 % \begin{macro}{\bibname}
 % 参考文献環境の見出しとなる文字列を指定します．
 %    \begin{macrocode}
 \@ifundefined{bibname}%
-  {\newcommand{\bibname}{参~考~文~献}}{}
+  {\newcommand{\bibname}{参考文献}}{}
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\bibindent}
+% \begin{macro}{\bibhang}
 % 文献の先頭の字下げ幅です．
 %    \begin{macrocode}
-\newdimen\bibindent
-\setlength\bibindent{-1zw}
+\newdimen\bibhang
+\setlength\bibhang{-1zw}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -2047,13 +2042,15 @@
 %
 % \begin{macro}{\bibitem}
 % \begin{macro}{\@bibitem}
-% |\thebibliography| 環境で用います．|\@bibitem| はその内部定義です．
+% |\thebibliography| 環境で用います．|\bibitem[label]{key}| 
 %    \begin{macrocode}
-\def\bibitem{\@ifnextchar [{\@bibitem}{\@bibitem[文献]}}
-\def\@bibitem[#1]#2{\item[]
-    \if@filesw
-      {\let\protect\noexpand\immediate\write\@auxout{\string\bibcite{#2}{#1}}}
-    \fi\ignorespaces}
+\def\bibitem{\@ifnextchar [{\@bibitem}{\@bibitem[]}}
+\def\@bibitem[#1]#2{\item[]%
+    \if@filesw\bgroup
+      \let\protect\noexpand
+      \immediate\write\@auxout{\string\bibcite{#2}{#1}}
+    \egroup\fi
+    \ignorespaces}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -2065,61 +2062,45 @@
 \def\@citex[#1]#2{%
   \let\@citea\@empty
   \@cite{\@for\@citeb:=#2\do{%
-     \@citea\def\@citea{;\penalty\@m\ }%
-     \edef\@citeb{\expandafter\@firstofone\@citeb}%
-     \if@filesw
-       \immediate\write\@auxout{\string\citation{\@citeb}}
-     \fi
-     \@ifundefined{b@\@citeb}{%
-       \mbox{\reset@font\bfseries ?}%
-       \G@refundefinedtrue
-       \@latex@warning
-       {Citation `\@citeb' on page \thepage \space undefined}}%
+    \@citea\def\@citea{;\penalty\@m\ }%
+    \edef\@citeb{\expandafter\@firstofone\@citeb}%
+    \if@filesw
+      \immediate\write\@auxout{\string\citation{\@citeb}}
+    \fi
+    \@ifundefined{b@\@citeb}{%
+      \mbox{\reset@font\bfseries ?}%
+      \G@refundefinedtrue
+      \@latex@warning
+      {Citation `\@citeb' on page \thepage \space undefined}}
      {\hbox{\csname b@\@citeb\endcsname}}}}{#1}}
-\def\@cite#1#2{（#1\if@tempswa , #2\fi）}
+\def\@cite#1#2{（#1\if@tempswa #2\fi）}
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
 %
 % \begin{environment}{thebibliography}
-% 
+% 参考文献リストを提供する環境です．
 %    \begin{macrocode}
-\@ifundefined{chapter}
-%<jinka>  {\newenvironment{thebibliography}[1]
-%<jpa>  {\renewenvironment{thebibliography}[1]
-    {\section*{\bibname\@mkboth{\bibname}{\bibname}}
-     \list{\relax}{
-        \setlength\leftmargin{-\bibindent}
-        \setlength\itemindent{\bibindent}
-        \setlength\labelsep{\z@}
-        \setlength\itemsep{1.2\p@}}
-     \renewcommand{\baselinestretch}{}\selectfont
-     \sloppy
-     \clubpenalty4000
-     \@clubpenalty\clubpenalty
-     \widowpenalty4000
-     \sfcode`\.\@m}
-    {\def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}
-    \endlist}}
-%<jinka>  {\newenvironment{thebibliography}[1]
-%<jpa>  {\renewenvironment{thebibliography}[1]
-    {\chapter*{\bibname\@mkboth{\bibname}{\bibname}}
-     \list{\relax}{
-      \setlength\leftmargin{-\bibindent}
-      \setlength\itemindent{\bibindent}
+\def\thebibliography{%
+  \@ifundefined{chapter}%
+    {\section*{\bibname\@mkboth{\bibname}{\bibname}}}
+    {\chapter*{\bibname\@mkboth{\bibname}{\bibname}}}
+    \list{\relax}{
+      \setlength\leftmargin{-\bibhang}
+      \setlength\itemindent{\bibhang}
+      \setlength\labelsep{\z@}
       \setlength\itemsep{1.2\p@}}
-     \renewcommand{\baselinestretch}{}\selectfont
-     \sloppy
-     \clubpenalty4000
-     \@clubpenalty\clubpenalty
-     \widowpenalty4000
-     \sfcode`\.\@m}
-    {\def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}
-  \endlist}}
+    \renewcommand{\baselinestretch}{}\selectfont
+    \def\@noitemerr{%
+      \@latex@warning{Empty `thebibliography' environment}}
+    \sloppy
+    \clubpenalty=4000
+    \@clubpenalty=\clubpenalty
+    \widowpenalty=4000
+    \sfcode`\.=\@m }
+\let\endthebibliography=\endlist
 %    \end{macrocode}
 % \end{environment}
-%</jinka|jpa>
-%<*jinka>
 % \subsubsection*{索引}
 % \begin{environment}{theindex}
 % 二段組の索引を作成します．

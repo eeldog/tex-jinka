@@ -1,5 +1,5 @@
 %% jjpsy.bst
-%% $Id: jpa.bst,v 1.1 2000-09-28 15:47:12 yusuke Exp $
+%% $Id: jpa.bst,v 1.2 2000-10-09 08:42:28 yusuke Exp $
 %% 
 
 ENTRY {
@@ -28,7 +28,7 @@ ENTRY {
     year
     yomi }
   { is.kanji.entry }
-  { label extra.label sort.label }
+  { label year.label extra.label sort.label }
 
 
 INTEGERS { output.state before.all mid.sentence after.sentence after.block }
@@ -135,9 +135,11 @@ FUNCTION {output.checka}
 
 FUNCTION {output.bibitem}
 { newline$
-  "\bibitem[" write$
+  "\bibitem[{" write$
   label write$
-  "]{" write$
+  "}{" write$
+  year.label write$
+  "}]{" write$
   cite$ write$
   "}" write$
   newline$
@@ -1063,6 +1065,10 @@ FUNCTION {format.lab.names}
 { 's :=
   s is.kanji.str$
   { s #1 "{ff}" format.name$
+    duplicate$ empty$
+      { pop$ s #1 "{ll}" format.name$ }
+      { skip$ }
+    if$
     s num.names$ duplicate$
     #2 >
       { pop$ " ほか." * }
@@ -1143,11 +1149,12 @@ FUNCTION {calc.label}
       if$
     }
   if$
-  ", "
-  *
-  year field.or.null purify$ #-1 #4 substring$
-  *
   'label :=
+}
+
+FUNCTION {calc.year.label}
+{ year field.or.null purify$ #-1 #4 substring$
+  'year.label :=
 }
 
 FUNCTION {sort.format.names}
@@ -1236,6 +1243,7 @@ FUNCTION {editor.sort}
 
 FUNCTION {presort}
 { calc.label
+  calc.year.label
   label sortify
   "    "
   *
@@ -1277,13 +1285,13 @@ FUNCTION {initialize.extra.label.stuff}
 }
 
 FUNCTION {forward.pass}
-{ last.label label =
+{ last.label year.label =
     { last.extra.num #1 + 'last.extra.num :=
       last.extra.num int.to.chr$ 'extra.label :=
     }
     { "a" chr.to.int$ 'last.extra.num :=
       "" 'extra.label :=
-      label 'last.label :=
+      year.label 'last.label :=
     }
   if$
 }
@@ -1293,7 +1301,7 @@ FUNCTION {reverse.pass}
     { "a" 'extra.label := }
     'skip$
   if$
-  label extra.label * 'label :=
+  year.label extra.label * 'year.label :=
   extra.label 'next.extra :=
 }
 
