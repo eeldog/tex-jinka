@@ -1,12 +1,12 @@
 % \iffalse     META-COMMENT
 % Source File: jinka.dtx
-% $Id: jinka.dtx,v 1.2 2002-01-07 08:09:00 pooh Exp $
+% $Id: jinka.dtx,v 1.3 2002-01-09 18:18:09 pooh Exp $
 %
 % Copyright (C) 1998-2002  MIYAMOTO Yusuke
 % All rights reserved.
 % \fi
 \def\filename{jinka.dtx}
-\def\fileversion{ver. 1.1.1}
+\def\fileversion{1.1.1}
 \def\filedate{2002/01/06}
 %  \CheckSum{0}
 %%
@@ -51,6 +51,8 @@
 %         {参考文献スタイル jpa のパッケージファイルを分離}
 % \changes{1.1.1}{2002/01/06}
 %         {フロートの [loc] オプション対応を修正}
+% \changes{1.1.1}{2002/01/09}
+%         {デフォルトページスタイルとして |linehead| を追加．}
 % 
 % \iffalse
 %<*jinka>
@@ -61,14 +63,14 @@
 % 
 % \iffalse
 %<*driver>
-\documentclass[a4]{jarticle}
+\documentclass[a4j]{jarticle}
   \usepackage{doc}
   \OnlyDescription
   \RecordChanges
   \MakeShortVerb{\|}
 \begin{document}
-  \title{{\normalsize 大阪大学大学院人間科学研究科/人間科学部}\\[0pt]
-         学位論文用クラスファイル {\fileversion}}
+  \title{{\normalsize 大阪大学大学院人間科学研究科/人間科学部 行動学専攻}\\
+         学位論文用クラスファイル ver. {\fileversion}}
   \author{MIYAMOTO Yusuke\thanks{大阪大学大学院人間科学研究科 行動学専攻}}
   \maketitle
   \DocInput{\filename}
@@ -103,9 +105,11 @@
 %  \subsection*{オプション}
 %    |\documentclass| のオプションとして以下のものが指定できます．
 %    デフォルトでは「独立したタイトルページ（|titlepage|）」，
-%    「$36 \times 32$ スタイル（|nojinka|）」，「図表にはセクション毎の
+%    「$40 \times 30$ スタイル（|nojinka|）」，「図表にはセクション毎の
 %    番号をつける（|noserial|）」となっています．
 %  
+%    \begin{table}[htb]
+%    \caption{グローバルオプションの一覧}
 %    \DeleteShortVerb{\|}
 %    \MakeShortVerb{\+}
 %    \begin{center}
@@ -118,18 +122,19 @@
 %    \texttt{serial} & 図表に通し番号をつける．\\
 %    \texttt{noserial} & 図表の番号を章ごとにリセットする．\\
 %    \texttt{jinka} & $30 \times 20$ の書式を使用する．\\
-%    \texttt{nojinka} & $30 \times 30$ の書式を使用する．\\ \hline
+%    \texttt{nojinka} & +jinka+ よりも字を詰めた書式を使用する．\\ \hline
 %    \end{tabular}
 %    \end{center}
 %    \DeleteShortVerb{\+}
-%    \MakeShortVerb{\|}
-%    
+%    \MakeShortVerb{\|}    
+%    \end{table}
+%
 %  \subsection*{フォント}
 %    フォントサイズは 12pt がデフォルトになっています．一般的なクラスファイル
 %    と同様のオプションで変更できます．
 %    
 %  \subsection*{レイアウト}
-%    デフォルトでは，「$36 \times 32$ スタイル」 --- つまり1行あたり36字，
+%    デフォルトでは，「$40 \times 30$ スタイル」 --- つまり1行あたり36字，
 %    1ページあたり32行 となるように |\textwidth|，|\baselinestretch| が
 %    設定されます．\texttt{jinka} オプションにより「$30 \times 20$ スタイル」
 %    になります．
@@ -137,18 +142,18 @@
 %    また，字詰め，行間の調節をおこなう2つのコマンドを用意しました．
 %    
 %    \begin{macro}{\Columns}
-%    |\Columns{|{\em cols}|}| は 1 行あたり約 {\em cols} 字 (全角) に
-%    なるように |\textwidth| を設定します\footnote{グルーが入ることを考え，
+%    |\Columns{|{\em cols}|}| は |\textwidth| を 1 行あたり約 {\em cols} 字 
+%    (全角) になるように設定します\footnote{グルーが入ることを考え，
 %    ほんの少し余裕をもたせて設定します．また，スペースやカーニングの関係で，
 %    正確に設定できるわけではありません．}．
 %    \end{macro}
 %    
 %    \begin{macro}{\Lines}
-%    |\Lines{|{\em lines}|}| は，1 ページあたりの行数が {\em lines} と
-%    なるように |\baselinestretch| を設定します\footnote{これも完全に正確と
-%    いうわけにはいきません．}．
-%    \[ |\baselinestrech| = \Bigl(\bigl(|\textheight|-|\topskip|\bigr)
-%                   /\bigl(\mathit{lines}-1\bigr)\Bigr)/|\baselineskip| \]
+%    |\Lines{|{\em lines}|}| は， |\baselinestretch| を 1 ページあたりの行数
+%    が {\em lines} となるように設定します\footnote{これも完全に正確という
+%    わけにはいきません．}．
+%    \[ +baselinestrech+ = \frac{\mbox{+textheight+}-\mbox{+topskip+}}%
+%                     {(\mathit{lines}-1)\times\mbox{+baselineskip+}} \]
 %    \end{macro}
 %    
 %    その他のスタイル・パラメータについては，標準のクラスパッケージ
@@ -157,22 +162,26 @@
 %    
 %  \subsection*{ページスタイル}
 %    以下のページスタイルが定義されています．
+%    \begin{table}[h]
+%    \caption{ページスタイル一覧}
 %    \DeleteShortVerb{\|}
 %    \MakeShortVerb{\+}
 %    \begin{center}
 %    \begin{tabular}{l|l}\hline
 %    ページスタイル   & 内容 \\ \hline
-%    \texttt{plain}      & フッタ中央にページ番号を出力．\\
-%    \texttt{jinka}      & デフォルトのページスタイル．+bothstyle+ と同じ．\\
-%    \texttt{bothstyle}  & ヘッダに章見出し，フッタにページ番号を出力．\\
-%    \texttt{headnomble} & ヘッダにページ番号を出力．\\
-%    \texttt{footnomble} & フッタにページ番号を出力．\\
-%    \texttt{headings}   & ヘッダに章見出しとページ番号を出力．\\
-%    \texttt{nopage}     & ヘッダに章見出しのみを出力．\\ \hline
+%    +plain+      & フッタ中央にページ番号を出力．\\
+%    +jinka+      & デフォルトのページスタイル．+linehead+ と同じ．\\
+%    +bothstyle+  & ヘッダに章見出し，フッタにページ番号を出力．\\
+%    +linehead+   & ヘッダに下線を付加した +bothstyle+．\\
+%    +headnomble+ & ヘッダにページ番号を出力．\\
+%    +footnomble+ & フッタにページ番号を出力．\\
+%    +headings+   & ヘッダに章見出しとページ番号を出力．\\
+%    +nopage+     & ヘッダに章見出しのみを出力．\\ \hline
 %    \end{tabular}
 %    \end{center}
 %    \DeleteShortVerb{\+}
 %    \MakeShortVerb{\|}
+%    \end{table}
 %
 %  \subsection*{表題}
 %    表題は，デフォルトでは独立したページに出力されます
@@ -198,10 +207,11 @@
 %    \end{macro}
 %    
 %  \subsection*{参考文献}
-%    「心理学研究」風の参考文献スタイルで |thebibliography| 環境を
-%    実装しています．
-%    \textsc{JBib}\TeX 用 bst ファイル ``jpa.bst'' を付属しました．
-%    次のような出力になります．
+%   「心理学研究」にならった参考文献スタイルで |thebibliography| 環境を
+%   実装しています．
+%   \textsc{JBib}\TeX 用 参考文献スタイルファイル ``jpa.bst'' を付属しました．
+%    
+%   次のような出力になります．
 %    \vskip 12pt
 %    \fbox{\begin{minipage}{0.95\textwidth}
 %    \def\newblock{\hskip .11em plus .33em minus .07em}
@@ -220,25 +230,6 @@
 %    \end{list}
 %    \end{minipage}}
 %
-%    \subsubsection*{実行例}
-%    参考文献データベースの ``.bib'' ファイルを使って参考文献リストを
-%    作るときは，``.tex'' ファイルの中に以下の記述を入れておきます．
-%    \begin{flushleft}
-%    |\nocite{*}|\\
-%    |\bibliographystyle{jpa}|\\
-%    |\bibliography{|{\em bibdata}|}|\\
-%    \end{flushleft}
-%    \texttt{platex} コマンドを実行し， aux ファイルを生成した後， 
-%    \texttt{jbibtex} コマンドで bbl ファイルを生成します．
-%    さらに，bbl ファイルを取り込み，相互参照を解決するために，2回
-%    \texttt{platex} コマンドを実行します．
-%    \begin{flushleft}
-%    \texttt{\% platex}  {\em foo}\\
-%    \texttt{\% jbibtex} {\em foo}\\
-%    \texttt{\% platex}  {\em foo}\\
-%    \texttt{\% platex}  {\em foo}\\
-%    \end{flushleft}
-%    
 %  \subsection*{付録}
 %    \begin{macro}{\appendix}
 %    |\appendix| コマンドは，chapter カウンタをリセットし，章見出しを
@@ -246,15 +237,15 @@
 %    |\appendixname| によって決定されます．
 %    \end{macro}
 % 
-% \section*{クラスファイルの修正・配布について}
-% クラスファイル ``jinka.cls'' は，自由に修正を加えたり，再配布することが
-% できます．ただし，修正はできる限り ``jinka.dtx'' に対しておこない，ドキュ
-% メントも一致するように変更して下さい．
-% また，修正・変更をおこなった場合には是非ご一報を．
+% \section*{免責事項とクラスファイルの修正・配布について}
+%   クラスファイル ``jinka.cls'' は，自由に修正を加えたり，再配布することが
+%   できます．ただし，修正はできる限り ``jinka.dtx'' に対しておこない，ドキュ
+%   メントも一致するように変更して下さい．
+%   また，修正・変更をおこなった場合には是非ご一報をいただけると有難いです．
 %
-% なお，オリジナルまたは変更したクラスファイルは，「あなた自身の責任で」
-% 使用して下さい．その他，バグレポートやご意見・ご要望があれば，以下の
-% アドレスまで．
+%   なお，オリジナルまたは変更したクラスファイルは，「あなた自身の責任で」
+%   使用して下さい．その他，バグレポートやご意見・ご要望があれば，以下の
+%   アドレスまで．
 % \begin{center}
 % \textsl{yusuke@koko15.hus.osaka-u.ac.jp}
 % \end{center}
@@ -524,7 +515,7 @@
   \setlength{\@tempdima}{\textheight}
   \advance\@tempdima by -\topskip
   \divide\@tempdima by \@tempcnta
-  \setfraction[8]{\baselinestretch}{\@tempdima}{\Cvs}
+  \setfraction[8]{\baselinestretch}{\@tempdima}{\baselineskip}
   \typeout{setting \string\basrlinestretch\space to \baselinestretch}
   \selectfont}
 %    \end{macrocode}
@@ -628,8 +619,8 @@
 % また，|\footskip| は本文領域の下端からフッタボックスの
 % \textbf{下端}までの距離です．
 %    \begin{macrocode}
-\setlength\headheight{12\p@}
-\setlength\headsep{25\p@}
+\setlength\headheight{14\p@}
+\setlength\headsep{20\p@}
 \setlength\footskip{30\p@}
 %    \end{macrocode}
 % \end{macro}
@@ -920,10 +911,8 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\ps@jinka}
 % \begin{macro}{\ps@bothstyle}
-% jinka.cls のデフォルトページスタイルです．ヘッダに章見出しを，フッタに
-% ページ番号を出力します．
+% ヘッダに章見出しを，フッタにページ番号を出力します．
 %    \begin{macrocode}
 \if@twoside
   \def\ps@bothstyle{
@@ -954,9 +943,59 @@
       ##1}{}}%
     \let\sectionmark\@gobble}
 \fi
-\let\ps@jinka\ps@bothstyle
 %    \end{macrocode}
 % \end{macro}
+%
+% \begin{macro}{\headrule}
+% |linehead| ページスタイルで，ヘッダと本文領域の間に引く罫線の定義です．
+%    \begin{macrocode}
+\newcommand\headrule{
+  \kern-3\p@
+  \hrule width \textwidth
+  \kern 2.6\p@}
+%    \end{macrocode}
+% \end{macro}
+% 
+% \begin{macro}{\ps@linehead}
+% ヘッダにアンダーラインを付加した |bothstyle| です．
+%    \begin{macrocode}
+\if@twoside
+  \def\ps@linehead{
+    \let\ps@jpl@in\ps@footnombre
+    \def\@evenhead{\vbox{\hsize=\textwidth\leftmark\hfil}}
+    \def\@evenfoot{\thepage\hfil}
+    \def\@oddhead{\vbox{\hsize=\textwidth\hfil\rightmark}\headrule}
+    \def\@oddfoot{\hfil\thepage}
+    \let\@mkboth\markboth
+    \def\chaptermark##1{\markboth{%
+      \ifnum \c@secnumdepth >\m@ne
+        \@chapapp\thechapter\@chappos\hskip 1zw
+      \fi
+      ##1}{}}%
+    \def\sectionmark##1{\markright{%
+      \ifnum \c@secnumdepth >\z@ \thesection.\hskip 1zw\fi
+      ##1}}}
+\else
+  \def\ps@linehead{
+    \let\ps@jpl@in\ps@jpl@in
+    \def\@oddhead{\vbox{\hsize=\textwidth\hfill\rightmark\headrule}}
+    \def\@oddfoot{\hfil\thepage\hfil}
+    \let\@mkboth\markboth
+    \def\chaptermark##1{\markright{%
+      \ifnum \c@secnumdepth >\m@ne
+        \@chapapp\thechapter\@chappos\hskip 1zw
+      \fi
+      ##1}{}}%
+    \let\sectionmark\@gobble}
+\fi
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\ps@jinka}
+% jinka.cls のデフォルトページスタイルです．
+%    \begin{macrocode}
+\let\ps@jinka\ps@linehead
+%    \end{macrocode}
 % \end{macro}
 %
 % \subsection*{タイトルページ}
@@ -2296,8 +2335,8 @@
   \Columns{30}
   \Lines{20}
 \else
-  \Columns{36}
-  \Lines{32}
+  \Columns{40}
+  \Lines{30}
 \fi
 %    \end{macrocode}
 %</jinka>
