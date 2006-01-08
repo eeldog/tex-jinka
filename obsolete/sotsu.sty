@@ -1,4 +1,5 @@
 \def\version{1.18}
+%% $Id: sotsu.sty,v 1.2 2003/01/04 18:56:02 pooh Exp $
 %% 卒論・修論用スタイル（行動系編） Ver. 1.18
 %%   原田章（人間科学研究科）
 %%       1993 / 01 / 17
@@ -78,7 +79,6 @@
 %%  98/01/14 「参考文献」環境のページカウントを訂正
 %%  98/02/10 「参考文献」環境のスタイルを変更．インデントを１zwに．
 %%  98/02/26 figure 環境の [loc] オプションを使えるように訂正  Version 1.18
-%%  00/12/19 \ruby マクロの typo を修正．
 %%
 
 \typeout{卒業論文・修士論文スタイル（人間科学部，行動系編) Ver.\space\version}
@@ -88,7 +88,7 @@
 \def\@ptsize{2} % 文字サイズの１の位
 
 \def\ds@twoside{\@twosidetrue \@mparswitchtrue}
-  % 左右のページデザインを変更するかどうか
+  % のページデザインを変更するかどうか
 \def\ds@draft{\overfullrule 5pt}
 
 \newif\if連番 % 図表番号を連番にするかどうかのフラグ
@@ -212,7 +212,7 @@
 \headheight=1zw    % ヘッドの高さ
 \headsep=4zw       % 本文とヘッドとの距離
 \footheight=12pt   % フットの高さ
-\footskip=30pt     % 本文の最後の行の基準線とフットの基準線との距離
+\footskip=30pt     % 本文のの行の基準線とフットの基準線との距離
 
 \textheight=30\baselineskip
   \advance \textheight by \topskip
@@ -227,10 +227,10 @@
   \typeout{・行数はオリジナルフォーマット（３０行）です．}
 \fi
 
-\footnotesep=8.4pt % 各脚注の最初の行の高さ
+\footnotesep=8.4pt % 各脚注のの行の高さ
                    % 標準は \footnotesize の \baselineskip の 0.7 倍
 \skip\footins 10.8pt plus 4pt minus 2pt
-  % 本文の最後の行と脚注の頭との距離
+  % 本文のの行と脚注の頭との距離
 
 % 図・表に関する設定
 
@@ -319,8 +319,8 @@
     \thispagestyle{nopagestyle}
   \fi
   \global\@topnum\z@    % このページ上に図表を入れない
-  \@afterindenttrue     % 最初の段落の字下げをする
-  % \@afterindentfalse  % 最初の段落の字下げをしない
+  \@afterindenttrue     % の段落の字下げをする
+  % \@afterindentfalse  % の段落の字下げをしない
   \secdef\@chapter\@schapter} % *がなければ，\@chapter あれば，\@schapter
 
 \def\@chapter[#1]#2{% 直後に * がない場合
@@ -361,7 +361,7 @@
   \@startsection%
   {section}        % セクション名はsection
   {1}              % レベル（レベル<=secnumdepthのときだけ番号を出力
-  {-16.25mm}       % ページの左端から見出しまでの水平距離
+  {-16.25mm}       % ページのから見出しまでの水平距離
   {3.5ex plus 1ex minus .2ex}           % 見出し上の空き
   {2.3ex plus .2ex}% 見出しの下の空き
   {\large\bf}}
@@ -370,7 +370,7 @@
   \@startsection%
   {subsection}    % セクション名はsubsection
   {2}		  % レベル（レベル<=secnumdepthのときだけ番号を出力
-  {\z@}		  % ページの左端から見出しまでの水平距離
+  {\z@}		  % ページのから見出しまでの水平距離
   {1zw}		  % 見出し上の空き
   {1zw}		  % 見出しの下の空き
   {\large\bf}}
@@ -412,7 +412,7 @@
 \leftmarginiv=2zw % ４番目のリストの左余白
 \leftmarginv=2zw  % ５番目のリストの左余白
 \leftmarginvi=2zw % ６番目のリストの左余白
-\leftmargin=\leftmargini % 左余白の初期化
+\leftmargin=\leftmargini % の初期化
 \labelsep=.5zw    % ラベルと本文の間隔
 \labelwidth=\leftmargini \advance \labelwidth by -\labelsep
   % \labelwidth := \leftmargini - \labelsep
@@ -476,10 +476,10 @@
   \let\\=\@centercr % 改行 \\ の定義
   \list{}{%
     \itemsep\z@                 % 項目間に余分な空白はいれない
-    \itemindent=-2zw            % 項目の頭は他の行より左に２文字突き出す
+    \itemindent=-2zw            % 項目の頭は他の行よりに２文字突き出す
     \listparindent=\itemindent  % 段落の頭も同様
-    \rightmargin=\leftmargin    % 右余白は左余白と同じ
-    \advance\leftmargin by 2zw} % 左余白だけさらに２文字広くする．
+    \rightmargin=\leftmargin    % 右余白はと同じ
+    \advance\leftmargin by 2zw} % だけさらに２文字広くする．
   \item[]}
 \let\endverse\endlist
 
@@ -593,7 +593,7 @@
   \else
     \addcontentsline{toc}{part}{#1} % 番号を含めず出力
   \fi
-  \markboth{}{}% 左右の柱を空にする
+  \markboth{}{}% の柱を空にする
     {\centering
      \ifnum \c@secnumdepth >-2\relax
        \huge\bf 第\thepart 部\par
@@ -746,18 +746,18 @@
   \fi
   \columnseprule=.4pt
   \columnsep=2zw
-  \twocolumn[\@makeschapterhead{索 引}]%
-  \@mkboth{索 引}{索 引}%
+  \twocolumn[\@makeschapterhead{ぢ引}]%
+  \@mkboth{ぢ引}{ぢ引}%
   \thispagestyle{plain}%
   \parindent=\z@
   \parskip=\z@
   \let\item\@idxitem} % \item の定義を一時的に変更
 
-\def\@idxitem{% 索引の項目
+\def\@idxitem{% の項目
   \par
   \hangindent=4zw} % 段落の２段目以降は４文字下げる
 
-\def\subitem{% 索引の小項目
+\def\subitem{% の小項目
   \par
   \hangindent=4zw
   \hspace*{2zw}} % 頭を２文字下げる
@@ -802,11 +802,11 @@
 \def\dbltopfraction{.7}
 \def\dblfloatpagefraction{.5}
 
-% −−　図表の見出しを作るマクロ　−−
+% −−　図表の見出しをるマクロ　−−
 \long\def\@makecaption#1#2{
   \vskip 10pt
   \capsize\baselineskip=15pt
-  \setbox\@tempboxa\hbox{#1 \ #2} % 「図1 何々」という形の箱を作る
+  \setbox\@tempboxa\hbox{#1 \ #2} % 「図1 何々」という形の箱をる
   \ifdim \wd\@tempboxa >\hsize    % 箱が１行でおさまらないなら
     \unhbox\@tempboxa\par         % 通常の段落として進む
   \else
@@ -904,8 +904,8 @@
   \typeout{・柱のスタイルは「卒論柱」です．}
   \let\@mkboth=\gobbletwo
   \if頁 % ページ番号を付けるとき
-    \def\@oddfoot{\hfil\thepage\hfil}  % 左ページのフット
-    \def\@evenfoot{\hfil\thepage\hfil} % 右ページのフットは左と同じ
+    \def\@oddfoot{\hfil\thepage\hfil}  % のフット
+    \def\@evenfoot{\hfil\thepage\hfil} % 右ページのフットはと同じ
   \else
     \typeout{　　ページ番号を出力しません．}
     \def\@oddfoot{}  % ページ番号を出力しない
@@ -929,8 +929,8 @@
 \def\ps@headings{% headingsページスタイル
   \typeout{・柱のスタイルは「headings」です．}
   \let\@mkboth=\gobbletwo
-  \def\@oddfoot{\hfil\thepage\hfil}  % 左ページのフット
-  \def\@evenfoot{\hfil\thepage\hfil} % 右ページのフットは左と同じ
+  \def\@oddfoot{\hfil\thepage\hfil}  % のフット
+  \def\@evenfoot{\hfil\thepage\hfil} % 右ページのフットはと同じ
   \def\@oddhead{\hspace{-2zw} \rightmark \hfil}
   \def\@evenhead{\hspace{-2zw} \rightmark \hfil}
   \def\chaptermark##1{\markright{%
@@ -987,7 +987,7 @@
 
 \def\ruby#1#2{ % 送り仮名をつけるマクロ \ruby{漢字}{かんじ}
   \leavevmode
-  \setbox0=\hbox{#1}\setbox1=\hbox{\tiny#2}%
+  \setbox0=hbox{#1}\setbox1=\hbox{\tiny#2}%
   \ifdim\wd0>\wd1 \dimen0=\wd0 \else \dimen0=\wd1 \fi
   \hbox{\kanjiskip=\fill
     \vbox{\hbox to \dimen0{\tiny \hfil#2\hfil}%

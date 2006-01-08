@@ -3,15 +3,16 @@
  * $Date: 2003/01/04 18:55:08 $
  */	
 a         { text-decoration: none; }
-a:link    { color: blue;      background: transparent; }
-a:visited { color: darkblue;  background: transparent; }
+a:link    { color: darkblue;  background: transparent; }
+a:visited { color: blue;      background: transparent; }
 a:active  { color: orange;    background: transparent; }
+a:hover   { color: blue;      background: gray; }
 
 body {
-    color: rgb( 0, 0, 0);
-    background: rgb(240, 240, 256);
-    margin-left:  0.5in;
-    margin-right: 0.5in;
+    color: #000000;
+    background-color: #FFFF80;
+    margin: 0pt;
+    padding: 0pt;
 }
 
 h1 {
@@ -34,7 +35,9 @@ h3 {
 }
 
 blockquote {
-  border: 1px solid blue; 
+  color: #F0F0FF;
+  background-color: black;
+  border: 1px solid gray; 
   padding: 5pt;
 }
 
@@ -65,6 +68,8 @@ li { margin: 6pt; }
 table.table {
    border-collapse: collapse;
    border-spacing: 0px;
+   color: black;
+   background-color: white;
 }
 
 table.table tr th {
@@ -85,3 +90,21 @@ table.table tr td {
     padding: 3pt 12pt;
 }
 
+.main {
+    color: inherit;
+    background-color: white;
+    margin: 0pt 1in;
+    padding: 12pt;
+    border-left: solid thin gray;
+    border-right: solid thin gray;
+}
+
+.copyright {
+    color: #606060;
+    background-color: transparent;
+    text-align: center;
+    font-size: 10pt;
+    border-top: thin solid gray;
+    padding: 5pt;
+    margin: 5pt 0pt;
+}

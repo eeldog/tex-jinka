@@ -1,64 +1,55 @@
 % \iffalse     META-COMMENT
 % Source File: jinka.dtx
-% $Revision: 1.9 $
-% $Date: 2005-02-08 02:29:05 +0900 $
+% $Revision$
+% $Date$
 %
-% Copyright (C) 1998-2005  MIYAMOTO Yusuke
+% Copyright (C) 1998-2006  MIYAMOTO Yusuke
 % Some rights reserved.
 % \fi
 \def\filename{jinka.dtx}
-\def\fileversion{1.2.1}
-\def\filedate{2003/08/04}
+\def\fileversion{1.2.2}
+\def\filedate{2006/01/16}
 % \CheckSum{27516}
 %
-% \changes{v1.0}{1998/10/01}
-%         {jinka.cls for pLaTeX2e version 1.0 公開}
-% \changes{v1.1a}{2000/08/30}
-%         {version 1.1 $\alpha$}
-% \changes{v1.1a}{2000/08/30}
-%         {図表環境では本文の行間を適用しないように調整}
-% \changes{v1.1a}{2000/09/07}
-%         {ページスタイルのバグを修正}
-% \changes{v1.1a}{2000/09/15}
-%         {ドキュメントの修正}
-% \changes{v1.1a}{2000/09/19}
-%         {デフォルトのページスタイル，行数を変更}
-% \changes{v1.1a}{2000/09/27}
-%         {ページレイアウトのパラメタを変更}
-% \changes{v1.1a}{2000/09/28}
-%         {参考文献スタイル jpa のパッケージファイルを統合}
-% \changes{v1.1a}{2000/09/30}
-%         {章見出しを二行形式に変更．}
-% \changes{v1.1b}{2000/10/01}
-%         {version 1.1 $\beta$ としてリリース．}
-% \changes{v1.1c}{2000/10/09}
-%         {参考文献スタイル jpa のパッケージファイルを分離}
-% \changes{1.1.1}{2002/01/06}
-%         {フロートの [loc] オプション対応を修正}
-% \changes{1.1.1}{2002/01/09}
-%         {デフォルトページスタイルとして |linehead| を追加．}
-% \changes{1.1.2}{2002/02/06}
-%         { \bslash frontmatter, \bslash mainmatter, \bslash backmatter コマンドを追加．}
-% \changes{1.2.0}{2002/12/26}
-%         {執筆規定の改定にともない，頁あたり字数のデフォルト値を変更．}
-% \changes{1.2.1}{2005/02/08}
-%         {|jinka| オプションのフォーマットを変更．}
+% \changes{v1.0}{1998/10/01}{jinka.cls for pLaTeX2e version 1.0 公開}
+% \changes{v1.1a}{2000/08/30}{version 1.1 $\alpha$}
+% \changes{v1.1a}{2000/08/30}{図表環境では本文の行間を適用しないように調整}
+% \changes{v1.1a}{2000/09/07}{ページスタイルのバグを修正}
+% \changes{v1.1a}{2000/09/15}{ドキュメントの修正}
+% \changes{v1.1a}{2000/09/19}{デフォルトのページスタイル，行数を変更}
+% \changes{v1.1a}{2000/09/27}{ページレイアウトのパラメタを変更}
+% \changes{v1.1a}{2000/09/28}{参考文献スタイル jpa のパッケージファイルを統合}
+% \changes{v1.1a}{2000/09/30}{章見出しを二行形式に変更．}
+% \changes{v1.1b}{2000/10/01}{version 1.1 $\beta$ としてリリース．}
+% \changes{v1.1c}{2000/10/09}{参考文献スタイル jpa のパッケージファイルを分離}
+% \changes{1.1.1}{2002/01/06}{フロートの [loc] オプション対応を修正}
+% \changes{1.1.1}{2002/01/09}{デフォルトページスタイルとして |linehead| を追加．}
+% \changes{1.1.2}{2002/02/06}{ \bslash frontmatter, \dots コマンドを追加．}
+% \changes{1.2.0}{2002/12/26}{執筆規定の改定にともない，頁あたり字数のデフォルト値を変更．}
+% \changes{1.2.1}{2005/02/08}{|jinka| オプションのフォーマットを変更．}
+% \changes{1.2.2}{2006/01/09}{章題の中で改行できないバグを修正．}
+% \changes{1.2.2}{2006/01/09}{|english| オプションを追加．}
 % 
 % \iffalse
 %<*driver>
 \documentclass[a4j]{jarticle}
   \usepackage{doc}
+  
   \RecordChanges
   \OnlyDescription
   \MakeShortVerb{\|}
-  \title{{\normalsize 大阪大学人間科学部 (行動系)}\\
-         学位論文用クラスファイル ver. {\fileversion}}
-  \author{MIYAMOTO Yusuke\thanks{大阪大学大学院人間科学研究科}}
+
+  \title{{\normalsize 大阪大学人間科学部 (行動学系)}\\
+         学位論文用クラスファイル version {\fileversion}}
+  \author{MIYAMOTO Yusuke\thanks{国立大学法人 大阪大学 大学院人間科学研究科}}
   \date{\filedate}
+  
 \begin{document}
   \maketitle
+  
   \DocInput{\filename}
   \PrintChanges
+  
 \end{document}
 %</driver>
 %<*jinka>
@@ -68,22 +59,25 @@
 % \fi
 % 
 % \section*{概要}
-% ``jinka.cls'' は，人間科学研究科（行動学専攻）論文作成用の \LaTeXe{}クラス
+% |jinka.cls| は人間科学研究科（行動学専攻）学位論文作成用の \LaTeXe{}クラス
 % ファイルです．一行あたりの文字数，一頁あたりの行数を指定することができます．
 % 
-% \subsection*{執筆規定}
+% \section*{執筆規定について}
 % 
 % \begin{center}
 % \DeleteShortVerb{\|}
 % \MakeShortVerb{+}
-% \begin{tabular}{|l|c|}\hline
-% 用紙サイズ         &  A4 判                                \\ \hline
-% 紙質               & 上質紙                                \\ \hline
-% 1頁の文字数        & 30字$\times$20行/頁，40字$\times$30行 \\ \hline
-% 上部 余白          & 25 -- 40mm                            \\ \hline
-% 下部 余白          & 10 -- 25mm                            \\ \hline
-% 左 余白（綴じしろ）& 25 -- 40mm                            \\ \hline
-% 右 余白            & 10 -- 25mm                            \\ \hline
+% \begin{tabular}{cc}
+%   \multicolumn{2}{c}{\hbox to .95\textwidth{}} \\
+%   \hline
+%   \textbf{用紙}         &  A4 判 上質紙 (55 -- 70g/m$^2$)         \\
+%   \textbf{1頁の文字数}  & 30字 $\times $20行 / 40字 $\times $30行 \\
+%   \textbf{印刷}         & 片面 / 両面 印刷                        \\
+%   \textbf{上 余白}      & 25 -- 40mm                              \\
+%   \textbf{下 余白}      & 20 -- 40mm                              \\
+%   \textbf{左 余白}      & 25 -- 40mm                              \\
+%   \textbf{右 余白}      & 20 -- 40mm                              \\
+%   \hline
 % \end{tabular}
 % \MakeShortVerb{\|}
 % \end{center}
@@ -100,8 +94,9 @@
 %    \DeleteShortVerb{\|}
 %    \MakeShortVerb{\+}
 %    \begin{center}
-%    \begin{tabular}{l|l} \hline
-%    オプション & 解説 \\ \hline
+%    \begin{tabular}{ll} \hline
+%    \hbox to .2\textwidth{\bfseries オプション\hfill}  & 
+%    \hbox to .7\textwidth{\bfseries 解説\hfill} \\ \hline
 %    \texttt{titlepage}   & タイトルを独立したページにする．\\
 %    \texttt{notitlepage} & タイトルページを独立させない．\\
 %    \texttt{draft}       & +\ifdraft+ スィッチを +true+ にする．\\
@@ -109,40 +104,40 @@
 %    \texttt{serial}      & 図表に通し番号をつける．\\
 %    \texttt{noserial}    & 図表の番号を章ごとにリセットする．\\
 %    \texttt{jinka}       & 40字 $\times$ 30行 の書式を使用する．\\
-%    \texttt{obsolete}    & 30字 $\times$ 20行 の書式を使用する．\\
-%    \texttt{nojinka}     & +jinka+ と同じ．(互換性のため) \\ \hline
+%    \texttt{legacy}      & 30字 $\times$ 20行 の書式を使用する．\\
+%    \texttt{nojinka}     & +jinka+ と同じ．(obsolete なオプション) \\ \hline
 %    \end{tabular}
 %    \end{center}
 %    \DeleteShortVerb{\+}
 %    \MakeShortVerb{\|}    
 %    \end{table}
-%
+%    
 %  \subsection*{フォント}
 %    フォントサイズは 11pt がデフォルトになっています．一般的なクラスファイル
 %    と同様のオプションで変更できます．
 %    
 %  \subsection*{レイアウト}
-%    デフォルトでは，「$40 \times 30$ スタイル」 --- つまり1行あたり36字，
-%    1ページあたり32行 となるように |\textwidth|，|\baselinestretch| が
-%    設定されます．\texttt{jinka} オプションにより「$30 \times 20$ スタイル」
-%    になります．
-%    
-%    また，字詰め，行間の調節をおこなう2つのコマンドを用意しました．
+%    デフォルトでは，「$40 \times 30$ スタイル」 --- つまり1行あたり40字，
+%    1ページあたり30行 となるように |\textwidth|，|\baselinestretch| が
+%    設定されます．|\documentclass| に |legacy| オプションを指定すると，
+%    「$30 \times 20$ スタイル」になります．
+%    また，字詰めや行間を自由に設定できる 2 つのコマンドを用意しました．
 %    
 %    \begin{macro}{\Columns}
 %    |\Columns{|{\em cols}|}| は |\textwidth| を 1 行あたり約 {\em cols} 字 
-%    (全角) になるように設定します\footnote{グルーが入ることを考え，
-%    ほんの少し余裕をもたせて設定します．また，スペースやカーニングの関係で，
-%    正確に設定できるわけではありません．}．
+%    (全角) になるように設定します．
 %    \end{macro}
 %    
 %    \begin{macro}{\Lines}
 %    |\Lines{|{\em lines}|}| は， |\baselinestretch| を 1 ページあたりの行数
-%    が {\em lines} となるように設定します\footnote{これも完全に正確という
-%    わけにはいきません．}．
-%    \[ +baselinestrech+ = \frac{\mbox{+textheight+}-\mbox{+topskip+}}%
-%                     {(\mathit{lines}-1)\times\mbox{+baselineskip+}} \]
+%    が {\em lines} となるように設定します．
+%    \[{|baselinestrech|} = \frac{{|textheight|}-\mbox{|topskip|}}%
+%                     {(\mathit{lines}-1)\times{|baselineskip|}} \]
 %    \end{macro}
+%    
+%    これらのパラメータには，グルーが入ることを考えてほんの少し余裕を
+%    もたせて設定します．また，プロポーショナルフォントのカーニングが
+%    あるため，厳密に設定できるわけではありません．
 %    
 %    その他のスタイル・パラメータについては，標準のクラスパッケージ
 %    (jreport.cls など) に準じます．そちらのドキュメントも参考にして
@@ -155,8 +150,9 @@
 %    \DeleteShortVerb{\|}
 %    \MakeShortVerb{\+}
 %    \begin{center}
-%    \begin{tabular}{l|l}\hline
-%    ページスタイル   & 内容 \\ \hline
+%    \begin{tabular}{ll}\hline
+%    \hbox to .2\textwidth{\bfseries ページスタイル\hfill} & 
+%    \hbox to .7\textwidth{\bfseries 解説\hfill} \\ \hline
 %    +plain+      & フッタ中央にページ番号を出力．\\
 %    +jinka+      & デフォルトのページスタイル．+linehead+ と同じ．\\
 %    +bothstyle+  & ヘッダに章見出し，フッタにページ番号を出力．\\
@@ -174,8 +170,8 @@
 %  \subsection*{表題}
 %    タイトルは，デフォルトでは独立したページに出力されます
 %    (|\notitlepage| オプションで変更できます)．
-%    タイトルでは，|\title|, |\subtitle|, |\author|, |\thanks|, |\date| が
-%    指定できます．|\subtitle| 以外は ``latex.dtx'' で定義されています．
+%    タイトルでは，|\title|, |\subtitle|, |\author|, |\institute|, |\date| が
+%    指定できます．
 %    
 %    \begin{macro}{\title}
 %    引数にタイトルを指定します．
@@ -190,33 +186,79 @@
 %    著者を指定します．
 %    \end{macro}
 %    
+%    \begin{macro}{\institute}
+%    著者の所属を指定します．
+%    \end{macro}
+%    
 %    \begin{macro}{\date}
 %    出力する日付を指定します．指定がなければコンパイル時の日付を使います．
 %    \end{macro}
 %    
 %  \subsection*{参考文献}
-%   「心理学研究」にならった参考文献スタイルで |thebibliography| 環境を
-%   実装しています．
-%   \textsc{JBib}\TeX 用 参考文献スタイルファイル ``jpa.bst'' を付属しました．
+%    \begin{environment}{thebibliography}
+%    |apalike| にならった参考文献スタイルで |thebibliography| 環境を
+%    実装しています．
+%    \end{environment}
 %    
-%   次のような出力になります．
+%    \begin{macro}{\bibitem}
+%      |\bibitem| コマンドには，オプションとして
+%       \texttt{[\meta{author}, \meta{year}]} を
+%       指定します．この文字列は本文中で |\cite| コマンドを指定した箇所に
+%       展開されます．たとえば，以下のようにリストを入力します．
+%    \end{macro}
 %    \vskip 12pt
-%    \fbox{\begin{minipage}{0.95\textwidth}
-%    \def\newblock{\hskip 1em plus .33em minus .07em}
+%    \begin{center}
+%    \begin{minipage}{0.95\textwidth}
+%    \hrule\vskip 10pt
+%    \begin{verbatim}
+%    \begin{thebibliography}
+%    
+%    \bibitem[{Goossens et~al.}, {1994}]{Goossens94}
+%      Goossens, M., Mittelbach, F. \& Samarin A. 
+%      \newblock (1994)
+%      \newblock {\itshape The \LaTeX{} Companion}.
+%      \newblock Addison-Wesley.
+%    
+%    \bibitem[{Lamport}, {1985}]{Lamport85}
+%      Lamport, L.  (1985)
+%      \newblock {\itshape \LaTeX : A Document Preparation System
+%          --- User's Guide and Reference Manual}.
+%      \newblock Addison-Wesley.
+%    
+%    \end{thebibliography}\end{verbatim}
+%    \hrule\vskip 5pt
+%    \end{minipage}
+%    \end{center}
+%    
+%    このとき，本文中で |\cite{Lamport85}| と指定すると ({Lamport}, {1985})
+%    と展開されます．また，参考文献リストは次のような出力になります．
+%    
+%    \vskip 12pt
+%    \begin{center}
+%    \begin{minipage}{0.95\textwidth}
+%    \hrule\vskip 5pt
+%    {\LARGE\bfseries 参考文献}\vskip\Cvs
+%    \def\newblock{\hskip 1.2ex plus .33ex minus .07em}
 %    \begin{list}{\relax}{
 %       \setlength{\labelsep}{0em}
-%	\setlength{\itemindent}{-2em}
-%	\setlength{\leftmargin}{2em}}
-%    \item Goossens,M. , Mittelbach,F. Samarin,A.
-%      \newblock 1994
-%      \newblock The \LaTeX{} Companion.
-%      \newblock Addison-Wesley Publishing Company.
-%    \item Lamport,L.
-%      \newblock 1994
-%      \newblock \LaTeX : A Document Preparation System.
-%      \newblock Addison-Wesley Publishing Company.
+%	\setlength{\itemindent}{-2ex}
+%	\setlength{\leftmargin}{2ex}}
+%    \item Goossens, M., Mittelbach, F. \& Samarin A. 
+%      \newblock (1994)
+%      \newblock {\itshape The \LaTeX{} Companion}.
+%      \newblock Addison-Wesley.
+%    \item Lamport, L. 
+%      \newblock (1985)
+%      \newblock {\itshape \LaTeX : A Document Preparation System
+%          --- User's Guide and Reference Manual}.
+%      \newblock Addison-Wesley.
 %    \end{list}
-%    \end{minipage}}
+%    \hrule\vskip 5pt
+%    \end{minipage}
+%    \end{center}
+%
+%    \textsc{JBib}\TeX スタイルファイル |japa| を付属しました．
+%    
 %
 %  \subsection*{付録}
 %    \begin{macro}{\appendix}
@@ -225,21 +267,28 @@
 %    |\appendixname| によって決定されます．
 %    \end{macro}
 % 
+%  \subsection*{謝辞}
+%    \begin{environment}{acknowledgement}
+%    |acknowledgement| 環境は，論文の末尾に謝辞を記すのに便利です．
+%    末尾に (|\date| コマンドで指定した) 日付を自動的に挿入します．
+%    \end{environment}
+% 
+% \StopEventually{
 % \section*{免責事項とクラスファイルの修正・配布について}
-%   クラスファイル ``jinka.cls'' は，自由に修正を加えたり，再配布することが
-%   できます．ただし，修正はできる限り ``jinka.dtx'' に対しておこない，ドキュ
-%   メントも一致するように変更して下さい．
-%   また，修正・変更をおこなった場合には是非ご一報をいただけると有難いです．
+%   |jinka.cls| は，自由に修正を加えたり，再配布することができます．
+%   ただし，修正はできる限り |jinka.dtx| に対しておこない，ドキュメントも
+%   整合性が保たれるように変更してください．
+%   また，本クラスファイルおよびそれから派生したクラスファイルによって
+%   いかなる損害が生じたとしても，完全に無保証です．
+%   「あなた自身の責任で」ご使用ください．
+%   なお，修正・変更をおこなった場合には是非ご一報をいただけると幸いです．
 %
-%   なお，オリジナルまたは変更したクラスファイルは，「あなた自身の責任で」
-%   使用して下さい．その他，バグレポートやご意見・ご要望があれば，以下の
-%   アドレスまで．
+%   その他，バグレポートやご意見・ご要望があれば，以下のアドレスまで．
 % \begin{center}
-% \textsl{yusuke@koko15.hus.osaka-u.ac.jp}
+% \textsl{yusuke@bm.hus.osaka-u.ac.jp}
 % \end{center}
-%
-% \StopEventually{}
-% \newpage
+% }
+% \clearpage
 %
 %<*jinka>
 % \section*{コードの解説}
@@ -321,10 +370,10 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\if@obsolete}
+% \begin{macro}{\if@legacy}
 % 旧スタイルを使用するかどうかを示すスイッチです．
 %    \begin{macrocode}
-\newif\if@obsolete \@obsoletefalse
+\newif\if@legacy \@legacyfalse
 %    \end{macrocode}
 % \end{macro}
 %
@@ -365,6 +414,13 @@
 % 図表に通し番号を振るオプション・スイッチです．
 %    \begin{macrocode}
 \newif\if@serial\@serialfalse
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\if@english}
+% 英文モードであることを示すフラグです．
+%    \begin{macrocode}
+\newif\if@english \@englishfalse
 %    \end{macrocode}
 % \end{macro}
 %
@@ -467,12 +523,18 @@
 \DeclareOption{noserial}{\@serialfalse}
 %    \end{macrocode}
 %
+% \subsubsection*{英文オプション}
+% 章題や図表のキャプションのラベルを英文にします．自動翻訳機能はありません．
+%    \begin{macrocode}
+\DeclareOption{english}{\@englishtrue}
+%    \end{macrocode}
+%
 % \subsubsection*{jinka スタイルオプション}
 % jinka スタイルにするかどうかを指定します．
 %    \begin{macrocode}
 \DeclareOption{jinka}{\@jinkatrue}
-\DeclareOption{obsolete}{\@obsoletetrue}
-\DeclareOption{nojinka}{\@jinkafalse}
+\DeclareOption{legacy}{\@legacytetrue}
+\DeclareOption{nojinka}{\@jinkafalse\typeout{`nojinka' option is obsolete.}}
 %    \end{macrocode}
 %
 % \subsubsection*{オプションの実行}
@@ -1031,9 +1093,10 @@
 % \end{macro}
 %
 % \begin{macro}{\institute}
-% タイトルページで使う追加項目です．所属機関を記述します．
+% タイトルページで使う追加項目です．著者の所属を記述します．
 %    \begin{macrocode}
 \newcommand{\institute}[1]{\xdef\@institute{#1}}
+\let\thanks\institute
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1088,15 +1151,11 @@
   \end{titlepage}%
   \setcounter{footnote}{0}%
   \global\let\thanks\relax
-  \global\let\maketitle\relax
-  \global\let\p@thanks\relax
-  \global\let\@thanks\@empty
-  \global\let\@author\@empty
-  \global\let\@title\@empty
-  \global\let\title\relax
   \global\let\author\relax
   \global\let\date\relax
   \global\let\and\relax
+  \global\let\maketitle\relax
+  \global\let\title\relax
   \@ifundefined{@subtitle}%
     {\relax}%
     {\global\let\@subtitle\@empty}
@@ -1139,7 +1198,6 @@
   \newpage\null
   \vskip 2em%
   \begin{center}%
-    \let\footnote\thanks
     {\LARGE \@title \par}%
     \@ifundefined{@subtitle}
       {\relax}
@@ -1153,7 +1211,7 @@
           {\normalsize\@institute\\}
        \@author
      \end{tabular}\par}%
-    \vskip 1em%
+    \vskip 2em%
     {\large \@date}%
     \end{center}%
     \par\vskip 1.5em}
@@ -1196,18 +1254,20 @@
 %    \begin{macrocode}
 \newenvironment{acknowledgement}
   {\chapter*{\acknowledgementname}
-   \thispagestyle{empty}}
-  {\clearpage}
-\newenvironment{acknowledgement*}
-  {\chapter*{\acknowledgementname\@mkboth{}{}}
    \thispagestyle{empty}
   }
   {\vfill
    \begin{flushright}
-     \vbox{\today\\
-     \underline{\hbox to 16zw{}}}
+     \vbox to 4\Cvs{%
+      \@date\\
+      \@ifundefined{@institute}{\relax}{\@institute\\}
+      \hbox to 16zw{\vsize=24pt\hfill}}
    \end{flushright}
    \clearpage}
+\newenvironment{acknowledgement*}
+  {\chapter*{\acknowledgementname}
+   \thispagestyle{empty}}
+  {\clearpage}
 %    \end{macrocode}
 % \end{environment}
 % \end{environment}
@@ -1295,7 +1355,7 @@
       \addcontentsline{toc}{part}
         {\prepartname\thepart\postpartname\hspace{1em}#1}
       \typeout
-        { *** \prepartname\space\thepart\space\postpartname\@spaces #1 *** }
+        { *** \prepartname\space\thepart\space\postpartname\spaces #1 *** }
     \else
       \addcontentsline{toc}{part}{#1}
       \typeout{ *** #1 *** }
@@ -1365,10 +1425,10 @@
    \reset@font\LARGE\bfseries
    \ifnum \c@secnumdepth >\m@ne
      \if@mainmatter
-       \hbox{\@chapapp\thechapter\@chappos}\vskip.5\Cvs%
+       \hbox{\@chapapp\thechapter\@chappos}\vskip.25\Cvs%
      \fi
    \fi
-   \hbox{#1}\vskip1\Cvs}}
+   {#1}\vskip1\Cvs}}
 \def\@makeschapterhead#1{\hbox{}%
   \vskip2\Cvs
   {\parindent\z@
@@ -2204,9 +2264,8 @@
 %    \begin{macrocode}
 \DeclareRobustCommand\cite{%
   \@ifnextchar [{\@tempswatrue\@citex}{\@tempswafalse\@citex[]}}
-\def\@cite#1#2{(#1\if@tempswa #2\fi)}
+\def\@cite#1#2{(#1\if@tempswa{}#2\fi)}
 \def\@citex[#1]#2{%
-  %\def\@citea{}%
   \def\@citea{}%
   \@cite{\ignorespaces\@for\@citeb:=#2\do{%
     \@citea\def\@citea{; }%
@@ -2342,10 +2401,17 @@
 % \begin{macro}{\prechaptername}
 % \begin{macro}{\postchaptername}
 %    \begin{macrocode}
-\newcommand{\prepartname}{第}
-\newcommand{\postpartname}{部}
-\newcommand{\prechaptername}{第}
-\newcommand{\postchaptername}{章}
+\if@english
+  \providecommand{\prepartname}{Part~}
+  \providecommand{\postpartname}{}
+  \providecommand{\prechaptername}{Chapter~}
+  \providecommand{\postchaptername}{}
+\else
+  \newcommand{\prepartname}{第}
+  \newcommand{\postpartname}{部}
+  \newcommand{\prechaptername}{第}
+  \newcommand{\postchaptername}{章}
+\fi
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -2356,9 +2422,15 @@
 % \begin{macro}{\listfigurename}
 % \begin{macro}{\listtablename}
 %    \begin{macrocode}
-\newcommand{\contentsname}{目~次}
-\newcommand{\listfigurename}{図~目~次}
-\newcommand{\listtablename}{表~目~次}
+\if@english
+  \providecommand{\contentsname}{Table~of~Contents}
+  \providecommand{\listfigurename}{List~of~Figures}
+  \providecommand{\listtablename}{List~of~Tables}
+\else
+  \providecommand{\contentsname}{目~次}
+  \providecommand{\listfigurename}{図~目~次}
+  \providecommand{\listtablename}{表~目~次}
+\fi
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -2371,12 +2443,21 @@
 % \begin{macro}{\abstractname}
 % \begin{macro}{\acknowledgementname}
 %    \begin{macrocode}
-\newcommand{\indexname}{索~引}
-\newcommand{\figurename}{図}
-\newcommand{\tablename}{表}
-\newcommand{\appendixname}{付~録}
-\newcommand{\abstractname}{概~要}
-\newcommand{\acknowledgementname}{謝~辞}
+\if@english
+ \providecommand{\indexname}{Index}
+ \providecommand{\figurename}{Figure~}
+ \providecommand{\tablename}{Table~}
+ \providecommand{\appendixname}{Appendix~}
+ \providecommand{\abstractname}{Abstract}
+ \providecommand{\acknowledgementname}{Acknowledgement}
+\else
+ \providecommand{\indexname}{索~引}
+ \providecommand{\figurename}{図}
+ \providecommand{\tablename}{表}
+ \providecommand{\appendixname}{付~録}
+ \providecommand{\abstractname}{概~要}
+ \providecommand{\acknowledgementname}{謝~辞}
+\fi
 %    \end{macrocode}
 % \end{macro}
 % \end{macro}
@@ -2385,36 +2466,38 @@
 % \end{macro}
 % \end{macro}
 %
-% \section*{デフォルトの設定を実行}
+% \section*{初期設定}
 % 初期設定のためのコマンド群を実行します．
-% 
+% \subsection*{ページスタイルの設定}
 %    \begin{macrocode}
 \pagestyle{jinka}
 \pagenumbering{arabic}
 \raggedbottom
-
+%    \end{macrocode}
+% \subsection*{段組み}
+%    \begin{macrocode}
 \if@twocolumn
-  \twocolumn
-  \sloppy
-  \flushbottom
+  \twocolumn\sloppy\flushbottom
 \else
   \onecolumn
 \fi
-
+%    \end{macrocode}
+% \subsection*{片面/両面印刷の設定}
+%    \begin{macrocode}
 \if@twoside
   \@mparswitchtrue
 \else
   \@mparswitchfalse
 \fi
-
-%% jinka スタイル
+%    \end{macrocode}
+% \subsection*{字詰めの設定}
+%    \begin{macrocode}
 \if@jinka
-  \if@obsolete \Columns{30}\Lines{20}
-  \else        \Columns{40}\Lines{30}
+  \if@legacy \Columns{30}\Lines{20}
+  \else      \Columns{40}\Lines{30}
   \fi
 \else
-  \Columns{40}
-  \Lines{30}
+  \Columns{40}\Lines{30}
 \fi
 %    \end{macrocode}
 %</jinka>

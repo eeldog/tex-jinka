@@ -1,9 +1,9 @@
 # Makefile
-# $Revision: 1.4 $
-# $Date: 2005-02-06 11:25:42 +0900 $
+# $Revision$
+# $Date$
 
 PACKAGE = jinka
-VERSION = 1.2.1
+VERSION = 1.2.2
 
 ## Modify these variables in tune with your site configuration.
 TEX      = platex
@@ -22,9 +22,11 @@ DESTDIR  =
 
 SHELL = /bin/sh
 
-PKGFILES = jinka.cls japa.sty japa.bst
-DISTFILES = README Makefile index.html doc/index.html.in jinka.css \
-            jinka.ins jinka.dtx japa.dtx japa.bst japa.ins obsolete/sotsu.sty
+PKGFILES = jinka.cls japa.sty japa.bst english.sty summary.cls
+DISTFILES = $(PKGFILES) README Makefile index.html jinka.css \
+            jinka.dtx jinka.ins japa.dtx japa.ins jinka.spec \
+            index.html.in jinka.spec obsolete/sotsu.sty example.ltx
+
 distdir=$(PACKAGE)-$(VERSION)
 
 # _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
@@ -36,7 +38,7 @@ jinka.cls: jinka.dtx jinka.ins
 	@-$(TEX) $(TEXFLAGS) jinka.ins  1> /dev/null 2>&1
 	@echo "done." 1>&2
 
-japa.sty: jinka.dtx japa.ins
+japa.sty: japa.dtx japa.ins
 	@-rm -f $@
 	@echo -n "making $@ ..." 1>&2
 	@-$(TEX) $(TEXFLAGS) japa.ins 1> /dev/null 2>&1
@@ -55,7 +57,9 @@ jinka.dvi: jinka.dtx
 	@echo "done." 1>&2
 
 index.html: doc/index.html.in
+	@echo -n "making $@ ... " 1>&2
 	@sed 's,@VERSION@,$(VERSION),g' $< > $@
+	@echo "done." 1>&2
 
 install: $(PKGFILES)
 	@if [ ! -d $(DESTDIR)$(TEXDIR) ]; then             \
@@ -69,7 +73,7 @@ install: $(PKGFILES)
 	done
 
 clean:
-	-rm -f core *~ *.log *.glo *.blg *.aux
+	-rm -f core *~ *.aux *.log *.bbl *.blg *.glo
 
 distclean: clean
 	-rm -f jinka.cls japa.sty index.html
