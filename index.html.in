@@ -1,19 +1,18 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <hrml lang="ja">
 <head>
- <meta http-equiv="content-type" content="text/html; charset=ISO-2022-JP">
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-2022-JP">
  <link rel="stylesheet" type="text/css" href="jinka.css">
  <title> jinka クラスファイル </title>
 </head>
 <body>
 
-<div class="main">
-
-<h1> jinka クラスファイル version @VERSION@ </h1>
+<h1> jinka クラスファイル ver. @VERSION@ </h1>
 
 <div align="center">
 &nbsp;:&nbsp;
  <a href="#download">ダウンロード</a>&nbsp;:&nbsp;
+ <a href="#list">パッケージリスト</a>&nbsp;:&nbsp;
  <a href="#install">インストール</a>&nbsp;:&nbsp;
  <a href="#usage">使い方</a>&nbsp;:&nbsp;
  <a href="#contact">コンタクト</a>&nbsp;:&nbsp;
@@ -21,109 +20,129 @@
 <hr />
 
 <p>
-jinka.cls は，大阪大学人間科学研究科 (行動学系) の卒業論文/修士論文/博士論文
-執筆のための LaTeX2e クラスファイルです．執筆規定にしたがった字詰めの設定，
-APA スタイルの参考文献リストの作成などが可能です．
+jinka.cls は，大阪大学人間科学研究科(行動系)の卒業論文/修士論文/博士論文を
+するための LaTeX2e クラスファイルです．動作確認は ASCII pLaTeX でおこなって
+います．
 </p>
 
-<h2><a name="download">ダウンロード</a></h2>
 
-<table cellspacing="0" cellpadding="8" border="0" 
-       align="center" width="80%" style="border: thin solid gray;">
+
+<h2><a name="download">ダウンロード</a></h2>
+<p>
+jinka-@VERSION@ の一次配布元 URI:
+<div align="center">
+<a href="http://koko15.hus.osaka-u.ac.jp/%7Eyusuke/archive/jinka/jinka-@VERSION@.tar.gz">
+http://koko15.hus.osaka-u.ac.jp/~yusuke/archive/jinka/jinka-@VERSION@.tar.gz
+</a>
+</div>
+</p>
+
+<p>
+以下のパッケージリストからも個々のファイルをダウンロードすることができます．
+</p>
+
+
+
+<h2><a name="list">パッケージリスト</a></h2>
+<table cellspacing="8" align="center" border="0">
 <thead>
+ <tr><td  colspan="2">
+  <a href="jinka-@VERSION@.tar.gz"><tt>jinka-@VERSION@/</tt></a>
+ </td></tr>
 </thead>
 
 
  <tbody>
- <tr style="color: inherit; background-color: #E0E0E0">
-  <td><a type="application/x-gzip" href="jinka-@VERSION@.tar.gz">
-      <tt>jinka-@VERSION@.tar.gz</tt></a>
-  </td>
-  <td> 一括ダウンロード用 tarball </td>
+ <tr>
+  <td><a href="Makefile">Makefile</a></td>
+  <td>Makefile</td>
  </tr>
- <tr style="color: inherit; background-color: #FFFFFF">
-  <td><a type="application/x-latex" href="jinka.cls">jinka.cls</a></td>
+ <tr>
+  <td><a href="README">README</a></td>
+  <td>簡単な説明書</td>
+ </tr>
+ <tr>
+  <td><a href="jinka.cls">jinka.cls</a></td>
   <td>jinka クラスファイル</td>
  </tr>
- <tr style="color: inherit; background-color: #E0E0E0">
-  <td><a type="application/x-latex" href="japa.bst">japa.bst</a></td>
-  <td> 参考文献の書式を定義したファイル (JBibTeX 用)</td>
+ <tr>
+  <td><a href="jinka.dtx">jinka.dtx</a></td>
+  <td>jinka クラス DOCSTRIP ファイル</td>
  </tr>
- <tr style="color: inherit; background-color: #FFFFFF">
-  <td><a type="application/x-latex" href="japa.sty">japa.sty</a></td>
-  <td>japa.bst 用 参考文献環境</td>
- </tr>
- <tr style="color: inherit; background-color: #E0E0E0">
-  <td><a type="application/x-latex" href="summary.cls">summary.cls</a></td>
-  <td>「要約集」原稿作成用のクラスファイル</td>
- </tr>
- <tr style="color: inherit; background-color: #FFFFFF">
-  <td><a type="application/x-latex" href="jinka.dtx">jinka.dtx</a></td>
-  <td>jinka クラス DOC パッケージファイル</td>
- </tr>
- <tr style="color: inherit; background-color: #E0E0E0">
-  <td><a type="application/x-latex" href="jinka.ins">jinka.ins</a></td>
+ <tr>
+  <td><a href="jinka.ins">jinka.ins</a></td>
   <td>jinka クラス インストールドライバ</td>
  </tr>
- <tr style="color: inherit; background-color: #FFFFFF">
-  <td><a type="application/x-latex" href="japa.dtx">japa.dtx</a></td>
-  <td>japa.bst 用 参考文献環境 DOC パッケージファイル</td>
+ <tr>
+  <td><a href="japa.bst">japa.bst</a></td>
+  <td> 参考文献の書式を定義したファイル (JBibTeX 用)</td>
  </tr>
- <tr style="color: inherit; background-color: #E0E0E0">
+ <tr>
+  <td><a href="japa.sty">japa.sty</a></td>
+  <td>japa.bst 用 参考文献環境</td>
+ </tr>
+ <tr>
+  <td><a href="japa.dtx">japa.dtx</a></td>
+  <td>japa.bst 用 参考文献環境 DOCSTRIP ファイル</td>
+ </tr>
+ <tr>
   <td><a href="japa.ins">japa.ins</a></td>
   <td>japa.sty のインストールドライバ</td>
  </tr>
- <tr  style="color: inherit; background-color: #FFFFFF">
-  <td><a type="application/x-latex" href="example.ltx">example.ltx</a></td>
-  <td> 文書ファイルのテンプレート </td>
+ <tr>
+  <td><a href="english.sty">english.sty</a></td>
+  <td>章題，図表キャプションなどを英語にするためのパッケージ</td>
+ </tr>
+ <tr>
+  <td><a href="summary.cls">summary.cls</a></td>
+  <td>「要約集」原稿作成用のクラスファイル</td>
+ </tr>
+ <tr>
+  <td><a href="obsolete/sotsu.sty">obsolete/sotsu.sty</a></td>
+  <td> LaTeX 2.09 用スタイル (原田 章 氏の作による) </td>
  </tr>
  </tbody>
 </table>
 
+
+
+
 <h2><a name="install">インストール</a></h2>
-<h3> 簡易インストール </h3>
+<h3> quick install </h3>
 <ol>
-<li> 以下のファイルをダウンロードして，適切なフォルダ<sup>*</sup>
- に保存してください．
- <div style="font-size: 9pt; color: brown;">
- <sup>*</sup> 文書 のLaTeX ソースファイルと同じフォルダ もしくは 
- 環境変数 <kbd>TEXINPUTS</kbd> で指定されたフォルダ
- </div>
- <ul>
-  <li><a href="jinka.cls"><kbd>jinka.cls</kbd></a></li>
-  <li><a href="japa.bst"><kbd>japa.bst</kbd></a></li>
-  <li><a href="japa.sty"><kbd>japa.sty</kbd></a></li>
-  <li><a href="summary.cls"><kbd>sumary.cls</kbd></a></li>
- </ul>
-</li>
+<li> <kbd>jinka.cls</kbd> ファイルをダウンロードして，文書ファイルと同じ
+フォルダに保存してください．
 </ol>
 
-<h3> <kbd style="font-variant: small-caps;">docstrip</kbd> による生成 </h3>
+<h3> expert install </h3>
 <ol>
-<li> <kbd>jinka.cls</kbd> のソースコードは，<kbd>jinka.dtx</kbd> ファイルに
- ドキュメントとともに記述されています．<kbd>jinka.dtx</kbd> を LaTeX で
- 処理すると，ドキュメント (<kbd>jinka.dvi</kbd>) が生成されます．
- <blockquote><kbd>$ platex jinka.dtx</kbd></blockquote>
+<li>クラスファイルに変更を加えるときは，<kbd>jinka.dtx</kbd> を
+編集してください．
 
 <li>クラスファイル <kbd>jinka.cls</kbd> は，<kbd>jinka.ins</kbd> 
 ファイルを LaTeX で処理することで生成されます．
+
 <blockquote><kbd>$ platex jinka.ins</kbd></blockquote>
 
-<li>参考文献スタイルファイル <kbd>japa.sty</kbd> および <kbd>japa.bst</kbd>
-は，<kbd>japa.ins</kbd> ファイルを LaTeX で処理することで生成されます．
-<blockquote><kbd>$ platex japa.ins</kbd></blockquote>
+<li> <kbd>jinka.cls</kbd> を適当なディレクトリ<sup>*</sup>にコピーして
+お使いください．
+<div style="font-size: 9pt; color: gray;">
+<sup>*</sup> 文書 LaTeX ソースファイルと同じディレクトリ もしくは 
+環境変数 <kbd>TEXINPUTS</kbd> で指定されたディレクトリ
+</div>
 
-
-<li>クラスファイルに変更を加えるときは，できるだけ<kbd>jinka.dtx</kbd> を
-編集し，ドキュメントも追加していただけると幸いです．
-
+<li> 参考文献スタイルファイルを使用するときは，以下のファイルも同じディレクトリにコピーしてください．
+  <ul> 
+  <li> <kbd>japa.bst</kbd>
+  <li> <kbd>japa.sty</kbd>
+  </ul>
 </ol>
 
-<h3> RPM パッケージの作成 (Redhat 系の Linux 向け) </h3>
-<p> 
-tarball には RPM spec ファイルが添付してありますので，以下のコマンドで
-RPM パッケージが作成できます．ディストリビューションごとの対応はして
-いないので，自己責任でお使いください．
+
+<h3> RPM install </h3>
+<p>
+パッケージには RPM spec ファイルが添付されているので，以下のように
+RPM パッケージを作成することもできます．
 </p>
 <blockquote>
 <kbd>$ rpm -tb jinka-@VERSION@.tar.gz</kbd>
@@ -132,10 +151,19 @@ RPM パッケージが作成できます．ディストリビューションごとの対応はして
 
 <h3> 注意点 </h3>
 <p>
-クラスファイルの文字コードは ISO-2022-JP (JIS) となっています．処理系に
-よっては，エディタやコンバータを使って文字コードや改行コードの変換を
-おこなう必要があるかもしれません．
+クラスファイルの文字コードは EUC-JP となっています．
+処理系によっては，エディタやコンバータを使って文字コードや改行コードの
+変換をおこなう必要があるかもしれません．
+(文書ファイルや他のパッケージファイルと同じ文字コードにしておく必要があります．)
 </p>
+
+
+<table align="center" class="table">
+ <tr><th>  </th><th>文字コード</th><th>改行コード</th></tr>
+ <tr><th>UNIX   </th><td>EUC-JP</td><td>LF</td></tr>
+ <tr><th>Windows</th><td>ShiftJIS</td><td>CR+LF</td></tr>
+ <tr><th>MacOS  </th><td>ShiftJIS</td><td>CR</td></tr>
+</table>
 
 
 <h2><a name="usage">使い方</a></h2>
@@ -143,47 +171,43 @@ RPM パッケージが作成できます．ディストリビューションごとの対応はして
 <p>
 
 
-ドキュメントクラスとして &quot;<kbd>jinka</kbd>&quot; を
+ドキュメントクラスおよびそのオプションに &quot;<kbd>jinka</kbd>&quot; を
 指定することで，1 頁あたり 40字×30行 フォーマットになります．
-オプションに <kbd>legacy</kbd>を指定した場合には，1頁あたり
+オプションに <kbd>jinka,obsolete</kbd>を指定した場合には，1頁あたり
 30字×20行 となります． </p>
 <blockquote>
-<kbd>\documentclass{jinka}</kbd>
+<kbd>\documentclass[jinka]{jinka}</kbd>
 </blockquote>
 
-<table width="80%" align="center" class="table">
-<colgroup width="40%" />
-<colgroup width="60%" />
+<table align="center" class="table">
 <theard>
  <tr><th>クラスオプション</th><th> 書式 </th></tr>
 </thead>
 <tbody>
- <tr><th><kbd>jinka</kbd> (デフォルト)</th> <td> 40字×30行 / 頁 </td></tr>
- <tr><th><kbd>legacy</kbd></th><td> 30字×20行 / 頁 </td></tr>
- <tr><th><kbd>twoside</kbd></th><td> 両面印刷用のレイアウトを採用 </td></tr>
- <tr><th><kbd>english</kbd></th><td> 章題などを英文表記にする </td></tr>
+ <tr><th><kbd>jinka</kbd></th>         <td> 40字×30行 / 頁 </td></tr>
+ <tr><th><kbd>jinka,obsolete</kbd></th><td> 30字×20行 / 頁 </td></tr>
+ <tr><th><kbd>nojinka</kbd></th>       <td> 40字×30行 / 頁 </td></tr>
 </tbody>
 </table>
 
 
 <h3>参考：執筆規定</h3>
-<table width="80%" align="center" border="0" class="table">
-<colgroup width="40%" />
-<colgroup width="60%" />
+<table align="center" border="0" class="table">
 <thead>
 <tr><th colspan="2">執筆規定 (平成14年度改定)</th></tr>
+
 </thead>
 <tbody>
   <tr>
-    <th rowspan="2"> 用紙 </th>
-    <td align="center"> A4判 上質紙 (55-70g/m<sup>2</sup>) </td>
+    <th>   用紙サイズ  </th>
+    <td align="center"> A4 (片面 もしくは 両面) </td>
   </tr>
   <tr>
-    <td align="center"> 片面印刷 / 両面印刷 </td>
+    <th rowspan="2">1頁あたり</th>
+    <td align="center">600字 (30字×20行)</td>
   </tr>
   <tr>
-    <th>1頁あたり字詰め</th>
-    <td align="center"> 30字×20行 / 40字×30行  </td>
+    <td align="center">1,200字 (40字×30行)</td>
   </tr>
   <tr>
     <th> 上 余白 </th>
@@ -191,7 +215,7 @@ RPM パッケージが作成できます．ディストリビューションごとの対応はして
   </tr>
   <tr>
     <th> 下 余白 </th>
-    <td align="center"> 20 - 40 mm </td>
+    <td align="center"> 25 - 40 mm </td>
   </tr>
   <tr>
     <th> 左 余白 </th>
@@ -201,25 +225,35 @@ RPM パッケージが作成できます．ディストリビューションごとの対応はして
     <th> 右 余白 </th>
     <td colspan="2" align="center"> 25 - 40 mm </td>
   </tr>
+  <tr>
+    <th>  紙質   </th>
+    <td align="center"> 上質紙 55-70g/m<sup>2</sup></td>
+  </tr>
 </tbody>
 </table>
+
+<hr />
 
 
 <h2><a name="contact">コンタクト</a></h2>
 <ul>
+<li> jinka クラスの web ページはこちら．
+    <a href="http://koko15.hus.osaka-u.ac.jp/%7Eyusuke/archive/jinka/">
+     http://koko15.hus.osaka-u.ac.jp/~yusuke/archive/jinka/
+    </a>
+</li>
 <li> ご意見，ご要望，バグ報告はこちらまでお寄せください．
   <address>
-    <a href="mailto:yusuke-devel&#64;bm.hus.osaka-u.ac.jp">
-     yusuke-devel&#64;bm.hus.osaka-u.ac.jp
+    <a href="mailto:yusuke&#64;bm.hus.osaka-u.ac.jp">
+     yusuke&#64;bm.hus.osaka-u.ac.jp
     </a>
   </address>
 </li>
 </ul>
 
-<div class="copyright">
- Copyright (c) 1998-2006  MIYAMOTO Yusuke.<br />
- Some rights reserved.
-</div>
+<hr />
+<div align="right">
+$Date$
 </div>
 
 </body>

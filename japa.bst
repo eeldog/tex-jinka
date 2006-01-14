@@ -1,8 +1,8 @@
 %% japa.bst
-%% Copyright (C) 1998-2006 MIYAMOTO Yusuke
+%% Copyright (C) 1998-2002 MIYAMOTO Yusuke
 %% All rights reserved.
 %% 
-%% $Revision$
+%% $Revision: 25 $
 %% $Date$
 
 ENTRY {
@@ -31,7 +31,7 @@ ENTRY {
     year
     yomi }
   { is.kanji.entry }
-  { label name.label year.label extra.label sort.label }
+  { label year.label extra.label sort.label }
 
 
 INTEGERS { output.state before.all mid.sentence after.sentence after.block }
@@ -85,7 +85,7 @@ FUNCTION {output.with.space}
 }
 
 FUNCTION {output.nonnull}
-{ 's := 
+{ 's :=
   output.state mid.sentence =
     { ", " * write$ }
     { output.state after.block =
@@ -139,8 +139,8 @@ FUNCTION {output.checka}
 FUNCTION {output.bibitem}
 { newline$
   "\bibitem[{" write$
-  name.label write$
-  "},{" write$
+  label write$
+  "}{" write$
   year.label write$
   "}]{" write$
   cite$ write$
@@ -243,7 +243,7 @@ FUNCTION {format.names}
 	    { s nameptr "{ff}{ll}" format.name$ 't := }
 	  if$
 	}
- 	{ s nameptr "{vv~}{ll}{, jj}{, f.}" format.name$ 't := }
+ 	{s nameptr "{vv~}{ll}{, jj}{, f.}" format.name$ 't :=}
       if$
       nameptr #1 >
 	{ namesleft #1 >
@@ -472,7 +472,7 @@ FUNCTION {format.pages}
 FUNCTION {format.vol.num.pages}
 { volume empty$
      {""}
-     { "\textbf{" volume *  "}" * }
+     { "{\bf " volume *  "}" * }
   if$
   number empty$
     { ", " * }
@@ -741,6 +741,7 @@ FUNCTION {book}
       if$
     }
   if$
+  new.block
   format.date "year" output.checka
   new.block
   format.btitle "title" output.check
@@ -788,6 +789,7 @@ FUNCTION {inbook}
       if$
     }
   if$
+  new.block
   format.date "year" output.checka
   new.block
   format.btitle "title" output.check
@@ -814,6 +816,7 @@ FUNCTION {inbook}
 FUNCTION {incollection}
 { output.bibitem
   format.authors "author" output.check
+  new.block
   format.date "year" output.checka
   new.block
   format.title "title" output.check
@@ -856,6 +859,7 @@ FUNCTION {inproceedings}
 	  format.date "year" output.checka
 	}
 	{ address output.nonnull
+          new.block
 	  format.date "year" output.checka
 	  new.sentence
 	  organization output
@@ -912,6 +916,7 @@ FUNCTION {manual}
 FUNCTION {mastersthesis}
 { output.bibitem
   format.authors "author" output.check
+  new.block
   format.date "year" output.checka
   new.block
   format.title "title" output.check
@@ -942,6 +947,7 @@ FUNCTION {misc}
 FUNCTION {phdthesis}
 { output.bibitem
   format.authors "author" output.check
+  new.block
   format.date "year" output.checka
   new.block
   format.btitle "title" output.check
@@ -960,6 +966,7 @@ FUNCTION {proceedings}
     { organization output }
     { format.editors output.nonnull }
   if$
+  new.block
   format.date "year" output.checka
   new.block
   format.btitle "title" output.check
@@ -991,6 +998,7 @@ FUNCTION {proceedings}
 FUNCTION {techreport}
 { output.bibitem
   format.authors "author" output.check
+  new.block
   format.date "year" output.checka
   new.block
   format.title "title" output.check
@@ -1112,7 +1120,7 @@ FUNCTION {format.lab.names}
 FUNCTION {author.key.label}
 { author empty$
     { key empty$
-	{ cite$ #1 #4 substring$ }
+	{ cite$ #1 #3 substring$ }
 	'key
       if$
     }
@@ -1124,7 +1132,7 @@ FUNCTION {author.editor.key.label}
 { author empty$
     { editor empty$
 	{ key empty$
-	    { cite$ #1 #4 substring$ }
+	    { cite$ #1 #3 substring$ }
 	    'key
 	  if$
 	}
@@ -1138,7 +1146,7 @@ FUNCTION {author.editor.key.label}
 FUNCTION {editor.key.label}
 { editor empty$
     { key empty$
-	{ cite$ #1 #4 substring$ }
+	{ cite$ #1 #3 substring$ }
 	'key
       if$
     }
@@ -1146,7 +1154,7 @@ FUNCTION {editor.key.label}
   if$
 }
 
-FUNCTION {calc.name.label}
+FUNCTION {calc.label}
 { type$ "book" =
   type$ "inbook" =
   or
@@ -1157,20 +1165,13 @@ FUNCTION {calc.name.label}
       if$
     }
   if$
-  'name.label :=
+  'label :=
 }
 
 FUNCTION {calc.year.label}
 { year field.or.null purify$ #-1 #4 substring$
   'year.label :=
 }
-
-FUNCTION {calc.label}
-{ calc.name.label calc.year.label
-  name.label ", " * year.label *
-  'label :=
-}
-
 
 FUNCTION {sort.format.names}
 { 's :=
@@ -1256,13 +1257,9 @@ FUNCTION {editor.sort}
   if$
 }
 
-%FUNCTION {}
-%{
-%
-%}
-
 FUNCTION {presort}
 { calc.label
+  calc.year.label
   label sortify
   "    "
   *
@@ -1286,38 +1283,34 @@ FUNCTION {presort}
   sort.format.title
   *
   #1 entry.max$ substring$
-  sortify 'sort.key$ :=
+  'sort.key$ :=
 }
 
 ITERATE {presort}
 
-SORT % BY name.label, year.label, sort.label, title
+SORT
 
 STRINGS { last.label next.extra }
 
 INTEGERS { last.extra.num }
 
 FUNCTION {initialize.extra.label.stuff}
-{ #0 'last.extra.num :=
-  #0 int.to.chr$ 'last.label :=
+{ #0 int.to.chr$ 'last.label :=
   "" 'next.extra :=
+  #0 'last.extra.num :=
 }
 
-EXECUTE {initialize.extra.label.stuff}
-
 FUNCTION {forward.pass}
-{ label sortify last.label =
+{ last.label year.label =
     { last.extra.num #1 + 'last.extra.num :=
       last.extra.num int.to.chr$ 'extra.label :=
     }
     { "a" chr.to.int$ 'last.extra.num :=
       "" 'extra.label :=
-      label sortify 'last.label :=
+      year.label 'last.label :=
     }
   if$
 }
-
-ITERATE {forward.pass}
 
 FUNCTION {reverse.pass}
 { next.extra "b" =
@@ -1327,6 +1320,10 @@ FUNCTION {reverse.pass}
   year.label extra.label * 'year.label :=
   extra.label 'next.extra :=
 }
+
+EXECUTE {initialize.extra.label.stuff}
+
+ITERATE {forward.pass}
 
 REVERSE {reverse.pass}
 
@@ -1347,7 +1344,8 @@ FUNCTION {bib.sort.order}
 
 ITERATE {bib.sort.order}
 
-SORT % BY sort.label, year, title
+
+SORT
 
 FUNCTION {begin.bib}
 { preamble$ empty$

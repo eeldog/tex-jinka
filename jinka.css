@@ -1,18 +1,19 @@
-/* jinka.css
- * $Revision: 1.3 $
- * $Date: 2003/01/04 18:55:08 $
+/* jinka.css - stylesheet for jinka/index.html
+ * $Revision: 25 $
  */	
-a         { text-decoration: none; }
-a:link    { color: darkblue;  background: transparent; }
-a:visited { color: blue;      background: transparent; }
-a:active  { color: orange;    background: transparent; }
-a:hover   { color: blue;      background: gray; }
+@charset "utf-8";
+
+a         { text-decoration: none; padding: 2pt 5pt; }
+a:link    { color: blue;      background-color: transparent; }
+a:visited { color: darkblue;  background-color: transparent; }
+a:active  { color: orange;    background-color: transparent; }
+a:hover   { color: blue;      background-color: pink; }
+
 
 body {
-    color: #000000;
-    background-color: #FFFF80;
-    margin: 0pt;
-    padding: 0pt;
+    color: rgb(51, 51, 204);
+    background-color: white;
+    margin:  .5in 1in;
 }
 
 h1 {
@@ -35,9 +36,7 @@ h3 {
 }
 
 blockquote {
-  color: #F0F0FF;
-  background-color: black;
-  border: 1px solid gray; 
+  border: 1px solid blue; 
   padding: 5pt;
 }
 
@@ -62,14 +61,26 @@ em {
   }
 
 ul { list-style-type: circle; }
-
 li { margin: 6pt; }
+
+ul#toc {
+       text-align: center;
+       font-size: small;
+}
+
+ul#toc li { display: inline; }
+ul#toc li:before { content: "["; }
+ul#toc li:after  { content: "]"; }
+
+address {
+    font-family: monospace;
+    font-style: normal;
+    padding: 3pt;
+}
 
 table.table {
    border-collapse: collapse;
    border-spacing: 0px;
-   color: black;
-   background-color: white;
 }
 
 table.table tr th {
@@ -85,26 +96,7 @@ table.table tr td {
     color: black;
     background-color: inherit;
     text-align: center;
-    font-weight: bold;
     border: 1px solid black;
     padding: 3pt 12pt;
 }
 
-.main {
-    color: inherit;
-    background-color: white;
-    margin: 0pt 1in;
-    padding: 12pt;
-    border-left: solid thin gray;
-    border-right: solid thin gray;
-}
-
-.copyright {
-    color: #606060;
-    background-color: transparent;
-    text-align: center;
-    font-size: 10pt;
-    border-top: thin solid gray;
-    padding: 5pt;
-    margin: 5pt 0pt;
-}

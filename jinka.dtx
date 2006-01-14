@@ -7,9 +7,8 @@
 % Some rights reserved.
 % \fi
 \def\filename{jinka.dtx}
-\def\fileversion{1.2.2}
+\def\fileversion{1.2.3}
 \def\filedate{2006/01/16}
-% \CheckSum{27516}
 %
 % \changes{v1.0}{1998/10/01}{jinka.cls for pLaTeX2e version 1.0 公開}
 % \changes{v1.1a}{2000/08/30}{version 1.1 $\alpha$}
@@ -29,19 +28,21 @@
 % \changes{1.2.1}{2005/02/08}{|jinka| オプションのフォーマットを変更．}
 % \changes{1.2.2}{2006/01/09}{章題の中で改行できないバグを修正．}
 % \changes{1.2.2}{2006/01/09}{|english| オプションを追加．}
+% \changes{1.2.3}{2006/01/15}{執筆要項に合わせてデフォルト値を変更．}
 % 
 % \iffalse
 %<*driver>
-\documentclass[a4j]{jarticle}
+\documentclass[a4j]{ltxdoc}
   \usepackage{doc}
   
   \RecordChanges
+  \DontCheckModules
   \OnlyDescription
   \MakeShortVerb{\|}
 
-  \title{{\normalsize 大阪大学人間科学部 (行動学系)}\\
-         学位論文用クラスファイル version {\fileversion}}
-  \author{MIYAMOTO Yusuke\thanks{国立大学法人 大阪大学 大学院人間科学研究科}}
+  \title{人間科学研究科 (行動学系)\\
+         学位論文用クラスファイル \\version {\fileversion}}
+  \author{MIYAMOTO Yusuke\thanks{国立大学法人 大阪大学 大学院人間科学研究科（行動データ科学）}}
   \date{\filedate}
   
 \begin{document}
@@ -86,8 +87,8 @@
 %  \subsection*{オプション}
 %    |\documentclass| のオプションとして以下のものが指定できます．
 %    デフォルトでは「独立したタイトルページ（|titlepage|）」，
-%    「jinka スタイル（|jinka|）」，「図表にはセクション毎の
-%    番号をつける（|noserial|）」となっています．
+%    「jinka スタイル（|jinka|）」，「図表には章ごとの番号をつける
+%    （|noserial|）」となっています．
 %  
 %    \begin{table}[htb]
 %    \caption{グローバルオプションの一覧}
@@ -97,15 +98,21 @@
 %    \begin{tabular}{ll} \hline
 %    \hbox to .2\textwidth{\bfseries オプション\hfill}  & 
 %    \hbox to .7\textwidth{\bfseries 解説\hfill} \\ \hline
-%    \texttt{titlepage}   & タイトルを独立したページにする．\\
-%    \texttt{notitlepage} & タイトルページを独立させない．\\
-%    \texttt{draft}       & +\ifdraft+ スィッチを +true+ にする．\\
-%    \texttt{final}       & +\ifdraft+ スィッチを +false+ にする．\\
-%    \texttt{serial}      & 図表に通し番号をつける．\\
-%    \texttt{noserial}    & 図表の番号を章ごとにリセットする．\\
 %    \texttt{jinka}       & 40字 $\times$ 30行 の書式を使用する．\\
 %    \texttt{legacy}      & 30字 $\times$ 20行 の書式を使用する．\\
-%    \texttt{nojinka}     & +jinka+ と同じ．(obsolete なオプション) \\ \hline
+
+%    \texttt{titlepage}   & タイトルを独立したページにする．\\
+%    \texttt{notitlepage} & タイトルページを独立させない．\\
+
+%    \texttt{serial}      & 図表に通し番号をつける．\\
+%    \texttt{noserial}    & 図表の番号を章ごとにリセットする．\\
+
+%    \texttt{english}     & 章見出し，図表番号などを英文表記にします．\\
+
+%    \texttt{draft}       & +\ifdraft+ スィッチを +true+ にする．\\
+%    \texttt{final}       & +\ifdraft+ スィッチを +false+ にする．\\
+
+%    \hline
 %    \end{tabular}
 %    \end{center}
 %    \DeleteShortVerb{\+}
@@ -129,19 +136,19 @@
 %    \end{macro}
 %    
 %    \begin{macro}{\Lines}
-%    |\Lines{|{\em lines}|}| は， |\baselinestretch| を 1 ページあたりの行数
-%    が {\em lines} となるように設定します．
-%    \[{|baselinestrech|} = \frac{{|textheight|}-\mbox{|topskip|}}%
-%                     {(\mathit{lines}-1)\times{|baselineskip|}} \]
+%    |\Lines{|\textit{lines}|}| は， |\baselinestretch| を 1 ページあたりの
+%    行数が \textit{lines} となるように設定します．
+%    \[ {|baselinestrech|} = \frac{{|textheight|}-{|topskip|}}%
+%                    {\mathit{lines} \times {|baselineskip|}} \]
 %    \end{macro}
 %    
-%    これらのパラメータには，グルーが入ることを考えてほんの少し余裕を
-%    もたせて設定します．また，プロポーショナルフォントのカーニングが
-%    あるため，厳密に設定できるわけではありません．
+%    これらのパラメータは，グルーが入ることを考慮して若干 ($1/10$ 文字分) 
+%    の余裕をもたせて設定します．また，プロポーショナルフォントを使用するため，
+%    厳密に設定できるわけではありません．
 %    
-%    その他のスタイル・パラメータについては，標準のクラスパッケージ
-%    (jreport.cls など) に準じます．そちらのドキュメントも参考にして
-%    下さい．
+%    その他のスタイル・パラメータについては，日本語 p\LaTeX2e 標準の
+%    クラスパッケージ (jreport.cls など) に準じます．
+%    そちらのドキュメントも参考にして下さい．
 %    
 %  \subsection*{ページスタイル}
 %    以下のページスタイルが定義されています．
@@ -257,20 +264,23 @@
 %    \end{minipage}
 %    \end{center}
 %
-%    \textsc{JBib}\TeX スタイルファイル |japa| を付属しました．
+%    \textsc{JBib}\TeX スタイルファイル |japa.bst| を付属しました．
 %    
 %
-%  \subsection*{付録}
+%  \subsection*{付録 コマンド}
 %    \begin{macro}{\appendix}
 %    |\appendix| コマンドは，chapter カウンタをリセットし，章見出しを
-%    「付録 A $\cdots$」となるように設定しなおします．「付録」の部分は
-%    |\appendixname| によって決定されます．
+%    「付録 A $\cdots$」となるように設定しなおします．
 %    \end{macro}
 % 
-%  \subsection*{謝辞}
+%  \subsection*{謝辞 環境}
 %    \begin{environment}{acknowledgement}
-%    |acknowledgement| 環境は，論文の末尾に謝辞を記すのに便利です．
+%    |acknowledgement| 環境は，謝辞を記すのに便利です．
 %    末尾に (|\date| コマンドで指定した) 日付を自動的に挿入します．
+%    \end{environment}
+%    
+%    \begin{environment}{acknowledgement*}
+%    |acknowledgement*| 環境では，末尾に日付を挿入しません．
 %    \end{environment}
 % 
 % \StopEventually{
@@ -285,11 +295,10 @@
 %
 %   その他，バグレポートやご意見・ご要望があれば，以下のアドレスまで．
 % \begin{center}
-% \textsl{yusuke@bm.hus.osaka-u.ac.jp}
+% \textsl{my@hus.osaka-u.ac.jp}
 % \end{center}
 % }
 % \clearpage
-%
 %<*jinka>
 % \section*{コードの解説}
 %
@@ -318,10 +327,10 @@
 % \end{macro}
 % 
 % \subsection*{オプションスイッチ}
-% ここで, 後ほど使用するコマンドやスイッチを定義しています.
+% ここで，後ほど使用するコマンドやスイッチを定義しています．
 %
 % \begin{macro}{\c@@paper}
-% 用紙サイズを示します．A4, A5, B4, B5 はそれぞれ 1, 2, 3, 4 で表されます.
+% 用紙サイズを示します．A4, A5, B4, B5 はそれぞれ 1, 2, 3, 4 で表されます．
 %    \begin{macrocode}
 \newcounter{@paper}
 %    \end{macrocode}
@@ -538,7 +547,7 @@
 %    \end{macrocode}
 %
 % \subsubsection*{オプションの実行}
-% デフォルトの設定をした後，オプションを実行します．
+% デフォルトのオプションを設定し，実行します．
 %    \begin{macrocode}
 \ExecuteOptions{a4j,11pt,oneside,onecolumn,titlepage,final,noserial,jinka}
 \ProcessOptions\relax
@@ -580,10 +589,8 @@
 %    \begin{macrocode}
 \newcommand{\Lines}[1]{%
   \@tempcnta=#1
-  \advance\@tempcnta\m@ne
   \setlength{\@tempdima}{\textheight}
   \advance\@tempdima by -\topskip
-  \advance\@tempdima by -\headsep
   \divide\@tempdima by \@tempcnta
   \setfraction[8]{\baselinestretch}{\@tempdima}{\baselineskip}
   \ClassInfo{jinka}{setting \string\basrlinestretch\space to \baselinestretch}
@@ -905,7 +912,7 @@
 %
 % \begin{macro}{\ps@plain}
 % |plain| は，ヘッダは空で，フッタにページ番号を出力します．
-%    \begin{macrocode} 
+%    \begin{macrocode}
 \def\ps@plain{\let\@mkboth\@gobbletwo
    \let\ps@jpl@in\ps@plain
    \let\@oddhead\@empty
@@ -1043,9 +1050,9 @@
   \def\ps@linehead{
     \let\ps@jpl@in\ps@footnombre
     \def\@evenhead{\vbox{\hsize=\textwidth\leftmark\hfill\headrule}}
-    \def\@evenfoot{\thepage\hfil}
+    \def\@evenfoot{\hfill\thepage\hfil}
     \def\@oddhead{\vbox{\hsize=\textwidth\hfill\rightmark\headrule}}
-    \def\@oddfoot{\hfil\thepage}
+    \def\@oddfoot{\hfil\thepage\hfill}
     \let\@mkboth\markboth
     \def\chaptermark##1{\markboth{%
       \ifnum \c@secnumdepth >\m@ne
@@ -1261,7 +1268,7 @@
      \vbox to 4\Cvs{%
       \@date\\
       \@ifundefined{@institute}{\relax}{\@institute\\}
-      \hbox to 16zw{\vsize=24pt\hfill}}
+      \hbox to 16zw{\vsize=24pt\hfill}\clearpage}
    \end{flushright}
    \clearpage}
 \newenvironment{acknowledgement*}
@@ -1355,7 +1362,7 @@
       \addcontentsline{toc}{part}
         {\prepartname\thepart\postpartname\hspace{1em}#1}
       \typeout
-        { *** \prepartname\space\thepart\space\postpartname\spaces #1 *** }
+        { *** \prepartname\space\thepart\space\postpartname\@spaces #1 *** }
     \else
       \addcontentsline{toc}{part}{#1}
       \typeout{ *** #1 *** }
@@ -1449,7 +1456,7 @@
 %    \end{macrocode}
 % \end{macro}
 %
-% \begin{macro}{\subection}
+% \begin{macro}{\subsection}
 % 見出しの出力は large, bold です．
 %    \begin{macrocode}
 \newcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
@@ -1510,7 +1517,7 @@
 % \end{macro}
 % 
 % \begin{macro}{\appendix}
-% 付録を始めます．
+% 付録を開始します．
 %    \begin{macrocode}
 \newcommand{\appendix}{\par
   \setcounter{chapter}{0}%
@@ -2501,7 +2508,7 @@
 \fi
 %    \end{macrocode}
 %</jinka>
-%<jinka>\endinput
+% \CheckSum{2563}
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
 %%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z

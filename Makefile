@@ -1,14 +1,13 @@
 # Makefile
-# $Revision$
-# $Date$
 
 PACKAGE = jinka
-VERSION = 1.2.2
+VERSION = 1.2.3
 
 ## Modify these variables in tune with your site configuration.
 TEX      = platex
 TEXFLAGS = -interaction batch
 INSTALL  = install -c
+DVIPDF   = dvipdfmx
 NKF      = nkf
 NKF_JIS  = $(NKF) --jis
 NKF_MAC  = $(NKF) --mac
@@ -23,19 +22,21 @@ DESTDIR  =
 SHELL = /bin/sh
 
 PKGFILES = jinka.cls japa.sty japa.bst english.sty summary.cls
-DISTFILES = $(PKGFILES) README Makefile index.html jinka.css \
-            jinka.dtx jinka.ins japa.dtx japa.ins jinka.spec \
-            index.html.in jinka.spec obsolete/sotsu.sty example.ltx
+DISTFILES = README Makefile index.html index.html.in jinka.css \
+            jinka.cls jinka.dtx jinka.ins summary.cls \
+            japa.sty japa.dtx japa.bst japa.ins \
+            english.sty obsolete/sotsu.sty jinka.spec
 
 distdir=$(PACKAGE)-$(VERSION)
 
-# _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
-all: $(PKGFILES) index.html $(distdir).tar.gz
+################################################################
+all: $(PKGFILES) index.html
 
 jinka.cls: jinka.dtx jinka.ins
 	@-rm -f $@
 	@echo -n "making $@ ... " 1>&2
 	@-$(TEX) $(TEXFLAGS) jinka.ins  1> /dev/null 2>&1
+	@cp $@ $@.bak; nkf -j $@.bak > $@;
 	@echo "done." 1>&2
 
 japa.sty: japa.dtx japa.ins
@@ -56,10 +57,14 @@ jinka.dvi: jinka.dtx
 	@-$(TEX) $(TEXFLAGS) jinka.dtx && $(TEX) $(TEXFLAGS) jinka.dtx
 	@echo "done." 1>&2
 
-index.html: doc/index.html.in
-	@echo -n "making $@ ... " 1>&2
+jinka.pdf: jinka.dvi
+	$(DVIPDF) $<
+
+ jinka.spec: jinka.spec.in
 	@sed 's,@VERSION@,$(VERSION),g' $< > $@
-	@echo "done." 1>&2
+
+index.html: index.html.in
+	@sed 's,@VERSION@,$(VERSION),g' $< > $@
 
 install: $(PKGFILES)
 	@if [ ! -d $(DESTDIR)$(TEXDIR) ]; then             \
@@ -73,7 +78,7 @@ install: $(PKGFILES)
 	done
 
 clean:
-	-rm -f core *~ *.aux *.log *.bbl *.blg *.glo
+	-rm -f core *~ *.log *.glo *.blg *.aux
 
 distclean: clean
 	-rm -f jinka.cls japa.sty index.html
@@ -83,7 +88,7 @@ package: $(distdir).tar.gz
 $(distdir).tar.gz: distdir
 	@chmod -R a+r $(distdir)
 	tar cfz $(distdir).tar.gz $(distdir)
-	@-rm -rf $(distdir)
+	rm -rf $(distdir)
 
 distdir: $(DISTFILES)
 	@-rm -rf $(distdir)
