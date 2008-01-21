@@ -3,11 +3,11 @@
 % $Revision$
 % $Date$
 %
-% Copyright (C) 1998-2006  MIYAMOTO Yusuke
+% Copyright (C) 1998-2008  MIYAMOTO Yusuke
 % Some rights reserved.
 % \fi
 \def\filename{jinka.dtx}
-\def\fileversion{1.2.3}
+\def\fileversion{1.2.4}
 \def\filedate{2006/01/16}
 %
 % \changes{v1.0}{1998/10/01}{jinka.cls for pLaTeX2e version 1.0 公開}
@@ -29,6 +29,7 @@
 % \changes{1.2.2}{2006/01/09}{章題の中で改行できないバグを修正．}
 % \changes{1.2.2}{2006/01/09}{|english| オプションを追加．}
 % \changes{1.2.3}{2006/01/15}{執筆要項に合わせてデフォルト値を変更．}
+% \changes{1.2.4}{2008/11/30}{執筆要項に合わせてオプションを追加．}
 % 
 % \iffalse
 %<*driver>
@@ -72,7 +73,7 @@
 %   \multicolumn{2}{c}{\hbox to .95\textwidth{}} \\
 %   \hline
 %   \textbf{用紙}         &  A4 判 上質紙 (55 -- 70g/m$^2$)         \\
-%   \textbf{1頁の文字数}  & 30字 $\times $20行 / 40字 $\times $30行 \\
+%   \textbf{1頁の文字数}  & 800字 -- 1,200 字                       \\
 %   \textbf{印刷}         & 片面 / 両面 印刷                        \\
 %   \textbf{上 余白}      & 25 -- 40mm                              \\
 %   \textbf{下 余白}      & 20 -- 40mm                              \\
@@ -99,6 +100,7 @@
 %    \hbox to .2\textwidth{\bfseries オプション\hfill}  & 
 %    \hbox to .7\textwidth{\bfseries 解説\hfill} \\ \hline
 %    \texttt{jinka}       & 40字 $\times$ 30行 の書式を使用する．\\
+%    \texttt{leaded}      & 40字 $\times$ 20行 の書式を使用する．\\
 %    \texttt{legacy}      & 30字 $\times$ 20行 の書式を使用する．\\
 
 %    \texttt{titlepage}   & タイトルを独立したページにする．\\
@@ -379,6 +381,13 @@
 %    \end{macrocode}
 % \end{macro}
 %
+% \begin{macro}{\if@leaded}
+% 行間の広いスタイルを使用するかどうかを示すスイッチです．
+%    \begin{macrocode}
+\newif\if@leaded \@leadedfalse
+%    \end{macrocode}
+% \end{macro}
+%
 % \begin{macro}{\if@legacy}
 % 旧スタイルを使用するかどうかを示すスイッチです．
 %    \begin{macrocode}
@@ -542,7 +551,8 @@
 % jinka スタイルにするかどうかを指定します．
 %    \begin{macrocode}
 \DeclareOption{jinka}{\@jinkatrue}
-\DeclareOption{legacy}{\@legacytetrue}
+\DeclareOption{leaded}{\@leadedtrue}
+\DeclareOption{legacy}{\@legacytrue}
 \DeclareOption{nojinka}{\@jinkafalse\typeout{`nojinka' option is obsolete.}}
 %    \end{macrocode}
 %
@@ -2499,16 +2509,12 @@
 %    \end{macrocode}
 % \subsection*{字詰めの設定}
 %    \begin{macrocode}
-\if@jinka
-  \if@legacy \Columns{30}\Lines{20}
-  \else      \Columns{40}\Lines{30}
-  \fi
-\else
-  \Columns{40}\Lines{30}
-\fi
+\Columns{40}\Lines{30}
+\if@leaded \Columns{40}\Lines{20} \fi
+\if@legacy \Columns{30}\Lines{20} \fi
 %    \end{macrocode}
 %</jinka>
-% \CheckSum{2563}
+% \CheckSum{2567}
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
 %%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z

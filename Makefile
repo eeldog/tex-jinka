@@ -1,11 +1,11 @@
 # Makefile
 
 PACKAGE = jinka
-VERSION = 1.2.3
+VERSION = 1.2.4
 
 ## Modify these variables in tune with your site configuration.
 TEX      = platex
-TEXFLAGS = -interaction batch
+TEXFLAGS = -interaction batch -kanji=jis
 INSTALL  = install -c
 DVIPDF   = dvipdfmx
 NKF      = nkf
@@ -30,13 +30,12 @@ DISTFILES = README Makefile index.html index.html.in jinka.css \
 distdir=$(PACKAGE)-$(VERSION)
 
 ################################################################
-all: $(PKGFILES) index.html
+all: $(PKGFILES)
 
 jinka.cls: jinka.dtx jinka.ins
 	@-rm -f $@
 	@echo -n "making $@ ... " 1>&2
 	@-$(TEX) $(TEXFLAGS) jinka.ins  1> /dev/null 2>&1
-	@cp $@ $@.bak; nkf -j $@.bak > $@;
 	@echo "done." 1>&2
 
 japa.sty: japa.dtx japa.ins
