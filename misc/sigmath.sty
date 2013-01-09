@@ -1,0 +1,35 @@
+\def\bibitem{\@ifnextchar[\@lbibitem\@bibitem}
+
+\def\@lbibitem[#1]#2{\item[\@biblabel{#1}\hfill]\if@filesw
+      {\let\protect\noexpand
+       \immediate
+       \write\@auxout{\string\bibcite{#2}{#1}}}\fi\ignorespaces}
+
+\def\@bibitem#1{\item\if@filesw \immediate\write\@auxout
+       {\string\bibcite{#1}{\the\value{\@listctr}}}\fi\ignorespaces}
+\def\bibcite{\@newl@bel b}
+
+\let\citation\@gobble
+
+\renewenvironment{thebibliography}[1]{%
+  \global\let\presectionname\relax
+  \global\let\postsectionname\relax
+  \chapter*{\bibname}\@mkboth{\bibname}{}%
+  \addcontentsline{toc}{chapter}{\bibname}%
+   \list{\@biblabel{\@arabic\c@enumiv}}%
+        {\settowidth\labelwidth{\@biblabel{#1}}%
+         \leftmargin\labelwidth
+         \advance\leftmargin\labelsep
+         \@openbib@code
+         \usecounter{enumiv}%
+         \let\p@enumiv\@empty
+         \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+   \sloppy
+   \clubpenalty4000
+   \@clubpenalty\clubpenalty
+   \widowpenalty4000%
+   \sfcode`\.\@m}
+  {\def\@noitemerr
+    {\@latex@warning{Empty `thebibliography' environment}}%
+   \endlist}
+

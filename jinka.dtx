@@ -1,14 +1,12 @@
 % \iffalse     META-COMMENT
 % Source File: jinka.dtx
-% $Revision$
-% $Date$
 %
-% Copyright (C) 1998-2008  MIYAMOTO Yusuke
+% Copyright (C) 1998-2013  MIYAMOTO Yusuke
 % Some rights reserved.
 % \fi
 \def\filename{jinka.dtx}
-\def\fileversion{1.2.4}
-\def\filedate{2006/01/16}
+\def\fileversion{1.2.5}
+\def\filedate{2013/01/09}
 %
 % \changes{v1.0}{1998/10/01}{jinka.cls for pLaTeX2e version 1.0 公開}
 % \changes{v1.1a}{2000/08/30}{version 1.1 $\alpha$}
@@ -30,6 +28,7 @@
 % \changes{1.2.2}{2006/01/09}{|english| オプションを追加．}
 % \changes{1.2.3}{2006/01/15}{執筆要項に合わせてデフォルト値を変更．}
 % \changes{1.2.4}{2008/11/30}{執筆要項に合わせてオプションを追加．}
+% \changes{1.2.5}{2013/01/09}{|english| オプションの調整．}
 % 
 % \iffalse
 %<*driver>
@@ -1372,14 +1371,14 @@
       \addcontentsline{toc}{part}
         {\prepartname\thepart\postpartname\hspace{1em}#1}
       \typeout
-        { *** \prepartname\space\thepart\space\postpartname\@spaces #1 *** }
+        {\@spaces *** \Roman{part}.\space #1 ***}
     \else
       \addcontentsline{toc}{part}{#1}
-      \typeout{ *** #1 *** }
+      \typeout{\@spaces *** #1 ***}
     \fi
   \else
     \addcontentsline{toc}{part}{#1}
-    \typeout{ *** #1 *** }
+    \typeout{\@spaces *** #1 ***}
   \fi
   \markboth{}{}%
   {\centering
@@ -1418,14 +1417,14 @@
     \if@mainmatter
       \refstepcounter{chapter}%
       \typeout
-        { *** \@chapapp\space\thechapter\space\@chappos\@spaces #1 *** }
+        {\@spaces *** \arabic{chapter}.\space #1 ***}
       \addcontentsline{toc}{chapter}%
-        {\protect\numberline{\@chapapp\thechapter\@chappos}#1}%
+        {\@chapapp\thechapter\@chappos\hspace{1\Chs}#1}%
     \else
       \addcontentsline{toc}{chapter}{#1}
     \fi
   \else
-    \typeout{ *** #1 *** }
+    \typeout{\@spaces *** #1 ***}
     \addcontentsline{toc}{chapter}{#1}%
   \fi
   \chaptermark{#1}%
@@ -1692,7 +1691,7 @@
 % \end{macro}
 %
 % \begin{environment}{itemize}
-% これも上下に半行分のアキを作ります．
+% 上下に半行分のアキを作ります．
 %    \begin{macrocode}
 \renewenvironment{itemize}
 { \ifnum \@itemdepth >3\relax\@toodeep\else
@@ -1966,9 +1965,9 @@
 %
 %\subsection*{フォントコマンド}
 % 数式内で日本語を直接記述するため，数式記号用文字に日本語フォントファミリ
-% を登録します．ただし，\TeX{}では扱える数式ファミリに制限（16個）という制限
-% があるため，ときには日本語を直接記述することを諦めなければならないかもしれ
-% ません．
+% を登録します．ただし，一般的な\TeX{}処理系では扱える数式ファミリに制限（16個）
+% という制限があるため，ときには日本語を直接記述することを諦めなければならない
+% かもしれません．
 %    \begin{macrocode}
 \if@enablejfam
   \DeclareSymbolFont{mincho}{JY1}{mc}{m}{n}
@@ -2132,7 +2131,7 @@
     { \leavevmode\large\bfseries
       \setlength\@lnumwidth{4zw}%
       #1\hfil\nobreak
-      \hbox to\@pnumwidth{\hss#2}}\par
+      \hbox to\@pnumwidth{\hss #2}}\par
     \nobreak
     \global\@nobreaktrue
     \everypar{\global\@nobreakfalse\everypar{}}%
@@ -2151,7 +2150,12 @@
     \begingroup
       \parindent\z@ \rightskip\@pnumwidth \parfillskip-\rightskip
       \leavevmode\bfseries
-      \setlength\@lnumwidth{4zw}%
+      \settowidth\@lnumwidth{\@chapapp\thechapter\@chappos}%
+      \if@english
+        \addtolength{\@lnumwidth}{1ex}
+      \else
+        \addtolength{\@lnumwidth}{1zw}     
+      \fi
       \advance\leftskip\@lnumwidth \hskip-\leftskip
       #1\nobreak\hfil\nobreak\hbox to\@pnumwidth{\hss#2}\par
       \penalty\@highpenalty
@@ -2422,7 +2426,7 @@
   \providecommand{\prepartname}{Part~}
   \providecommand{\postpartname}{}
   \providecommand{\prechaptername}{Chapter~}
-  \providecommand{\postchaptername}{}
+  \providecommand{\postchaptername}{.}
 \else
   \newcommand{\prepartname}{第}
   \newcommand{\postpartname}{部}
@@ -2514,7 +2518,7 @@
 \if@legacy \Columns{30}\Lines{20} \fi
 %    \end{macrocode}
 %</jinka>
-% \CheckSum{2567}
+% \CheckSum{2574}
 %% \CharacterTable
 %%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
 %%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z

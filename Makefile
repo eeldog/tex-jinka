@@ -34,25 +34,25 @@ all: $(PKGFILES)
 
 jinka.cls: jinka.dtx jinka.ins
 	@-rm -f $@
-	@echo -n "making $@ ... " 1>&2
+	@printf "making $@ ... " 1>&2
 	@-$(TEX) $(TEXFLAGS) jinka.ins  1> /dev/null 2>&1
 	@echo "done." 1>&2
 
 japa.sty: japa.dtx japa.ins
 	@-rm -f $@
-	@echo -n "making $@ ..." 1>&2
+	@printf "making $@ ..." 1>&2
 	@-$(TEX) $(TEXFLAGS) japa.ins 1> /dev/null 2>&1
 	@echo "done." 1>&2
 
 japa.bst:
-	@echo -n "making $@ ..." 1>&2
+	@printf "making $@ ..." 1>&2
 	@touch $@
 	@echo "done." 1>&2
 
 doc: jinka.dvi
 
 jinka.dvi: jinka.dtx
-	@echo -n "making documents ... " 1>&2
+	@printf "making documents ... " 1>&2
 	@-$(TEX) $(TEXFLAGS) jinka.dtx && $(TEX) $(TEXFLAGS) jinka.dtx
 	@echo "done." 1>&2
 
@@ -71,13 +71,13 @@ install: $(PKGFILES)
 	  mkdir -p $(DESTDIR)$(TEXDIR);                    \
 	fi
 	@for f in $(PKGFILES); do        \
-	  echo -n "install $$f into $(DESTDIR)$(TEXDIR)/$$f ..."; \
+	  printf "install $$f into $(DESTDIR)$(TEXDIR)/$$f ..."; \
           $(INSTALL) -m 644 $$f $(DESTDIR)$(TEXDIR)/$$f;          \
           echo "done." \
 	done
 
 clean:
-	-rm -f core *~ *.log *.glo *.blg *.aux
+	-rm -f core *~ *.log *.glo *.blg *.aux *.toc
 
 distclean: clean
 	-rm -f jinka.cls japa.sty index.html
@@ -92,7 +92,7 @@ $(distdir).tar.gz: distdir
 distdir: $(DISTFILES)
 	@-rm -rf $(distdir)
 	mkdir $(distdir)
-	@echo -n "copying files ... "
+	@printf "copying files ... "
 	@for f in $(DISTFILES); do        \
 	  $(INSTALL) -m 644 $$f $(distdir)/$$f;  \
 	done;
