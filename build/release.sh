@@ -2,7 +2,7 @@
 # - shell script for package release
 
 package=jinka;
-version=$(head -1 VERSION | grep -o '[0-9.]*$');
+version=$(sed '1s/^'"${package}"'//' VERSION);
 pkgdir="${package}-${version}";
 
 [ -z "$pkgdir" ] && exit 1;
